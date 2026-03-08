@@ -208,9 +208,8 @@
 
                     <div class="w-px h-5 bg-teal-600 mx-2"></div>
 
-                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
-                        Referer un patient
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    <a href="tel:+41779908914" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                        &#9742; Referer un patient
                     </a>
                 </div>
 
@@ -227,8 +226,8 @@
                     <a href="../../prototype.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
                     <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
                     <div class="border-t border-teal-700/50 mt-2 pt-2">
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">
-                            Referer un patient &rarr;
+                        <a href="tel:+41779908914" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">
+                            &#9742; Referer un patient
                         </a>
                     </div>
                 </div>
@@ -283,7 +282,7 @@
                     <div id="triage" class="mb-10">
                         <h2 class="font-serif text-2xl text-teal-900 mb-4">Algorithme de triage</h2>
                         <p class="text-sm text-teal-700/70 mb-4">
-                            Adapte de Thwaites &amp; Day (NEJM 2017) et Mandell ch. 319 (Boggild &amp; Freedman).
+                            Adapte de <a href="https://doi.org/10.1056/NEJMra1508435" target="_blank" class="ref-link">Thwaites &amp; Day (NEJM 2017)</a> et Mandell ch. 319 (Boggild &amp; Freedman).
                         </p>
 
                         <!-- Triage steps -->
@@ -324,7 +323,7 @@
                                 <span class="shrink-0 w-7 h-7 rounded-full bg-teal-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
                                 <div>
                                     <p class="font-semibold text-teal-800">25% des fievres tropicales</p>
-                                    <p class="text-sm text-teal-700/70 mt-1">Syndromes viraux autolimites sans diagnostic etiologique identifie (Wilson CID 2007).</p>
+                                    <p class="text-sm text-teal-700/70 mt-1">Syndromes viraux autolimites sans diagnostic etiologique identifie (<a href="https://doi.org/10.1086/518173" target="_blank" class="ref-link">Wilson CID 2007</a>).</p>
                                 </div>
                             </div>
                         </div>
@@ -403,49 +402,58 @@
                     <!-- 1.3 Declaration obligatoire -->
                     <div id="declaration">
                         <h2 class="font-serif text-2xl text-teal-900 mb-4">Declaration obligatoire en Suisse</h2>
+                        <p class="text-sm text-teal-700/70 mb-4">Obligations du <strong>medecin</strong> selon le Guide de la declaration obligatoire OFSP 2026. Le laboratoire declare separement via CH-ELM/Infreport.</p>
                         <div class="overflow-x-auto rounded-xl border border-teal-100">
                             <table class="article-table">
                                 <thead>
                                     <tr>
                                         <th>Maladie</th>
                                         <th>Delai</th>
-                                        <th>Modalite</th>
+                                        <th>Destinataire</th>
+                                        <th>Voie de declaration</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="bg-red-50/50">
                                         <td class="font-medium">FHV (Ebola, Marburg, Lassa, CCHF)</td>
                                         <td><strong class="text-red-700">2 heures</strong></td>
-                                        <td>Tel. OFSP <strong>058 463 87 37</strong> + medecin cantonal</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-medium">Paludisme</td>
-                                        <td>24 heures</td>
-                                        <td>Infreport / CH ELM</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="font-medium">Fievre typhoide</td>
-                                        <td>24 heures</td>
-                                        <td>Infreport / CH ELM</td>
+                                        <td>Medecin cantonal <strong>et</strong> OFSP</td>
+                                        <td>Par <strong>telephone</strong>, puis formulaire (HIN-Secure Mail, fax ou courrier postal)</td>
                                     </tr>
                                     <tr>
                                         <td class="font-medium">Dengue</td>
                                         <td>24 heures</td>
-                                        <td>Infreport / CH ELM</td>
+                                        <td>Medecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
                                     </tr>
                                     <tr>
                                         <td class="font-medium">Chikungunya</td>
                                         <td>24 heures</td>
-                                        <td>Infreport / CH ELM</td>
+                                        <td>Medecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
                                     </tr>
                                     <tr>
                                         <td class="font-medium">Zika</td>
                                         <td>24 heures</td>
-                                        <td>Infreport / CH ELM</td>
+                                        <td>Medecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Fievre typhoide</td>
+                                        <td>24 heures</td>
+                                        <td>Medecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Paludisme</td>
+                                        <td>1 semaine</td>
+                                        <td>Medecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <p class="text-xs text-teal-600/60 mt-3">Tel. OFSP : 058 463 87 06 (heures de bureau) / 058 463 87 37 (hors heures, reserve aux declarations en 2h). Formulaires : <a href="https://www.bag.admin.ch/fr/declaration-des-maladies-infectieuses" class="underline hover:text-mint-600">bag.admin.ch</a></p>
                     </div>
                 </section>
 
@@ -466,7 +474,7 @@
                             Fiche detaillee <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
-                    <p class="text-sm text-teal-700/60 mb-6 italic">1re cause de fievre mortelle chez le voyageur &mdash; 77% des deces tropicaux (Jensenius 2013). Suisse 1990-2019 : 8 439 cas, 52 deces.</p>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">1re cause de fievre mortelle chez le voyageur &mdash; 77% des deces tropicaux (<a href="https://doi.org/10.4269/ajtmh.13-5528" target="_blank" class="ref-link">Jensenius 2013</a>). Suisse 1990-2019 : 8 439 cas, 52 deces.</p>
 
                     <div class="space-y-6">
                         <!-- Quand y penser -->
@@ -485,9 +493,9 @@
                             <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
                             <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
                                 <li>TDR + frottis/goutte epaisse, repeter a H12-24 si negatif et forte suspicion</li>
-                                <li>Etude CHUV (Slack &amp; Genton 2024, n=4 972) : seuls 4 cas (0.08%) diagnostiques sur test tardif &mdash; remet en question le dogme des 3 frottis negatifs</li>
+                                <li>Etude CHUV (<a href="https://doi.org/10.1093/jtm/taae030" target="_blank" class="ref-link">Slack &amp; Genton 2024</a>, n=4 972) : seuls 4 cas (0.08%) diagnostiques sur test tardif &mdash; remet en question le dogme des 3 frottis negatifs</li>
                                 <li>Seuil suisse de parasitemie <strong>&ge;2%</strong> = hyperparasitemie (vs 5% OMS)</li>
-                                <li>Declaration obligatoire OFSP dans les 24 heures</li>
+                                <li>Declaration obligatoire au medecin cantonal dans la <strong>semaine</strong> (formulaire HIN-Secure Mail/fax)</li>
                             </ul>
                         </div>
 
@@ -508,7 +516,7 @@
                                         <tr>
                                             <td class="font-medium"><em>P.f.</em> non complique</td>
                                             <td>Riamet&reg; (A/L)</td>
-                                            <td>4 cp 2&times;/j &times; <strong>5 jours</strong> (40 cp)<br><span class="text-xs text-teal-600/60">SSTTM 2025 &mdash; +4 doses vs OMS 3j</span></td>
+                                            <td>4 cp 2&times;/j &times; <strong>5 jours</strong> (40 cp)<br><span class="text-xs text-teal-600/60"><a href="https://www.swisstph.ch/en/projects/malaria-treatment" target="_blank" class="ref-link">SSTTM 2025</a> &mdash; +4 doses vs OMS 3j</span></td>
                                             <td>ECG pre-dose + post-3e dose. Frottis controle <strong>J3/J7/J28</strong></td>
                                         </tr>
                                         <tr>
@@ -527,7 +535,7 @@
                                             <td class="font-medium"><em>P.f.</em> severe<br><span class="text-xs">(&ge;1 critere)</span></td>
                                             <td>Artesunate IV</td>
                                             <td>2.4 mg/kg H0, H12, H24 puis /24h</td>
-                                            <td>Relais PO si parasitemie &le;1%. Surveillance PADH 4 sem (Hb/LDH/hapto). <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Referer</a></td>
+                                            <td>Relais PO si parasitemie &le;1%. Surveillance PADH 4 sem (Hb/LDH/hapto). <a href="tel:+41779908914" class="ref-link">&#9742; Referer</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -562,12 +570,12 @@
 
                         <div class="callout-piege">
                             <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege &mdash; Echec tardif du Riamet&reg;</p>
-                            <p class="text-sm text-teal-800">Patient &gt;65 kg traite par Riamet&reg; : <strong>1 sur 10 recidive</strong> a J20-J28 (Sonden CID 2017, n=95 ; 9.6% si &gt;65 kg vs 0% si &le;65 kg). La lumefantrine lipophile atteint des concentrations sous-therapeutiques. <strong>Planifiez un frottis de controle a J28.</strong></p>
+                            <p class="text-sm text-teal-800">Patient &gt;65 kg traite par Riamet&reg; : <strong>1 sur 10 recidive</strong> a J20-J28 (<a href="https://doi.org/10.1093/cid/ciw710" target="_blank" class="ref-link">Sonden CID 2017</a>, n=95 ; 9.6% si &gt;65 kg vs 0% si &le;65 kg). La lumefantrine lipophile atteint des concentrations sous-therapeutiques. <strong>Planifiez un frottis de controle a J28.</strong></p>
                         </div>
 
                         <div class="callout-piege">
                             <p class="text-sm font-bold text-gold-700 mb-1">&#9888; PADH &mdash; Hemolyse retardee post-artesunate</p>
-                            <p class="text-sm text-teal-800">15-22% des voyageurs traites par artesunate IV. Survient J7-30 post-traitement par mecanisme de &laquo; pitting &raquo; splenique. Surveillance <strong>Hb/LDH/haptoglobine pendant 4 semaines</strong> (Jaureguiberry 2015).</p>
+                            <p class="text-sm text-teal-800">15-22% des voyageurs traites par artesunate IV. Survient J7-30 post-traitement par mecanisme de &laquo; pitting &raquo; splenique. Surveillance <strong>Hb/LDH/haptoglobine pendant 4 semaines</strong> (<a href="https://doi.org/10.3201/eid2105.141171" target="_blank" class="ref-link">Jaureguiberry 2015</a>).</p>
                         </div>
                     </div>
                 </section>
@@ -596,10 +604,10 @@
                         <div>
                             <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
                             <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
-                                <li><strong>NS1 ELISA</strong> : Se 90% J0-4 (Pillay Lancet Microbe 2025, 161 etudes) ; chute apres J5 et en infection secondaire</li>
+                                <li><strong>NS1 ELISA</strong> : Se 90% J0-4 (<a href="https://doi.org/10.1016/S2666-5247(24)00242-1" target="_blank" class="ref-link">Pillay Lancet Microbe 2025</a>, 161 etudes) ; chute apres J5 et en infection secondaire</li>
                                 <li><strong>IgM</strong> : detectable des J4-5 ; <strong>IgG</strong> seules des J5 = infection secondaire</li>
                                 <li>TDR combo negatif (IgM/IgG) &ne; exclusion &rarr; demander IgM/IgG ELISA</li>
-                                <li>Declaration obligatoire 24h</li>
+                                <li>Declaration obligatoire au medecin cantonal dans les <strong>24 heures</strong> (formulaire HIN-Secure Mail/fax)</li>
                             </ul>
                         </div>
 
@@ -654,7 +662,7 @@
                                             <td class="font-medium text-orange-900">Critique</td>
                                             <td class="font-medium text-orange-900">J3-7 (a la defervescence)</td>
                                             <td class="text-orange-900"><strong>Fuite plasmatique &rarr; choc ; hemorragie</strong></td>
-                                            <td class="text-orange-900">Surveiller Ht + plaquettes /6-12h. Cristalloides IV si signes d'alarme. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Referer</a></td>
+                                            <td class="text-orange-900">Surveiller Ht + plaquettes /6-12h. Cristalloides IV si signes d'alarme. <a href="tel:+41779908914" class="ref-link">&#9742; Referer</a></td>
                                         </tr>
                                         <tr>
                                             <td class="font-medium">Convalescence</td>
@@ -669,7 +677,7 @@
 
                         <!-- Signes d'alarme -->
                         <div>
-                            <h3 class="font-semibold text-teal-800 mb-2">Signes d'alarme (WHO 2025) &rarr; hospitaliser</h3>
+                            <h3 class="font-semibold text-teal-800 mb-2">Signes d'alarme (<a href="https://www.who.int/publications/i/item/9789240098688" target="_blank" class="ref-link">WHO 2025</a>) &rarr; hospitaliser</h3>
                             <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
                                 <li>Douleur abdominale intense</li>
                                 <li>Vomissements persistants</li>
@@ -683,12 +691,12 @@
 
                         <div class="callout-danger">
                             <p class="text-sm font-bold text-red-700 mb-1">&#9888; PAS d'AINS</p>
-                            <p class="text-sm text-teal-800">Recommandation forte OMS 2025. Pas d'aspirine, ibuprofene, diclofenac &mdash; risque hemorragique meme en automedication. Pas de transfusion plaquettaire prophylactique.</p>
+                            <p class="text-sm text-teal-800">Recommandation forte <a href="https://www.who.int/publications/i/item/9789240098688" target="_blank" class="ref-link">OMS 2025</a>. Pas d'aspirine, ibuprofene, diclofenac &mdash; risque hemorragique meme en automedication. Pas de transfusion plaquettaire prophylactique.</p>
                         </div>
 
                         <div class="callout-piege">
                             <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege &mdash; La phase critique survient a la DEFERVESCENCE</p>
-                            <p class="text-sm text-teal-800">J3-7, <strong>pas pendant la fievre</strong>. Si l'hematocrite monte pendant que les plaquettes baissent &rarr; dengue severe &mdash; <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">referer</a> immediatement.</p>
+                            <p class="text-sm text-teal-800">J3-7, <strong>pas pendant la fievre</strong>. Si l'hematocrite monte pendant que les plaquettes baissent &rarr; dengue severe &mdash; <a href="tel:+41779908914" class="ref-link">&#9742; referer</a> immediatement.</p>
                         </div>
 
                         <!-- Chikungunya -->
@@ -723,7 +731,7 @@
                             Fiche detaillee <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
-                    <p class="text-sm text-teal-700/60 mb-6 italic">Cause de fievre la plus frequemment manquee au retour d'Afrique sub-saharienne. 2e cause de fievre apres le paludisme. Mortalite ATBF : 0%.</p>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Cause de fievre la plus frequemment manquee au retour d'Afrique sub-saharienne. 2e cause de fievre apres le paludisme. Benigne si traitee (mortalite 0% pour <em>R.&nbsp;africae</em>).</p>
 
                     <div class="space-y-6">
                         <div>
@@ -732,7 +740,7 @@
                                 <li>Fievre + <strong>escarre(s) noire(s)</strong> + retour Afrique australe (76.3% des cas), incubation 5-10j</li>
                                 <li>Taux d'attaque eleve en groupe (safari) ~40%</li>
                                 <li>Triade : fievre (89.8%) + escarre d'inoculation (86.1%, multiples 54.8%) + adenopathie regionale (50.9%)</li>
-                                <li>30.5% des fievres d'origine indeterminee non-malaria = infections doxycycline-sensibles (Camprubi-Ferrer 2023)</li>
+                                <li>30.5% des fievres d'origine indeterminee non-malaria = infections doxycycline-sensibles (<a href="https://doi.org/10.1016/j.tmaid.2023.102571" target="_blank" class="ref-link">Camprubi-Ferrer 2023</a>)</li>
                             </ul>
                         </div>
 
@@ -864,7 +872,7 @@
                             <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
                                 <li>Hemocultures <strong>AVANT ATB</strong> (Se ~60%)</li>
                                 <li>Coprocultures souvent negatives en phase aigue</li>
-                                <li>Declaration obligatoire 24h</li>
+                                <li>Declaration obligatoire au medecin cantonal dans les <strong>24 heures</strong> (formulaire HIN-Secure Mail/fax)</li>
                             </ul>
                         </div>
 
@@ -897,7 +905,7 @@
                                             <td class="font-medium">Severe / XDR</td>
                                             <td><strong>Meropeneme</strong> 1g 3&times;/j IV &plusmn; azithromycine</td>
                                             <td></td>
-                                            <td>10-14j. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Referer</a></td>
+                                            <td>10-14j. <a href="tel:+41779908914" class="ref-link">&#9742; Referer</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -910,15 +918,15 @@
                             <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
                                 <li><strong>XDR</strong> = resistant a ampicilline + chloramphenicol + TMP-SMX + fluoroquinolones + C3G</li>
                                 <li>Ne reste sensible qu'a : <strong>azithromycine (PO) et meropeneme (IV)</strong></li>
-                                <li>Outbreak Hyderabad (Sindh) depuis 2016 ; plasmide IncY portant blaCTX-M-15 + qnrS (Klemm MBio 2018)</li>
+                                <li>Outbreak Hyderabad (Sindh) depuis 2016 ; plasmide IncY portant blaCTX-M-15 + qnrS (<a href="https://doi.org/10.1128/mBio.00105-18" target="_blank" class="ref-link">Klemm MBio 2018</a>)</li>
                                 <li>Propagation : Punjab 0% resistance ceftriaxone (2017) &rarr; 30% (2018) &rarr; <strong>50% (2019)</strong></li>
-                                <li>Extension hors Pakistan : lignee ceftriaxone-resistante apparue en Inde (Wong PLoS NTD 2020)</li>
+                                <li>Extension hors Pakistan : lignee ceftriaxone-resistante apparue en Inde (<a href="https://doi.org/10.1371/journal.pntd.0008718" target="_blank" class="ref-link">Wong PLoS NTD 2020</a>)</li>
                             </ul>
                         </div>
 
                         <div class="callout-piege">
                             <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege &mdash; TDR malaria faussement positif</p>
-                            <p class="text-sm text-teal-800">Le TDR malaria peut etre <strong>faussement positif</strong> dans la fievre typhoide (cross-reactivite antigenique, Boggild BMC Infect Dis 2014). Confirmer par frottis + hemocultures.</p>
+                            <p class="text-sm text-teal-800">Le TDR malaria peut etre <strong>faussement positif</strong> dans la fievre typhoide (cross-reactivite antigenique, <a href="https://doi.org/10.1186/s12879-014-0710-5" target="_blank" class="ref-link">Boggild BMC Infect Dis 2014</a>). Confirmer par frottis + hemocultures.</p>
                         </div>
 
                         <div class="callout-piege">
@@ -972,7 +980,7 @@
 
                         <div class="callout-danger">
                             <p class="text-sm font-bold text-red-700 mb-1">&#9888; NE PAS faire de prelevement avant avis specialise</p>
-                            <p class="text-sm text-teal-800">Risque de contamination du laboratoire. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Referer</a> immediatement a un centre de reference.</p>
+                            <p class="text-sm text-teal-800">Risque de contamination du laboratoire. <a href="tel:+41779908914" class="ref-link">&#9742; Referer</a> immediatement a un centre de reference.</p>
                         </div>
 
                         <div class="callout-piege">
@@ -991,7 +999,7 @@
                             Fiche detaillee <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                         </a>
                     </div>
-                    <p class="text-sm text-teal-700/60 mb-6 italic">Fievre + eosinophilie + baignade eau douce Afrique. 53% des voyageurs exposes au lac Malawi infectes (Logan 2013).</p>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Fievre + eosinophilie + baignade eau douce Afrique. 53% des voyageurs exposes au lac Malawi infectes (<a href="https://doi.org/10.4269/ajtmh.13-0046" target="_blank" class="ref-link">Logan 2013</a>).</p>
 
                     <div class="space-y-6">
                         <div>
@@ -1007,7 +1015,7 @@
                             <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
                             <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
                                 <li>Serologie <em>Schistosoma</em> : <strong>negative les 6-8 premieres semaines</strong> &mdash; repeter a 6-8 sem post-exposition</li>
-                                <li>14% seronegatifs a la presentation (Logan 2013)</li>
+                                <li>14% seronegatifs a la presentation (<a href="https://doi.org/10.4269/ajtmh.13-0046" target="_blank" class="ref-link">Logan 2013</a>)</li>
                                 <li>Diagnostic souvent clinique en phase aigue</li>
                             </ul>
                         </div>
@@ -1064,7 +1072,7 @@
                                             <td>Serologies : <em>Strongyloides</em>, <em>Toxocara</em>, <em>Schistosoma</em>, filaires ; parasitologie selles &times; 3 (Baermann) ou PCR helminthes selles ; IgE totales</td>
                                         </tr>
                                         <tr>
-                                            <td class="font-medium"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Referer</a></td>
+                                            <td class="font-medium"><a href="tel:+41779908914" class="ref-link">&#9742; Referer</a></td>
                                             <td>Infectiologue/tropicaliste si suspicion parasitaire ; hematologue si bilan negatif complet</td>
                                         </tr>
                                     </tbody>
@@ -1074,7 +1082,7 @@
 
                         <div class="callout-danger">
                             <p class="text-sm font-bold text-red-700 mb-1">&#9888; JAMAIS de corticoides sans exclure <em>Strongyloides</em></p>
-                            <p class="text-sm text-teal-800">Corticoides &rarr; hyperinfection a <em>Strongyloides stercoralis</em>, mortalite <strong>60-85%</strong>. Toujours depister <em>Strongyloides</em> avant toute corticotherapie chez un patient ayant voyage en zone tropicale. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Referer</a></p>
+                            <p class="text-sm text-teal-800">Corticoides &rarr; hyperinfection a <em>Strongyloides stercoralis</em>, mortalite <strong>60-85%</strong>. Toujours depister <em>Strongyloides</em> avant toute corticotherapie chez un patient ayant voyage en zone tropicale. <a href="tel:+41779908914" class="ref-link">&#9742; Referer</a></p>
                         </div>
                     </div>
                 </section>
@@ -1092,7 +1100,7 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
-                            <p class="text-sm text-teal-800">Riamet&reg; en Suisse = <strong>5 jours / 40 cp</strong> (SSTTM 2025). Si &gt;65 kg : frottis de controle J28 obligatoire &mdash; echec tardif ~10%.</p>
+                            <p class="text-sm text-teal-800">Riamet&reg; en Suisse = <strong>5 jours / 40 cp</strong> (<a href="https://www.swisstph.ch/en/projects/malaria-treatment" target="_blank" class="ref-link">SSTTM 2025</a>). Si &gt;65 kg : frottis de controle J28 obligatoire &mdash; echec tardif ~10%.</p>
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
@@ -1104,7 +1112,7 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
-                            <p class="text-sm text-teal-800"><strong>JAMAIS de corticoides</strong> sans exclure <em>Strongyloides</em> (mortalite hyperinfection 60-85%). <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Referer</a> si doute.</p>
+                            <p class="text-sm text-teal-800"><strong>JAMAIS de corticoides</strong> sans exclure <em>Strongyloides</em> (mortalite hyperinfection 60-85%). <a href="tel:+41779908914" class="ref-link">&#9742; Referer</a> si doute.</p>
                         </li>
                     </ul>
                 </section>
@@ -1128,87 +1136,87 @@
                                 <!-- Paludisme -->
                                 <tr>
                                     <td rowspan="5" class="font-medium text-teal-700 align-top">Paludisme</td>
-                                    <td>Giannone B et al. Travel Med Infect Dis 2022;45:102233</td>
+                                    <td><a href="https://doi.org/10.1016/j.tmaid.2021.102233" target="_blank" class="ref-link">Giannone B et al. Travel Med Infect Dis 2022;45:102233</a></td>
                                     <td>n=8 439 cas en Suisse (1990-2019), 52 deces, letalite ~0.6%</td>
                                 </tr>
                                 <tr>
-                                    <td>Sonden K et al. CID 2017;64:199-207</td>
+                                    <td><a href="https://doi.org/10.1093/cid/ciw710" target="_blank" class="ref-link">Sonden K et al. CID 2017;64:199-207</a></td>
                                     <td>n=95, echec tardif A/L 5.2% global, 9.6% si &gt;65 kg vs 0% si &le;65 kg</td>
                                 </tr>
                                 <tr>
-                                    <td>Jaureguiberry S et al. Emerg Infect Dis 2015;21:804-812</td>
+                                    <td><a href="https://doi.org/10.3201/eid2105.141171" target="_blank" class="ref-link">Jaureguiberry S et al. Emerg Infect Dis 2015;21:804-812</a></td>
                                     <td>n=123, PADH 27% post-artesunate</td>
                                 </tr>
                                 <tr>
-                                    <td>Slack A, Genton B. J Travel Med 2024;31:taae030</td>
+                                    <td><a href="https://doi.org/10.1093/jtm/taae030" target="_blank" class="ref-link">Slack A, Genton B. J Travel Med 2024;31:taae030</a></td>
                                     <td>n=4 972, 0.08% diagnostic tardif &mdash; remet en question les 3 frottis</td>
                                 </tr>
                                 <tr>
-                                    <td>SSTTM/Swiss TPH. Malaria Treatment Recommendations 2025</td>
+                                    <td><a href="https://www.swisstph.ch/en/projects/malaria-treatment" target="_blank" class="ref-link">SSTTM/Swiss TPH. Malaria Treatment Recommendations 2025</a></td>
                                     <td>Schema 5j, seuil 2%, suivi J28</td>
                                 </tr>
                                 <!-- Arboviroses -->
                                 <tr>
                                     <td rowspan="3" class="font-medium text-teal-700 align-top">Arboviroses</td>
-                                    <td>WHO. Guidelines for arboviral diseases. Juillet 2025</td>
+                                    <td><a href="https://www.who.int/publications/i/item/9789240098688" target="_blank" class="ref-link">WHO. Guidelines for arboviral diseases. Juillet 2025</a></td>
                                     <td>Pas d'AINS, rehydratation protocolisee</td>
                                 </tr>
                                 <tr>
-                                    <td>Pillay et al. Lancet Microbe 2025 (meta-analyse, 161 etudes)</td>
+                                    <td><a href="https://doi.org/10.1016/S2666-5247(24)00242-1" target="_blank" class="ref-link">Pillay et al. Lancet Microbe 2025 (meta-analyse, 161 etudes)</a></td>
                                     <td>NS1 ELISA Se 90% J0-4</td>
                                 </tr>
                                 <tr>
-                                    <td>ECDC. Dengue surveillance data 2024</td>
+                                    <td><a href="https://www.ecdc.europa.eu/en/dengue-monthly" target="_blank" class="ref-link">ECDC. Dengue surveillance data 2024</a></td>
                                     <td>304 cas autochtones en Europe</td>
                                 </tr>
                                 <!-- Typhoide -->
                                 <tr>
                                     <td rowspan="2" class="font-medium text-teal-700 align-top">Typhoide</td>
-                                    <td>Klemm EJ et al. MBio 2018;9:e00105-18</td>
+                                    <td><a href="https://doi.org/10.1128/mBio.00105-18" target="_blank" class="ref-link">Klemm EJ et al. MBio 2018;9:e00105-18</a></td>
                                     <td>n=87 isolats XDR, plasmide IncY blaCTX-M-15 + qnrS</td>
                                 </tr>
                                 <tr>
-                                    <td>Parry CM et al. Open Forum Infect Dis 2023;10(S1):S26-31</td>
+                                    <td><a href="https://doi.org/10.1093/ofid/ofad259" target="_blank" class="ref-link">Parry CM et al. Open Forum Infect Dis 2023;10(S1):S26-31</a></td>
                                     <td>Azithromycine = pilier XDR, defervescence 7.1j</td>
                                 </tr>
                                 <!-- Rickettsioses -->
                                 <tr>
                                     <td rowspan="2" class="font-medium text-teal-700 align-top">Rickettsioses</td>
-                                    <td>Jensenius M et al. Emerg Infect Dis 2009;15:1791-1798</td>
+                                    <td><a href="https://doi.org/10.3201/eid1511.090677" target="_blank" class="ref-link">Jensenius M et al. Emerg Infect Dis 2009;15:1791-1798</a></td>
                                     <td>n=280 GeoSentinel, 82.5% SFG</td>
                                 </tr>
                                 <tr>
-                                    <td>Delord M et al. PLoS NTD 2022 (revue systematique)</td>
+                                    <td><a href="https://doi.org/10.1371/journal.pntd.0010212" target="_blank" class="ref-link">Delord M et al. PLoS NTD 2022 (revue systematique)</a></td>
                                     <td>86.1% escarre, 54.8% multiples, mortalite 0%</td>
                                 </tr>
                                 <!-- FHV -->
                                 <tr>
                                     <td rowspan="2" class="font-medium text-teal-700 align-top">FHV</td>
-                                    <td>Schieffelin JS et al. NEJM 2014;371:2092-2100</td>
+                                    <td><a href="https://doi.org/10.1056/NEJMoa1411680" target="_blank" class="ref-link">Schieffelin JS et al. NEJM 2014;371:2092-2100</a></td>
                                     <td>n=106, Ebola Sierra Leone, letalite ~74%</td>
                                 </tr>
                                 <tr>
-                                    <td>WHO. Marburg outbreak Ethiopia, November 2025</td>
+                                    <td><a href="https://www.who.int/emergencies/disease-outbreak-news" target="_blank" class="ref-link">WHO. Marburg outbreak Ethiopia, November 2025</a></td>
                                     <td>13 cas, 8 deces (61.5%)</td>
                                 </tr>
                                 <!-- Katayama / Eosinophilie -->
                                 <tr>
                                     <td class="font-medium text-teal-700 align-top">Katayama</td>
-                                    <td>Logan et al. Am J Trop Med Hyg 2013;88:1032</td>
+                                    <td><a href="https://doi.org/10.4269/ajtmh.13-0046" target="_blank" class="ref-link">Logan et al. Am J Trop Med Hyg 2013;88:1032</a></td>
                                     <td>n=79, 53% infectes lac Malawi, 14% seronegatifs a la presentation</td>
                                 </tr>
                                 <!-- Generales -->
                                 <tr>
                                     <td rowspan="3" class="font-medium text-teal-700 align-top">Generales</td>
-                                    <td>Thwaites GE, Day NP. NEJM 2017;376:548-560</td>
+                                    <td><a href="https://doi.org/10.1056/NEJMra1508435" target="_blank" class="ref-link">Thwaites GE, Day NP. NEJM 2017;376:548-560</a></td>
                                     <td>Algorithme &laquo; Rule out malaria first &raquo;</td>
                                 </tr>
                                 <tr>
-                                    <td>Wilson ME et al. CID 2007;44:1560-1568</td>
+                                    <td><a href="https://doi.org/10.1086/518173" target="_blank" class="ref-link">Wilson ME et al. CID 2007;44:1560-1568</a></td>
                                     <td>n=24 920 GeoSentinel, 28% = fievre</td>
                                 </tr>
                                 <tr>
-                                    <td>Boggild AK, Freedman DO. Mandell ch. 319</td>
+                                    <td><a href="https://doi.org/10.1016/B978-0-323-48255-4.00319-X" target="_blank" class="ref-link">Boggild AK, Freedman DO. Mandell ch. 319</a></td>
                                     <td>Tables 319.1-319.2, algorithme diagnostique</td>
                                 </tr>
                             </tbody>
@@ -1245,9 +1253,8 @@
                     <!-- Referer CTA in TOC -->
                     <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
                         <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
-                            Referer un patient
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        <a href="tel:+41779908914" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
+                            &#9742; 077 990 89 14
                         </a>
                     </div>
                 </nav>
