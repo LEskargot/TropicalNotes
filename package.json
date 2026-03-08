@@ -10,6 +10,8 @@
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "tailwind": "tailwindcss -i src/css/prototype.css -o dist/css/prototype.css --minify",
+    "tailwind:watch": "tailwindcss -i src/css/prototype.css -o dist/css/prototype.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -31,10 +33,14 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "cross-env": "^7.0.3",
     "laravel-mix": "^5.0.9",
+    "postcss": "^8.4.0",
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.30.0",
     "sass-loader": "^8.0.2",
+    "tailwindcss": "^3.4.0",
     "vue-template-compiler": "^2.6.14"
   }
 }

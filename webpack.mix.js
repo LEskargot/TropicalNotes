@@ -12,6 +12,10 @@ let mix = require('laravel-mix');
  */
 
 mix.sass('src/scss/main.scss', 'dist/css')
+    .postCss('src/css/prototype.css', 'dist/css', [
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ])
     .setPublicPath('dist');
 
 mix.copy('./node_modules/@fortawesome/fontawesome-free/css/all.min.css', 'dist/css/fontawesome.min.css')
