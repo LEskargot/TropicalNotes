@@ -1,445 +1,377 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Tropical Notebook</title>
-
-    <link rel="shortcut icon" href="../../dist/images/favicon.ico">
-
-    <script src="https://kit.fontawesome.com/412eeb69af.js" crossorigin="anonymous"></script>
-    <link href="../../dist/css/main.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <title>Malaria — Tropical Notebook</title>
+    <meta name="description" content="Malaria : repartition geographique, agent causal, transmission, incubation, presentation clinique, diagnostic et traitement — guide pour le medecin de premier recours.">
+    <meta name="keywords" content="malaria, paludisme, plasmodium, falciparum, vivax, medecine tropicale, Suisse">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd',
+                            300: '#7ecec5', 400: '#54b5aa', 500: '#479793',
+                            600: '#387a77', 700: '#2d5e5b', 800: '#234a48',
+                            900: '#1a3836', 950: '#0f2322'
+                        },
+                        mint: {
+                            50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc',
+                            300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98',
+                            600: '#0e8b7a', 700: '#0f6f63', 800: '#115850',
+                            900: '#114943'
+                        },
+                        gold: {
+                            50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a',
+                            300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c',
+                            600: '#b47d15', 700: '#8f5d14', 800: '#774a18',
+                            900: '#633d1a'
+                        },
+                        cream: {
+                            50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8',
+                            300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99'
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+                        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+        .nav-fixed { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; }
+        .dropdown:hover .dropdown-menu, .dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .mobile-menu.open { max-height: 400px; }
+        .toc { position: sticky; top: 5.5rem; }
+        .toc a.active { color: #12ad98; border-left-color: #12ad98; font-weight: 600; }
+        .section-label { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
+        .article-table { width: 100%; text-align: left; font-size: 0.875rem; }
+        .article-table thead { background: #f0fafa; color: #2d5e5b; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
+        .article-table th { padding: 0.75rem 1rem; font-weight: 600; }
+        .article-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #d2f0ee; vertical-align: top; }
+        .article-table tbody tr:hover { background: #fdfaf3; }
+        .callout-piege { border-left: 4px solid #d4a01c; background: #fffceb; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        .callout-referer { border-left: 4px solid #12ad98; background: #edfcf8; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        .callout-danger { border-left: 4px solid #dc2626; background: #fef2f2; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        a.ref-link { color: #12ad98; font-weight: 500; border-bottom: 1px solid rgba(18, 173, 152, 0.3); transition: all 0.2s; text-decoration: none; }
+        a.ref-link:hover { color: #0e8b7a; border-bottom-color: #0e8b7a; }
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
+<body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
-<body>
-
-  <section class="jumbotron jumbotron-fluid text-center header-small">
-    <div class="navbar navbar-dark navbar-static-top navbar-expand-lg" role="navbar">
-      <a href="/" class="navbar-brand">
-        Tropical Notebook <small>Guide</small>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="nav navbar-nav">
-          <li class="nav-item header-link" style=padding-top:10px;>
-            <a class="nav-link" href="https://www.tropicalnotebook.ch" target="_blank">Retour au site</a>
-          </li>
-
-          <li class="nav-item">
-            <div class="nav-link dropdown">
-              <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Français
-              </button>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#fr">Français</a>
-                <!--<a class="dropdown-item" href="#bg">English</a>-->
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="cover"></div>
-
-    <!--<div class="container">
-      <div id="search-field">
-        <div class="row justify-content-center text-center">
-          <div class="col-md-10">
-            <form id="searchForm" action="/" class="search-form" method="GET">
-              <div class="input-group search">
-                <input type="text" name="q" class="search-field" aria-label="Search field"
-                  placeholder="Enter your question here to get started" value="" aria-required="true" required
-                  autoComplete="off" />
-                <button class="input-group-addon" aria-label="Search">
-                  <i class="fa fa-search">&nbsp;</i>
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="../../index.html" class="flex items-center gap-3 group">
+                    <span class="text-mint-400 text-xl">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/>
+                            <path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                            <path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+                        </svg>
+                    </span>
+                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">
+                        Tropical Notebook
+                    </span>
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a>
+                    <div class="dropdown relative">
+                        <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
+                            Pathogenes
+                            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
+                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a>
+                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
+                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
+                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
+                        </div>
+                    </div>
+                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
+                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
+                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                        Referer un patient
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                </div>
+                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
                 </button>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="py-3 border-t border-teal-700/50 space-y-1">
+                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
+                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
+                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
+                    <div class="border-t border-teal-700/50 mt-2 pt-2">
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">
+                            Referer un patient &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>-->
-  </section>
+    </nav>
 
-  <div class="container">
-    <div class="row content section paddingt-2 white-background">
-      <div class="col-sm-12">
-        <div class="row">
-          <div class="col-md-12">
-            <nav aria-label="breadcrumb" role="navigation">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-<li class="breadcrumb-item active"><a href="../parasites.html">Parasites</a></li>
-                <li class="breadcrumb-item active">Malaria</li>
-
-              </ol>
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <nav class="flex items-center gap-2 text-sm text-teal-600/60">
+                <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-teal-800 font-medium">Malaria</span>
             </nav>
-          </div>
         </div>
-        <div class="row justify-content-between">
-          <div class="col-md-3 text-left d-none d-md-inline-block">
-            <h2>Sommaire</h2>
-            <ul class="nav categories-nav nav-pills flex-column" role="navigation">
-              <li class="nav-item open">
-                <a class="nav-link active" href="../bacteria.html">Bactéries</a>
-
-                <ul class="nav nav-pills flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../bacteria/enteric_fever.html">Fièvre entérique</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../bacteria/leptospirosis.html">Leptospirose</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../bacteria/rickettsiosis.html">Rickettsiose</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item open">
-                <a class="nav-link active" href="../viruses.html">Virus</a>
-
-                <ul class="nav nav-pills flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../viruses/hepatitis_a.html">Hépatite A</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../viruses/hepatitis_e.html">Hépatite E</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../viruses/chikungunya.html">Chikungunya</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../viruses/dengue.html">Dengue</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../viruses/zika.html">Zika</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../viruses/yellow_fever.html">Fièvre Jaune</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../viruses/rabies.html">Rage</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item open">
-                <a class="nav-link active" href="../parasites.html">Parasites</a>
-
-                <ul class="nav nav-pills flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="../parasites/malaria.html">Malaria</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../parasites/schistosomiasis.html">Schistosomiase</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../parasites/leishmaniasis.html">Leishmaniose</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../parasites/african_trypanosomiasis.html">Trypanosomiase africaine</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../parasites/american_trypanosomiasis.html">Trypanosomiase américaine</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../parasites/giardiasis.html">Giardiase</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../parasites/intestinal_problems_parasites.html">Troubles digestifs associés aux parasites</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item open">
-                <a class="nav-link active" href="../fungi.html">Champignons</a>
-
-                <ul class="nav nav-pills flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Champignon 1</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Champignon 2</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-
-          <div class="col-12 text-left d-block d-md-none">
-            <h2 style="margin-bottom:30px;">
-              <a href="#categories-nav" style="line-height:.5rem;" data-toggle="collapse" role="button"
-                aria-expanded="false" aria-controls="categories-nav" class="btn btn-outline-secondary">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"
-                  role="img">
-                  <title>Categories</title>
-                  <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10"
-                    d="M4 7h22M4 15h22M4 23h22"></path>
-                </svg>
-              </a> Index
-            </h2>
-            <div id="categories-nav" class="collapse">
-              <ul class="nav categories-nav nav-pills flex-column" role="navigation">
-                <li class="nav-item open">
-                  <a class="nav-link active" href="../bacteria.html">Bactéries</a>
-
-                  <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link" href="../bacteria/enteric_fever.html">Fièvre entérique</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../bacteria/leptospirosis.html">Leptospirose</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../bacteria/rickettsiosis.html">Rickettsiose</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item open">
-                  <a class="nav-link active" href="../viruses.html">Virus</a>
-
-                  <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link" href="../viruses/hepatitis_a">Hépatite A</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../viruses/hepatitis_e">Hépatite E</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../viruses/chikungunya.html">Chikungunya</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../viruses/dengue.html">Dengue</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../viruses/zika.html">Zika</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../viruses/yellow_fever.html">Fièvre Jaune</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../viruses/rabies.html">Rage</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item open">
-                  <a class="nav-link active" href="../parasites.html">Parasites</a>
-
-                  <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link" href="../parasites/malaria.html">Malaria</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../parasites/schistosomiasis.html">Schistosomiase</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../parasites/leishmaniasis.html">Leishmaniose</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../parasites/african_trypanosomiasis.html">Trypanosomiase africaine</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../parasites/american_trypanosomiasis.html">Trypanosomiase américaine</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../parasites/giardiasis.html">Giardiase</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="../parasites/intestinal_problems_parasites.html">Troubles digestifs associés aux parasites</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="nav-item open">
-                  <a class="nav-link active" href="../fungi.html">Champignons</a>
-
-                  <ul class="nav nav-pills flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Champignon 1</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Champignon 2</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-md-8">
-            <h1 class="article-heading">Malaria</h1>
-            <hr />
-
-            <div class="row justify-content-between" id="article-meta">
-              <div class="author col-6 pl-5">
-                <div class="author-avatar" style="background-image: url(../../dist/images/author_avatar_male_1.jpg);">
-                  &nbsp;</div>
-                <span class="author-name">Ludovico Cobuccio</span>
-              </div>
-              <small class="col-6 text-right pr-5">Last Updated: 15 days ago</small>
-              <hr />
-            </div>
-
-            <div class="content article-content">
-              <!--<div class="toc-widget">
-                <ul>
-                  <li><a href="#">Second-level of heading</a></li>
-                  <li><a href="#">Callout</a></li>
-                  <li><a href="#">Images</a></li>
-                  <li><a href="#">Code</a></li>
-                </ul>
-              </div>-->
-<h2 id="geographic-distribution">Répartition géographique</h2>
-Afrique, Amérique centrale et du Sud, Asie, Océanie. P. falciparum prédomine en Afrique et P. vivax ailleurs
-<figure>
-<img class="img-fluid" src="../../dist/images/malaria_map.jpg" alt="Distribution géographique du risque de malaria" />
-<figcaption>Carte dur risque de malaria élaboré par l'ECTM pour <a target="_blank" href="https://www.healthytravel.ch">www.healthytravel.ch</a></figcaption>
-</figure>
-<h2 id="causal-agent">Agent causal</h2>
-<p>
-Parasite protozoaire : <i>Plasmodium falciparum</i> / <i>malariae</i> / <i>vivax</i> /<i>ovale</i> / <i>knowlesi</i>
-</p>
-<h2 id="transmission">Transmission</h2>
-<p>
-Piqûre du moustique anophèle femelle piquant surtout la nuit, souvent après minuit
-</p>
-<h2 id="incubation">Incubation</h2>
-<p>
-<li><i><strong>P. falciparum</strong></i>: min. 6 j, typiquement 12 – 14 j. Temps d’incubation souvent prolongé lors de prise de prophylaxie anti-malarique</li>
-<li><i><strong>P. vivax</strong></i> et <i><strong>P. ovale</strong></i>: typiquement env. 14j, rechutes jusqu’à 2-3 ans après infection initiale</li>
-<li><i><strong>P. malariae</strong></i>: très variable, jusqu’à plusieurs années</li></p>
-<h2 id="clinical-presentation">Présentation clinique</h2>
-<p>
-Symptômes souvent peu spécifiques: EF, frissons, tachycardie, tachypnée, malaise, fatigue, diaphorèse, céphalées, toux, anorexie, nausées, vomissements, douleurs abdominales, diarrhées, arthralgies, myalgies <br>
-Malaria compliquée: altération état de conscience +/- crises convulsives, détresse respiratoire ou ARDS, insuffisance rénale, collapsus circulatoire
-Jusqu'à 1/3 des patients avec malaria ne présentent pas de fièvre lorssqu'ils consultent</p>
-<h2 id="clinical exam">Examen clinique</h2>
-<p>
-Splénomégalie, ictère modéré (si malaria sévère : pâleur, ictère, pétéchies)
-</p>
-<h2 id="lab">Labo</h2>
-<p><li>Thrombopénie, perturbation des tests hépatiques (bilirubine), élévation de la créatinine</li>
-<li>En cas de malaria sévère : perturbation plus importante de ces paramètres, anémie, hypoglycémie, acidose métabolique</li>
-</p>
-<h2 id="dx">DX</h2>
-<img class="img-fluid" src="../../dist/images/malaria1.jpg" alt="Guide d'antibiothèrapie du CHUV - page 48">
-<h2>Traitement</h2>
-<img class="img-fluid" src="../../dist/images/malaria2.jpg" alt="Guide d'antibiothèrapie du CHUV - page 49">
-<img class="img-fluid" src="../../dist/images/malaria3.jpg" alt="Guide d'antibiothèrapie du CHUV - page 50">
-<img class="img-fluid" src="../../dist/images/malaria4.jpg" alt="Guide d'antibiothèrapie du CHUV - page 51">
-<p>Images tirées du <a href="https://www.chuv.ch/fr/min/min-home/professionnels-de-la-sante/guide-dantibiotherapie/">guide d'antibiothèrapie du CHUV</a></p>
-
-
-
-
-
-                <!--<blockquote>
-                  Of course, you can also display quotes nicely formatted.
-                  <figcaption>- Unknown Author</figcaption>
-                </blockquote>-->
-
-            <!--  <h3>It's like an alert in Bootstrap but with different name</h3>
-              Here's one warning callout block:
-              <div class="callout warning">Be ware of the aliens!</div>
-              Other types of block could be success and error and those look like this:
-              <div class="callout success">This is a success message. Something that your customers might do to make
-                them successful.</div>
-              <div class="callout danger">Put great emhasis on messages with the danger block.</div>
-              <div class="callout">And put information that should be stressed out but not that imprtant in simple
-                informational callout blocks.</div>-->
-
-</div>
-<!--
-            <hr style="clear:both;" />
-            <div class="row">
-              <div class="col recommendations">
-                <h4>Lectures recommandées</h4>
-                <ul>
-                  <li><a href="#">One article you can continue with</a></li>
-                  <li><a href="#">And this is another article you could continue with</a></li>
-                  <li><a href="#">Something else that might be related to what you are reading</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <hr style="clear:both;">
-            <div class="row justify-content-center">
-              <div class="col text-center">
-                <p>Was this article helpful?</p>
-                <div class="article-rating">
-                  <div class="btn-group" role="group" aria-label="Article rating">
-                    <a href="#" class="btn btn-outline-info btn-lg btn-thumbs-up">
-                      <i class="fa fa-thumbs-up"></i>
-                    </a>
-                    <a href="#" class="btn btn-outline-info btn-lg btn-heart">
-                      <i class="fa fa-heart"></i>
-                    </a>
-                    <a href="#" class="btn btn-outline-info btn-lg btn-thumbs-down">
-                      <i class="fa fa-thumbs-down"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>-->
-            <hr style="clear:both;">
-            <div class="container">
-              <div class="row content section white-background">
-                <div class="col-md-12 text-center">
-                  <h2>Contribuer</h2>
-                  <div><button data-tf-popup="HSgBZUJZ" data-tf-iframe-props="title=Avis TropicalNotes" data-tf-medium="snippet" style="all:unset;font-family:Helvetica,Arial,sans-serif;display:inline-block;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background-color:#0445AF;color:#FFFFFF;font-size:20px;border-radius:25px;padding:0 33px;font-weight:bold;height:50px;cursor:pointer;line-height:50px;text-align:center;margin:0;text-decoration:none;">Je donne mon avis</button><script src="//embed.typeform.com/next/embed.js"></script></div>
-
-
-
-                </div>
-
-                <!--<div class="col-md-5">
-                  <h2>Trending Articles</h2>
-                  <ul class="homepage-listing">
-                    <li><a href="#">Getting started with our product</a></li>
-                    <li><a href="#">Making great use of this thing</a></li>
-                    <li><a href="#">Use-cases of the knoweldge base template</a></li>
-                  </ul>
-                </div>-->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          Tropical Notes - Un guide aux maladies tropicales courantes
-          <p class="mt-1"><strong><small class="text-muted">Built and shared with <i class="fas fa-heart text-danger">&nbsp;</i> by <a
-            href="https://ludovico.md"><img src="../../dist/images/icon.png" height="12"
-              style="vertical-align:middle;margin-right:3px;" />ludovico.md</a></small></strong></p>
-        </div>
-        <div class="col-md-6 text-right">
-          <p>
-            <a href="#">Retour en haut</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
 
-  <script src="../../dist/js/main.js"></script>
+            <!-- MAIN CONTENT -->
+            <article class="min-w-0">
+
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Parasite</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Malaria</h1>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">
+                        Paludisme : repartition geographique, agents causaux, diagnostic, traitement et pieges pour le medecin de premier recours.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
+                        <span>Derniere mise a jour : mars 2026</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span>Dr. L. Cobuccio</span>
+                    </div>
+                </header>
+
+                <!-- Repartition geographique -->
+                <section id="repartition" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
+                    <p class="text-sm text-teal-800/80 mb-4">Afrique, Amerique centrale et du Sud, Asie, Oceanie. <em>P. falciparum</em> predomine en Afrique et <em>P. vivax</em> ailleurs.</p>
+                    <figure class="my-6">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria_map.jpg" alt="Distribution geographique du risque de malaria" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Carte du risque de malaria elabore par l'ECTM pour <a target="_blank" href="https://www.healthytravel.ch" class="ref-link">www.healthytravel.ch</a></figcaption>
+                    </figure>
+                </section>
+
+                <!-- Agent causal -->
+                <section id="agent-causal" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
+                    <p class="text-sm text-teal-800/80">
+                        Parasite protozoaire : <em>Plasmodium falciparum</em> / <em>malariae</em> / <em>vivax</em> / <em>ovale</em> / <em>knowlesi</em>
+                    </p>
+                </section>
+
+                <!-- Transmission -->
+                <section id="transmission" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
+                    <p class="text-sm text-teal-800/80">
+                        Piqure du moustique anophele femelle piquant surtout la nuit, souvent apres minuit.
+                    </p>
+                </section>
+
+                <!-- Incubation -->
+                <section id="incubation" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><em><strong>P. falciparum</strong></em> : min. 6 j, typiquement 12 &ndash; 14 j. Temps d'incubation souvent prolonge lors de prise de prophylaxie anti-malarique</li>
+                        <li><em><strong>P. vivax</strong></em> et <em><strong>P. ovale</strong></em> : typiquement env. 14j, rechutes jusqu'a 2-3 ans apres infection initiale</li>
+                        <li><em><strong>P. malariae</strong></em> : tres variable, jusqu'a plusieurs annees</li>
+                    </ul>
+                </section>
+
+                <!-- Presentation clinique -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
+                    <p class="text-sm text-teal-800/80 mb-3">
+                        Symptomes souvent peu specifiques : EF, frissons, tachycardie, tachypnee, malaise, fatigue, diaphorese, cephalees, toux, anorexie, nausees, vomissements, douleurs abdominales, diarrhees, arthralgies, myalgies.
+                    </p>
+                    <p class="text-sm text-teal-800/80 mb-3">
+                        Malaria compliquee : alteration etat de conscience +/- crises convulsives, detresse respiratoire ou ARDS, insuffisance renale, collapsus circulatoire.
+                    </p>
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege</p>
+                        <p class="text-sm text-teal-800">Jusqu'a 1/3 des patients avec malaria ne presentent pas de fievre lorsqu'ils consultent.</p>
+                    </div>
+                </section>
+
+                <!-- Examen clinique -->
+                <section id="examen" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
+                    <p class="text-sm text-teal-800/80">
+                        Splenomegalie, ictere modere (si malaria severe : paleur, ictere, petechies).
+                    </p>
+                </section>
+
+                <!-- Labo -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Thrombopenie, perturbation des tests hepatiques (bilirubine), elevation de la creatinine</li>
+                        <li>En cas de malaria severe : perturbation plus importante de ces parametres, anemie, hypoglycemie, acidose metabolique</li>
+                    </ul>
+                </section>
+
+                <!-- Diagnostic -->
+                <section id="diagnostic" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
+                    <figure class="my-6">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria1.jpg" alt="Guide d'antibiotherapie du CHUV - page 48" />
+                    </figure>
+                </section>
+
+                <!-- Traitement -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+                    <div class="space-y-4">
+                        <figure>
+                            <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria2.jpg" alt="Guide d'antibiotherapie du CHUV - page 49" />
+                        </figure>
+                        <figure>
+                            <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria3.jpg" alt="Guide d'antibiotherapie du CHUV - page 50" />
+                        </figure>
+                        <figure>
+                            <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria4.jpg" alt="Guide d'antibiotherapie du CHUV - page 51" />
+                        </figure>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mt-3">Images tirees du <a href="https://www.chuv.ch/fr/min/min-home/professionnels-de-la-sante/guide-dantibiotherapie/" class="ref-link">guide d'antibiotherapie du CHUV</a></p>
+                </section>
+
+                <!-- Quand referer -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-1">Quand referer ?</p>
+                        <p class="text-sm text-teal-800">Toute suspicion de malaria severe (alteration de conscience, detresse respiratoire, insuffisance renale, hyperparasitemie &ge;2%) necessite un <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">avis specialise</a>.</p>
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block">
+                <nav class="toc">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
+                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
+                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
+                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                        <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
+                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
+                        <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
+                        <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
+                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                        <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand referer</a></li>
+                    </ul>
+                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
+                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
+                            Referer un patient
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                </nav>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <div>
+                    <div class="flex items-center gap-2 text-cream-100">
+                        <svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/>
+                        </svg>
+                        <span class="font-serif text-sm">Tropical Notebook</span>
+                    </div>
+                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">
+                        Handbook de medecine tropicale et du voyage pour le praticien.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-8 text-sm">
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4>
+                        <div class="space-y-2">
+                            <a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a>
+                            <a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a>
+                            <a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4>
+                        <div class="space-y-2">
+                            <a href="https://traveldoctor.ch" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">
+                                traveldoctor.ch &rarr;
+                            </a>
+                            <span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-cream-200/30">
+                    &copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.
+                </p>
+                <p class="text-xs text-cream-200/30">
+                    Dr. Ludovico Cobuccio
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        const toggle = document.getElementById('mobileToggle');
+        const menu = document.getElementById('mobileMenu');
+        toggle.addEventListener('click', () => { menu.classList.toggle('open'); });
+        menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => menu.classList.remove('open')); });
+        document.querySelectorAll('.dropdown > button').forEach(btn => {
+            btn.addEventListener('click', (e) => { if (window.innerWidth < 768) { e.preventDefault(); btn.closest('.dropdown').classList.toggle('active'); } });
+        });
+        const nav = document.querySelector('.nav-fixed');
+        window.addEventListener('scroll', () => { if (window.scrollY > 50) { nav.classList.add('shadow-lg'); } else { nav.classList.remove('shadow-lg'); } });
+        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+        const sections = document.querySelectorAll('section[id], div[id]');
+        const observerToc = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => { link.classList.remove('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); link.classList.add('border-transparent', 'text-teal-600'); });
+                    const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+                    if (activeLink) { activeLink.classList.add('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); activeLink.classList.remove('border-transparent', 'text-teal-600'); }
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+        sections.forEach(section => observerToc.observe(section));
+    </script>
 </body>
-
 </html>
