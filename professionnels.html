@@ -9,23 +9,23 @@
 
   <!-- SECTION 1: Hero -->
   <div style="text-align: center; margin-bottom: 48px;">
-    <h1 style="font-size: 28px; font-weight: 700; color: #2d5e5b; margin-bottom: 12px;">
+    <h2 style="font-size: 28px; font-weight: 700; color: #2d5e5b; margin-bottom: 12px;">
       Avis spécialisé en infectiologie tropicale
-    </h1>
+    </h2>
     <p style="font-size: 15px; color: #479793; margin-bottom: 16px;">
       Dr Ludovico Cobuccio — Spéc. FMH infectiologie · DTM&amp;H Glasgow · Médecine des voyages ISTM
     </p>
-    <p style="font-size: 14px; color: #666;">
+    <p style="font-size: 14px; color: #5a5a5a;">
       Conseil téléphonique pour les cas urgents. Formulaire pour les demandes non urgentes.
     </p>
   </div>
 
   <!-- SECTION 2: Two columns -->
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 48px;">
+  <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-bottom: 48px;">
 
     <!-- Left: Phone (Urgent) -->
-    <div style="background: #f0faf9; border: 1px solid #b2dfdb; border-radius: 12px; padding: 32px; text-align: center;">
-      <div style="font-size: 36px; margin-bottom: 12px;">&#9742;</div>
+    <div style="flex: 1 1 280px; min-width: 280px; background: #f0faf9; border: 1px solid #b2dfdb; border-radius: 12px; padding: 32px; text-align: center;">
+      <div style="font-size: 36px; margin-bottom: 12px;" aria-hidden="true">&#9742;</div>
       <p style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #479793; margin-bottom: 8px;">
         Urgent — Appel direct
       </p>
@@ -33,27 +33,27 @@
       <a href="tel:+41XXXXXXXXX" style="font-size: 24px; font-weight: 700; color: #2d5e5b; text-decoration: none;">
         +41 XX XXX XX XX
       </a>
-      <p style="font-size: 13px; color: #888; margin-top: 12px;">
+      <p style="font-size: 13px; color: #767676; margin-top: 12px;">
         Lun–Ven 08h30–18h00
       </p>
     </div>
 
     <!-- Right: Form (Non urgent) -->
-    <div style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 32px;">
+    <div style="flex: 1 1 280px; min-width: 280px; background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 32px;">
       <p style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #479793; margin-bottom: 16px;">
         Non urgent — Formulaire
       </p>
       <form action="mailto:ludovico.cobuccio@traveldoctor.ch" method="POST" enctype="text/plain">
         <div style="margin-bottom: 12px;">
-          <input type="text" name="Nom" placeholder="Votre nom" required
+          <input type="text" name="Nom" placeholder="Votre nom" aria-label="Votre nom" required
             style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; box-sizing: border-box;" />
         </div>
         <div style="margin-bottom: 12px;">
-          <input type="email" name="Email" placeholder="Votre email" required
+          <input type="email" name="Email" placeholder="Votre email" aria-label="Votre email" required
             style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; box-sizing: border-box;" />
         </div>
         <div style="margin-bottom: 16px;">
-          <textarea name="Message" placeholder="Votre message" rows="4" required
+          <textarea name="Message" placeholder="Votre message" aria-label="Votre message" rows="4" required
             style="width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; resize: vertical; box-sizing: border-box;"></textarea>
         </div>
         <button type="submit"
@@ -61,24 +61,15 @@
           Envoyer
         </button>
       </form>
-      <p style="font-size: 12px; color: #888; margin-top: 12px; text-align: center;">
+      <p style="font-size: 12px; color: #767676; margin-top: 12px; text-align: center;">
         Réponse sous 48h ouvrables
       </p>
     </div>
   </div>
 
-  <!-- Responsive: stack columns on mobile -->
-  <style>
-    @media (max-width: 640px) {
-      div[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-      }
-    }
-  </style>
-
   <!-- SECTION 3: Newsletter -->
   <div style="text-align: center; padding: 24px; background: #fdfaf3; border-radius: 12px; border: 1px solid #f0e6c8;">
-    <p style="font-size: 14px; color: #666; margin-bottom: 12px;">
+    <p style="font-size: 14px; color: #5a5a5a; margin-bottom: 12px;">
       Restez informé — actualités en médecine tropicale et des voyages
     </p>
     <a href="https://traveldoctor.ch/newsletter"
