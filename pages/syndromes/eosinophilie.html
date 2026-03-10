@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Éosinophilie du voyageur — Tropical Notebook</title>
+  <link href="../../dist/css/prototype.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* Grain texture */
+    body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+
+    /* Design tokens */
+    :root {
+      --teal-50:#f0fafa; --teal-100:#d9f2f1; --teal-200:#b0e4e2;
+      --teal-400:#479793; --teal-500:#2a9d8f; --teal-700:#2d5e5b;
+      --teal-800:#1a3836; --teal-900:#0f2322;
+      --mint-50:#edfcf8; --mint-200:#a6f0de; --mint-300:#66dfc2;
+      --mint-400:#2dcaab; --mint-600:#1a8b7a;
+      --gold-400:#d4a84b; --gold-100:#fef3cd;
+      --cream-50:#fefdfb; --cream-100:#fdfaf4; --cream-200:#f8f2e4;
+    }
+
+    /* Navbar */
+    .nav-fixed { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+    .dropdown-menu { opacity:0; visibility:hidden; transform:translateY(-4px); transition:all 0.2s ease; }
+    .dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
+
+    /* Hero */
+    .hero-pattern { position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0c2 12 8 20 20 24-12 2-18 8-20 16-2-8-8-14-20-16C32 20 38 12 40 0z' fill='%23ffffff' fill-opacity='0.4'/%3E%3C/svg%3E"); }
+
+    /* Anchor nav */
+    .anchor-nav { background:white; border-bottom:1px solid var(--teal-100); position:sticky; top:56px; z-index:40; }
+    .anchor-nav-inner { max-width:900px; margin:0 auto; padding:0 1.5rem; display:flex; overflow-x:auto; scrollbar-width:none; }
+    .anchor-nav-inner::-webkit-scrollbar { display:none; }
+    .anchor-link { color:var(--teal-700); font-size:0.82rem; padding:0.75rem 1rem; border-bottom:2px solid transparent; text-decoration:none; white-space:nowrap; transition:color 0.2s,border-color 0.2s; font-weight:500; }
+    .anchor-link:hover { color:var(--teal-500); border-bottom-color:var(--teal-200); }
+    .anchor-link.active { color:var(--teal-500); border-bottom-color:var(--teal-500); }
+
+    /* Sections */
+    .section { margin-bottom:3.5rem; scroll-margin-top:112px; }
+    .section-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .section-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; color:var(--teal-400); margin-bottom:0.15rem; }
+    .section-title { font-family:"DM Serif Display",serif; font-size:1.45rem; color:var(--teal-800); }
+    .divider { height:1px; background:linear-gradient(90deg,var(--teal-200),transparent); margin-bottom:1.25rem; }
+
+    /* Workup table */
+    .workup-table { width:100%; border-collapse:separate; border-spacing:0; border-radius:12px; overflow:hidden; border:1px solid var(--teal-100); }
+    .workup-table th { background:var(--teal-800); color:white; padding:0.65rem 1rem; text-align:left; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; }
+    .workup-table td { padding:0.65rem 1rem; border-bottom:1px solid var(--teal-50); background:white; font-size:0.88rem; vertical-align:top; }
+    .workup-table tr:last-child td { border-bottom:none; }
+    .workup-table tr:hover td { background:var(--teal-50); }
+    .test-name { font-weight:600; color:var(--teal-800); }
+    .test-tip { font-size:0.77rem; color:var(--teal-400); margin-top:0.15rem; font-style:italic; }
+    .chip { display:inline-block; border-radius:4px; padding:0.1rem 0.45rem; font-size:0.73rem; font-weight:600; margin-right:3px; }
+    .chip-urgent { background:#fee2e2; color:#991b1b; }
+    .chip-std { background:var(--mint-50); color:var(--mint-600); }
+    .chip-opt { background:var(--cream-200); color:var(--teal-700); }
+
+    /* Pathogen cards */
+    .pathogen-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(195px,1fr)); gap:1rem; }
+    .pathogen-card { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.1rem; text-decoration:none; color:inherit; transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s; position:relative; overflow:hidden; display:block; }
+    .pathogen-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal-700),var(--teal-400)); transform:scaleX(0); transform-origin:left; transition:transform 0.35s cubic-bezier(0.22,1,0.36,1); }
+    .pathogen-card:hover { transform:translateY(-4px); box-shadow:0 16px 32px -8px rgba(26,56,54,0.12); }
+    .pathogen-card:hover::before { transform:scaleX(1); }
+    /* Info cards (non-linked) */
+    .info-card { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.1rem; color:inherit; display:block; cursor:default; }
+    .patho-cat { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.3rem; }
+    .patho-name { font-family:"DM Serif Display",serif; font-size:1.05rem; color:var(--teal-800); margin-bottom:0.2rem; }
+    .patho-agent { font-size:0.8rem; color:var(--teal-700); font-style:italic; margin-bottom:0.5rem; }
+    .patho-desc { font-size:0.8rem; color:var(--teal-700); line-height:1.45; }
+    .patho-link { font-size:0.75rem; color:var(--teal-400); }
+
+    /* Treatment cards */
+    .treatment-card { background:white; border-radius:12px; border:1px solid var(--teal-100); border-left:4px solid var(--teal-400); padding:1.1rem 1.25rem; margin-bottom:1rem; }
+    .treatment-card.urgent { border-left-color:#ef4444; }
+    .treatment-card.secondary { border-left-color:var(--gold-400); }
+    .treatment-condition { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.4rem; }
+    .treatment-card.urgent .treatment-condition { color:#ef4444; }
+    .treatment-card.secondary .treatment-condition { color:#b45309; }
+    .treatment-drug { font-family:"DM Serif Display",serif; font-size:1.15rem; color:var(--teal-800); margin-bottom:0.3rem; }
+    .treatment-detail { font-size:0.88rem; color:var(--teal-700); line-height:1.55; }
+    .treatment-source { font-size:0.73rem; color:var(--teal-400); margin-top:0.5rem; border-top:1px solid var(--teal-50); padding-top:0.4rem; }
+    .treatment-warning { background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; padding:0.75rem 1rem; font-size:0.85rem; color:#9a3412; margin-top:0.75rem; display:flex; gap:0.5rem; line-height:1.5; }
+
+    /* Swiss TPH */
+    .swisstph-box { background:linear-gradient(135deg,var(--teal-800),var(--teal-700)); border-radius:12px; padding:1.25rem 1.5rem; color:white; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-top:1.5rem; }
+    .swisstph-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--mint-300); font-weight:600; margin-bottom:0.25rem; }
+    .swisstph-title { font-family:"DM Serif Display",serif; font-size:1.1rem; color:#fdfaf4; }
+    .swisstph-contact { background:rgba(45,202,171,0.2); border:1px solid rgba(45,202,171,0.3); border-radius:8px; padding:0.5rem 1rem; color:var(--mint-300); font-size:0.9rem; font-weight:600; text-decoration:none; }
+
+    /* Points clés */
+    .points-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .point-card { border-radius:12px; padding:1.1rem 1.25rem; }
+    .point-piege { background:#fff7ed; border:1px solid #fed7aa; }
+    .point-perle { background:var(--mint-50); border:1px solid rgba(45,202,171,0.2); }
+    .point-retenir { background:var(--teal-50); border:1px solid var(--teal-100); grid-column:span 2; }
+    .point-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:0.5rem; }
+    .label-piege { color:#c2410c; }
+    .label-perle { color:var(--mint-600); }
+    .label-retenir { color:var(--teal-700); }
+    .point-text { font-size:0.88rem; color:var(--teal-800); line-height:1.55; }
+    .retenir-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:0.35rem 1.5rem; margin-top:0.5rem; }
+    .retenir-list li { font-size:0.85rem; color:var(--teal-700); display:flex; gap:0.5rem; align-items:flex-start; line-height:1.4; }
+    .retenir-list li::before { content:'→'; color:var(--teal-400); flex-shrink:0; font-weight:600; }
+
+    /* Evidence */
+    .evidence-list { display:grid; gap:0.5rem; }
+    .evidence-item { background:white; border-radius:8px; border:1px solid var(--teal-100); padding:0.7rem 1rem; display:flex; gap:0.75rem; font-size:0.83rem; }
+    .evidence-num { color:var(--teal-400); font-weight:700; font-size:0.75rem; flex-shrink:0; width:20px; padding-top:0.05rem; }
+    .evidence-text { color:var(--teal-700); line-height:1.45; }
+
+    /* Algorithm steps */
+    .algo-steps { list-style:none; display:grid; gap:0.75rem; counter-reset:steps; padding:0; margin:0 0 1.5rem; }
+    .algo-step { display:flex; gap:1rem; align-items:flex-start; }
+    .algo-step-num { width:28px; height:28px; background:var(--teal-500); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; font-weight:700; flex-shrink:0; }
+
+    html { scroll-behavior:smooth; }
+  </style>
+</head>
+<body class="bg-cream-50 font-sans text-teal-900 antialiased">
+
+<!-- NAVBAR -->
+<nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-between h-14">
+      <a href="../../prototype.html" class="flex items-center gap-3 group">
+        <span class="text-mint-400 text-xl">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg>
+        </span>
+        <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1">
+        <a href="../../prototype.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-semibold">Syndromes</a>
+        <div class="dropdown relative">
+          <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
+            Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
+            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a>
+            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
+            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
+          </div>
+        </div>
+        <a href="../../prototype.html#about" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="pt-14">
+  <div style="background:linear-gradient(135deg,#1a3836 0%,#2d5e5b 100%); padding:3rem 1.5rem 2.5rem; position:relative; overflow:hidden;">
+    <div class="hero-pattern"></div>
+    <div style="max-width:900px; margin:0 auto; position:relative;">
+      <div style="position:absolute; top:0; right:0; background:rgba(239,68,68,0.15); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:0.5rem 0.9rem; color:#fca5a5; font-size:0.78rem; font-weight:600;">⛔ Jamais de corticoïdes sans dépistage <em>Strongyloides</em></div>
+      <div style="display:flex; align-items:center; gap:0.5rem; color:#66dfc2; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;">
+        <a href="../../prototype.html#syndromes" style="color:inherit; text-decoration:none;">Syndromes</a>
+        <span style="opacity:0.5">›</span>
+        <span style="color:#fdfaf4;">Éosinophilie du voyageur</span>
+      </div>
+      <h1 style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:2.4rem; line-height:1.15; margin-bottom:0.75rem;">Éosinophilie du voyageur</h1>
+      <p style="color:#d9f2f1; font-size:1rem; line-height:1.6; max-width:650px; margin-bottom:1.5rem;">Éosinophilie + retour tropical = helminthiase jusqu'à preuve du contraire. Mortalité hyperinfection <em>Strongyloides</em> : 60–85%.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌍 Afrique sub-saharienne</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌏 Asie du Sud-Est</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">Amérique tropicale</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANCHOR NAV -->
+<div class="anchor-nav">
+  <div class="anchor-nav-inner">
+    <a href="#diagnostic" class="anchor-link active">Diagnostic</a>
+    <a href="#bilan" class="anchor-link">Bilan</a>
+    <a href="#pathogenes" class="anchor-link">Pathogènes</a>
+    <a href="#traitement" class="anchor-link">Traitement</a>
+    <a href="#algorithme" class="anchor-link">Algorithme</a>
+    <a href="#points-cles" class="anchor-link">Points clés</a>
+    <a href="#references" class="anchor-link">Références</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div style="max-width:900px; margin:0 auto; padding:2.5rem 1.5rem 4rem;">
+
+  <!-- 1. APPROCHE DIAGNOSTIQUE -->
+  <div class="section" id="diagnostic">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--mint-50);">🔍</div>
+      <div>
+        <div class="section-label">Étape 1</div>
+        <h2 class="section-title">Approche diagnostique</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <p style="font-size:0.9rem; color:var(--teal-700); margin-bottom:1.25rem; line-height:1.6;">Tout voyageur avec éosinophilie &gt;0.5 G/L au retour de zone tropicale doit être investigué pour une helminthiase. Les protozoaires ne causent <em>jamais</em> d'éosinophilie — piège classique.</p>
+
+    <table class="workup-table" style="margin-bottom:0.75rem;">
+      <thead>
+        <tr>
+          <th>Cause</th>
+          <th>Prévalence</th>
+          <th>Arguments pour</th>
+          <th>Arguments contre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="test-name">Helminthiases</div><div class="test-tip">Schistosoma, Strongyloides, filaires, Toxocara</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);"><strong>19–80%</strong> des éosinophilies voyageurs</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Voyage tropical, exposition eau douce, myalgies, éosinophiles &gt;1 G/L</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">—</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Médicaments</div><div class="test-tip">ATB, AINS, anticonvulsants, prednisone (très rarement)</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Fréquente</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Temporalité d'introduction (délai 2–8 semaines). Cause réversible.</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">—</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Atopie / asthme</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Modérée</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Contexte atopique connu, éosinophiles &lt;1.5 G/L</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Éosinophiles &gt;1.5 G/L + fièvre inexpliquée</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">HES idiopathique</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Rare (&lt;5%)</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Bilan parasitaire négatif complet</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Diagnostic d'exclusion — ne pas conclure sans bilan sérologique complet</td>
+        </tr>
+        <tr>
+          <td style="border-left:3px solid #ef4444;"><div class="test-name" style="color:#991b1b;">Protozoaires</div><div class="test-tip" style="color:#ef4444;">Malaria, Giardia, Cryptosporidium</div></td>
+          <td style="font-size:0.88rem; color:#991b1b;"><strong>0%</strong></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">—</td>
+          <td style="font-size:0.88rem; color:#991b1b;"><strong>NE CAUSENT PAS d'éosinophilie</strong> (piège classique)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:#fee2e2; border:1px solid #fca5a5; border-radius:8px; padding:0.75rem 1rem; font-size:0.88rem; color:#991b1b; margin-top:0.75rem; display:flex; gap:0.5rem;">
+      <span style="flex-shrink:0; font-weight:700;">⚠</span>
+      <span><strong>Protozoaires (malaria, Giardia, Cryptosporidium) = aucune éosinophilie.</strong> Éosinophilie + retour tropical ≠ diagnostic parasitaire exclu par un frottis négatif. Ce sont les helminthes qui comptent.</span>
+    </div>
+  </div>
+
+  <!-- 2. BILAN INITIAL -->
+  <div class="section" id="bilan">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--gold-100);">🧪</div>
+      <div>
+        <div class="section-label">Étape 2</div>
+        <h2 class="section-title">Bilan initial</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <ol class="algo-steps" style="margin-bottom:1.5rem;">
+      <li class="algo-step">
+        <span class="algo-step-num">1</span>
+        <div style="padding-top:0.1rem;"><strong style="color:var(--teal-800);">Anamnèse médicamenteuse</strong> — ATB, AINS, anticonvulsants, corticoïdes (délai 2–8 semaines). Cause fréquente et réversible à éliminer en premier.</div>
+      </li>
+      <li class="algo-step">
+        <span class="algo-step-num">2</span>
+        <div style="padding-top:0.1rem;"><strong style="color:var(--teal-800);">Sérologie <em>Strongyloides</em> (ELISA)</strong> — <strong>systématique</strong>, sensibilité 89–95%. Le plus dangereux à manquer — auto-infection indéfinie, hyperinfection sous corticoïdes.</div>
+      </li>
+      <li class="algo-step">
+        <span class="algo-step-num">3</span>
+        <div style="padding-top:0.1rem;"><strong style="color:var(--teal-800);">Sérologie <em>Schistosoma</em> (ELISA)</strong> — si exposition eau douce Afrique ou Amériques. Sensibilité 71–96% ; peut être négative en phase aiguë → répéter à 3 mois si aiguë.</div>
+      </li>
+      <li class="algo-step">
+        <span class="algo-step-num">4</span>
+        <div style="padding-top:0.1rem;"><strong style="color:var(--teal-800);">Sérologie <em>Toxocara</em></strong> — si éosinophiles ≥1.5 G/L (recommandations françaises 2023, Groh et al.). Sensibilité ~78%.</div>
+      </li>
+      <li class="algo-step">
+        <span class="algo-step-num">5</span>
+        <div style="padding-top:0.1rem;"><strong style="color:var(--teal-800);">Coproparasitologie × 3 + Baermann</strong> — complémentaire aux sérologies. Sensibilité <em>Strongyloides</em> 20–30% sur 1 examen (7 nécessaires pour approcher 100%). Ne pas se fier à un seul examen négatif.</div>
+      </li>
+      <li class="algo-step">
+        <span class="algo-step-num" style="background:var(--teal-700);">6</span>
+        <div style="padding-top:0.1rem;"><strong style="color:var(--teal-800);">Si éosinophiles ≥1.5 G/L persistante</strong> → <strong>référer</strong> : Swiss TPH Basel · CHUV · HUG · Inselspital — bilan de 2ème ligne (filariose, biopsie, PCR avancée).</div>
+      </li>
+    </ol>
+
+    <p style="font-size:0.82rem; color:var(--teal-400); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.75rem;">Performance diagnostique — <em>Strongyloides stercoralis</em></p>
+    <table class="workup-table">
+      <thead>
+        <tr><th>Examen</th><th>Sensibilité <em>Strongyloides</em></th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="test-name">Coprologie directe × 1</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">~20–30%</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Insuffisant seul — 7 examens nécessaires pour approcher 100%</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Baermann (selles)</div><div class="test-tip">Demander explicitement au laboratoire</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">~72%</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Meilleure technique de coprologie ; technique spécifique à demander nommément</td>
+        </tr>
+        <tr>
+          <td><div class="test-name" style="color:var(--teal-500);">Sérologie <em>Strongyloides</em> ELISA</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-500);"><strong>89–95%</strong></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);"><strong>Référence — systématique pour tout voyageur avec éosinophilie</strong></td>
+        </tr>
+        <tr>
+          <td><div class="test-name" style="color:var(--teal-500);">Sérologie <em>Schistosoma</em> ELISA</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-500);"><strong>71–96%</strong></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Systématique si exposition eau douce ; peut être négatif en phase aiguë</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Sérologie <em>Toxocara</em></div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">78%</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Si éosinophiles ≥1.5 G/L (guidelines françaises 2023)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. PATHOGÈNES CLÉS -->
+  <div class="section" id="pathogenes">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--teal-50);">🦠</div>
+      <div>
+        <div class="section-label">Étape 3</div>
+        <h2 class="section-title">Pathogènes clés</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="pathogen-grid">
+      <a href="../parasites/schistosomiasis.html" class="pathogen-card">
+        <div class="patho-cat">Parasite — Trématode</div>
+        <div class="patho-name">Schistosoma</div>
+        <div class="patho-agent">Schistosoma mansoni / haematobium</div>
+        <div class="patho-link">Fiche complète →</div>
+      </a>
+      <div class="info-card">
+        <div class="patho-cat">Parasite — Nématode</div>
+        <div class="patho-name">Strongyloides stercoralis</div>
+        <div class="patho-agent">Strongyloides stercoralis</div>
+        <div class="patho-desc">Auto-infection indéfinie — possible même 40 ans après le voyage. Hyperinfection sous corticoïdes ou immunosuppresseurs : mortalité 60–85% sans traitement.</div>
+      </div>
+      <div class="info-card">
+        <div class="patho-cat">Parasite — Nématode</div>
+        <div class="patho-name">Toxocara</div>
+        <div class="patho-agent">Toxocara canis / cati</div>
+        <div class="patho-desc">Larva migrans viscérale. Hyperéosinophilie souvent marquée. Dépistage systématique si éosinophiles ≥1.5 G/L (recommandation 2023).</div>
+      </div>
+      <div class="info-card">
+        <div class="patho-cat">Parasite — Nématode filarien</div>
+        <div class="patho-name">Filaires</div>
+        <div class="patho-agent">Wuchereria, Loa loa, Mansonella</div>
+        <div class="patho-desc">Si zone endémique (Afrique de l'Ouest/Centrale, Asie du Sud-Est). Attention : ivermectine contre-indiquée si microfilarémie <em>Loa loa</em> &gt;30 000 mf/mL (risque encéphalopathie).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. TRAITEMENT -->
+  <div class="section" id="traitement">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:#f0fdf4;">💊</div>
+      <div>
+        <div class="section-label">Étape 4</div>
+        <h2 class="section-title">Traitement</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- PROMINENT WARNING BOX -->
+    <div style="background:#fef2f2; border:2px solid #ef4444; border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1.5rem;">
+      <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; color:#dc2626; margin-bottom:0.5rem;">⛔ Règle absolue — Sans exception</div>
+      <div style="font-family:'DM Serif Display',serif; font-size:1.2rem; color:#7f1d1d; margin-bottom:0.5rem;">JAMAIS de corticoïdes sans dépistage <em>Strongyloides</em> préalable</div>
+      <div style="font-size:0.88rem; color:#991b1b; line-height:1.55;">Même une courte corticothérapie (5–7j) peut déclencher un syndrome d'hyperinfection.<br>Mortalité sans traitement : <strong>60–85%</strong>. Triggers : corticoïdes, anti-TNF, chimiothérapie, HTLV-1.<br><strong>Si dépistage impossible en urgence : ivermectine empirique AVANT les corticoïdes.</strong></div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="treatment-condition"><em>Strongyloides stercoralis</em> — traitement de 1ère ligne</div>
+      <div class="treatment-drug">Ivermectine 200 µg/kg PO dose unique (Subvectin® 3 mg)</div>
+      <div class="treatment-detail">
+        À jeun. Taux de guérison 83–100% vs albendazole 38–79% (l'albendazole n'est pas une alternative équivalente).<br>
+        Répéter à J14 si infection sévère ou hyperinfection. Pour hyperinfection : 200 µg/kg/j quotidiennement jusqu'à négativation des selles (souvent ≥2 semaines) + réanimation si nécessaire.<br>
+        Ivermectine disponible en Suisse depuis mai 2023 (Swissmedic — Subvectin® 3 mg, Leman SKL SA).
+      </div>
+      <div class="treatment-source">Requena-Mendez AJTMH 2017 [Grade A] · Subvectin® Swissmedic mai 2023</div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="treatment-condition"><em>Schistosoma</em> — phase chronique (≥6–8 semaines post-exposition)</div>
+      <div class="treatment-drug">Praziquantel 40 mg/kg PO dose unique</div>
+      <div class="treatment-detail">
+        Ou 2 × 20 mg/kg espacés de 4–6h. Actif sur les vers adultes uniquement — <strong>inefficace en phase aiguë</strong> (&lt;6–8 semaines post-exposition).<br>
+        Praziquantel non inscrit au Compendium suisse → import Art. 49 via Swiss TPH Basel (+41 61 284 81 44).
+      </div>
+    </div>
+
+    <div class="treatment-card secondary">
+      <div class="treatment-condition">Katayama aiguë (<em>Schistosoma</em>, phase &lt;6–8 semaines)</div>
+      <div class="treatment-drug">Prednisone 0.5–1 mg/kg × 5–7j → praziquantel différé à 6–8 semaines</div>
+      <div class="treatment-detail">
+        Symptômes sévères : corticoïdes <strong>uniquement après exclusion <em>Strongyloides</em></strong> (sérologie ou ivermectine empirique préalable).<br>
+        Praziquantel différé car inefficace sur formes immatures. Re-traitement souvent nécessaire à 4–6 semaines.
+      </div>
+    </div>
+
+    <div class="swisstph-box">
+      <div>
+        <div class="swisstph-label">Ressource — Suisse</div>
+        <div class="swisstph-title">Swiss TPH Basel — Helminthiases complexes</div>
+        <div style="font-size:0.82rem; color:#d9f2f1; margin-top:0.25rem;">Praziquantel (Art. 49) · Avis helminthiase complexe · Disponibilité Subvectin® · travelmedicine.swisstph.ch</div>
+      </div>
+      <a href="tel:+41612848144" class="swisstph-contact">+41 61 284 81 44</a>
+    </div>
+  </div>
+
+  <!-- 5. ALGORITHME PRATIQUE -->
+  <div class="section" id="algorithme">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--teal-50);">📋</div>
+      <div>
+        <div class="section-label">Démarche pratique</div>
+        <h2 class="section-title">Algorithme — bilan minimum</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <p style="font-size:0.9rem; color:var(--teal-700); margin-bottom:1rem; line-height:1.6;">Bilan minimum pour tout voyageur tropical avec éosinophilie &gt;0.5 G/L.</p>
+
+    <table class="workup-table">
+      <thead>
+        <tr>
+          <th style="width:60px;">Étape</th>
+          <th>Action</th>
+          <th>Seuil / Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:center;"><strong style="font-size:1.1rem; color:var(--teal-500);">1</strong></td>
+          <td><div class="test-name">Anamnèse médicamenteuse</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Délai 2–8 semaines (ATB, AINS, anticonvulsants)</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;"><strong style="font-size:1.1rem; color:var(--teal-500);">2</strong></td>
+          <td><div class="test-name">Sérologie <em>Strongyloides</em> ELISA</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);"><strong>Systématique</strong> — sensibilité 89–95%</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;"><strong style="font-size:1.1rem; color:var(--teal-500);">3</strong></td>
+          <td><div class="test-name">Sérologie <em>Schistosoma</em> ELISA</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Si exposition eau douce Afrique / Amériques</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;"><strong style="font-size:1.1rem; color:var(--teal-500);">4</strong></td>
+          <td><div class="test-name">Sérologie <em>Toxocara</em></div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Si éosinophiles ≥1.5 G/L (guidelines françaises 2023)</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;"><strong style="font-size:1.1rem; color:var(--teal-500);">5</strong></td>
+          <td><div class="test-name">Coproparasitologie × 3 + Baermann</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Complémentaire — ne pas se fier à 1 examen négatif (sens. 20–30%)</td>
+        </tr>
+        <tr>
+          <td style="text-align:center;"><strong style="font-size:1.1rem; color:var(--teal-700);">6</strong></td>
+          <td><div class="test-name">Référer si éosinophiles ≥1.5 G/L persistante</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Swiss TPH / CHUV / HUG / Inselspital</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 6. POINTS CLÉS -->
+  <div class="section" id="points-cles">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:#fff7ed;">💡</div>
+      <div>
+        <div class="section-label">À retenir</div>
+        <h2 class="section-title">Points clés</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="points-grid">
+      <div class="point-card point-piege">
+        <div class="point-label label-piege">⚠ Piège</div>
+        <div class="point-text">
+          <strong>«Coproparasitologie négative = pas de parasitose → rassurant»</strong><br><br>
+          FAUX. La sensibilité de <em>Strongyloides</em> sur 1 examen de selles est de 20–30% seulement (7 examens nécessaires pour approcher 100%).<br><br>
+          → La sérologie ELISA (sensibilité 89–95%) reste la référence. Un examen de selles négatif n'exclut rien.
+        </div>
+      </div>
+      <div class="point-card point-perle">
+        <div class="point-label label-perle">✦ Perle</div>
+        <div class="point-text">
+          <strong>RÈGLE ABSOLUE : jamais de corticoïdes sans sérologie <em>Strongyloides</em></strong><br><br>
+          Auto-infection indéfinie — possible même 40 ans après le voyage. Mortalité hyperinfection 60–85%.<br><br>
+          Si urgent : ivermectine empirique D'ABORD, puis corticoïdes. En Suisse : Subvectin® 3 mg (Swissmedic 2023).
+        </div>
+      </div>
+      <div class="point-card point-retenir">
+        <div class="point-label label-retenir">→ Retenir</div>
+        <ul class="retenir-list">
+          <li>Helminthiases = <strong>19–80%</strong> des éosinophilies voyageurs — protozoaires = 0% (malaria, Giardia n'en causent pas)</li>
+          <li>Sérologies ELISA systématiques : <strong><em>Strongyloides</em> + <em>Schistosoma</em></strong> ± <em>Toxocara</em> si HE ≥1.5 G/L</li>
+          <li><strong>JAMAIS corticoïdes</strong> (même cure courte !) sans dépistage <em>Strongyloides</em> — hyperinfection mortelle</li>
+          <li>Ivermectine : <strong>Subvectin® 3 mg</strong> (Swissmedic mai 2023) + praziquantel via Swiss TPH Art. 49</li>
+          <li><em>Loa loa</em> : vérifier microfilarémie si Afrique Centrale/Ouest <strong>avant ivermectine</strong> (&gt;30 000 mf/mL = contre-indication)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. RÉFÉRENCES -->
+  <div class="section" id="references">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--cream-200);">📑</div>
+      <div>
+        <div class="section-label">Bibliographie sélective</div>
+        <h2 class="section-title">Références</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="evidence-list">
+      <div class="evidence-item"><span class="evidence-num">1</span><span class="evidence-text"><strong>Thakker C et al.</strong> J Infect 2025;90(2):106328 — Guidelines UK 2025 : algorithme sérologie <em>Strongyloides</em> + selles concentrées systématiques pour voyageur/migrant avec éosinophilie. DOI: 10.1016/j.jinf.2024.106328</span></div>
+      <div class="evidence-item"><span class="evidence-num">2</span><span class="evidence-text"><strong>Groh M et al.</strong> Orphanet J Rare Dis 2023;18:100 — Guidelines françaises HES : HE &gt;1.5 G/L = bilan complet incluant sérologie <em>Toxocara</em> systématique ; médicaments = cause fréquente. DOI: 10.1186/s13023-023-02696-4</span></div>
+      <div class="evidence-item"><span class="evidence-num">3</span><span class="evidence-text"><strong>Checkley AM et al.</strong> J Infect 2010;60(1):1–20 — Helminthes = 14–64% des éosinophilies chez voyageurs/migrants ; algorithme diagnostique par région géographique. DOI: 10.1016/j.jinf.2009.11.003</span></div>
+      <div class="evidence-item"><span class="evidence-num">4</span><span class="evidence-text"><strong>Logan S et al.</strong> Am J Trop Med Hyg 2013;88:1032–34 (n=79, Lac Malawi) — 53% schistosomiase ; 15% éosinophiles normaux à la présentation ; 14% sérologie négative initiale. DOI: 10.4269/ajtmh.12-0646</span></div>
+      <div class="evidence-item"><span class="evidence-num">5</span><span class="evidence-text"><strong>Rochat L et al.</strong> Rev Med Suisse 2015;11(473) (n=42) — Cohorte suisse de voyageurs exposés ; sous-diagnostic fréquent par les médecins généralistes. DOI: 10.53738/REVMED.2015.11.473</span></div>
+      <div class="evidence-item"><span class="evidence-num">6</span><span class="evidence-text"><strong>Requena-Mendez A et al.</strong> Am J Trop Med Hyg 2017;97:645–52 — Dépistage sérologique systématique <em>Strongyloides</em> ; ivermectine 200 µg/kg ; dépister avant tout corticoïde [Grade A]. DOI: 10.4269/ajtmh.16-0923</span></div>
+      <div class="evidence-item"><span class="evidence-num">7</span><span class="evidence-text"><strong>Asundi A et al.</strong> Lancet Glob Health 2019;7:e811–e826 — Séroprévalence <em>Strongyloides</em> 12.2%, <em>Schistosoma</em> 18.4% (24.1% si Afrique sub-saharienne) chez migrants/réfugiés. DOI: 10.1016/S2214-109X(18)30490-X</span></div>
+      <div class="evidence-item"><span class="evidence-num">8</span><span class="evidence-text"><strong>O'Connell EM, Nutman TB.</strong> Immunol Allergy Clin N Am 2015;35:493–522 — Sensibilité selles 1 échantillon ~20–30% pour <em>Strongyloides</em> ; sérologie ELISA 89–95%. DOI: 10.1016/j.iac.2015.05.003</span></div>
+      <div class="evidence-item"><span class="evidence-num">9</span><span class="evidence-text"><strong>Meltzer E et al.</strong> Am J Trop Med Hyg 2008;78:702–9 (n=955, Israël, 82 éosinophilies) — Albendazole empirique efficace dans 90% sauf <em>Strongyloides</em> et <em>Schistosoma</em>.</span></div>
+      <div class="evidence-item"><span class="evidence-num">10</span><span class="evidence-text"><strong>Subvectin® 3 mg (Leman SKL SA).</strong> Swissmedic, mai 2023 — Autorisation de mise sur le marché en Suisse ; indications : strongyloïdose, filariose lymphatique, gale.</span></div>
+      <div class="evidence-item"><span class="evidence-num">11</span><span class="evidence-text"><strong>Kamgno J et al.</strong> PLoS Negl Trop Dis 2025;19(3):e0012957 — &gt;500 encéphalopathies post-ivermectine documentées ; seuil risque &gt;30 000 mf/mL ; vérifier microfilarémie si Afrique Centrale/Ouest. DOI: 10.1371/journal.pntd.0012957</span></div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<div style="background:var(--teal-800); color:var(--teal-100); padding:2rem 1.5rem; text-align:center; font-size:0.82rem; line-height:1.6;">
+  <div style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:1.1rem; margin-bottom:0.5rem;">Tropical Notebook</div>
+  Médecine tropicale et du voyage pour praticiens — Suisse<br>
+  <a href="mailto:ludovico.cobuccio@chuv.ch" style="color:var(--mint-300); text-decoration:none;">ludovico.cobuccio@chuv.ch</a> ·
+  <a href="https://traveldoctor.ch" target="_blank" style="color:var(--mint-300); text-decoration:none;">traveldoctor.ch</a>
+</div>
+
+<script>
+  // Dropdown toggle on mobile
+  document.querySelectorAll('.dropdown button').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.currentTarget.closest('.dropdown').classList.toggle('active');
+    });
+  });
+  // Scroll spy for anchor nav
+  const sections = document.querySelectorAll('.section[id]');
+  const anchorLinks = document.querySelectorAll('.anchor-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        anchorLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.anchor-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-56px 0px -60% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

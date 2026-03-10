@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dermatoses du voyageur — Tropical Notebook</title>
+  <link href="../../dist/css/prototype.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* Grain texture */
+    body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+
+    /* Design tokens */
+    :root {
+      --teal-50:#f0fafa; --teal-100:#d9f2f1; --teal-200:#b0e4e2;
+      --teal-400:#479793; --teal-500:#2a9d8f; --teal-700:#2d5e5b;
+      --teal-800:#1a3836; --teal-900:#0f2322;
+      --mint-50:#edfcf8; --mint-200:#a6f0de; --mint-300:#66dfc2;
+      --mint-400:#2dcaab; --mint-600:#1a8b7a;
+      --gold-400:#d4a84b; --gold-100:#fef3cd;
+      --cream-50:#fefdfb; --cream-100:#fdfaf4; --cream-200:#f8f2e4;
+    }
+
+    /* Navbar */
+    .nav-fixed { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+    .dropdown-menu { opacity:0; visibility:hidden; transform:translateY(-4px); transition:all 0.2s ease; }
+    .dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
+
+    /* Hero */
+    .hero-pattern { position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0c2 12 8 20 20 24-12 2-18 8-20 16-2-8-8-14-20-16C32 20 38 12 40 0z' fill='%23ffffff' fill-opacity='0.4'/%3E%3C/svg%3E"); }
+
+    /* Anchor nav */
+    .anchor-nav { background:white; border-bottom:1px solid var(--teal-100); position:sticky; top:56px; z-index:40; }
+    .anchor-nav-inner { max-width:900px; margin:0 auto; padding:0 1.5rem; display:flex; overflow-x:auto; scrollbar-width:none; }
+    .anchor-nav-inner::-webkit-scrollbar { display:none; }
+    .anchor-link { color:var(--teal-700); font-size:0.82rem; padding:0.75rem 1rem; border-bottom:2px solid transparent; text-decoration:none; white-space:nowrap; transition:color 0.2s,border-color 0.2s; font-weight:500; }
+    .anchor-link:hover { color:var(--teal-500); border-bottom-color:var(--teal-200); }
+    .anchor-link.active { color:var(--teal-500); border-bottom-color:var(--teal-500); }
+
+    /* Sections */
+    .section { margin-bottom:3.5rem; scroll-margin-top:112px; }
+    .section-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .section-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; color:var(--teal-400); margin-bottom:0.15rem; }
+    .section-title { font-family:"DM Serif Display",serif; font-size:1.45rem; color:var(--teal-800); }
+    .divider { height:1px; background:linear-gradient(90deg,var(--teal-200),transparent); margin-bottom:1.25rem; }
+
+    /* Workup table */
+    .workup-table { width:100%; border-collapse:separate; border-spacing:0; border-radius:12px; overflow:hidden; border:1px solid var(--teal-100); }
+    .workup-table th { background:var(--teal-800); color:white; padding:0.65rem 1rem; text-align:left; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; }
+    .workup-table td { padding:0.65rem 1rem; border-bottom:1px solid var(--teal-50); background:white; font-size:0.88rem; vertical-align:top; }
+    .workup-table tr:last-child td { border-bottom:none; }
+    .workup-table tr:hover td { background:var(--teal-50); }
+    .workup-table tr.row-alt td { background:#fefdf4; }
+    .workup-table tr.row-alt:hover td { background:var(--teal-50); }
+    .test-name { font-weight:600; color:var(--teal-800); }
+    .test-tip { font-size:0.77rem; color:var(--teal-400); margin-top:0.15rem; font-style:italic; }
+    .chip { display:inline-block; border-radius:4px; padding:0.1rem 0.45rem; font-size:0.73rem; font-weight:600; margin-right:3px; }
+    .chip-urgent { background:#fee2e2; color:#991b1b; }
+    .chip-std { background:var(--mint-50); color:var(--mint-600); }
+    .chip-opt { background:var(--cream-200); color:var(--teal-700); }
+
+    /* Pathogen cards */
+    .pathogen-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(195px,1fr)); gap:1rem; }
+    .pathogen-card { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.1rem; text-decoration:none; color:inherit; transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s; position:relative; overflow:hidden; display:block; }
+    .pathogen-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal-700),var(--teal-400)); transform:scaleX(0); transform-origin:left; transition:transform 0.35s cubic-bezier(0.22,1,0.36,1); }
+    .pathogen-card:hover { transform:translateY(-4px); box-shadow:0 16px 32px -8px rgba(26,56,54,0.12); }
+    .pathogen-card:hover::before { transform:scaleX(1); }
+    .pathogen-card-static { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.1rem; color:inherit; display:block; }
+    .patho-cat { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.3rem; }
+    .patho-name { font-family:"DM Serif Display",serif; font-size:1.05rem; color:var(--teal-800); margin-bottom:0.2rem; }
+    .patho-agent { font-size:0.8rem; color:var(--teal-700); font-style:italic; margin-bottom:0.5rem; }
+    .patho-text { font-size:0.8rem; color:var(--teal-700); line-height:1.5; margin-top:0.4rem; }
+    .patho-link { font-size:0.75rem; color:var(--teal-400); }
+
+    /* Treatment cards */
+    .treatment-card { background:white; border-radius:12px; border:1px solid var(--teal-100); border-left:4px solid var(--teal-400); padding:1.1rem 1.25rem; margin-bottom:1rem; }
+    .treatment-card.urgent { border-left-color:#ef4444; }
+    .treatment-card.secondary { border-left-color:var(--gold-400); }
+    .treatment-condition { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.4rem; }
+    .treatment-card.urgent .treatment-condition { color:#ef4444; }
+    .treatment-card.secondary .treatment-condition { color:#b45309; }
+    .treatment-drug { font-family:"DM Serif Display",serif; font-size:1.15rem; color:var(--teal-800); margin-bottom:0.3rem; }
+    .treatment-detail { font-size:0.88rem; color:var(--teal-700); line-height:1.55; }
+    .treatment-source { font-size:0.73rem; color:var(--teal-400); margin-top:0.5rem; border-top:1px solid var(--teal-50); padding-top:0.4rem; }
+    .treatment-warning { background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; padding:0.75rem 1rem; font-size:0.85rem; color:#9a3412; margin-top:0.75rem; display:flex; gap:0.5rem; line-height:1.5; }
+
+    /* Swiss TPH */
+    .swisstph-box { background:linear-gradient(135deg,var(--teal-800),var(--teal-700)); border-radius:12px; padding:1.25rem 1.5rem; color:white; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-top:1.5rem; }
+    .swisstph-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--mint-300); font-weight:600; margin-bottom:0.25rem; }
+    .swisstph-title { font-family:"DM Serif Display",serif; font-size:1.1rem; color:#fdfaf4; }
+    .swisstph-contact { background:rgba(45,202,171,0.2); border:1px solid rgba(45,202,171,0.3); border-radius:8px; padding:0.5rem 1rem; color:var(--mint-300); font-size:0.9rem; font-weight:600; }
+
+    /* Points clés */
+    .points-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .point-card { border-radius:12px; padding:1.1rem 1.25rem; }
+    .point-piege { background:#fff7ed; border:1px solid #fed7aa; }
+    .point-perle { background:var(--mint-50); border:1px solid rgba(45,202,171,0.2); }
+    .point-retenir { background:var(--teal-50); border:1px solid var(--teal-100); grid-column:span 2; }
+    .point-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:0.5rem; }
+    .label-piege { color:#c2410c; }
+    .label-perle { color:var(--mint-600); }
+    .label-retenir { color:var(--teal-700); }
+    .point-text { font-size:0.88rem; color:var(--teal-800); line-height:1.55; }
+    .retenir-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:0.35rem 1.5rem; margin-top:0.5rem; }
+    .retenir-list li { font-size:0.85rem; color:var(--teal-700); display:flex; gap:0.5rem; align-items:flex-start; line-height:1.4; }
+    .retenir-list li::before { content:'→'; color:var(--teal-400); flex-shrink:0; font-weight:600; }
+
+    /* Evidence */
+    .evidence-list { display:grid; gap:0.5rem; }
+    .evidence-item { background:white; border-radius:8px; border:1px solid var(--teal-100); padding:0.7rem 1rem; display:flex; gap:0.75rem; font-size:0.83rem; }
+    .evidence-num { color:var(--teal-400); font-weight:700; font-size:0.75rem; flex-shrink:0; width:20px; padding-top:0.05rem; }
+    .evidence-text { color:var(--teal-700); line-height:1.45; }
+
+    /* Clinical photo cards */
+    .photo-card { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.25rem; margin-bottom:1rem; }
+    .photo-card-inner { display:grid; grid-template-columns:260px 1fr; gap:1.5rem; align-items:start; }
+    @media (max-width:680px) {
+      .photo-card-inner { grid-template-columns:1fr; }
+      .points-grid { grid-template-columns:1fr; }
+      .point-retenir { grid-column:span 1; }
+      .retenir-list { grid-template-columns:1fr; }
+    }
+    .photo-credit { font-size:0.72rem; color:var(--teal-400); margin-top:0.4rem; text-align:center; font-style:italic; }
+    .photo-case-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.3rem; }
+    .photo-diagnosis { font-family:"DM Serif Display",serif; font-size:1.2rem; color:var(--teal-800); margin-bottom:0.5rem; }
+    .photo-description { font-size:0.88rem; color:var(--teal-700); line-height:1.55; margin-bottom:0.75rem; }
+    .photo-treatment-mint { background:var(--mint-50); border:1px solid rgba(45,202,171,0.2); border-radius:8px; padding:0.65rem 0.9rem; font-size:0.85rem; color:var(--teal-800); }
+    .photo-treatment-gold { background:var(--gold-100); border:1px solid rgba(212,168,75,0.3); border-radius:8px; padding:0.65rem 0.9rem; font-size:0.85rem; color:var(--teal-800); }
+
+    html { scroll-behavior:smooth; }
+  </style>
+</head>
+<body class="bg-cream-50 font-sans text-teal-900 antialiased">
+
+<!-- NAVBAR -->
+<nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-between h-14">
+      <a href="../../prototype.html" class="flex items-center gap-3 group">
+        <span class="text-mint-400 text-xl">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg>
+        </span>
+        <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1">
+        <a href="../../prototype.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-semibold">Syndromes</a>
+        <div class="dropdown relative">
+          <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
+            Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
+            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a>
+            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
+            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
+          </div>
+        </div>
+        <a href="../../prototype.html#about" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="pt-14">
+  <div style="background:linear-gradient(135deg,#1a3836 0%,#2d5e5b 100%); padding:3rem 1.5rem 2.5rem; position:relative; overflow:hidden;">
+    <div class="hero-pattern"></div>
+    <div style="max-width:900px; margin:0 auto; position:relative;">
+      <div style="display:flex; align-items:center; gap:0.5rem; color:#66dfc2; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;">
+        <a href="../../prototype.html#syndromes" style="color:inherit; text-decoration:none;">Syndromes</a>
+        <span style="opacity:0.5">›</span>
+        <span style="color:#fdfaf4;">Dermatoses du voyageur</span>
+      </div>
+      <h1 style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:2.4rem; line-height:1.15; margin-bottom:0.75rem;">Dermatoses<br>du voyageur</h1>
+      <p style="color:#d9f2f1; font-size:1rem; line-height:1.6; max-width:640px; margin-bottom:1.5rem;">Approche morphologique : 4 patterns → 4 diagnostics. Pied + plage + trajet serpentant = CLM jusqu'à preuve du contraire.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🏝 Caraïbes</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌎 Amérique centrale</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌍 Afrique sub-saharienne</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌏 Asie du Sud-Est</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANCHOR NAV -->
+<div class="anchor-nav">
+  <div class="anchor-nav-inner">
+    <a href="#diagnostic" class="anchor-link active">Diagnostic</a>
+    <a href="#photos-cliniques" class="anchor-link">Photos cliniques</a>
+    <a href="#pathogenes" class="anchor-link">Pathogènes</a>
+    <a href="#traitement" class="anchor-link">Traitement</a>
+    <a href="#algorithme" class="anchor-link">Algorithme</a>
+    <a href="#points-cles" class="anchor-link">Points clés</a>
+    <a href="#references" class="anchor-link">Références</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div style="max-width:900px; margin:0 auto; padding:2.5rem 1.5rem 4rem;">
+
+  <!-- 1. APPROCHE DIAGNOSTIQUE -->
+  <div class="section" id="diagnostic">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--mint-50);">🔍</div>
+      <div>
+        <div class="section-label">Étape 1</div>
+        <h2 class="section-title">Approche diagnostique</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <p style="font-size:0.9rem; color:var(--teal-700); margin-bottom:1.25rem; line-height:1.6;">18% des consultations post-voyage sont dermatologiques (Freedman NEJM 2006). Quatre patterns morphologiques guident le diagnostic à la clinique.</p>
+    <table class="workup-table">
+      <thead>
+        <tr>
+          <th>Morphologie</th>
+          <th>Diagnostic</th>
+          <th>Agent(s)</th>
+          <th>Traitement de 1<sup>re</sup> ligne</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="test-name">Trajet serpentant / linéaire</div></td>
+          <td style="font-weight:600; color:var(--teal-800);">CLM (larva migrans cutanée)</td>
+          <td style="font-style:italic; font-size:0.85rem; color:var(--teal-700);">Ancylostoma braziliense, A. caninum</td>
+          <td style="font-size:0.85rem; color:var(--teal-700);">Ivermectine 200 µg/kg PO dose unique</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Nodule + punctum central + sensation de mouvement</div></td>
+          <td style="font-weight:600; color:var(--teal-800);">Myiase furonculaire</td>
+          <td style="font-size:0.85rem; color:var(--teal-700);"><em>Dermatobia hominis</em> (Amériques), <em>Cordylobia anthropophaga</em> (Afrique)</td>
+          <td style="font-size:0.85rem; color:var(--teal-700);">Occlusion (vaseline) → extraction 24–48h</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Ulcère indolore + bords surélevés + base propre</div></td>
+          <td style="font-weight:600; color:var(--teal-800);">Leishmaniose cutanée</td>
+          <td style="font-style:italic; font-size:0.85rem; color:var(--teal-700);">Leishmania spp.</td>
+          <td style="font-size:0.85rem; color:var(--teal-700);">Biopsie + PCR espèce → <strong>RÉFÉRER</strong></td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Papules prurigineuses diffuses, aggravation nocturne</div></td>
+          <td style="font-weight:600; color:var(--teal-800);">Gale / piqûres arthropodes</td>
+          <td style="font-style:italic; font-size:0.85rem; color:var(--teal-700);">Sarcoptes scabiei</td>
+          <td style="font-size:0.85rem; color:var(--teal-700);">Perméthrine 5% + ivermectine 200 µg/kg PO (OFSP 2024)</td>
+        </tr>
+        <tr class="row-alt">
+          <td><div class="test-name">Macule hypopigmentée anesthésique</div><div class="test-tip">Rare, délai diagnostique souvent long</div></td>
+          <td style="font-weight:600; color:var(--teal-800);">Lèpre de Hansen</td>
+          <td style="font-style:italic; font-size:0.85rem; color:var(--teal-700);">Mycobacterium leprae</td>
+          <td style="font-size:0.85rem; color:var(--teal-700);"><strong>Référer</strong> — maladie rare, délai diagnostique souvent long</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. PHOTOS CLINIQUES -->
+  <div class="section" id="photos-cliniques">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--gold-100);">📷</div>
+      <div>
+        <div class="section-label">Cas cliniques</div>
+        <h2 class="section-title">Photos cliniques</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <!-- CLM -->
+    <div class="photo-card">
+      <div class="photo-card-inner">
+        <div>
+          <img src="../../assets/images/dermato/larva-migrans-iowa.jpg" alt="Larva migrans cutanée — trajet serpentant sur le pied" style="width:100%;border-radius:8px;object-fit:cover;max-height:200px;">
+          <p class="photo-credit">Iowa PHIL / CDC — domaine public</p>
+        </div>
+        <div>
+          <div class="photo-case-label">Cas 1 — Trajet serpentant</div>
+          <h3 class="photo-diagnosis">Larva migrans cutanée</h3>
+          <p class="photo-description"><em>Ancylostoma braziliense / A. caninum</em> — larves d'ankylostomes animaux en impasse parasitaire chez l'homme. Localisation : pieds (39%), contact avec plage/sable humide, Caraïbes/Amériques tropicales/Afrique/Asie. Avance de quelques mm/j. Prurit intense. Diagnostic clinique. Délai moyen au diagnostic : 41 jours (Sow 2017).</p>
+          <div class="photo-treatment-mint"><strong>Traitement :</strong> Ivermectine 200 µg/kg PO dose unique (Subvectin® 3 mg, hors AMM en Suisse). Guérison &gt;90% (Bopp 2025). Alternative : albendazole 400 mg 2×/j × 3j. <strong>Inefficaces :</strong> mébendazole (0% guérison — López-Neila 2025), cryothérapie (larve survit &gt;5 min à −21°C).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Myiase -->
+    <div class="photo-card">
+      <div class="photo-card-inner">
+        <div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem;">
+            <div>
+              <img src="../../assets/images/dermato/myiasis-cobuccio-1.jpg" alt="Myiase furonculaire — J1" style="width:100%;border-radius:6px;object-fit:cover;max-height:140px;">
+              <p style="font-size:0.68rem;color:var(--teal-400);text-align:center;margin-top:0.25rem;">J1</p>
+            </div>
+            <div>
+              <img src="../../assets/images/dermato/myiasis-cobuccio-2.jpg" alt="Myiase furonculaire — J4 post-extraction" style="width:100%;border-radius:6px;object-fit:cover;max-height:140px;">
+              <p style="font-size:0.68rem;color:var(--teal-400);text-align:center;margin-top:0.25rem;">J4 post-extraction</p>
+            </div>
+          </div>
+          <p class="photo-credit">Dr. Ludovico Cobuccio — CHUV</p>
+        </div>
+        <div>
+          <div class="photo-case-label">Cas 2 — Nodule + punctum</div>
+          <h3 class="photo-diagnosis">Myiase furonculaire</h3>
+          <p class="photo-description"><em>Dermatobia hominis</em> (Amériques) / <em>Cordylobia anthropophaga</em> (Afrique, 'Tumbu fly'). Nodule sous-cutané progressif avec punctum central et sensation de mouvement. Ne répond PAS aux antibiotiques (≠ abcès bactérien). Diagnostic clinique.</p>
+          <div class="photo-treatment-mint"><strong>Traitement :</strong> Occlusion hermétique du punctum (vaseline épaisse) → larve remonte chercher l'air → extraction manuelle à 24–48h. Vérifier l'extraction complète (fragments → granulome). <strong>Aucun ATB systémique</strong> sauf surinfection secondaire avérée.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leishmaniose -->
+    <div class="photo-card">
+      <div class="photo-card-inner">
+        <div>
+          <img src="../../assets/images/dermato/leishmaniasis-iowa.jpg" alt="Leishmaniose cutanée — ulcère indolore bords surélevés" style="width:100%;border-radius:8px;object-fit:cover;max-height:200px;">
+          <p class="photo-credit">Iowa PHIL / CDC — domaine public</p>
+        </div>
+        <div>
+          <div class="photo-case-label">Cas 3 — Ulcère indolore</div>
+          <h3 class="photo-diagnosis">Leishmaniose cutanée</h3>
+          <p class="photo-description"><em>Leishmania</em> spp. — zones exposées, incubation semaines à mois. Évolution papule → nodule → ulcère indolore, bords surélevés, base propre. Amérique du Sud/Centrale/Afrique/Bassin méditerranéen. Risque mucocutanée (<em>L. braziliensis</em>, <em>L. panamensis</em>) → toujours identifier l'espèce.</p>
+          <div class="photo-treatment-gold"><strong>Diagnostic indispensable :</strong> Biopsie + PCR espèce (sensibilité 98% vs frottis 64% — Aronson 2016). <strong>→ RÉFÉRER infectiologue/tropicaliste</strong> : traitement complexe, espèce-dépendant (méglumine antimoniate, miltefosine, amphotéricine B liposomale).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gale -->
+    <div class="photo-card">
+      <div class="photo-card-inner">
+        <div>
+          <img src="../../assets/images/dermato/scabies-iowa.jpg" alt="Gale — papules prurigineuses" style="width:100%;border-radius:8px;object-fit:cover;max-height:200px;">
+          <p class="photo-credit">Iowa PHIL / CDC — domaine public</p>
+        </div>
+        <div>
+          <div class="photo-case-label">Cas 4 — Papules prurigineuses</div>
+          <h3 class="photo-diagnosis">Gale / Arthropodes</h3>
+          <p class="photo-description"><em>Sarcoptes scabiei</em> — papules et tunnels prurigineux, aggravation nocturne nette. Localisations : espaces interdigitaux, poignets, aisselles, plis inguinaux, organes génitaux. Contamination contact direct (voyage partagé, hôtels). Couple → toujours traiter les deux simultanément.</p>
+          <div class="photo-treatment-mint"><strong>Gale :</strong> Perméthrine 5% crème corps entier + ivermectine 200 µg/kg PO (OFSP Bulletin 46/24). Répéter à J7–10. Traiter simultanément tous les contacts proches et laver le linge ≥60°C. <strong>Piqûres arthropodes :</strong> Pas de traitement spécifique — prévention surinfection, antihistaminiques si prurit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. PATHOGÈNES LIÉS -->
+  <div class="section" id="pathogenes">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--teal-50);">🦠</div>
+      <div>
+        <div class="section-label">Étape 3</div>
+        <h2 class="section-title">Pathogènes liés</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="pathogen-grid">
+      <a href="../parasites/leishmaniasis.html" class="pathogen-card">
+        <div class="patho-cat">Parasite</div>
+        <div class="patho-name">Leishmaniose</div>
+        <div class="patho-agent">Leishmania spp.</div>
+        <div class="patho-link">Fiche complète →</div>
+      </a>
+      <div class="pathogen-card-static">
+        <div class="patho-cat">Parasite / helminthe</div>
+        <div class="patho-name">Larva migrans cutanée</div>
+        <div class="patho-agent">Ancylostoma braziliense</div>
+        <p class="patho-text">Parasite animal en impasse — pas de cycle complet chez l'homme. Traitement ivermectine uniquement.</p>
+      </div>
+      <div class="pathogen-card-static">
+        <div class="patho-cat">Parasite / diptère</div>
+        <div class="patho-name">Myiase furonculaire</div>
+        <div class="patho-agent">Dermatobia hominis</div>
+        <p class="patho-text">Larve de mouche dans le tissu sous-cutané. Extraction mécanique, pas d'ATB.</p>
+      </div>
+      <div class="pathogen-card-static">
+        <div class="patho-cat">Parasite / acarien</div>
+        <div class="patho-name">Gale (<em>Sarcoptes scabiei</em>)</div>
+        <div class="patho-agent">Sarcoptes scabiei</div>
+        <p class="patho-text">Acarien microscopique. Ivermectine PO = couteau suisse tropical (CLM, gale, strongyloïdose).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. TRAITEMENT -->
+  <div class="section" id="traitement">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:#f0fdf4;">💊</div>
+      <div>
+        <div class="section-label">Étape 4</div>
+        <h2 class="section-title">Traitement</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="treatment-card">
+      <div class="treatment-condition">Larva migrans cutanée (CLM)</div>
+      <div class="treatment-drug">Ivermectine 200 µg/kg PO — dose unique</div>
+      <div class="treatment-detail">
+        Subvectin® 3 mg (hors AMM en Suisse). Guérison &gt;90% à dose unique (Bopp JDDG 2025, n=246).<br>
+        Alternative si ivermectine indisponible : albendazole 400 mg 2×/j × 3 jours (Zentel®).<br>
+        Pas de traitement local efficace. Appliquer un pansement occlusif entre les doses si prurit majeur.
+      </div>
+      <div class="treatment-source">Bopp JDDG 2025 · Bouchaud CID 2000 · Sunderkötter JDDG 2014</div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="treatment-condition">Myiase furonculaire</div>
+      <div class="treatment-drug">Occlusion du punctum → extraction manuelle (24–48h)</div>
+      <div class="treatment-detail">
+        Appliquer de la vaseline épaisse (ou vernis à ongles, chewing-gum) sur le punctum de façon hermétique.<br>
+        La larve remonte chercher l'air après 24–48h → extraction douce et complète à la pince.<br>
+        Vérifier l'intégrité de la larve extraite : fragments résiduels → réaction granulomateuse.<br>
+        Aucun antibiotique systémique sauf surinfection bactérienne secondaire avérée cliniquement.
+      </div>
+      <div class="treatment-source">Lancet Infect Dis 2015 · Solomon Curr Infect Dis Rep 2016</div>
+    </div>
+
+    <div class="treatment-card secondary">
+      <div class="treatment-condition">Leishmaniose cutanée — RÉFÉRER</div>
+      <div class="treatment-drug">Biopsie + PCR espèce → infectiologue / tropicaliste</div>
+      <div class="treatment-detail">
+        Traitement espèce-dépendant et contexte-dépendant (localisation, immunocompétence, risque mucocutané).<br>
+        Options selon espèce : méglumine antimoniate (Glucantime®), miltefosine (Impavido®), amphotéricine B liposomale, thermothérapie locale.<br>
+        <em>L. braziliensis</em> et <em>L. panamensis</em> : risque de dissémination muqueuse — traitement systémique indispensable.<br>
+        Swiss TPH Basel : ressource de référence nationale pour les cas complexes.
+      </div>
+      <div class="treatment-source">Aronson CID 2016 (IDSA/ASTMH) · Mosimann Infection 2013 (n=61, Swiss TPH)</div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="treatment-condition">Gale — Sarcoptes scabiei</div>
+      <div class="treatment-drug">Perméthrine 5% crème + ivermectine 200 µg/kg PO</div>
+      <div class="treatment-detail">
+        Perméthrine 5% crème : appliquer sur tout le corps (y compris cuir chevelu chez l'enfant) pendant 8–12h.<br>
+        Ivermectine 200 µg/kg PO : compléter par voie orale. Répéter le traitement à J7–10.<br>
+        Traiter simultanément tous les contacts proches (y compris le/la partenaire).<br>
+        Laver vêtements et literie à ≥60°C ou mettre en sac hermétique 72h.
+      </div>
+      <div class="treatment-source">Kofler et al. OFSP Bulletin 46/24</div>
+    </div>
+
+    <div class="treatment-warning">
+      ⚠️ <span><strong>Cryothérapie pour CLM = OBSOLÈTE</strong> (larve survit &gt;5 min à −21°C). <strong>Mébendazole = INEFFICACE</strong> (0% guérison — López-Neila 2025, n=107). <strong>Ivermectine dose unique = traitement de référence CLM</strong>.</span>
+    </div>
+
+    <div class="swisstph-box">
+      <div>
+        <div class="swisstph-label">Ressource — Suisse</div>
+        <div class="swisstph-title">Swiss TPH Basel — avis pour cas complexes</div>
+        <div style="font-size:0.82rem; color:#d9f2f1; margin-top:0.25rem;">Leishmaniose · gale norvégienne · CLM extensif</div>
+      </div>
+      <a href="tel:+41612848144" class="swisstph-contact">+41 61 284 81 44</a>
+    </div>
+  </div>
+
+  <!-- 5. ALGORITHME DIAGNOSTIQUE -->
+  <div class="section" id="algorithme">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--gold-100);">📋</div>
+      <div>
+        <div class="section-label">Aide décisionnelle</div>
+        <h2 class="section-title">Algorithme diagnostique</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <iframe src="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/LEskargot/TropicalNotes/main/assets/diagrams/algo-dermatose.drawio.xml&embed=1&toolbar=0&layers=1" width="100%" height="520" style="border:none;border-radius:12px;background:#f0fafa;" loading="lazy" title="Algorithme diagnostique dermatoses"></iframe>
+    <p style="font-size:0.75rem;color:var(--teal-400);margin-top:0.5rem;text-align:center;font-style:italic;">L'algorithme interactif s'affiche après déploiement sur GitHub Pages (viewer.diagrams.net)</p>
+  </div>
+
+  <!-- 6. POINTS CLÉS -->
+  <div class="section" id="points-cles">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:#fff7ed;">⚡</div>
+      <div>
+        <div class="section-label">À retenir</div>
+        <h2 class="section-title">Points clés</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="points-grid">
+      <div class="point-card point-piege">
+        <div class="point-label label-piege">⚠ Piège</div>
+        <div class="point-text">
+          <strong>«Trajet serpentant + voyage tropical = mycose → prescrire antimycotique»</strong><br><br>
+          FAUX. CLM = diagnostic N°1 cutané du voyageur (9,8% des consultations post-voyage). Aucun champignon ne progresse de mm/j. Délai moyen au diagnostic : 41 jours (Sow 2017).<br><br>
+          → Ivermectine dose unique → &gt;90% guérison.
+        </div>
+      </div>
+      <div class="point-card point-perle">
+        <div class="point-label label-perle">✦ Perle</div>
+        <div class="point-text">
+          <strong>«Pas de réponse aux antimycotiques/ATB + voyage tropical = reconsidérer le diagnostic.»</strong><br><br>
+          Ivermectine = couteau suisse tropical : CLM, gale, strongyloïdose.<br><br>
+          Subvectin® 3 mg disponible en Suisse (Swissmedic mai 2023).
+        </div>
+      </div>
+      <div class="point-card point-retenir">
+        <div class="point-label label-retenir">→ Retenir</div>
+        <ul class="retenir-list">
+          <li>Pieds + plage + serpentant = CLM → ivermectine dose unique</li>
+          <li>Nodule + punctum + mouvement = myiase → occlusion + extraction, pas d'ATB</li>
+          <li>Ulcère indolore + chronique + Amériques = leishmaniose → biopsie PCR espèce + référer</li>
+          <li>Mébendazole inefficace (0% guérison — López-Neila 2025)</li>
+          <li>Cryothérapie obsolète pour CLM (larve survit &gt;5 min à −21°C)</li>
+          <li>Gale = perméthrine 5% + ivermectine PO, J0 + J7–10 (OFSP 2024)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. RÉFÉRENCES -->
+  <div class="section" id="references">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--cream-200);">📑</div>
+      <div>
+        <div class="section-label">Bibliographie sélective</div>
+        <h2 class="section-title">Références</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="evidence-list">
+      <div class="evidence-item"><span class="evidence-num">1</span><span class="evidence-text"><strong>Freedman DO et al.</strong> N Engl J Med 2006 (n=17 353) — Maladies importées chez les voyageurs : peau = 3e motif de consultation, 18% de toutes les consultations post-voyage.</span></div>
+      <div class="evidence-item"><span class="evidence-num">2</span><span class="evidence-text"><strong>Lederman ER et al.</strong> Int J Infect Dis 2008 (n=4 742) — Dermatoses du voyageur : CLM 9,8%, leishmaniose cutanée 3,3%, myiase 2,7%.</span></div>
+      <div class="evidence-item"><span class="evidence-num">3</span><span class="evidence-text"><strong>Bopp C et al.</strong> J Dtsch Dermatol Ges (JDDG) 2025 (n=246) — Ivermectine et albendazole &gt;90% de guérison CLM ; cryothérapie non recommandée.</span></div>
+      <div class="evidence-item"><span class="evidence-num">4</span><span class="evidence-text"><strong>López-Neila M et al.</strong> Am J Trop Med Hyg 2025 (n=107) — Mébendazole : taux de guérison 0% pour la CLM.</span></div>
+      <div class="evidence-item"><span class="evidence-num">5</span><span class="evidence-text"><strong>Bouchaud O et al.</strong> Clin Infect Dis 2000 (n=64) — Ivermectine dose unique : guérison 77% ; après re-dosage : 97% au total.</span></div>
+      <div class="evidence-item"><span class="evidence-num">6</span><span class="evidence-text"><strong>Sow D et al.</strong> Travel Med Infect Dis 2017 (n=43) — Délai moyen au diagnostic de CLM : 41 jours. DOI 10.1016/j.tmaid.2017.06.003</span></div>
+      <div class="evidence-item"><span class="evidence-num">7</span><span class="evidence-text"><strong>Wilder-Smith A &amp; Caumes E.</strong> J Travel Med 2024 — Classification morphologique des dermatoses du voyageur : linéaire, nodulaire, ulcère, papuleux, maculeux. DOI 10.1093/jtm/taae142</span></div>
+      <div class="evidence-item"><span class="evidence-num">8</span><span class="evidence-text"><strong>Aronson NE et al.</strong> Clin Infect Dis 2016 — IDSA/ASTMH Guidelines leishmaniose : PCR espèce sensibilité 98% vs frottis 64% [Strong, moderate]. DOI 10.1093/cid/ciw670</span></div>
+      <div class="evidence-item"><span class="evidence-num">9</span><span class="evidence-text"><strong>Kofler S et al.</strong> OFSP Bulletin 46/24, nov. 2024 — Traitement de la gale : perméthrine 5% crème + ivermectine 200 µg/kg PO, répéter J7–10. URL: bag.admin.ch/bulletin-46-24</span></div>
+      <div class="evidence-item"><span class="evidence-num">10</span><span class="evidence-text"><strong>Lancet Infect Dis 2015</strong> — Myiase furonculaire : occlusion hermétique + extraction manuelle comme traitement de référence. DOI 10.1016/S1473-3099(15)70146-5</span></div>
+      <div class="evidence-item"><span class="evidence-num">11</span><span class="evidence-text"><strong>Blaizot R et al.</strong> Clin Exp Dermatol 2020 (n=201) — Absence de conseil pré-voyage = facteur de risque de dermatose tropicale importée. DOI 10.1111/ced.14170</span></div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<div style="background:var(--teal-800); color:var(--teal-100); padding:2rem 1.5rem; text-align:center; font-size:0.82rem; line-height:1.6;">
+  <div style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:1.1rem; margin-bottom:0.5rem;">Tropical Notebook</div>
+  Médecine tropicale et du voyage pour praticiens — Suisse<br>
+  <a href="mailto:ludovico.cobuccio@chuv.ch" style="color:var(--mint-300); text-decoration:none;">ludovico.cobuccio@chuv.ch</a> ·
+  <a href="https://traveldoctor.ch" target="_blank" style="color:var(--mint-300); text-decoration:none;">traveldoctor.ch</a>
+</div>
+
+<script>
+  // Dropdown toggle on mobile
+  document.querySelectorAll('.dropdown button').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.currentTarget.closest('.dropdown').classList.toggle('active');
+    });
+  });
+  // Scroll spy for anchor nav
+  const sections = document.querySelectorAll('.section[id]');
+  const anchorLinks = document.querySelectorAll('.anchor-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        anchorLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.anchor-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-56px 0px -60% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

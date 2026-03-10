@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diarrhée du voyageur — Tropical Notebook</title>
+  <link href="../../dist/css/prototype.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* Grain texture */
+    body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+
+    /* Design tokens */
+    :root {
+      --teal-50:#f0fafa; --teal-100:#d9f2f1; --teal-200:#b0e4e2;
+      --teal-400:#479793; --teal-500:#2a9d8f; --teal-700:#2d5e5b;
+      --teal-800:#1a3836; --teal-900:#0f2322;
+      --mint-50:#edfcf8; --mint-200:#a6f0de; --mint-300:#66dfc2;
+      --mint-400:#2dcaab; --mint-600:#1a8b7a;
+      --gold-400:#d4a84b; --gold-100:#fef3cd;
+      --cream-50:#fefdfb; --cream-100:#fdfaf4; --cream-200:#f8f2e4;
+    }
+
+    /* Navbar */
+    .nav-fixed { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+    .dropdown-menu { opacity:0; visibility:hidden; transform:translateY(-4px); transition:all 0.2s ease; }
+    .dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
+
+    /* Hero */
+    .hero-pattern { position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0c2 12 8 20 20 24-12 2-18 8-20 16-2-8-8-14-20-16C32 20 38 12 40 0z' fill='%23ffffff' fill-opacity='0.4'/%3E%3C/svg%3E"); }
+
+    /* Anchor nav */
+    .anchor-nav { background:white; border-bottom:1px solid var(--teal-100); position:sticky; top:56px; z-index:40; }
+    .anchor-nav-inner { max-width:900px; margin:0 auto; padding:0 1.5rem; display:flex; overflow-x:auto; scrollbar-width:none; }
+    .anchor-nav-inner::-webkit-scrollbar { display:none; }
+    .anchor-link { color:var(--teal-700); font-size:0.82rem; padding:0.75rem 1rem; border-bottom:2px solid transparent; text-decoration:none; white-space:nowrap; transition:color 0.2s,border-color 0.2s; font-weight:500; }
+    .anchor-link:hover { color:var(--teal-500); border-bottom-color:var(--teal-200); }
+    .anchor-link.active { color:var(--teal-500); border-bottom-color:var(--teal-500); }
+
+    /* Sections */
+    .section { margin-bottom:3.5rem; scroll-margin-top:112px; }
+    .section-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+    .section-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; color:var(--teal-400); margin-bottom:0.15rem; }
+    .section-title { font-family:"DM Serif Display",serif; font-size:1.45rem; color:var(--teal-800); }
+    .divider { height:1px; background:linear-gradient(90deg,var(--teal-200),transparent); margin-bottom:1.25rem; }
+
+    /* Workup table */
+    .workup-table { width:100%; border-collapse:separate; border-spacing:0; border-radius:12px; overflow:hidden; border:1px solid var(--teal-100); }
+    .workup-table th { background:var(--teal-800); color:white; padding:0.65rem 1rem; text-align:left; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; }
+    .workup-table td { padding:0.65rem 1rem; border-bottom:1px solid var(--teal-50); background:white; font-size:0.88rem; vertical-align:top; }
+    .workup-table tr:last-child td { border-bottom:none; }
+    .workup-table tr:hover td { background:var(--teal-50); }
+    .test-name { font-weight:600; color:var(--teal-800); }
+    .test-tip { font-size:0.77rem; color:var(--teal-400); margin-top:0.15rem; font-style:italic; }
+    .chip { display:inline-block; border-radius:4px; padding:0.1rem 0.45rem; font-size:0.73rem; font-weight:600; margin-right:3px; }
+    .chip-urgent { background:#fee2e2; color:#991b1b; }
+    .chip-std { background:var(--mint-50); color:var(--mint-600); }
+    .chip-opt { background:var(--cream-200); color:var(--teal-700); }
+
+    /* Pathogen cards */
+    .pathogen-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(195px,1fr)); gap:1rem; }
+    .pathogen-card { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.1rem; text-decoration:none; color:inherit; transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s; position:relative; overflow:hidden; display:block; }
+    .pathogen-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal-700),var(--teal-400)); transform:scaleX(0); transform-origin:left; transition:transform 0.35s cubic-bezier(0.22,1,0.36,1); }
+    .pathogen-card:hover { transform:translateY(-4px); box-shadow:0 16px 32px -8px rgba(26,56,54,0.12); }
+    .pathogen-card:hover::before { transform:scaleX(1); }
+    /* Info cards (non-linked) */
+    .info-card { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.1rem; color:inherit; display:block; cursor:default; }
+    .patho-cat { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.3rem; }
+    .patho-name { font-family:"DM Serif Display",serif; font-size:1.05rem; color:var(--teal-800); margin-bottom:0.2rem; }
+    .patho-agent { font-size:0.8rem; color:var(--teal-700); font-style:italic; margin-bottom:0.5rem; }
+    .patho-desc { font-size:0.8rem; color:var(--teal-700); line-height:1.45; }
+    .patho-link { font-size:0.75rem; color:var(--teal-400); }
+
+    /* Treatment cards */
+    .treatment-card { background:white; border-radius:12px; border:1px solid var(--teal-100); border-left:4px solid var(--teal-400); padding:1.1rem 1.25rem; margin-bottom:1rem; }
+    .treatment-card.urgent { border-left-color:#ef4444; }
+    .treatment-card.secondary { border-left-color:var(--gold-400); }
+    .treatment-condition { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.4rem; }
+    .treatment-card.urgent .treatment-condition { color:#ef4444; }
+    .treatment-card.secondary .treatment-condition { color:#b45309; }
+    .treatment-drug { font-family:"DM Serif Display",serif; font-size:1.15rem; color:var(--teal-800); margin-bottom:0.3rem; }
+    .treatment-detail { font-size:0.88rem; color:var(--teal-700); line-height:1.55; }
+    .treatment-source { font-size:0.73rem; color:var(--teal-400); margin-top:0.5rem; border-top:1px solid var(--teal-50); padding-top:0.4rem; }
+    .treatment-warning { background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; padding:0.75rem 1rem; font-size:0.85rem; color:#9a3412; margin-top:0.75rem; display:flex; gap:0.5rem; line-height:1.5; }
+
+    /* Swiss TPH */
+    .swisstph-box { background:linear-gradient(135deg,var(--teal-800),var(--teal-700)); border-radius:12px; padding:1.25rem 1.5rem; color:white; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-top:1.5rem; }
+    .swisstph-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--mint-300); font-weight:600; margin-bottom:0.25rem; }
+    .swisstph-title { font-family:"DM Serif Display",serif; font-size:1.1rem; color:#fdfaf4; }
+    .swisstph-contact { background:rgba(45,202,171,0.2); border:1px solid rgba(45,202,171,0.3); border-radius:8px; padding:0.5rem 1rem; color:var(--mint-300); font-size:0.9rem; font-weight:600; }
+
+    /* Points clés */
+    .points-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .point-card { border-radius:12px; padding:1.1rem 1.25rem; }
+    .point-piege { background:#fff7ed; border:1px solid #fed7aa; }
+    .point-perle { background:var(--mint-50); border:1px solid rgba(45,202,171,0.2); }
+    .point-retenir { background:var(--teal-50); border:1px solid var(--teal-100); grid-column:span 2; }
+    .point-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:0.5rem; }
+    .label-piege { color:#c2410c; }
+    .label-perle { color:var(--mint-600); }
+    .label-retenir { color:var(--teal-700); }
+    .point-text { font-size:0.88rem; color:var(--teal-800); line-height:1.55; }
+    .retenir-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:0.35rem 1.5rem; margin-top:0.5rem; }
+    .retenir-list li { font-size:0.85rem; color:var(--teal-700); display:flex; gap:0.5rem; align-items:flex-start; line-height:1.4; }
+    .retenir-list li::before { content:'→'; color:var(--teal-400); flex-shrink:0; font-weight:600; }
+
+    /* Evidence */
+    .evidence-list { display:grid; gap:0.5rem; }
+    .evidence-item { background:white; border-radius:8px; border:1px solid var(--teal-100); padding:0.7rem 1rem; display:flex; gap:0.75rem; font-size:0.83rem; }
+    .evidence-num { color:var(--teal-400); font-weight:700; font-size:0.75rem; flex-shrink:0; width:20px; padding-top:0.05rem; }
+    .evidence-text { color:var(--teal-700); line-height:1.45; }
+
+    /* Rule info box */
+    .rule-box { background:var(--mint-50); border:1px solid rgba(45,202,171,0.3); border-radius:8px; padding:0.75rem 1rem; font-size:0.88rem; color:var(--teal-800); margin-bottom:1.25rem; display:flex; gap:0.5rem; align-items:flex-start; }
+
+    html { scroll-behavior:smooth; }
+  </style>
+</head>
+<body class="bg-cream-50 font-sans text-teal-900 antialiased">
+
+<!-- NAVBAR -->
+<nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex items-center justify-between h-14">
+      <a href="../../prototype.html" class="flex items-center gap-3 group">
+        <span class="text-mint-400 text-xl">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg>
+        </span>
+        <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1">
+        <a href="../../prototype.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-semibold">Syndromes</a>
+        <div class="dropdown relative">
+          <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
+            Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
+            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a>
+            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
+            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
+          </div>
+        </div>
+        <a href="../../prototype.html#about" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="pt-14">
+  <div style="background:linear-gradient(135deg,#1a3836 0%,#2d5e5b 100%); padding:3rem 1.5rem 2.5rem; position:relative; overflow:hidden;">
+    <div class="hero-pattern"></div>
+    <div style="max-width:900px; margin:0 auto; position:relative;">
+      <div style="display:flex; align-items:center; gap:0.5rem; color:#66dfc2; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;">
+        <a href="../../prototype.html#syndromes" style="color:inherit; text-decoration:none;">Syndromes</a>
+        <span style="opacity:0.5">›</span>
+        <span style="color:#fdfaf4;">Diarrhée du voyageur</span>
+      </div>
+      <h1 style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:2.4rem; line-height:1.15; margin-bottom:0.75rem;">Diarrhée du voyageur</h1>
+      <p style="color:#d9f2f1; font-size:1rem; line-height:1.6; max-width:600px; margin-bottom:1.5rem;">Sévérité par impact fonctionnel, pas par nombre de selles. Dysenterie = ATB empirique.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌏 Asie du Sud</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌍 Afrique</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">Amérique latine</span>
+        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">ISTM 2017</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANCHOR NAV -->
+<div class="anchor-nav">
+  <div class="anchor-nav-inner">
+    <a href="#diagnostic" class="anchor-link active">Diagnostic</a>
+    <a href="#bilan" class="anchor-link">Bilan</a>
+    <a href="#etiologies" class="anchor-link">Étiologies</a>
+    <a href="#pathogenes" class="anchor-link">Pathogènes</a>
+    <a href="#traitement" class="anchor-link">Traitement</a>
+    <a href="#algorithme" class="anchor-link">Algorithme</a>
+    <a href="#points-cles" class="anchor-link">Points clés</a>
+    <a href="#references" class="anchor-link">Références</a>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div style="max-width:900px; margin:0 auto; padding:2.5rem 1.5rem 4rem;">
+
+  <!-- 1. APPROCHE DIAGNOSTIQUE -->
+  <div class="section" id="diagnostic">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--gold-100);">🩺</div>
+      <div>
+        <div class="section-label">Étape 1</div>
+        <h2 class="section-title">Approche diagnostique</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="rule-box">
+      <span style="font-weight:700; color:var(--mint-600); flex-shrink:0;">✦</span>
+      <span><strong>Sévérité = impact fonctionnel (ISTM 2017)</strong> — pas le nombre de selles. 3 selles incapacitantes = SÉVÈRE. 10 selles bien tolérées = MODÉRÉE.</span>
+    </div>
+
+    <table class="workup-table">
+      <thead>
+        <tr>
+          <th>Sévérité</th>
+          <th>Définition</th>
+          <th>Conduite</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="test-name">Légère</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Tolérable — n'interfère pas avec les activités</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Hydratation + SRO. Lopéramide possible si pas de dysenterie.</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Modérée</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Gênante — interfère avec les activités planifiées</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">± Lopéramide. ± ATB si retour Asie et activités compromises.</td>
+        </tr>
+        <tr>
+          <td style="border-left:3px solid #ef4444;"><div class="test-name" style="color:#991b1b;">Sévère</div><div class="test-tip" style="color:#ef4444;">Dysenterie = ATB empirique</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);"><strong>Incapacitante OU dysenterie</strong> (selles sanglantes ± fièvre)</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);"><strong>ATB empirique + investigations</strong>. Lopéramide contre-indiqué si dysenterie.</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Persistante</div></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">≥ 14 jours</td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Bilan parasitologique complet + coproparasitologie × 3. Penser à <em>Giardia</em>, <em>Cryptosporidium</em>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 2. BILAN INITIAL -->
+  <div class="section" id="bilan">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--gold-100);">🧪</div>
+      <div>
+        <div class="section-label">Étape 2</div>
+        <h2 class="section-title">Bilan initial</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <table class="workup-table">
+      <thead>
+        <tr><th>Examen</th><th>Indication</th><th>Commentaire</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="test-name">Panel PCR bactérien multiplex</div><div class="test-tip">Campylobacter, Shigella, ETEC, EAEC, EPEC, Salmonella</div></td>
+          <td><span class="chip chip-urgent">Sévère / dysenterie</span></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Identifie agent et permet d'orienter l'antibiothérapie. Réduction de la part «inexpliquée» (EAEC, EPEC désormais détectés).</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">PCR <em>E. histolytica</em></div></td>
+          <td><span class="chip chip-std">Dysenterie tropiques</span></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Distingue <em>Entamoeba histolytica</em> (pathogène) d'<em>E. dispar</em> (non pathogène, morphologiquement identique).</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">PCR <em>C. difficile</em></div></td>
+          <td><span class="chip chip-opt">Hospitalisation / ATB récents</span></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Peu rentable sans facteur de risque. Ne pas demander en routine sur diarrhée du voyageur sans hospitalisation récente.</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Coproparasitologie × 3</div></td>
+          <td><span class="chip chip-opt">Persistante ≥ 14j</span></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);"><em>Giardia</em>, <em>Cryptosporidium</em>, helminthes. 3 échantillons pour augmenter la sensibilité.</td>
+        </tr>
+        <tr>
+          <td><div class="test-name">Hémocultures × 2</div></td>
+          <td><span class="chip chip-opt">Fièvre + dysenterie</span></td>
+          <td style="font-size:0.88rem; color:var(--teal-700);">Rares bactériémies — <em>Salmonella</em> non typhi, <em>Shigella</em>. Avant tout ATB. Rendement maximum en phase bactériémique.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. GRAPHIQUES ÉTIOLOGIES -->
+  <div class="section" id="etiologies">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--teal-50);">📊</div>
+      <div>
+        <div class="section-label">Épidémiologie</div>
+        <h2 class="section-title">Étiologies de la diarrhée du voyageur</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <p style="font-size:0.9rem; color:var(--teal-700); margin-bottom:1.25rem; line-height:1.6;">Fourchettes publiées issues d'études poolées. La part bactérienne représente environ 62% des cas identifiés. La PCR multiplex réduit la proportion «inexpliquée».</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+      <div>
+        <p style="font-size:0.82rem; color:var(--teal-400); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Proportion par pathogène</p>
+        <iframe src="../../assets/charts/barres-etiologies.html" width="100%" height="420" style="border:none; border-radius:12px; background:#f0fafa;" loading="lazy" title="Étiologies diarrhée"></iframe>
+      </div>
+      <div>
+        <p style="font-size:0.82rem; color:var(--teal-400); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Distribution relative</p>
+        <iframe src="../../assets/charts/camembert-etiologies.html" width="100%" height="420" style="border:none; border-radius:12px; background:#f0fafa;" loading="lazy" title="Distribution étiologies"></iframe>
+      </div>
+    </div>
+
+    <p style="font-size:0.82rem; color:var(--teal-400); font-weight:600; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Résistance aux fluoroquinolones — <em>Campylobacter</em> spp.</p>
+    <iframe src="../../assets/charts/carte-resistance-fq.html" width="100%" height="460" style="border:none; border-radius:12px; background:#f0fafa;" loading="lazy" title="Carte résistance fluoroquinolones"></iframe>
+  </div>
+
+  <!-- 4. PATHOGÈNES PRINCIPAUX -->
+  <div class="section" id="pathogenes">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--teal-50);">🦠</div>
+      <div>
+        <div class="section-label">Étape 3</div>
+        <h2 class="section-title">Pathogènes principaux</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="pathogen-grid">
+      <div class="info-card">
+        <div class="patho-cat">Bactérie</div>
+        <div class="patho-name">ETEC</div>
+        <div class="patho-agent">Escherichia coli entérotoxinogène</div>
+        <div class="patho-desc">Agent bactérien le plus fréquent (~30%). Produit des entérotoxines thermostables (ST) et thermolabiles (LT) causant une diarrhée aqueuse profuse.</div>
+      </div>
+      <div class="info-card">
+        <div class="patho-cat">Bactérie</div>
+        <div class="patho-name">Campylobacter spp.</div>
+        <div class="patho-agent">Campylobacter jejuni / coli</div>
+        <div class="patho-desc">Résistance aux fluoroquinolones 75–89% en Asie → azithromycine 1ère ligne. Dominant en Asie du Sud-Est. Peut provoquer dysenterie.</div>
+      </div>
+      <div class="info-card">
+        <div class="patho-cat">Bactérie</div>
+        <div class="patho-name">Shigella spp.</div>
+        <div class="patho-agent">Shigella sonnei / flexneri</div>
+        <div class="patho-desc">Agent classique de dysenterie bacillaire. Dose infectante très faible (10–100 UFC). Résistance FQ croissante — azithromycine recommandée.</div>
+      </div>
+      <div class="info-card">
+        <div class="patho-cat">Virus</div>
+        <div class="patho-name">Norovirus</div>
+        <div class="patho-agent">Calicivirus</div>
+        <div class="patho-desc">Sous-estimé : ~18% par PCR multiplex. Transmission oro-fécale et aérosols. Évolution spontanément favorable en 24–72h. Traitement symptomatique.</div>
+      </div>
+      <div class="info-card">
+        <div class="patho-cat">Parasite</div>
+        <div class="patho-name">Giardia lamblia</div>
+        <div class="patho-agent">Giardia intestinalis</div>
+        <div class="patho-desc">Cause de diarrhée persistante ≥14j, ballonnements, selles graisseuses et malodorantes. Traitement : métronidazole ou tinidazole dose unique.</div>
+      </div>
+      <div class="info-card">
+        <div class="patho-cat">Parasite</div>
+        <div class="patho-name">Entamoeba histolytica</div>
+        <div class="patho-agent">Entamoeba histolytica</div>
+        <div class="patho-desc">Dysenterie amibienne. Distinguer d'<em>E. dispar</em> (non pathogène, morphologiquement identique) par PCR. Risque d'abcès hépatique amibien.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. TRAITEMENT -->
+  <div class="section" id="traitement">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:#f0fdf4;">💊</div>
+      <div>
+        <div class="section-label">Étape 4</div>
+        <h2 class="section-title">Traitement</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="treatment-card">
+      <div class="treatment-condition">Diarrhée sévère / dysenterie — retour Asie</div>
+      <div class="treatment-drug">Azithromycine 1 g dose unique PO</div>
+      <div class="treatment-detail">
+        1ère ligne en Asie (résistance FQ 75–89% chez <em>Campylobacter</em>). Efficacité 96% vs 71% pour la lévofloxacine (Tribble 2007, Thaïlande).<br>
+        Alternative : azithromycine 500 mg × 3j si échec dose unique ou terrain particulier (immunodépression).
+      </div>
+      <div class="treatment-source">Künzli Forum Med Suisse 2021 · ISTM Riddle 2017 · Tribble CID 2007 · Jia Zoonoses 2025</div>
+    </div>
+
+    <div class="treatment-card">
+      <div class="treatment-condition">Dysenterie amibienne confirmée (<em>E. histolytica</em>)</div>
+      <div class="treatment-drug">Métronidazole 750 mg 3×/j × 5–10j + diloxanide furate 500 mg 3×/j × 10j</div>
+      <div class="treatment-detail">
+        Traitement en deux temps : le métronidazole éradique les formes tissulaires. Le diloxanide furate (agent intraluminal) est <strong>indispensable</strong> ensuite pour éradiquer les kystes et prévenir la récidive. Ne pas omettre la 2ème phase.
+      </div>
+    </div>
+
+    <div class="treatment-card urgent">
+      <div class="treatment-condition">⚠ Suspicion EHEC — selles sanglantes SANS fièvre, notion de viande hachée</div>
+      <div class="treatment-drug">AUCUN ANTIBIOTIQUE</div>
+      <div class="treatment-detail">
+        Les ATB dans l'EHEC (<em>E. coli</em> O157:H7 et autres) induisent une libération massive de toxines Shiga → risque majeur de syndrome hémolytique et urémique (SHU).<br>
+        Traitement : symptomatique uniquement. Surveillance biologique rapprochée (créatinine, plaquettes, hémoglobine). Hémodialyse si SHU constitué.
+      </div>
+    </div>
+
+    <div class="swisstph-box" style="background:linear-gradient(135deg,var(--teal-800),var(--teal-700));">
+      <div>
+        <div class="swisstph-label">Colonisation post-voyage — ESBL</div>
+        <div class="swisstph-title">Retour Asie du Sud = 75% colonisation ESBL</div>
+        <div style="font-size:0.82rem; color:#d9f2f1; margin-top:0.25rem;">87% si Inde (Kuenzli 2014) · ATB + diarrhée voyage → OR 3.37 d'acquisition · Carriage médian 30 jours</div>
+      </div>
+      <div style="background:rgba(45,202,171,0.2); border:1px solid rgba(45,202,171,0.3); border-radius:8px; padding:0.5rem 1rem; color:var(--mint-300); font-size:0.85rem; font-weight:600;">Culture avant ATB !</div>
+    </div>
+
+    <div class="treatment-warning" style="margin-top:1rem;">
+      ⚠️ <span><strong>Lopéramide CONTRE-INDIQUÉ si dysenterie</strong> (selles sanglantes, fièvre &gt;38,3°C) — risque de mégacôlon toxique. Paracétamol pour les symptômes. Lopéramide utilisable uniquement en l'absence de signes de dysenterie.</span>
+    </div>
+  </div>
+
+  <!-- 6. ALGORITHME -->
+  <div class="section" id="algorithme">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--gold-100);">📋</div>
+      <div>
+        <div class="section-label">Démarche pratique</div>
+        <h2 class="section-title">Algorithme</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <iframe
+      src="https://viewer.diagrams.net/?url=https://raw.githubusercontent.com/LEskargot/TropicalNotes/main/assets/diagrams/algo-diarrhee.drawio.xml&embed=1&toolbar=0&layers=1"
+      width="100%" height="520"
+      style="border:none; border-radius:12px; background:#f0fafa;"
+      loading="lazy"
+      title="Algorithme diarrhée du voyageur">
+    </iframe>
+    <p style="font-size:0.75rem; color:var(--teal-400); margin-top:0.5rem; text-align:center; font-style:italic;">(S'affiche après déploiement GitHub Pages)</p>
+  </div>
+
+  <!-- 7. POINTS CLÉS -->
+  <div class="section" id="points-cles">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:#fff7ed;">💡</div>
+      <div>
+        <div class="section-label">À retenir</div>
+        <h2 class="section-title">Points clés</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="points-grid">
+      <div class="point-card point-piege">
+        <div class="point-label label-piege">⚠ Piège</div>
+        <div class="point-text">
+          <strong>«Classifier la sévérité par le nombre de selles»</strong><br><br>
+          FAUX. 3 selles/j incapacitantes = SÉVÈRE. 10 selles/j qui n'empêchent pas de travailler = MODÉRÉE.<br><br>
+          → L'impact fonctionnel prime. C'est la définition ISTM 2017 — dysenterie (selles sanglantes) classe automatiquement en SÉVÈRE, quel que soit le nombre de selles.
+        </div>
+      </div>
+      <div class="point-card point-perle">
+        <div class="point-label label-perle">✦ Perle</div>
+        <div class="point-text">
+          <strong>Retour Asie du Sud → TOUJOURS urine culture avant ATB</strong><br><br>
+          75% de colonisation ESBL (87% si Inde). Médian 30j de portage. Risque clinique faible mais carbapénèmes inutiles si sensibilité testée.<br><br>
+          → Une culture avant traitement évite une escalade thérapeutique inutile.
+        </div>
+      </div>
+      <div class="point-card point-retenir">
+        <div class="point-label label-retenir">→ Retenir</div>
+        <ul class="retenir-list">
+          <li>Diarrhée sévère retour Asie → <strong>azithromycine 1g dose unique</strong> (FQ-résistance 75–89% Campylobacter)</li>
+          <li>Dysenterie = selles sanglantes = <strong>ATB empirique</strong> sans attendre cultures</li>
+          <li>EHEC suspecté (sanglant SANS fièvre, viande hachée) → <strong>pas d'ATB</strong>, risque SHU</li>
+          <li><strong>Lopéramide CI si dysenterie</strong> (selles sanglantes ou fièvre &gt;38,3°C)</li>
+          <li>Dysenterie amibienne → métronidazole <strong>+ diloxanide furate</strong> (intraluminal indispensable)</li>
+          <li>Retour Asie du Sud = 75% ESBL → <strong>culture avant toute antibiothérapie</strong> (IU incluses)</li>
+          <li>Déclaration OFSP 24h : <em>Campylobacter</em>, <em>Salmonella</em>, <em>Shigella</em>, EHEC, <em>V. cholerae</em></li>
+          <li>PCR <em>C. difficile</em> uniquement si <strong>hospitalisation récente ou ATB récents</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. RÉFÉRENCES -->
+  <div class="section" id="references">
+    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
+      <div class="section-icon" style="background:var(--cream-200);">📑</div>
+      <div>
+        <div class="section-label">Bibliographie sélective</div>
+        <h2 class="section-title">Références</h2>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="evidence-list">
+      <div class="evidence-item"><span class="evidence-num">1</span><span class="evidence-text"><strong>Riddle MS et al.</strong> J Travel Med 2017 (ISTM) — Classification sévérité par impact fonctionnel ; azithromycine 1ère ligne Asie ; recommandation forte contre la prophylaxie ATB systématique. DOI: 10.1093/jtm/tax026</span></div>
+      <div class="evidence-item"><span class="evidence-num">2</span><span class="evidence-text"><strong>Künzli BM et al.</strong> Forum Med Suisse 2021 — Azithromycine dose unique équivalente à 3j ; probiotiques sans preuve fiable ; charbon actif déconseillé. DOI: 10.4414/fms.2021.08648</span></div>
+      <div class="evidence-item"><span class="evidence-num">3</span><span class="evidence-text"><strong>Chappuis F.</strong> Rev Med Suisse 2020 (HUG) — Algorithme PCR multiplex ; restriction ATB modérée ; PCR <em>C. difficile</em> si hospit./ATB récent. DOI: 10.53738/REVMED.2020.16.679</span></div>
+      <div class="evidence-item"><span class="evidence-num">4</span><span class="evidence-text"><strong>Tribble DR et al.</strong> Clin Infect Dis 2007 (n=143, Thaïlande) — Guérison azithromycine 96% vs lévofloxacine 71% (p=0.002) ; éradication microbiologique 96% vs 38%. DOI: 10.1086/510589</span></div>
+      <div class="evidence-item"><span class="evidence-num">5</span><span class="evidence-text"><strong>Jia S et al.</strong> Zoonoses 2025 (66 771 génomes, 53 pays) — FQ-résistance <em>Campylobacter</em> &gt;75% en Asie ; macrolides-R &lt;8%. DOI: 10.15212/zoonoses-2024-0060</span></div>
+      <div class="evidence-item"><span class="evidence-num">6</span><span class="evidence-text"><strong>Steffen R et al.</strong> JAMA 2015 — Incidence 10–40% selon destination ; étiologie bactérienne 62% ; ETEC 30%. DOI: 10.1001/jama.2014.17006</span></div>
+      <div class="evidence-item"><span class="evidence-num">7</span><span class="evidence-text"><strong>Arcilla MS et al. (COMBAT)</strong> Lancet Infect Dis 2017 (n=2001) — Acquisition ESBL 34% globale, 75% Asie du Sud ; ATB pendant voyage OR 2.69. DOI: 10.1016/S1473-3099(16)30319-X</span></div>
+      <div class="evidence-item"><span class="evidence-num">8</span><span class="evidence-text"><strong>Kuenzli E et al.</strong> BMC Infect Dis 2014 (n=170 voyageurs suisses) — Inde 87%, Sri Lanka 35% colonisation ESBL post-voyage. DOI: 10.1186/1471-2334-14-528</span></div>
+      <div class="evidence-item"><span class="evidence-num">9</span><span class="evidence-text"><strong>Kantele A et al.</strong> Clin Infect Dis 2015 (n=430) — Sans diarrhée 11% ESBL, diarrhée seule 21%, diarrhée + ATB 37%. DOI: 10.1093/cid/ciu957</span></div>
+      <div class="evidence-item"><span class="evidence-num">10</span><span class="evidence-text"><strong>Woerther PL et al.</strong> J Travel Med 2017 (revue 16 études) — Portage médian ~30j ; infection clinique très faible (0/90 à 1 an). DOI: 10.1093/jtm/taw101</span></div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<div style="background:var(--teal-800); color:var(--teal-100); padding:2rem 1.5rem; text-align:center; font-size:0.82rem; line-height:1.6;">
+  <div style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:1.1rem; margin-bottom:0.5rem;">Tropical Notebook</div>
+  Médecine tropicale et du voyage pour praticiens — Suisse<br>
+  <a href="mailto:ludovico.cobuccio@chuv.ch" style="color:var(--mint-300); text-decoration:none;">ludovico.cobuccio@chuv.ch</a> ·
+  <a href="https://traveldoctor.ch" target="_blank" style="color:var(--mint-300); text-decoration:none;">traveldoctor.ch</a>
+</div>
+
+<script>
+  // Dropdown toggle on mobile
+  document.querySelectorAll('.dropdown button').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.currentTarget.closest('.dropdown').classList.toggle('active');
+    });
+  });
+  // Scroll spy for anchor nav
+  const sections = document.querySelectorAll('.section[id]');
+  const anchorLinks = document.querySelectorAll('.anchor-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        anchorLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.anchor-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-56px 0px -60% 0px', threshold: 0 });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>

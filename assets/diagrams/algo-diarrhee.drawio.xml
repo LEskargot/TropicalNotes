@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36 Edg/143.0.0.0" version="29.6.0">
+  <diagram name="Page-1" id="7P5qolX3EIRGdbDfq3nq">
+    <mxGraphModel dx="2182" dy="1209" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1800" pageHeight="900" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=1;arcSize=40;whiteSpace=wrap;html=1;fillColor=#1A1A2E;strokeColor=none;fontColor=#FFFFFF;fontFamily=Calibri;fontSize=20;fontStyle=1;shadow=1;" value="Diarrhée aiguë du voyageur" vertex="1">
+          <mxGeometry height="42" width="340" x="730" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=1;arcSize=25;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#7B8FA0;dashed=1;dashPattern=8 4;fontFamily=Calibri;fontSize=20;fontColor=#1A1A2E;" value="&lt;b&gt;Sévérité&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-weight: normal;&quot;&gt;(impact fonctionnel)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="46" width="340" x="730" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="GTdARSXevhA2m4jIwjZ7-46" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="GTdARSXevhA2m4jIwjZ7-45" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#43A047;strokeColor=#2E7D32;fontColor=#FFFFFF;fontFamily=Calibri;shadow=1;verticalAlign=middle;fontSize=20;" value="&lt;b&gt;LÉGÈRE&lt;/b&gt;" vertex="1">
+          <mxGeometry height="97" width="285.29" x="83" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#F9A825;strokeColor=#F57F17;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;fontStyle=1;shadow=1;" value="&lt;b&gt;MODÉRÉE&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="220" x="490" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#E53935;strokeColor=#C62828;fontColor=#FFFFFF;fontFamily=Calibri;fontSize=20;fontStyle=1;shadow=1;" value="&lt;b&gt;SÉVÈRE&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="220" x="915" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#8E24AA;strokeColor=#6A1B9A;fontColor=#FFFFFF;fontFamily=Calibri;fontSize=20;fontStyle=1;shadow=1;" value="&lt;b&gt;DYSENTÉRIQUE&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="250" x="1330" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;arcSize=25;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#7B8FA0;dashed=1;dashPattern=8 4;fontFamily=Calibri;fontSize=20;fontStyle=1;fontColor=#1A1A2E;" value="Comorbidité ?&lt;br&gt;Hospit./ATB récent ?" vertex="1">
+          <mxGeometry height="60" width="250" x="475" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;shadow=1;" value="SRO ± lopéramide&lt;br&gt;Pas d&#39;ATB&lt;br&gt;Pas d&#39;investigation" vertex="1">
+          <mxGeometry height="80" width="200" x="370" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#FFF8E1;strokeColor=#F9A825;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;shadow=1;" value="Panel PCR bactérien&lt;br&gt;PCR &lt;i&gt;C. difficile&lt;/i&gt; si hospit.&lt;br&gt;ATB si comorbidité sévère" vertex="1">
+          <mxGeometry height="90" width="280" x="600" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#FFEBEE;strokeColor=#E53935;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;shadow=1;" value="Panel PCR bactérien&lt;br&gt;&lt;b&gt;ATB empirique&lt;/b&gt;&lt;br&gt;+ &lt;i&gt;C. difficile&lt;/i&gt; si hospit.&lt;br&gt;+ PCR protozoaires si immunosup." vertex="1">
+          <mxGeometry height="110" width="320" x="865" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=1;arcSize=25;whiteSpace=wrap;html=1;fillColor=#E8F0FE;strokeColor=#7B8FA0;dashed=1;dashPattern=8 4;fontFamily=Calibri;fontSize=20;fontStyle=1;fontColor=#1A1A2E;" value="Sepsis ?" vertex="1">
+          <mxGeometry height="40" width="140" x="1385" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#F3E5F5;strokeColor=#8E24AA;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;shadow=1;" value="Panel PCR bactérien&lt;br&gt;PCR &lt;i&gt;E. histolytica&lt;/i&gt; ou panel protozoaires&lt;br&gt;+ &lt;i&gt;C. difficile&lt;/i&gt; si hospit.&lt;br&gt;&lt;b&gt;ATB empirique&lt;/b&gt; (sauf EHEC suspecté)" vertex="1">
+          <mxGeometry height="120" width="300" x="1190" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#FFCDD2;strokeColor=#C62828;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;shadow=1;strokeWidth=2;" value="&lt;b&gt;URGENT&lt;/b&gt;&lt;br&gt;ELISA &lt;i&gt;E. histolytica&lt;/i&gt;&lt;br&gt;± Rectosigmoïdoscopie&lt;br&gt;Métronidazole empirique" vertex="1">
+          <mxGeometry height="109" width="255" x="1480" y="378" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=1;arcSize=20;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;dashed=1;dashPattern=8 4;fontFamily=Calibri;fontSize=20;fontStyle=1;fontColor=#1A1A2E;" value="Réponse à 36–48h ?" vertex="1">
+          <mxGeometry height="44" width="260" x="1040" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=1;arcSize=15;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;fontStyle=0;shadow=1;" value="&lt;b&gt;Poursuivre&lt;/b&gt;" vertex="1">
+          <mxGeometry height="38" width="150" x="1010" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#FFF3E0;strokeColor=#E65100;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;shadow=1;" value="&lt;b&gt;Bilan complet&lt;/b&gt;&lt;br&gt;&lt;font&gt;Coproculture · Parasitologie&lt;br&gt;Acid-fast · ELISA · Toxine &lt;i&gt;C. difficile&lt;/i&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="112" width="250" x="1193" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#E0E0E0;fontFamily=Calibri;fontSize=20;fontColor=#1A1A2E;align=left;verticalAlign=top;spacingLeft=10;spacingTop=8;" value="&lt;b&gt;Légende&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;font color=&quot;#43A047&quot;&gt;■&lt;/font&gt; Légère / Résolu&lt;br&gt;&lt;font color=&quot;#F9A825&quot;&gt;■&lt;/font&gt; Modérée&lt;br&gt;&lt;font color=&quot;#E53935&quot;&gt;■&lt;/font&gt; Sévère / Urgent&lt;br&gt;&lt;font color=&quot;#8E24AA&quot;&gt;■&lt;/font&gt; Dysentérique&lt;br&gt;&lt;font color=&quot;#E65100&quot;&gt;■&lt;/font&gt; Escalade diagnostique" vertex="1">
+          <mxGeometry height="206" width="230" x="96" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="text;html=1;whiteSpace=wrap;fontFamily=Calibri;fontSize=14;fontColor=#9E9E9E;align=right;verticalAlign=top;" value="SRO = sels de réhydratation orale&lt;br&gt;ATB = antibiotiques · PCR = polymerase chain reaction" vertex="1">
+          <mxGeometry height="40" width="420" x="1315" y="18" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="text;html=1;whiteSpace=wrap;fontFamily=Calibri;fontSize=12;fontColor=#9E9E9E;align=right;verticalAlign=middle;" value="&lt;b&gt;Algorithme :&lt;/b&gt; Dr. méd Ludovico Cobuccio · D'après Chappuis F. Rev Med Suisse 2020 ; Mandell Ch. 319" vertex="1">
+          <mxGeometry height="20" width="620" x="1115" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="30" edge="1" parent="1" source="2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=20;" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="4" value="&lt;i&gt;&lt;font&gt;Tolérable&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="764" y="148" />
+              <mxPoint x="225" y="148" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.35;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="5" value="&lt;i&gt;&lt;font&gt;Gênante&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.65;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="6" value="&lt;i&gt;&lt;font&gt;Incapacitante&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.9;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7" value="&lt;i&gt;&lt;font&gt;Sanglante&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1036" y="151" />
+              <mxPoint x="1455" y="151" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="35" edge="1" parent="1" source="5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=20;" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="9" value="&lt;i&gt;&lt;font&gt;Non&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="37" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="10" value="&lt;i&gt;&lt;font&gt;Oui&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="38" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=20;" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="39" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontSize=20;" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="40" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="13" value="&lt;i&gt;&lt;font&gt;Non&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="41" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="14" value="&lt;i&gt;&lt;font&gt;Oui&lt;/font&gt;&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="42" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.3;entryY=0;entryDx=0;entryDy=0;fontSize=20;" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="43" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7;entryY=0;entryDx=0;entryDy=0;fontSize=20;" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="44" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.3;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="16" value="&lt;i&gt;Oui&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="45" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7B8FA0;strokeWidth=1.5;endArrow=blockThin;endFill=1;fontFamily=Calibri;fontSize=20;fontColor=#7B8FA0;exitX=0.7;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="17" value="&lt;i&gt;Non&lt;/i&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GTdARSXevhA2m4jIwjZ7-45" parent="1" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#E8F5E9;strokeColor=#43A047;fontColor=#1A1A2E;fontFamily=Calibri;fontSize=20;shadow=1;" value="SRO ± lopéramide&lt;br&gt;Pas d&#39;ATB&lt;br&gt;Pas d&#39;investigations" vertex="1">
+          <mxGeometry height="76" width="266" x="92.64000000000001" y="350" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
