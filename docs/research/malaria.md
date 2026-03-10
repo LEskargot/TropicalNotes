@@ -10,7 +10,7 @@ _Date : 2026-03-10 | Sources : PubMed, Scholar Gateway, md-slides/research-fever
 - Provenance dominante : Afrique de l'Ouest et Centrale ; depuis 2014, _P. vivax_ représente 36 % des cas (vs 11 % avant 2014) [source : md-slides]
 - _P. falciparum_ reste l'espèce majoritaire et la seule responsable de paludisme sévère dans la cohorte suisse
 - Seuil suisse d'hyperparasitémie : **≥ 2 %** (vs 5 % OMS, 2 % UK) — seuil bas justifié par progression vers formes sévères chez les non-immuns au-delà de 2 % [5]
-- Déclaration obligatoire à l'OFSP/BAG dans les **24 heures** (Infreport/CH ELM)
+- Déclaration obligatoire — délai **1 semaine** : médecin → médecin cantonal (formulaire) ; laboratoire → OFSP via CH-ELM/Infreport (Guide OFSP 2026)
 - Contexte européen : aéroport/port Suisse = cas documentés (pas d'autochthones) ; case fatality rate pour paludisme d'aéroport/port en Europe = 13,24 % dans une revue systématique 1969–2022 [2]
 - Erreur typique du MG : ne pas poser la question du voyage, diagnostic de « grippe » ou « gastro-entérite »
 
@@ -43,7 +43,7 @@ _Date : 2026-03-10 | Sources : PubMed, Scholar Gateway, md-slides/research-fever
 - **Répétition à 12–24 h** si négatif et forte suspicion clinique
 - **Etude CHUV Lausanne** (Slack & Genton, J Travel Med 2024, n = 4 972) : sur 415 cas positifs, seulement 4 (0,08 %) diagnostiqués sur 2e ou 3e frottis — remet en question le dogme des 3 frottis obligatoires ; en pratique, TDR + frottis/goutte épaisse répétés à 12–24 h si forte suspicion [4]
 - **PCR** : référence pour confirmation d'espèce, coinfections, résistance ; non disponible en urgence
-- **Déclaration OFSP** : obligatoire dans les 24 h
+- **Déclaration obligatoire** : délai 1 semaine — médecin → médecin cantonal ; laboratoire → OFSP via CH-ELM/Infreport
 
 ---
 
