@@ -126,7 +126,7 @@ _Date : 2026-03-10 | Sources : PubMed, Scholar Gateway, md-slides/research-fever
 
 ### Perle
 
-- **Swiss TPH** — Hotline 24h/7j : **+41 61 284 81 44**
+- Pour toute question ou cas complexe, inviter à contacter l'auteur directement (via traveldoctor.ch/professionnels)
 - Suivi J28 obligatoire pour tout patient > 65 kg traité par Riamet
 - Surveillance PADH 4 semaines post-artésunate IV : Hb + LDH + haptoglobine
 
