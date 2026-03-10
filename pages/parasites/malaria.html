@@ -175,11 +175,14 @@
                 <!-- Repartition geographique -->
                 <section id="repartition" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <p class="text-sm text-teal-800/80 mb-4">Afrique, Amerique centrale et du Sud, Asie, Oceanie. <em>P. falciparum</em> predomine en Afrique et <em>P. vivax</em> ailleurs.</p>
+                    <p class="text-sm text-teal-800/80 mb-4">Afrique, Amerique centrale et du Sud, Asie, Oceanie. <em>P. falciparum</em> predomine en Afrique subsaharienne et <em>P. vivax</em> predomine en Asie du Sud, Amerique latine et Moyen-Orient.</p>
                     <figure class="my-6">
                         <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria_map.jpg" alt="Distribution geographique du risque de malaria" />
                         <figcaption class="text-xs text-teal-600/60 mt-2">Carte du risque de malaria elabore par l'ECTM pour <a target="_blank" href="https://www.healthytravel.ch" class="ref-link">www.healthytravel.ch</a></figcaption>
                     </figure>
+                    <p class="text-sm text-teal-800/80">
+                        <strong>Contexte suisse :</strong> entre 1990 et 2019, 8 439 cas importes et 52 deces ont ete enregistres en Suisse (letalite ~0,6 %) [1]. Sur la periode 2013–2023, 8,6 % des cas etaient severes, quasi exclusivement dus a <em>P. falciparum</em>. Depuis 2014, <em>P. vivax</em> represente 36 % des cas importes (contre 11 % avant 2014), refletant une evolution des flux de voyage vers l'Asie du Sud et l'Amerique latine.
+                    </p>
                 </section>
 
                 <!-- Agent causal -->
@@ -212,65 +215,240 @@
                 <section id="clinique" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
                     <p class="text-sm text-teal-800/80 mb-3">
-                        Symptomes souvent peu specifiques : EF, frissons, tachycardie, tachypnee, malaise, fatigue, diaphorese, cephalees, toux, anorexie, nausees, vomissements, douleurs abdominales, diarrhees, arthralgies, myalgies.
+                        Symptomes souvent peu specifiques : fievre, frissons, tachycardie, malaise, fatigue, diaphorese, cephalees, toux, anorexie, nausees, vomissements, douleurs abdominales, diarrhees, arthralgies, myalgies.
                     </p>
-                    <p class="text-sm text-teal-800/80 mb-3">
-                        Malaria compliquee : alteration etat de conscience +/- crises convulsives, detresse respiratoire ou ARDS, insuffisance renale, collapsus circulatoire.
-                    </p>
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Criteres de paludisme severe (OMS / SSTTM 2025) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li>Troubles de la conscience / coma (malaria cerebrale)</li>
+                        <li>Hemoglobine &lt; 7 g/dL (anemie severe)</li>
+                        <li>Insuffisance renale aigue</li>
+                        <li>Syndrome de detresse respiratoire aigue (SDRA)</li>
+                        <li>Choc circulatoire</li>
+                        <li>Acidose metabolique</li>
+                        <li>Ictere + autres signes de severite</li>
+                        <li>Parasitemie &ge; 2 % (seuil suisse) ou &ge; 5 % (OMS)</li>
+                        <li>Hypoglycemie</li>
+                    </ul>
                     <div class="callout-piege">
                         <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege</p>
-                        <p class="text-sm text-teal-800">Jusqu'a 1/3 des patients avec malaria ne presentent pas de fievre lorsqu'ils consultent.</p>
+                        <p class="text-sm text-teal-800">Jusqu'a 1/3 des patients avec malaria ne presentent pas de fievre lorsqu'ils consultent. Ne pas exclure le diagnostic sur l'absence de fievre au moment de la consultation.</p>
                     </div>
                 </section>
 
                 <!-- Examen clinique -->
                 <section id="examen" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80">
-                        Splenomegalie, ictere modere (si malaria severe : paleur, ictere, petechies).
-                    </p>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Splenomegalie</strong> : frequente, parfois volumineuse dans les infections prolongees ou recidivantes</li>
+                        <li><strong>Ictere</strong> : modere dans les formes non compliquees ; prononce (bilirubine conjuguee elevee) dans les formes severes</li>
+                        <li><strong>Absence de rash</strong> : utile pour le diagnostic differentiel — l'absence d'exantheme oriente contre la dengue et les rickettsioses</li>
+                        <li><strong>Formes severes</strong> : paleur (anemie), ictere marque, prostration ; signes de defaillance d'organe (oligurie, confusion, detresse respiratoire)</li>
+                    </ul>
                 </section>
 
                 <!-- Labo -->
                 <section id="labo" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Thrombopenie, perturbation des tests hepatiques (bilirubine), elevation de la creatinine</li>
-                        <li>En cas de malaria severe : perturbation plus importante de ces parametres, anemie, hypoglycemie, acidose metabolique</li>
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Forme non compliquee :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li>Thrombopenie &lt; 150 G/L (quasi constante — valeur diagnostique)</li>
+                        <li>Bilirubine conjuguee elevee (hemolyse + atteinte hepatique)</li>
+                        <li>Transaminases moderement elevees</li>
+                        <li>Creatinine elevee (surveillance de la fonction renale)</li>
+                        <li>LDH eleve (marqueur d'hemolyse)</li>
+                    </ul>
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Forme severe (criteres biologiques) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Hemoglobine &lt; 7 g/dL</li>
+                        <li>Hypoglycemie (&lt; 2,2 mmol/L)</li>
+                        <li>Acidose metabolique (pH &lt; 7,25 ou lactates &gt; 5 mmol/L)</li>
+                        <li>Insuffisance renale : creatinine &gt; 265 &micro;mol/L</li>
+                        <li>Parasitemie &ge; 2 % (seuil suisse)</li>
                     </ul>
                 </section>
 
                 <!-- Diagnostic -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <figure class="my-6">
-                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria1.jpg" alt="Guide d'antibiotherapie du CHUV - page 48" />
-                    </figure>
+
+                    <table class="article-table rounded-xl overflow-hidden mb-4">
+                        <thead>
+                            <tr>
+                                <th>Examen</th>
+                                <th>Remarque</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>TDR HRP2</strong> (<em>P. falciparum</em>)</td>
+                                <td>Sensibilite elevee pour <em>P. falciparum</em> ; ne fournit pas la parasitemie ; ne detecte pas fiablement les autres especes. Deletions hrp2/hrp3 peuvent causer des faux-negatifs.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Frottis + goutte epaisse</strong></td>
+                                <td>Gold standard. Permet l'identification de l'espece et la quantification de la parasitemie. Preparer dans l'heure suivant le prelevement sur EDTA.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Repetition a 12–24 h</strong></td>
+                                <td>Si suspicion forte avec premier bilan negatif. Etude CHUV (Slack &amp; Genton 2024, n&nbsp;=&nbsp;4&nbsp;972) : seulement 0,08&nbsp;% des cas positifs detectes au 2e ou 3e test — mais repeter si forte suspicion clinique persistante [4].</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PCR</strong></td>
+                                <td>Reference pour confirmation d'espece, coinfections et detection de resistance. Non disponible en urgence ; utile en cas de discordance TDR/frottis.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Declaration obligatoire OFSP</p>
+                        <p class="text-sm text-teal-800">Tout cas de paludisme doit etre declare a l'OFSP/BAG dans les <strong>24 heures</strong> via Infreport / CH ELM. Cette obligation s'applique au medecin traitant et au laboratoire.</p>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege — TDR faux-negatif</p>
+                        <p class="text-sm text-teal-800">Un TDR negatif n'exclut pas le paludisme. Des deletions des genes <em>hrp2/hrp3</em> chez <em>P. falciparum</em> (Afrique de l'Est, Amerique du Sud) peuvent rendre le TDR HRP2 faussement negatif. Le frottis + goutte epaisse reste indispensable. A l'inverse, un TDR peut etre faussement positif dans d'autres infections febriles du voyageur (Slack &amp; Genton, J Travel Med 2024 [4] ; Zewude et al. 2024 [7]).</p>
+                    </div>
                 </section>
 
                 <!-- Traitement -->
                 <section id="traitement" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
-                    <div class="space-y-4">
-                        <figure>
-                            <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria2.jpg" alt="Guide d'antibiotherapie du CHUV - page 49" />
-                        </figure>
-                        <figure>
-                            <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria3.jpg" alt="Guide d'antibiotherapie du CHUV - page 50" />
-                        </figure>
-                        <figure>
-                            <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria4.jpg" alt="Guide d'antibiotherapie du CHUV - page 51" />
-                        </figure>
+
+                    <!-- P. falciparum non complique -->
+                    <h3 id="traitement-non-complique" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3"><em>P. falciparum</em> non complique</h3>
+
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>1re ligne — Artemether-lumefantrine (Riamet&reg;)</strong></p>
+                    <table class="article-table rounded-xl overflow-hidden mb-3">
+                        <thead>
+                            <tr>
+                                <th>Prise</th>
+                                <th>Heure</th>
+                                <th>Dose adulte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>H0</td><td>4 comprimes</td></tr>
+                            <tr><td>2</td><td>H8</td><td>4 comprimes</td></tr>
+                            <tr><td>3</td><td>H24</td><td>4 comprimes</td></tr>
+                            <tr><td>4</td><td>H36</td><td>4 comprimes</td></tr>
+                            <tr><td>5</td><td>H48</td><td>4 comprimes</td></tr>
+                            <tr><td>6</td><td>H60</td><td>4 comprimes</td></tr>
+                        </tbody>
+                    </table>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li>Prendre avec un repas gras (ameliore l'absorption de la lumefantrine)</li>
+                        <li>ECG recommande avant la 1re dose et 4–6 h apres la 3e dose (risque QTc prolonge)</li>
+                        <li><strong>Patient &gt; 65 kg :</strong> efficacite reduite — taux d'echec tardif ~10 % (recrudescence J15–J29). Planifier un frottis de controle a J28 [3].</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege — Patient &gt; 65 kg sous Riamet</p>
+                        <p class="text-sm text-teal-800">L'efficacite du Riamet est de 100 % chez les patients &le; 65 kg mais seulement 90,4 % chez les patients &gt; 65 kg (etude belge, Vuuren et al. J Travel Med 2024 [3]). Plannifier systematiquement un frottis de controle a J28. Considerer Malarone comme alternative chez les patients lourds ou en retour du Grand Mekong.</p>
                     </div>
-                    <p class="text-xs text-teal-600/60 mt-3">Images tirees du <a href="https://www.chuv.ch/fr/min/min-home/personnel-de-la-sante/guide-dantibiotherapie" class="ref-link">guide d'antibiotherapie du CHUV</a></p>
+
+                    <p class="text-sm text-teal-800/80 mb-1 mt-4"><strong>Alternative — Atovaquone-proguanil (Malarone&reg;)</strong></p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-2">
+                        <li>4 comprimes/j (adulte) x 3 jours, avec repas gras</li>
+                        <li>Option preferentielle en retour du Grand Mekong (resistance artémisinine) ou patient &gt; 65 kg</li>
+                    </ul>
+
+                    <!-- P. falciparum severe -->
+                    <h3 id="traitement-severe" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3"><em>P. falciparum</em> severe — Artesunate IV</h3>
+
+                    <table class="article-table rounded-xl overflow-hidden mb-3">
+                        <thead>
+                            <tr>
+                                <th>Moment</th>
+                                <th>Dose</th>
+                                <th>Voie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>H0</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                            <tr><td>H12</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                            <tr><td>H24</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                            <tr><td>Puis toutes les 24 h</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                        </tbody>
+                    </table>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li>Relais oral (Riamet ou Malarone) des que parasitemie &le; 1 %</li>
+                        <li>Hospitalisation obligatoire</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; PADH — Hemolysediferee post-artesunate</p>
+                        <p class="text-sm text-teal-800">
+                            Survient chez <strong>15–22 % des voyageurs</strong> traites par artesunate IV (Jaureguiberry S et al. Emerg Infect Dis 2015 [8]), parfois jusqu'a J30 post-traitement. Mecanisme : « pitting » splenique des erythrocytes parasites avec liberation differee.<br>
+                            <strong>Surveillance obligatoire :</strong> Hb + LDH + haptoglobine toutes les semaines pendant 4 semaines apres arret de l'artesunate IV.
+                        </p>
+                    </div>
+
+                    <!-- P. vivax / P. ovale -->
+                    <h3 id="traitement-vivax" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3"><em>P. vivax</em> / <em>P. ovale</em> — Prevention des rechutes</h3>
+                    <p class="text-sm text-teal-800/80 mb-2">Traiter l'acces aigu (chloroquine si souche sensible ; ACT si resistance chloroquine). Puis traitement radical des hypnozoites hepatiques :</p>
+                    <table class="article-table rounded-xl overflow-hidden mb-3">
+                        <thead>
+                            <tr>
+                                <th>Medicament</th>
+                                <th>Posologie</th>
+                                <th>Prerequis</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Primaquine</strong></td>
+                                <td>0,25–0,5 mg/kg/j x 14 jours (adulte : 15–30 mg/j)</td>
+                                <td><strong>Test G6PD OBLIGATOIRE avant</strong> — risque d'hemolyse severe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tafenoquine</strong> (alternative)</td>
+                                <td>300 mg dose unique</td>
+                                <td><strong>G6PD &ge; 70 % de la normale.</strong> Avantage : dose unique. Risque : hemolyse prolongee (demi-vie longue) si G6PD deficient [11]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- P. malariae / P. knowlesi -->
+                    <h3 id="traitement-malariae" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-2"><em>P. malariae</em> / <em>P. knowlesi</em></h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><em>P. malariae</em> : sensible a la chloroquine dans la plupart des regions ; pas d'hypnozoites (pas de rechute hepatique)</li>
+                        <li><em>P. knowlesi</em> (Bornéo, Asie du Sud-Est) : parasite simien ; peut provoquer des formes severes malgre une parasitemie apparemment faible (erythrocytes non elargis). Traiter comme <em>P. falciparum</em> severe en cas de doute clinique.</li>
+                    </ul>
                 </section>
 
                 <!-- Quand referer -->
-                <section id="referer" class="mb-14">
+                <section id="referer" class="mb-10">
                     <div class="callout-referer">
                         <p class="text-sm font-bold text-mint-700 mb-1">Quand referer ?</p>
                         <p class="text-sm text-teal-800">Toute suspicion de malaria severe (alteration de conscience, detresse respiratoire, insuffisance renale, hyperparasitemie &ge;2%) necessite un <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">avis specialise</a>.</p>
                     </div>
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">&#10022; Perle clinique</p>
+                        <ul class="space-y-1.5 text-sm text-teal-800">
+                            <li><strong>Swiss TPH — Hotline 24h/7j :</strong> <a href="tel:+41612848144" class="ref-link">+41 61 284 81 44</a> — avis specialise en medecine tropicale disponible a toute heure</li>
+                            <li><strong>Suivi J28 obligatoire</strong> pour tout patient &gt; 65 kg traite par Riamet : frottis de controle pour exclure une recrudescence tardive</li>
+                            <li><strong>Surveillance PADH</strong> apres artesunate IV : Hb + LDH + haptoglobine chaque semaine pendant 4 semaines post-traitement</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- References -->
+                <section id="references" class="mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">References</h2>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside">
+                        <li>Giannone B et al. Imported malaria in Switzerland (1990–2019): A retrospective analysis. <em>Travel Med Infect Dis</em> 2022;45:102233.</li>
+                        <li>Balzli D et al. Airport/seaport and autochthonous malaria in Europe from 1969 to 2022. <em>New Microbes New Infect</em> 2025;67:101627. DOI:<a href="https://doi.org/10.1016/j.nmni.2025.101627" target="_blank" class="ref-link">10.1016/j.nmni.2025.101627</a></li>
+                        <li>Vuuren C van et al. Weight-based treatment failure with artemether-lumefantrine in non-immune travelers. <em>J Travel Med</em> 2024. [Cf. aussi Sonden K et al. High rate of treatment failures. <em>CID</em> 2017;64:199–207.]</li>
+                        <li>Slack A, Genton B. Usefulness of serial testing for the diagnosis of malaria. <em>J Travel Med</em> 2024;31:taae030.</li>
+                        <li>SSTTM / Swiss TPH. Malaria Treatment Recommendations 2025. <a href="https://www.swisstph.ch" target="_blank" class="ref-link">www.swisstph.ch</a></li>
+                        <li>Maltha J, Jacobs J. Clinical practice: diagnosis of imported malaria in children. <em>Eur J Pediatr</em> 2011;170:821–829. DOI:<a href="https://doi.org/10.1007/s00431-011-1451-4" target="_blank" class="ref-link">10.1007/s00431-011-1451-4</a></li>
+                        <li>Zewude RT et al. False-positive malaria RDT likely due to African tick bite fever. <em>Reports (MDPI)</em> 2024;7(4). DOI:<a href="https://doi.org/10.3390/reports7040100" target="_blank" class="ref-link">10.3390/reports7040100</a></li>
+                        <li>Jaureguiberry S et al. Delayed-onset hemolytic anemia after artesunate, France 2011–2013. <em>Emerg Infect Dis</em> 2015;21:804–812.</li>
+                        <li>Travis J et al. Treatment failure and post-artesunate delayed haemolysis in a returned traveller from Uganda. <em>Med J Aust</em> 2026;224:e70136. DOI:<a href="https://doi.org/10.5694/mja2.70136" target="_blank" class="ref-link">10.5694/mja2.70136</a></li>
+                        <li>Murphy F et al. From 64 % hyperparasitemia to recovery: managing severe falciparum malaria and PADH. <em>IJID Reg</em> 2025;15:100644. DOI:<a href="https://doi.org/10.1016/j.ijregi.2025.100644" target="_blank" class="ref-link">10.1016/j.ijregi.2025.100644</a></li>
+                        <li>Hanboonkunupakarn B, White NJ. Advances and roadblocks in the treatment of malaria. <em>Br J Clin Pharmacol</em> 2020;88:374–382. DOI:<a href="https://doi.org/10.1111/bcp.14474" target="_blank" class="ref-link">10.1111/bcp.14474</a></li>
+                        <li>Visser MT et al. National treatment guidelines for falciparum malaria in non-endemic countries. <em>Trop Med Int Health</em> 2022;27:129–136. DOI:<a href="https://doi.org/10.1111/tmi.13715" target="_blank" class="ref-link">10.1111/tmi.13715</a></li>
+                        <li>Thwaites GE, Day NP. Approach to fever in the returning traveler. <em>NEJM</em> 2017;376:548–560.</li>
+                    </ol>
                 </section>
 
             </article>
@@ -288,8 +466,15 @@
                         <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
                         <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
                         <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a>
+                            <ul class="space-y-0.5 mt-0.5 ml-3">
+                                <li><a href="#traitement-non-complique" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Non complique</a></li>
+                                <li><a href="#traitement-severe" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Forme severe</a></li>
+                                <li><a href="#traitement-vivax" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">P. vivax / ovale</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand referer</a></li>
+                        <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">References</a></li>
                     </ul>
                     <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
                         <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
@@ -297,6 +482,10 @@
                             Referer un patient
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                         </a>
+                    </div>
+                    <div class="mt-4 p-4 bg-teal-50 border border-teal-200/50 rounded-xl">
+                        <p class="text-xs text-teal-700/70 mb-2">Contexte clinique</p>
+                        <a href="../syndromes/fievre.html" class="text-sm text-teal-600 hover:text-mint-600 font-medium transition-colors">&rarr; Fievre au retour de voyage</a>
                     </div>
                 </nav>
             </aside>
