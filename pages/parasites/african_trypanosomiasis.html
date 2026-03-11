@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Trypanosomiase africaine — Tropical Notebook</title>
-    <meta name="description" content="Trypanosomiase africaine (maladie du sommeil) : repartition, agent causal, diagnostic et traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="trypanosomiase africaine, maladie du sommeil, trypanosoma brucei, gambiense, rhodesiense, tsetse, medecine tropicale">
+    <meta name="description" content="Trypanosomiase humaine africaine (maladie du sommeil) : épidémiologie, diagnostic, traitement (fexinidazole, acoziborole) et prise en charge pour le médecin de premier recours.">
+    <meta name="keywords" content="trypanosomiase africaine, maladie du sommeil, trypanosoma brucei, gambiense, rhodesiense, fexinidazole, acoziborole, tsé-tsé, médecine tropicale">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,17 +17,18 @@
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Trypanosomiase africaine</span></nav></div></div>
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Trypanosomiase africaine</span></nav></div></div>
 
     <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
@@ -36,120 +37,421 @@
                 <header class="mb-10">
                     <span class="section-label text-teal-500">Parasite</span>
                     <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Trypanosomiase africaine</h1>
-                    <p class="mt-2 text-teal-700/70 text-base italic">Maladie du sommeil</p>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Trypanosomiase humaine africaine : repartition, diagnostic et prise en charge.</p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Maladie du sommeil &mdash; <em>Trypanosoma brucei gambiense</em> &amp; <em>T. b. rhodesiense</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Deux maladies très différentes sous un même nom : la g-THA chronique d'Afrique de l'Ouest et la r-THA aiguë d'Afrique de l'Est. Sans traitement, presque toujours mortelle. Révolution thérapeutique en cours avec le fexinidazole (oral, 10 jours) et l'acoziborole (dose unique).</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
-                        <li>Afrique (sauf nord et sud de l'Afrique) : le plus souvent, foyers epidemiques bien localises.</li>
-                        <li>Voyageurs : touche surtout les visiteurs des parcs en Afrique de l'est (Tanzanie, Kenya)</li>
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Vue d'ensemble</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Deux sous-espèces</strong> : <em>T. b. gambiense</em> (92 % des cas, Afrique de l'Ouest/Centrale) et <em>T. b. rhodesiense</em> (8 %, Afrique de l'Est/Australe)<sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li><strong>Réduction de 97 %</strong> des cas en 20 ans : de ~37 000 cas/an (1998) à 837 cas rapportés de g-THA en 2022<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>Maladie tropicale négligée ciblée par l'OMS pour <strong>élimination d'ici 2030</strong></li>
+                        <li>36 pays endémiques ; la glossine (mouche tsé-tsé) est absente hors d'Afrique sub-saharienne</li>
                     </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Progrès vers l'élimination</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">Pays ayant obtenu la validation OMS de l'élimination comme problème de santé publique :</p>
+                    <p class="text-sm text-teal-800/80 mb-6">Togo (2020), Côte d'Ivoire (2020), Bénin (2021), Ouganda (2022), Guinée équatoriale (2022), Ghana (2023), <strong>Tchad</strong> (2024), <strong>Guinée</strong> (2025), <strong>Kenya</strong> (2025 — première élimination validée pour la r-THA)<sup><a href="#ref-5">[5-8]</a></sup></p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Sous-espèce</th><th>Régions endémiques</th><th>Réservoir</th><th>Forme clinique</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>T. b. gambiense</em></td><td>Afrique de l'Ouest &amp; Centrale (RDC, Guinée, Centrafrique, Tchad, Angola, Soudan du Sud)</td><td>Principalement humain (anthroponotique)</td><td>Chronique (mois à années)</td></tr>
+                                <tr><td><em>T. b. rhodesiense</em></td><td>Afrique de l'Est &amp; Australe (Ouganda, Tanzanie, Malawi, Zambie, Zimbabwe, Mozambique)</td><td>Zoonotique (bétail, antilopes, faune sauvage)</td><td>Aiguë (semaines)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Cas importés en pays non endémiques</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>49 cas</strong> dans 16 pays non endémiques entre 2011 et 2020<sup><a href="#ref-9">[9]</a></sup></li>
+                        <li><strong>r-THA (35 cas)</strong> : principalement touristes en safari en Afrique de l'Est (Tanzanie, Ouganda, Kenya, Zambie, Zimbabwe)</li>
+                        <li><strong>g-THA (14 cas)</strong> : principalement migrants africains, diagnostic souvent tardif au stade 2</li>
+                        <li>En Suisse : centre de référence mondial (Swiss TPH Bâle) ; médicaments anti-trypanosomiens non disponibles en pharmacie, obtenus via l'OMS</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Cas récents (2024–2025)</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>MMWR 2025</strong> : voyageur américain, vallée du Zambezi (Zimbabwe) — r-THA + 3 autres cas signalés dans la même zone<sup><a href="#ref-10">[10]</a></sup></li>
+                            <li><strong>Norvège 2024</strong> : homme, défaillance multi-organique au J3 ; TDR paludisme négatif ; trypanosomes au frottis sanguin ; traité par suramine avec succès<sup><a href="#ref-11">[11]</a></sup></li>
+                            <li><strong>Éthiopie 2024</strong> : réémergence de r-THA — premiers cas rapportés depuis des années<sup><a href="#ref-12">[12]</a></sup></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- REPARTITION -->
+                <section id="repartition" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
 
                     <h3 class="font-semibold text-teal-800 mb-2"><em>Trypanosoma brucei gambiense</em></h3>
                     <figure class="my-4">
-                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/HAT_ga_2021_cases.png" alt="Distribution geographique des cas de Trypanosomiase gambiense" />
-                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution geographique des cas de Trypanosomiase gambiense. <a href="https://www.who.int/data/gho/map-gallery-search-results?&maptopics=910b5dfc-ce2e-4440-8b43-8d83f4a85485&term=human%20African%20trypanosomiasis" class="ref-link">Organisation Mondiale de la Sante</a></figcaption>
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/HAT_ga_2021_cases.png" alt="Distribution géographique des cas de Trypanosomiase gambiense" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution géographique des cas de THA gambiense (2021). <a href="https://www.who.int/data/gho/map-gallery-search-results?&maptopics=910b5dfc-ce2e-4440-8b43-8d83f4a85485&term=human%20African%20trypanosomiasis" class="ref-link">Organisation Mondiale de la Santé / Franco et al. 2024</a><sup><a href="#ref-3">[3]</a></sup></figcaption>
                     </figure>
 
                     <h3 class="font-semibold text-teal-800 mb-2 mt-6"><em>Trypanosoma brucei rhodesiense</em></h3>
                     <figure class="my-4">
-                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/HAT_rh_2021_cases.png" alt="Distribution geographique des cas de Trypanosomiase rhodesiense" />
-                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution geographique des cas de Trypanosomiase rhodesiense. <a href="https://www.who.int/data/gho/map-gallery-search-results?&maptopics=910b5dfc-ce2e-4440-8b43-8d83f4a85485&term=human%20African%20trypanosomiasis" class="ref-link">Organisation Mondiale de la Sante</a></figcaption>
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/HAT_rh_2021_cases.png" alt="Distribution géographique des cas de Trypanosomiase rhodesiense" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution géographique des cas de THA rhodesiense (2021). <a href="https://www.who.int/data/gho/map-gallery-search-results?&maptopics=910b5dfc-ce2e-4440-8b43-8d83f4a85485&term=human%20African%20trypanosomiasis" class="ref-link">Organisation Mondiale de la Santé / Franco et al. 2024</a><sup><a href="#ref-3">[3]</a></sup></figcaption>
                     </figure>
                 </section>
 
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 mb-2">Protozoaires</p>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Afrique de l'ouest : <em>Trypanosoma brucei gambiense</em></li>
-                        <li>Afrique de l'est : <em>Trypanosoma brucei rhodesiense</em></li>
-                    </ul>
-                </section>
-
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80">Piqure de la mouche tse-tse (glossine).</p>
-                </section>
-
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><em>T. b. gambiense</em> : variable (&rarr; mois)</li>
-                        <li><em>T. b. rhodesiense</em> : 3 jours a 3 semaines</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission &amp; incubation</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Vecteur</strong> : mouche tsé-tsé (<em>Glossina</em> spp.) — piqûre diurne, douloureuse, en milieu extérieur (savane, bords de cours d'eau, parcs nationaux)</li>
+                        <li>La glossine pique à travers les vêtements fins et est attirée par les <strong>couleurs sombres</strong> et le mouvement</li>
+                        <li><strong>Réservoir g-THA</strong> : essentiellement humain (porteurs asymptomatiques possibles)</li>
+                        <li><strong>Réservoir r-THA</strong> : zoonotique — antilopes, phacochères, bétail ; l'humain est un hôte accidentel</li>
+                        <li>Transmission mère-enfant et par transfusion : exceptionnelle</li>
                     </ul>
-                </section>
-
-                <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <ul class="space-y-3 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Stade 1 : lesion cutanee douloureuse, parfois ulceree, au point d'inoculation (chancre d'aspect typique, peut etre absent), fievre, adenopathies, malaise. Eventuellement rash, prurit, perte de poids, oedeme de la face</li>
-                        <li>Stade 2 : meningo-encephalite (maladie du sommeil). <em>T. b. rhodesiense</em> provoque egalement une atteinte cardiaque avec myocardite et epanchement pericardique. Les 2 formes sont mortelles sans traitement.</li>
-                    </ul>
-                    <div class="callout-piege">
-                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; A retenir</p>
-                        <p class="text-sm text-teal-800">L'infection a <em>T. b. gambiense</em> evolue lentement sur plusieurs mois, alors que l'infection a <em>T. b. rhodesiense</em> est une maladie aigue evoluant sur quelques semaines.</p>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Sous-espèce</th><th>Incubation</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>T. b. rhodesiense</em></td><td><strong>3 jours à 3 semaines</strong> (médiane ~10 jours)</td></tr>
+                                <tr><td><em>T. b. gambiense</em></td><td>Semaines à <strong>mois</strong> (parfois &gt; 1 an)</td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
 
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80">Chancre trypanosomal au point d'inoculation (peut s'ulcerer et disparait spontanement en quelques sem.), ADP pouvant etre generalisees, hepatosplenomegalie, eventuellement rash maculaire.</p>
+                <!-- CLINIQUE -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Stade 1 — Hémolymphatique</h3>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Chancre trypanosomal</strong> (point d'inoculation) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Papule/nodule érythémateux, apparaît 2–5 jours après la piqûre, disparaît en 2–3 semaines</li>
+                        <li>Fréquence chez le voyageur : <strong>84 % dans la r-THA</strong>, 47 % dans la g-THA<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li>Souvent confondu avec un furoncle ou une piqûre d'insecte surinfectée</li>
+                    </ul>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Signes systémiques</strong> :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Fièvre irrégulière/intermittente (97–98 % des cas chez le voyageur)</li>
+                        <li>Céphalées, myalgies, arthralgies</li>
+                        <li>Adénopathies (cervicales postérieures ++ pour g-THA — <strong>signe de Winterbottom</strong>)</li>
+                        <li>Hépatosplénomégalie, rash cutané (trypanides), œdème facial</li>
+                        <li><strong>r-THA</strong> : atteinte cardiaque fréquente (myocardite, péricardite, arythmies)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Stade 2 — Méningo-encéphalitique</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Troubles du sommeil</strong> : inversion du cycle veille-sommeil (pathognomonique mais <strong>rare chez le voyageur</strong> : seulement 5–21 %)<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li>Troubles neuropsychiatriques : confusion, apathie, hallucinations, changements de personnalité</li>
+                        <li>Troubles moteurs : tremblements, ataxie, hypertonie</li>
+                        <li>Convulsions, coma &rarr; décès sans traitement</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Différence de tempo clinique</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>r-THA</strong> : progression rapide en <strong>jours à semaines</strong> ; stade 2 possible en 3–4 semaines. <strong>Urgence médicale.</strong></li>
+                            <li><strong>g-THA</strong> : évolution insidieuse sur <strong>mois à années</strong> ; diagnostic souvent tardif au stade 2 chez les migrants.</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Particularités chez le voyageur<sup><a href="#ref-14">[14]</a></sup></h3>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Signe / Symptôme</th><th>r-THA (n=45)</th><th>g-THA (n=15)</th></tr></thead>
+                            <tbody>
+                                <tr><td>Fièvre</td><td>97,8 %</td><td>93,3 %</td></tr>
+                                <tr><td>Chancre</td><td><strong>84,4 %</strong></td><td>46,7 %</td></tr>
+                                <tr><td>Céphalées</td><td>50 %</td><td>50 %</td></tr>
+                                <tr><td>Ictère</td><td><strong>24,2 %</strong></td><td>0 %</td></tr>
+                                <tr><td>Somnolence diurne</td><td>4,8 %</td><td>0 %</td></tr>
+                                <tr><td>Insomnie</td><td>7,1 %</td><td>21,4 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege mt-4">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège clinique</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>L'ictère</strong> est un signe d'alerte dans la r-THA chez le voyageur (24 % des cas) — jamais décrit dans les séries endémiques africaines</li>
+                            <li><strong>Les troubles du sommeil sont rares</strong> chez le voyageur — ne pas attendre ce signe pour évoquer le diagnostic</li>
+                        </ul>
+                    </div>
                 </section>
 
+                <!-- LABO -->
                 <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80">Anemie, thrombopenie, leucocytose, syndrome inflammatoire important, hypoalbuminemie, hypergammaglobulinemie, augmentation du complement.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Anémie, thrombopénie, leucopénie ou leucocytose</li>
+                        <li>Syndrome inflammatoire important (CRP, VS élevées)</li>
+                        <li>Hypoalbuminémie</li>
+                        <li><strong>Hypergammaglobulinémie polyclonale (IgM +++)</strong> — très évocatrice</li>
+                        <li>Élévation des transaminases, bilirubine (surtout r-THA)</li>
+                        <li>Insuffisance rénale, CIVD possibles dans les formes sévères de r-THA</li>
+                    </ul>
                 </section>
 
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Examen direct au microscope avec mise en evidence du trypanosome (sang, LCR ; ponction-aspiration d'ADP ou chancre), serologie</li>
-                        <li>Lors d'une morsure d'un voyageur par une glossine, sans symptome associe, on peut proposer une serologie a J0 et J30.</li>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Principes</h3>
+                    <ol class="space-y-1 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Suspicion clinique</strong> : fièvre + voyage en Afrique sub-saharienne + exposition possible aux glossines</li>
+                        <li><strong>Confirmation parasitologique</strong> : mise en évidence des trypanosomes</li>
+                        <li><strong>Stadification</strong> : ponction lombaire pour déterminer l'atteinte du SNC (stade 1 vs 2)</li>
+                    </ol>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Méthode</th><th>Utilité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Frottis sanguin / goutte épaisse</strong></td><td>Gold standard pour confirmation</td><td>Sensibilité élevée pour r-THA (parasitémie souvent élevée) ; plus faible pour g-THA (parasitémie fluctuante)</td></tr>
+                                <tr><td>Buffy coat / mAECT</td><td>Concentration des parasites</td><td>Augmente la sensibilité pour g-THA</td></tr>
+                                <tr><td>CATT (agglutination)</td><td>Sérologie terrain, g-THA uniquement</td><td>Dépistage de masse en Afrique ; ne fonctionne PAS pour r-THA</td></tr>
+                                <tr><td><strong>Ponction lombaire (LCR)</strong></td><td>Stadification obligatoire</td><td>Stade 2 si : trypanosomes dans le LCR, ou leucocytes &gt; 5/µL, ou protéines élevées</td></tr>
+                                <tr><td>PCR</td><td>Confirmation d'espèce</td><td>Distingue gambiense de rhodesiense ; laboratoire de référence</td></tr>
+                                <tr><td>Trypanolyse immune</td><td>Sérologie de référence (g-THA)</td><td>Très spécifique ; IMT Anvers, Swiss TPH</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Pièges diagnostiques</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-2">
+                            <li><strong>Confusion avec le paludisme</strong> : la r-THA peut mimer un paludisme sévère. Un TDR paludisme négatif chez un voyageur fébrile d'Afrique de l'Est doit faire évoquer la THA. Les trypanosomes peuvent être <strong>découverts sur le frottis réalisé pour le paludisme</strong> — informer le laboratoire !<sup><a href="#ref-10">[10,11]</a></sup></li>
+                            <li><strong>g-THA chez le migrant</strong> : tableau insidieux (fatigue, céphalées, fièvre intermittente) souvent étiqueté « dépression » ou « syndrome viral chronique ». Chez tout patient d'Afrique de l'Ouest/Centrale avec symptômes neuropsychiatriques inexpliqués &rarr; penser à la g-THA</li>
+                            <li><strong>Parasitémie fluctuante</strong> dans la g-THA : les trypanosomes ne sont pas toujours visibles au frottis — nécessité de techniques de concentration ou de répéter les examens</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- IRM -->
+                <section id="imagerie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">IRM cérébrale (stade 2)</h2>
+                    <p class="text-sm text-teal-800/80 mb-4">L'IRM n'est pas un outil diagnostique de première ligne mais aide à évaluer l'atteinte du SNC. Utile en pays non endémique pour le bilan d'un patient avec symptômes neurologiques inexpliqués.</p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Séquence</th><th>Anomalies</th><th>Localisation</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>T2 FLAIR</strong></td><td>Hypersignal de la substance blanche (anomalie la plus fréquente)</td><td>Substance blanche périventriculaire et sous-corticale</td></tr>
+                                <tr><td><strong>Diffusion (DWI/ADC)</strong></td><td>Restriction de la diffusion</td><td>Capsules internes, splénium du corps calleux</td></tr>
+                                <tr><td><strong>T1 post-gadolinium</strong></td><td>Prise de contraste leptoméningée</td><td>Méninges, noyaux gris centraux</td></tr>
+                                <tr><td><strong>SWI / T2*</strong></td><td>Microhémorragies</td><td>Disséminées</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Anomalies des <strong>voies optiques</strong> en T2 FLAIR décrites comme marqueur de méningo-encéphalite à <em>T. b. gambiense</em><sup><a href="#ref-31">[31]</a></sup></li>
+                        <li>Les anomalies sont <strong>largement réversibles</strong> sous traitement — la régression des lésions est un indicateur pronostique favorable<sup><a href="#ref-29">[29]</a></sup></li>
                     </ul>
                 </section>
 
-                <section id="prevention" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prevention primaire</h2>
-                    <p class="text-sm text-teal-800/80">Mesures pour eviter les piqures d'insectes (habits, insectifuges, moustiquaires).</p>
-                </section>
-
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement (par le specialiste !)</h2>
-                    <p class="text-sm text-teal-800/80">Suramine, pentamidine, melarsoprol, eflornithine.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Révolution thérapeutique 2019–2026</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Époque</th><th>g-THA stade 1</th><th>g-THA stade 2</th><th>r-THA stade 1</th><th>r-THA stade 2</th></tr></thead>
+                            <tbody>
+                                <tr><td>Avant 2009</td><td>Pentamidine</td><td>Éflornithine (ou mélarsoprol)</td><td>Suramine</td><td>Mélarsoprol (létalité ~5 %)</td></tr>
+                                <tr><td>2009–2018</td><td>Pentamidine</td><td>NECT</td><td>Suramine</td><td>Mélarsoprol</td></tr>
+                                <tr><td>2019–2023</td><td><strong>Fexinidazole</strong></td><td><strong>Fexinidazole</strong>*</td><td>Suramine</td><td>Mélarsoprol</td></tr>
+                                <tr><td class="font-semibold">2024–2026</td><td class="font-semibold">Fexinidazole ou acoziborole</td><td class="font-semibold">Fexinidazole ou acoziborole</td><td class="font-semibold">Fexinidazole</td><td class="font-semibold">Fexinidazole</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-6">*g-THA stade 2 non sévère (leucocytes LCR &le; 100/µL) ; NECT reste indiqué pour les formes sévères</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Fexinidazole — Premier traitement oral</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Posologie</strong> : 1800 mg/j × 4 jours puis 1200 mg/j × 6 jours (total 10 jours) ; avec un repas</li>
+                        <li>OMS 1<sup>re</sup> ligne g-THA depuis 2019, <strong>1<sup>re</sup> ligne r-THA depuis 2024</strong><sup><a href="#ref-17">[17]</a></sup></li>
+                        <li><strong>g-THA</strong> (phase IIIb, n=174) : efficacité à 18 mois <strong>93,1 %</strong> ; traitement ambulatoire potentiellement réalisable<sup><a href="#ref-19">[19]</a></sup></li>
+                        <li><strong>r-THA</strong> (phase II-III, n=46) : létalité stade 2 = <strong>0 %</strong> (vs ~8,5 % historique avec mélarsoprol, p=0,049)<sup><a href="#ref-20">[20]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Acoziborole — Dose unique</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Dose unique de 3 comprimés</strong> (960 mg) — indépendant du stade (pas de PL nécessaire !)</li>
+                        <li>Phase 2/3 (n=208) : taux de succès à 18 mois <strong>95 % stade 2</strong>, <strong>100 % stade 1</strong><sup><a href="#ref-21">[21]</a></sup></li>
+                        <li><strong>Avis positif EMA</strong> (février 2026) — don gratuit via OMS par Sanofi/Foundation S<sup><a href="#ref-22">[22]</a></sup></li>
+                        <li>Étape décisive vers l'objectif OMS d'interruption de la transmission d'ici 2030</li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Médicaments historiques</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Pentamidine</strong> : g-THA et r-THA stade 1, IM/IV 7–10 jours (hypotension, hypoglycémie)</li>
+                            <li><strong>Suramine</strong> : r-THA stade 1, IV 5 doses sur 5 semaines (néphrotoxicité, hypersensibilité). Désormais 2<sup>e</sup> ligne</li>
+                            <li><strong>Mélarsoprol</strong> : dérivé arsenical, encéphalopathie réactive mortelle chez 5–10 %. Désormais dernière ligne</li>
+                            <li><strong>NECT</strong> : éflornithine IV 7j + nifurtimox oral 10j ; g-THA stade 2 sévère (leuco LCR &gt; 100)</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout-piege mt-4">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Accès aux médicaments</p>
+                        <p class="text-sm text-teal-800">Tous les médicaments anti-THA sont distribués <strong>gratuitement par l'OMS</strong>. En Suisse, ils ne sont pas disponibles en pharmacie — <strong>délai potentiel de 24–48h</strong>. En cas de suspicion, contacter immédiatement un centre de référence.</p>
+                    </div>
                 </section>
 
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Pas de vaccin</strong> (variation antigénique des trypanosomes — VSG)</li>
+                        <li><strong>Pas de chimioprophylaxie</strong> recommandée</li>
+                        <li>Vêtements couvrants de <strong>couleur claire</strong> (la glossine est attirée par le bleu et le noir)</li>
+                        <li>Insectifuges (DEET, icaridine) — efficacité modérée contre les glossines</li>
+                        <li>Éviter les zones de végétation dense au bord des cours d'eau en journée</li>
+                        <li><strong>Zones à risque pour le voyageur</strong> : safaris en Afrique de l'Est — Serengeti, Tarangire (Tanzanie) ; Masai Mara (Kenya) ; Queen Elizabeth NP (Ouganda) ; vallée du Zambezi (Zambie/Zimbabwe)</li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">TDR paludisme négatif ≠ pas de parasitose</p>
+                            <p class="text-sm text-teal-800">Chez un voyageur fébrile d'Afrique de l'Est avec TDR paludisme négatif, évoquer la THA. Les trypanosomes peuvent être <strong>découverts sur le frottis demandé pour le paludisme</strong> — informer le laboratoire de la possibilité.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Le chancre peut manquer</p>
+                            <p class="text-sm text-teal-800">Absent dans ~16 % des r-THA et ~53 % des g-THA chez le voyageur. Peut être confondu avec un furoncle ou une piqûre surinfectée.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">g-THA : des mois/années après le retour</p>
+                            <p class="text-sm text-teal-800">La g-THA peut se manifester des mois à années après le séjour en Afrique. Chez un migrant ouest-africain avec symptômes neuropsychiatriques inexpliqués, toujours évoquer ce diagnostic.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Ne pas attendre les troubles du sommeil</p>
+                            <p class="text-sm text-teal-800">La somnolence diurne — signe classique de la « maladie du sommeil » — n'est observée que chez 5 % des voyageurs atteints de r-THA. Ce signe est <strong>tardif et rare</strong> chez le non-endémique.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">En cas de suspicion</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Frottis sanguin + goutte épaisse</strong> — demander au laboratoire de rechercher aussi les trypanosomes, pas seulement le paludisme</li>
+                        <li><strong>Bilan biologique</strong> : NFS, CRP, créatinine, transaminases, bilirubine, protéines totales, électrophorèse des protéines (IgM &uarr;&uarr;)</li>
+                        <li><strong>Contacter un centre de référence sans attendre</strong> si forte suspicion</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Morsure de glossine sans symptôme</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Relativement fréquent en safari (la glossine est ubiquitaire dans les parcs)</li>
+                        <li>Risque de transmission faible par piqûre individuelle</li>
+                        <li>Proposition : <strong>sérologie à J0 et J30</strong> ; consultation si apparition de symptômes (fièvre, chancre, adénopathies)</li>
+                    </ul>
+                </section>
+
+                <!-- QUAND REFERER -->
                 <section id="referer" class="mb-14">
                     <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">Le diagnostic et le traitement de la trypanosomiase africaine relevent du specialiste. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer le patient</a> des la suspicion clinique.</p>
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Toujours</strong> — le diagnostic et le traitement de la THA relèvent du spécialiste</li>
+                            <li>Référer <strong>dès la suspicion clinique</strong>, sans attendre la confirmation parasitologique</li>
+                            <li>Les médicaments ne sont pas disponibles en pharmacie et doivent être obtenus via l'OMS</li>
+                            <li>La r-THA est une <strong>urgence médicale</strong></li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
                     </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Lejon V, Lindner AK, Franco JR. Human African trypanosomiasis. <em>Lancet</em> 2025;405:937–950.</li>
+                        <li id="ref-2">WHO. Trypanosomiasis, human African (sleeping sickness) — fact sheet. 2024.</li>
+                        <li id="ref-3">Franco JR et al. The elimination of human African trypanosomiasis: Monitoring progress towards the 2021–2030 WHO road map targets. <em>PLoS Negl Trop Dis</em> 2024;18(4):e0012111.</li>
+                        <li>WHO. Global report on neglected tropical diseases. 2025.</li>
+                        <li id="ref-5">WHO. Chad eliminates human African trypanosomiasis. Juin 2024.</li>
+                        <li>WHO. Guinea eliminates human African trypanosomiasis. Janvier 2025.</li>
+                        <li>DNDi. Disease factsheet 2024 — Sleeping sickness.</li>
+                        <li id="ref-8">WHO. Kenya achieves elimination of human African trypanosomiasis. Août 2025.</li>
+                        <li id="ref-9">Franco JR et al. Human African trypanosomiasis cases diagnosed in non-endemic countries (2011–2020). <em>PLoS Negl Trop Dis</em> 2022;16(11):e0010885.</li>
+                        <li id="ref-10">Wendt EM et al. Rhodesiense HAT in a Traveler Returning from Zimbabwe. <em>MMWR</em> 2025;74(9):158–159.</li>
+                        <li id="ref-11">Blomberg B et al. A man in his sixties with life-threatening febrile illness after travel abroad. <em>Tidsskr Nor Laegeforen</em> 2024;144(3).</li>
+                        <li id="ref-12">Abera A et al. Reemergence of HAT Caused by <em>T. b. rhodesiense</em>, Ethiopia. <em>Emerg Infect Dis</em> 2024;30(1):160–163.</li>
+                        <li>Mudji J et al. HAT in Rural DRC: A Case Report. <em>Trop Med Infect Dis</em> 2019;4(4):142.</li>
+                        <li id="ref-14">Urech K, Neumayr A, Blum J. Sleeping sickness in travelers — do they really sleep? <em>PLoS Negl Trop Dis</em> 2011;5(11):e1358.</li>
+                        <li>Sawadogo PM et al. HAT: Epidemiology, Biological Diagnosis and Treatment. <em>Acta Parasitol</em> 2025;70:193.</li>
+                        <li>Luintel A et al. Nigeria-acquired HAT in United Kingdom, 2016. <em>Emerg Infect Dis</em> 2017;23(7):1225–1227.</li>
+                        <li id="ref-17">Lindner AK et al. New WHO guidelines for treating rhodesiense HAT. <em>Lancet Infect Dis</em> 2025;25(2):e77–e85.</li>
+                        <li>WHO. WHO delivers fexinidazole to Malawi and Zimbabwe. Février 2025.</li>
+                        <li id="ref-19">Kande Betu Kumeso V et al. Effectiveness and safety of fexinidazole for g-THA (phase 3b). <em>Lancet Glob Health</em> 2025;13(5):e900–e909.</li>
+                        <li id="ref-20">Matovu E et al. Fexinidazole for r-THA (phase 2–3). <em>Lancet Glob Health</em> 2025;13(5):e910–e919.</li>
+                        <li id="ref-21">Kande Betu Kumeso V et al. Efficacy and safety of acoziborole (phase 2/3). <em>Lancet Infect Dis</em> 2023;23(4):463–470.</li>
+                        <li id="ref-22">EMA. New single-dose oral treatment for HAT. Février 2026.</li>
+                        <li>Mwamba Miaka E et al. Fexinidazole: the challenge of accessibility. <em>Lancet Glob Health</em> 2025;13(5):e789–e790.</li>
+                        <li>Gao J-M et al. HAT: current situation and risks from imported cases. <em>Parasitology</em> 2020;147(9):922–931.</li>
+                        <li>Sudarshi D, Brown M. HAT in non-endemic countries. <em>Clin Med</em> 2015;15(1):70–73.</li>
+                        <li>Franco JR (WHO). HAT — Update &amp; outlook. Présentation SSTTM, septembre 2023.</li>
+                        <li>DNDi/Sanofi. Acoziborole Winthrop receives EMA CHMP positive opinion. Février 2026.</li>
+                        <li>DNDi. First all-oral treatment for sleeping sickness. 2025.</li>
+                        <li id="ref-29">Patel NK et al. MRI findings in HAT: a case series. <em>BJR Case Rep</em> 2019;4(4):20180039.</li>
+                        <li>Luna LP et al. PET/CT and Brain MRI in HAT Encephalitis. <em>Clin Nucl Med</em> 2022;47(1):e26–e28.</li>
+                        <li id="ref-31">Aidara CM et al. MRI Signal Abnormalities of the Optic Tracts in TG Meningoencephalitis. <em>Open J Radiol</em> 2022;12(1):1–11.</li>
+                        <li>Sabbah P et al. HAT: MRI. <em>Neuroradiol</em> 1997. / Gill DS et al. <em>AJNR</em> 2003. / HAT MRI and neuropathology. <em>Neurology</em> 2006.</li>
+                        <li>Paul M et al. Acute East African trypanosomiasis in a Polish traveller. <em>BMC Infect Dis</em> 2014;14:111.</li>
+                        <li>Mesu VKBK et al. Oral fexinidazole for late-stage g-THA: pivotal trial. <em>Lancet</em> 2018;391:144–154.</li>
+                        <li>Kande Betu Kumeso V et al. Fexinidazole in children with g-THA. <em>Lancet Glob Health</em> 2022;10(11):e1665–e1674.</li>
+                        <li>Büscher P et al. Human African trypanosomiasis. <em>Lancet</em> 2017;390:2397–2409.</li>
+                        <li>Hasker E et al. g-THA: the bumpy road to elimination. <em>Curr Opin Infect Dis</em> 2022;35(5):384–389.</li>
+                        <li>Ortiz-Martinez Y et al. HAT — Epidemiology, Clinical Manifestations, Diagnosis, Treatment, and Prevention. <em>Curr Trop Med Rep</em> 2023;10(4):222–234.</li>
+                        <li>Papagni R et al. HAT: Current knowledge and future challenges. <em>Front Trop Dis</em> 2023;4:1087003.</li>
+                        <li>Elliott I et al. West-African trypanosomiasis in a returned traveller from Ghana. <em>BMJ Case Rep</em> 2014;2014:bcr2014204451.</li>
+                        <li>WHO. Guidelines for the treatment of HAT. Genève, juin 2024. ISBN 978-92-4-009603-5.</li>
+                        <li>CDC. Clinical Guidance for HAT. Mise à jour mars 2024.</li>
+                        <li>CDC DPDx. Trypanosomiasis, African — Laboratory Identification.</li>
+                        <li>MacLean L et al. Stage Progression and Neurological Symptoms in r-THA. <em>PLoS Negl Trop Dis</em> 2012;6(10):e1857.</li>
+                        <li>Brun R, Blum J, Chappuis F, Burri C. Human African trypanosomiasis. <em>Lancet</em> 2010;375:148–159.</li>
+                    </ol>
                 </section>
             </article>
 
             <!-- FLOATING TOC -->
             <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
                 <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
                 <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prevention</a></li>
+                <li><a href="#imagerie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">IRM cérébrale</a></li>
                 <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
                 <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
     <script>
         const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
