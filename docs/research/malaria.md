@@ -56,7 +56,9 @@ _Date : 2026-03-10 | Sources : PubMed, Scholar Gateway, md-slides/research-fever
 - Prendre avec un repas gras (améliore l'absorption de la luméfantrine)
 - **Attention patient > 65 kg :** efficacité réduite — 100 % si ≤ 65 kg vs 90,4 % si > 65 kg (Vuuren J Travel Med 2024) [3]
 - Taux d'échec tardif chez non-immuns européens : **5,2 % à J20–J28** (Sonden K et al. CID 2017, n = 95) [3b]
-- **ECG recommandé** avant 1re dose et 4–6 h après 3e dose (risque QTc prolongé)
+- **ECG non systématique** aux doses standard recommandées : la luméfantrine peut allonger le QTc mais sans effet arythmogène cliniquement significatif aux doses thérapeutiques (NIH, PLOS)
+- **ECG indiqué si :** surdosage suspecté, QT long congénital ou arythmie symptomatique, cardiopathie sévère, co-prescription de médicaments allongeant le QTc (quinine, quinidine, antipsychotiques, antidépresseurs), inhibiteurs puissants du CYP3A4 (kétoconazole), ou traitement antérieur par halofantrine (contre-indiqué dans le mois suivant AL)
+- **Note :** le paludisme lui-même peut modifier le QTc — toute anomalie ECG n'est pas imputable au médicament
 - **Contrôle frottis à J28** obligatoire si patient > 65 kg
 
 **Alternative — Atovaquone-proguanil (Malarone®)**
