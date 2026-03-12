@@ -3,107 +3,478 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hepatite E — Tropical Notebook</title>
-    <meta name="description" content="Hepatite E : clinique, diagnostic, traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="hepatite E, HEV, hepeviridae, zoonose, medecine tropicale">
+    <title>Hépatite E — Tropical Notebook</title>
+    <meta name="description" content="Hépatite E (VHE) : épidémiologie suisse, génotypes, diagnostic, traitement par ribavirine, manifestations extra-hépatiques — guide pour le médecin de premier recours.">
+    <meta name="keywords" content="hépatite E, VHE, HEV, génotype 3, zoonose, ribavirine, amyotrophie névralgique, médecine tropicale, Suisse">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Hepatite E</span></nav></div></div>
-    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16"><div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12"><article class="min-w-0">
-                <header class="mb-10"><span class="section-label text-teal-500">Virus</span><h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Hepatite E</h1><p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Hepatite virale a transmission feco-orale et zoonotique : clinique, diagnostic et traitement.</p><div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div></header>
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/hepe_map.png" alt="Distribution geographique des genotypes de l'hepatite E" /></figure>
-                </section>
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Virus (RNA simple brin, famille Hepeviridae). 4 genotypes pathogenes :</p>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>VHE1 et 2 uniquement chez l'homme</li>
-                        <li>VHE3 et 4 chez l'homme et l'animal</li>
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Hépatite E</span></nav></div></div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+            <article class="min-w-0">
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Virus</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Hépatite E</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Virus de l'hépatite E (VHE) &mdash; famille <em>Hepeviridae</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">En Suisse, l'hépatite E est une <strong>zoonose alimentaire autochtone</strong>, pas une maladie d'importation. Plus de 95 % des cas sont dus au génotype 3, transmis par la consommation de porc ou de sanglier insuffisamment cuits. Chronique chez l'immunodéprimé, elle peut aussi provoquer des atteintes neurologiques méconnues.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                </header>
+
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Message clé</h3>
+                    <div class="callout-info">
+                        <p class="text-sm text-teal-800"><strong>En Suisse, &gt; 95 % des cas d'hépatite E sont autochtones (génotype 3)</strong> &mdash; transmis par voie alimentaire via des produits à base de porc ou de sanglier. Le voyage n'est <strong>pas</strong> le facteur de risque principal pour le médecin généraliste suisse.<sup><a href="#ref-2">[2]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6 text-sm uppercase tracking-wide">Données suisses (OFSP 2018&ndash;2024)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Déclaration obligatoire</strong> depuis le 1<sup>er</sup> janvier 2018 (laboratoire : PCR positive ; médecin : cas confirmé)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Nombre de cas stable depuis 2018, avec une <strong>flambée en 2021</strong> : 105 cas de janvier à mai 2021 (~3&times; la période correspondante les années précédentes)<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li>Majorité des cas : <strong>hommes d'âge moyen</strong> ; infection souvent asymptomatique</li>
+                        <li><strong>Dépistage PCR universel des dons de sang</strong> en Suisse depuis 2018 pour la sécurité transfusionnelle<sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li>Génotype quasi exclusif : <strong>VHE-3</strong> (sous-types 3c, 3f) &mdash; circulation locale confirmée dans des produits à base de porc<sup><a href="#ref-2">[2]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Séroprévalence suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Anti-VHE IgG chez les donneurs de sang : <strong>20,4 %</strong> (1997) vs <strong>12,8 %</strong> (2016) &mdash; baisse possiblement liée à l'amélioration de l'hygiène alimentaire<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>Canton de Vaud : séroprévalence de <strong>4,9 %</strong> (test MP Diagnostics, seuil plus strict)<sup><a href="#ref-4">[4]</a></sup></li>
+                        <li>Prévalence d'infections aiguës chez les donneurs (2018&ndash;2020) : <strong>1 don sur ~2 200</strong> positif en PCR ARN-VHE<sup><a href="#ref-5">[5]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Épidémiologie mondiale</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>OMS : <strong>19,5 millions de cas</strong> d'hépatite E aiguë et <strong>3 450 décès</strong> dans le monde en 2021<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>Europe : augmentation &times;10 des cas notifiés entre 2005 et 2015 (meilleure sensibilisation et diagnostic)<sup><a href="#ref-7">[7]</a></sup></li>
+                        <li>Le VHE génotype 3 est la <strong>cause la plus fréquente d'hépatite virale aiguë autochtone</strong> dans plusieurs pays européens (France, Allemagne, Pays-Bas, Royaume-Uni, Suisse)</li>
                     </ul>
                 </section>
+
+                <!-- VIROLOGIE -->
+                <section id="virologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Virologie &amp; génotypes</h2>
+
+                    <p class="text-sm text-teal-800/80 mb-4">Virus à ARN simple brin, non enveloppé, famille <em>Hepeviridae</em>. Quatre génotypes pathogènes pour l'homme, aux caractéristiques cliniques et épidémiologiques très différentes :</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Génotype</th><th>Distribution</th><th>Réservoir</th><th>Transmission</th><th>Risque spécifique</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>VHE-1</strong></td><td>Asie du Sud, Afrique</td><td>Humain exclusif</td><td>Féco-orale (eau contaminée)</td><td><strong>Mortalité chez la femme enceinte (20&ndash;30 %)</strong></td></tr>
+                                <tr><td><strong>VHE-2</strong></td><td>Mexique, Afrique de l'Ouest</td><td>Humain exclusif</td><td>Féco-orale (eau contaminée)</td><td>Similaire au VHE-1 (données limitées)</td></tr>
+                                <tr><td><strong>VHE-3</strong></td><td><strong>Europe, Amérique du Nord, Japon</strong></td><td><strong>Porc, sanglier, cerf</strong></td><td><strong>Zoonose alimentaire</strong></td><td><strong>Chronique chez l'immunodéprimé ; atteintes extra-hépatiques</strong></td></tr>
+                                <tr><td><strong>VHE-4</strong></td><td>Chine, Japon, Asie du SE (émergence Europe)</td><td>Porc</td><td>Zoonose alimentaire</td><td>Similaire au VHE-3, parfois plus sévère</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Point clé pour le MG suisse</p>
+                        <p class="text-sm text-teal-800">La majorité des patients suisses atteints d'hépatite E <strong>n'ont pas voyagé</strong>. Facteurs de risque locaux : consommation de <strong>saucisses de foie (Leberwurst), saucisson sec, figatelli, viande de sanglier</strong> insuffisamment cuite. La transfusion sanguine était une voie documentée avant le dépistage universel de 2018.<sup><a href="#ref-2">[2,5]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">VHE1 et 2 : Feco-orale (aliments contamines ou eau souillee par des selles).<br>VHE3 et 4 : Zoonose (consommation de viande d'animaux infectes, surtout porc, gibier).<br>Mais egalement transmission verticale mere-enfant et par transfusions.</p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Voie</th><th>Génotypes</th><th>Détails</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Alimentaire (zoonose)</strong></td><td>VHE-3, VHE-4</td><td>Viande de porc ou de sanglier crue/insuffisamment cuite ; foie de porc ; figatelli, saucisses de foie</td></tr>
+                                <tr><td><strong>Féco-orale (eau)</strong></td><td>VHE-1, VHE-2</td><td>Eau contaminée par des selles, épidémies dans les zones à faible assainissement (Asie, Afrique)</td></tr>
+                                <tr><td><strong>Transfusionnelle</strong></td><td>VHE-3 principalement</td><td>Documentée avant l'introduction du dépistage PCR ; risque résiduel très faible en Suisse depuis 2018<sup><a href="#ref-5">[5]</a></sup></td></tr>
+                                <tr><td><strong>Verticale (mère-enfant)</strong></td><td>VHE-1</td><td>Transmission transplacentaire ; complications néonatales graves</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-sm text-teal-800/80"><strong>Incubation</strong> : 15&ndash;60 jours (moyenne ~30 jours)<sup><a href="#ref-24">[24]</a></sup></p>
                 </section>
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">15-60 jours (en moyenne ~30 jours)</p>
-                </section>
+
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-3">
-                        <li>Premiers symptomes : EF, fatigue, malaise, nausees, vomissements, inappetence</li>
-                        <li>Apres quelques jours a 1 sem. : urines foncees, selles claires, ictere, prurit. Recuperation souvent lente et prolongee (plusieurs semaines, voire plusieurs mois).</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Infection aiguë (VHE-3, autochtone)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Souvent asymptomatique</strong> ou paucisymptomatique (ratio symptomatique:asymptomatique estimé à 1:5 &ndash; 1:20)<sup><a href="#ref-24">[24]</a></sup></li>
+                        <li>Quand symptomatique : syndrome pseudo-grippal (fièvre, asthénie, myalgies, nausées), puis <strong>ictère</strong> après quelques jours</li>
+                        <li>Élévation importante des transaminases (ALAT &gt; ASAT), puis bilirubine</li>
+                        <li><strong>Évolution spontanément favorable</strong> en 2&ndash;6 semaines dans la grande majorité des cas</li>
+                        <li>Mortalité chez l'immunocompétent : <strong>&lt; 1 %</strong></li>
                     </ul>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Complications variables selon les genotypes :</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>VHE3 :</strong> tres souvent asymptomatiques, cause parfois des atteintes extra-hepatiques surtout neurologiques (amyotrophie nevralgique, Guillain-Barre, paralysie de Bell, myelite transverse aigue).</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>VHE1 et 2 :</strong> symptomatologie evolue souvent comme pour l'hepatite A, asymptomatique ou subclinique chez les enfants. Chez l'adulte, peut aller d'un syndrome grippal a une hepatite fulminante. Les groupes a risque pour developper une hepatite symptomatique et grave sont les hommes &gt;50 ans avec hepatopathie sous-jacente et les femmes enceintes.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Une infection chronique est possible, provoquee surtout par le VHE3 et touche exclusivement les patients immunodeprimes.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Des reinfections sont possibles mais les manifestations sont plus legeres.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Groupes à risque d'hépatite sévère</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Population</th><th>Risque</th><th>Mortalité</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Hépatopathie chronique sous-jacente</strong></td><td>Hépatite aiguë-sur-chronique (ACLF)</td><td>Jusqu'à <strong>70 %</strong> chez les cirrhotiques<sup><a href="#ref-8">[8,9]</a></sup></td></tr>
+                                <tr><td><strong>Hommes &gt; 50 ans</strong> avec comorbidités hépatiques</td><td>Décompensation hépatique</td><td>Significativement augmentée</td></tr>
+                                <tr><td><strong>Femme enceinte (VHE-1 uniquement)</strong></td><td>Hépatite fulminante (3<sup>e</sup> trimestre)</td><td><strong>20&ndash;30 %</strong> mortalité maternelle<sup><a href="#ref-10">[10,11]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Hépatite E et grossesse</p>
+                        <p class="text-sm text-teal-800">La mortalité élevée en grossesse concerne <strong>exclusivement le génotype 1</strong> (Asie du Sud, Afrique) &mdash; pas le génotype 3 autochtone. Méta-analyse : mortalité maternelle poolée <strong>20,8 %</strong>, mortalité périnatale <strong>34 %</strong>.<sup><a href="#ref-11">[11]</a></sup> À évoquer chez une femme enceinte de retour d'Asie du Sud ou d'Afrique avec hépatite aiguë. <strong>Pas de traitement antiviral disponible</strong> (ribavirine et PEG-IFN contre-indiqués).</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Infection chronique (VHE-3, immunodéprimés)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Définition</strong> : ARN VHE détecté dans le sang ou les selles pendant <strong>&gt; 3 mois</strong> (EASL 2018)<sup><a href="#ref-12">[12]</a></sup></li>
+                        <li>Concerne <strong>exclusivement les patients immunodéprimés</strong> :</li>
+                    </ul>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc ml-10 mb-4">
+                        <li>Transplantés d'organe solide : <strong>60 %</strong> des infectés ne clearent pas spontanément<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>Greffes de cellules souches hématopoïétiques</li>
+                        <li>Chimiothérapie, immunosuppresseurs (anti-TNF, rituximab)</li>
+                        <li>VIH (CD4 &lt; 200/mm&sup3;)</li>
+                    </ul>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Évolution possible vers <strong>fibrose hépatique, cirrhose</strong> et exceptionnellement transplantation hépatique<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li><strong>Aucun cas de VHE chronique rapporté chez l'immunocompétent</strong></li>
+                    </ul>
                 </section>
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Ictere et hepatomegalie (plus rarement : splenomegalie, adenopathies cervicales, rash, arthrite).</p>
+
+                <!-- MANIFESTATIONS EXTRA-HEPATIQUES -->
+                <section id="extra-hepatiques" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Manifestations extra-hépatiques</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Atteintes neurologiques (VHE-3)</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">Les complications neurologiques constituent un aspect méconnu mais fréquent de l'hépatite E autochtone :</p>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Amyotrophie névralgique (syndrome de Parsonage-Turner)</strong> : complication la plus fréquente. Étude prospective au <strong>Tessin</strong> : sur 141 cas d'hépatite E aiguë, <strong>30,4 % avaient des symptômes neurologiques</strong> et <strong>10,6 % une amyotrophie névralgique</strong><sup><a href="#ref-15">[15]</a></sup></li>
+                        <li>Prédominance masculine marquée (OR = 5,2) ; atteinte bilatérale prédominante chez les hommes</li>
+                        <li>Tous les cas d'amyotrophie névralgique étaient <strong>immunocompétents</strong></li>
+                        <li><strong>Syndrome de Guillain-Barré</strong> : association documentée<sup><a href="#ref-25">[25]</a></sup></li>
+                        <li>Paralysie de Bell, myélite transverse aiguë, encéphalite, paralysie phrénique<sup><a href="#ref-16">[16]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; L'amyotrophie névralgique liée au VHE est sous-diagnostiquée</p>
+                        <p class="text-sm text-teal-800">Dans <strong>10 % des cas</strong> d'amyotrophie névralgique « idiopathique », le VHE est en cause. <strong>Les symptômes neurologiques dominent le tableau clinique</strong> &mdash; l'hépatite est souvent légère ou absente. Règle pratique : <strong>tester le VHE devant toute amyotrophie névralgique aiguë</strong>.<sup><a href="#ref-15">[15,16]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Autres manifestations extra-hépatiques</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Rénales</strong> : glomérulonéphrite membraneuse, cryoglobulinémie</li>
+                        <li><strong>Hématologiques</strong> : thrombocytopénie, anémie aplasique</li>
+                        <li><strong>Pancréatiques</strong> : pancréatite aiguë</li>
+                        <li><strong>Articulaires</strong> : arthralgies, myalgies</li>
+                    </ul>
                 </section>
-                <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Importante elevation des transaminases (ALAT &gt; ASAT) et PAL puis dans un deuxieme temps bilirubine.</p>
+
+                <!-- BIOLOGIE -->
+                <section id="biologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Transaminases</strong> : élévation marquée, ALAT &gt; ASAT (profil hépatocytaire)</li>
+                        <li><strong>Bilirubine</strong> : élévation dans un deuxième temps (ictère)</li>
+                        <li><strong>Phosphatases alcalines</strong> (PAL) : modérément augmentées</li>
+                        <li>GGT souvent élevée</li>
+                        <li>NFS : possible thrombocytopénie, lymphopénie</li>
+                        <li>CRP habituellement normale ou peu élevée</li>
+                    </ul>
                 </section>
+
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Serologie chez le sujet immunocompetent. En cas de forte suspicion et devant une serologie negative il faut completer le bilan par une PCR dans le plasma ou les selles.</p><p class="text-sm text-teal-800/80 leading-relaxed">Chez les patients immunodeprimes, il est preferable d'effectuer une PCR d'emblee car les serologies sont souvent negatives.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Patient immunocompétent</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Sérologie VHE</strong> : anti-VHE IgM + anti-VHE IgG</li>
+                        <li>IgM positif = infection récente/aiguë (persiste 3&ndash;6 mois)</li>
+                        <li>Si IgM positif : confirmer par <strong>PCR ARN VHE</strong> dans le sang et/ou selles</li>
+                        <li>Si sérologie négative mais forte suspicion : demander <strong>PCR ARN VHE d'emblée</strong> (fenêtre sérologique possible)<sup><a href="#ref-12">[12]</a></sup></li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Patient immunodéprimé</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; PCR d'emblée obligatoire</p>
+                        <p class="text-sm text-teal-800">Chez l'immunodéprimé, les sérologies sont souvent <strong>faussement négatives</strong> (réponse humorale insuffisante). Toujours demander une <strong>PCR ARN VHE d'emblée</strong>. La sérologie seule est <strong>insuffisante</strong> pour exclure le diagnostic.<sup><a href="#ref-12">[12,14]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Performance des tests</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Test</th><th>Sensibilité</th><th>Spécificité</th><th>Remarques</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Anti-VHE IgM (Wantai)</strong></td><td>90&ndash;98 %</td><td>95&ndash;99 %</td><td>Meilleur test sérologique ; faux-négatifs chez immunodéprimés</td></tr>
+                                <tr><td>Anti-VHE IgM (autres kits)</td><td>60&ndash;85 %</td><td>Variable</td><td>Performance inférieure au Wantai</td></tr>
+                                <tr><td><strong>PCR ARN VHE (sang)</strong></td><td>~95 %</td><td>~100 %</td><td>Gold standard chez l'immunodéprimé ; virémie parfois brève chez l'immunocompétent</td></tr>
+                                <tr><td>PCR ARN VHE (selles)</td><td>&gt; 95 %</td><td>~100 %</td><td>Excrétion fécale plus prolongée que la virémie</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-sm text-teal-800/80 mb-2">Étude Mayo Clinic 2025 : une <strong>stratégie en 2 étapes</strong> (IgM de dépistage puis IgM de confirmation) améliore la spécificité.<sup><a href="#ref-18">[18]</a></sup></p>
                 </section>
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Autres hepatites virales, EBV, CMV, HIV, fievre jaune, HSV, leptospirose, fievre Q.</p>
-                </section>
+
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et prevention</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>Infection aigue :</strong> traitement symptomatique.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>Infection chronique :</strong> diminution de l'immunosuppression, eventuellement ribavirine.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>Prevention :</strong> Pas de vaccination disponible en Suisse (uniquement en Chine). Mesures d'hygiene : eviter toute consommation de viande crue ou de crustaces.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Infection aiguë &mdash; immunocompétent</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Traitement symptomatique</strong> uniquement</li>
+                        <li>Éviction d'alcool et de médicaments hépatotoxiques</li>
+                        <li><strong>Pas d'indication à la ribavirine</strong> dans l'infection aiguë non compliquée</li>
+                        <li>Surveillance clinique et biologique (transaminases) jusqu'à normalisation</li>
+                        <li>Exception : hépatite aiguë sévère / ACLF &mdash; discussion au cas par cas, éventuellement ribavirine (données limitées)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Infection chronique &mdash; immunodéprimé</h3>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold">Étape 1 : Réduction de l'immunosuppression</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Chez les transplantés : réduction des immunosuppresseurs (en particulier tacrolimus)</li>
+                        <li>Clairance virale spontanée dans <strong>~30 %</strong> des cas<sup><a href="#ref-12">[12,13]</a></sup></li>
+                        <li>À discuter avec l'équipe de transplantation (risque de rejet)</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold">Étape 2 : Ribavirine (si persistance de l'ARN VHE)</p>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Détail</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Molécule</strong></td><td>Ribavirine en monothérapie (traitement de référence, EASL 2018)<sup><a href="#ref-12">[12]</a></sup></td></tr>
+                                <tr><td><strong>Dose</strong></td><td>600&ndash;800 mg/j (adaptée au poids et au DFG)</td></tr>
+                                <tr><td><strong>Durée</strong></td><td>Minimum <strong>3 mois</strong> ; prolonger si ARN VHE encore détecté à S12 (certains patients nécessitent 6&ndash;12 mois)</td></tr>
+                                <tr><td><strong>Objectif</strong></td><td>Réponse virologique soutenue (RVS) = ARN VHE indétectable 12 semaines après fin du traitement</td></tr>
+                                <tr><td><strong>Efficacité</strong></td><td>Étude multicentrique européenne (n = 255 transplantés) : RVS de <strong>78 %</strong><sup><a href="#ref-19">[19]</a></sup></td></tr>
+                                <tr><td><strong>Effets secondaires</strong></td><td><strong>Anémie hémolytique</strong> dose-dépendante (surveillance Hb) ; tératogène (contraception obligatoire)</td></tr>
+                                <tr><td><strong>Interaction</strong></td><td>Azathioprine : majoration de la toxicité hématologique</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold">En cas d'échec de la ribavirine</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>PEG-interféron alpha</strong> : option de 2<sup>e</sup> ligne, mais <strong>contre-indiqué chez les transplantés rénaux</strong> (risque de rejet)<sup><a href="#ref-20">[20]</a></sup></li>
+                        <li><strong>Sofosbuvir</strong> : efficacité controversée in vivo ; pas recommandé en routine<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li>Cas réfractaires : combinaison ribavirine + PEG-IFN rapportée avec succès chez certains transplantés, mais risque de rejet<sup><a href="#ref-20">[20]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Grossesse</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Pas de traitement antiviral</strong> (ribavirine et PEG-IFN contre-indiqués)</li>
+                        <li>Prise en charge symptomatique et supportive</li>
+                        <li>Transfert en centre tertiaire si hépatite sévère</li>
+                        <li>Accouchement prématuré éventuel si détérioration de l'état maternel</li>
+                    </ul>
                 </section>
 
-                <section id="referer" class="mb-10"><div class="callout-referer"><p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p><p class="text-sm text-teal-800">Cas complexes ou severes necessitant un avis specialise. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p></div></section>
-            </article>
-            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et prevention</a></li>
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
 
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside></div></main>
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
-    <script>const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}});});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}});},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));</script>
+                    <h3 class="font-semibold text-teal-800 mb-3">Mesures hygiéniques et alimentaires</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Cuisson suffisante</strong> de la viande de porc et de sanglier (température à c&oelig;ur &gt; 71 &deg;C pendant &gt; 20 minutes)</li>
+                        <li>Éviter : saucisses de foie crues, figatelli, foie de porc mal cuit, produits à base de sanglier insuffisamment cuits</li>
+                        <li><strong>Populations vulnérables</strong> (immunodéprimés, femmes enceintes, hépatopathie chronique) : éviter <strong>tout produit à base de porc ou de gibier cru ou insuffisamment cuit</strong><sup><a href="#ref-2">[2]</a></sup></li>
+                        <li>Hygiène de l'eau et des aliments en voyage dans les zones d'endémie VHE-1/2</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Dépistage transfusionnel</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Dépistage PCR universel des dons de sang</strong> en Suisse depuis 2018<sup><a href="#ref-1">[1,5]</a></sup></li>
+                        <li>Également en vigueur dans plusieurs pays européens (France, Royaume-Uni, Pays-Bas, Allemagne)<sup><a href="#ref-21">[21,28]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccination</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Hecolin (HEV 239)</strong> : seul vaccin contre le VHE (recombinant, sous-unitaire)</li>
+                        <li>Homologué en <strong>Chine depuis 2011</strong> et au <strong>Pakistan depuis 2024</strong><sup><a href="#ref-22">[22]</a></sup></li>
+                        <li>Efficacité : <strong>100 %</strong> contre l'hépatite E symptomatique dans l'essai pivotal (n = 112 604) ; 86,8 % à 4,5 ans<sup><a href="#ref-22">[22]</a></sup></li>
+                        <li><strong>Non disponible en Suisse ni en Europe</strong> &mdash; pas de préqualification OMS</li>
+                        <li>Données insuffisantes chez les femmes enceintes, les enfants et les immunodéprimés<sup><a href="#ref-22">[22]</a></sup></li>
+                    </ul>
+                    <div class="callout-info">
+                        <p class="text-sm text-teal-800"><strong>En pratique pour le MG suisse</strong> : pas de vaccination disponible. La prévention repose sur les <strong>mesures alimentaires</strong>, en particulier chez les patients vulnérables.</p>
+                    </div>
+                </section>
+
+                <!-- DECLARATION OBLIGATOIRE -->
+                <section id="declaration" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Déclaration obligatoire (Suisse)</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Depuis le 1<sup>er</sup> janvier 2018</strong><sup><a href="#ref-1">[1]</a></sup></li>
+                        <li><strong>Laboratoire</strong> : déclaration de tout résultat PCR ARN VHE positif dans un délai de <strong>1 semaine</strong> &rarr; OFSP (système électronique)</li>
+                        <li><strong>Médecin</strong> : déclaration du cas clinique au médecin cantonal dans un délai de <strong>1 semaine</strong></li>
+                        <li>Guide de la déclaration obligatoire OFSP 2026<sup><a href="#ref-23">[23]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">L'hépatite E n'est PAS qu'une maladie du voyage</p>
+                            <p class="text-sm text-teal-800">En Suisse, la majorité des cas sont <strong>autochtones (VHE-3)</strong>, transmis par l'alimentation. Ne pas chercher un antécédent de voyage &mdash; chercher une <strong>exposition alimentaire à risque</strong>. Erreur classique : ne pas inclure la sérologie VHE dans le bilan d'une hépatite aiguë inexpliquée.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Sérologie négative chez l'immunodéprimé</p>
+                            <p class="text-sm text-teal-800">Les tests sérologiques (IgM) sont fréquemment <strong>faussement négatifs</strong> chez les patients immunodéprimés. Toujours demander une <strong>PCR ARN VHE d'emblée</strong> chez l'immunodéprimé avec élévation des transaminases.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Manifestations neurologiques sans hépatite évidente</p>
+                            <p class="text-sm text-teal-800">L'amyotrophie névralgique liée au VHE peut survenir avec une hépatite légère ou <strong>absente</strong>. Penser au VHE devant toute amyotrophie névralgique aiguë ou syndrome de Guillain-Barré inexpliqué.<sup><a href="#ref-15">[15]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Hépatopathie sous-jacente méconnue</p>
+                            <p class="text-sm text-teal-800">Chez un patient avec hépatopathie chronique (alcool, stéatose, hépatite B/C), une surinfection VHE peut provoquer une <strong>décompensation hépatique aiguë</strong> (ACLF) avec mortalité élevée.<sup><a href="#ref-8">[8,9]</a></sup></p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Perles</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>En Suisse, <strong>1 don de sang sur ~2 200</strong> est positif en PCR VHE &mdash; le virus circule silencieusement<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li><strong>30 %</strong> des patients avec hépatite E aiguë au Tessin avaient des symptômes neurologiques<sup><a href="#ref-15">[15]</a></sup></li>
+                        <li>Le VHE-3 chronique chez le transplanté peut évoluer vers une <strong>cirrhose en quelques mois</strong> si non traité<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li>La ribavirine permet une RVS de <strong>~78 %</strong> chez les transplantés<sup><a href="#ref-19">[19]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Quand penser à l'hépatite E ?</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Toute hépatite aiguë inexpliquée</strong> : inclure systématiquement la sérologie VHE (IgM + IgG) dans le bilan</li>
+                        <li><strong>Élévation des transaminases chez un immunodéprimé</strong> : demander PCR ARN VHE d'emblée</li>
+                        <li><strong>Amyotrophie névralgique aiguë</strong> ou syndrome de Guillain-Barré inexpliqué</li>
+                        <li><strong>Femme enceinte fébrile avec hépatite aiguë</strong>, retour d'Asie du Sud ou d'Afrique</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Bilan initial</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Sérologie VHE</strong> : anti-VHE IgM + IgG (patient immunocompétent)</li>
+                        <li><strong>PCR ARN VHE</strong> : d'emblée chez l'immunodéprimé ; en confirmation chez l'immunocompétent si IgM positif</li>
+                        <li>Bilan hépatique complet : ALAT, ASAT, bilirubine, PAL, GGT, TP/INR, albumine</li>
+                        <li>NFS, créatinine</li>
+                        <li>Exclure les autres causes : sérologies VHA, VHB, VHC, EBV, CMV</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Conseils alimentaires aux patients à risque</h3>
+                    <div class="callout-info">
+                        <p class="text-sm text-teal-800">Pour les patients immunodéprimés, les femmes enceintes et les patients avec hépatopathie chronique : <strong>éviter toute consommation de porc ou de sanglier cru ou insuffisamment cuit</strong> (saucisses de foie, figatelli, saucisson sec, foie de porc). Cuisson à c&oelig;ur &gt; 71 &deg;C pendant &gt; 20 minutes.<sup><a href="#ref-2">[2]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Hépatite aiguë sévère</strong> : ictère marqué, TP/INR perturbé, signes d'ACLF</li>
+                            <li><strong>Patient immunodéprimé</strong> avec PCR VHE positive : discussion sur la réduction de l'immunosuppression et l'indication à la ribavirine</li>
+                            <li><strong>Suspicion d'hépatite E chronique</strong> (ARN VHE persistant &gt; 3 mois)</li>
+                            <li><strong>Femme enceinte</strong> avec hépatite aiguë (VHE-1 suspecté)</li>
+                            <li><strong>Manifestations extra-hépatiques</strong> : amyotrophie névralgique, Guillain-Barré, atteinte rénale</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">OFSP. Introduction de la déclaration obligatoire pour l'hépatite E. <em>Bulletin OFSP</em> 51/2017.</li>
+                        <li id="ref-2">OFSP. L'hépatite E en Suisse et dans la Principauté du Liechtenstein pendant la période 2018&ndash;2024. <em>Bulletin OFSP</em> 52/2025.</li>
+                        <li id="ref-3">Niederhauser C et al. Current hepatitis E virus seroprevalence in Swiss blood donors and apparent decline from 1997 to 2016. <em>Eurosurveillance</em> 2018;23(35):1700616.</li>
+                        <li id="ref-4">Kaufmann A et al. Hepatitis E virus seroprevalence among blood donors in Southwest Switzerland. <em>PLoS ONE</em> 2011;6(6):e21150.</li>
+                        <li id="ref-5">Niederhauser C et al. Prevalence of acute hepatitis E virus infections in Swiss blood donors 2018&ndash;2020. <em>Viruses</em> 2024;16(5):744.</li>
+                        <li id="ref-6">OMS. Hépatite E &mdash; aide-mémoire. Mis à jour 2024.</li>
+                        <li id="ref-7">Aspinall EJ et al. Hepatitis E virus infection in Europe: surveillance and descriptive epidemiology of confirmed cases, 2005 to 2015. <em>Eurosurveillance</em> 2017;22(26):30561.</li>
+                        <li id="ref-8">Choi JW et al. Acute hepatitis E virus superinfection increases mortality in patients with cirrhosis. <em>BMC Infect Dis</em> 2022;22:62.</li>
+                        <li id="ref-9">Frias M et al. Role of hepatitis E virus infection in acute-on-chronic liver failure. <em>BioMed Res Int</em> 2018;2018:9098535.</li>
+                        <li id="ref-10">Berglov A et al. Hepatitis E during pregnancy: maternal and foetal case-fatality rates and adverse outcomes &mdash; a systematic review. <em>J Viral Hepat</em> 2019;26:1240&ndash;1248.</li>
+                        <li id="ref-11">Bigna JJ et al. Burden of hepatitis E virus infection in pregnancy and maternofoetal outcomes: a systematic review and meta-analysis. <em>BMC Pregnancy Childbirth</em> 2020;20:426.</li>
+                        <li id="ref-12">EASL Clinical Practice Guidelines on hepatitis E virus infection. <em>J Hepatol</em> 2018;68:1256&ndash;1271 &mdash; mise à jour 2024.</li>
+                        <li id="ref-13">Kamar N et al. Ribavirin for chronic hepatitis E virus infection in transplant recipients. <em>N Engl J Med</em> 2014;370:1111&ndash;1120.</li>
+                        <li id="ref-14">Philippart M et al. Chronic hepatitis E in immunosuppressed patients: a comprehensive review of the literature. <em>Acta Gastro-Enterol Belg</em> 2025;88(4).</li>
+                        <li id="ref-15">Ripellino P et al. Neurologic complications of acute hepatitis E virus infection. <em>Neurol Neuroimmunol Neuroinflamm</em> 2020;7(1):e643.</li>
+                        <li id="ref-16">Moortgat E et al. Hepatitis E infection complicated by bilateral neuralgic amyotrophy and phrenic nerve palsy: a case report. <em>Acta Gastro-Enterol Belg</em> 2025;88(3).</li>
+                        <li id="ref-17">Ripellino P et al. Neuropathies related to hepatitis E virus infection: a prospective, matched case-control study. <em>Eur J Neurol</em> 2024;31:e16030.</li>
+                        <li id="ref-18">Chiu CY et al. Clinical utility of two-step hepatitis E virus IgM antibody testing. <em>Hepatol Commun</em> 2025;9(1).</li>
+                        <li id="ref-19">Kamar N et al. Ribavirin for hepatitis E virus infection after organ transplantation: a large European retrospective multicenter study. <em>Clin Infect Dis</em> 2020;71(5):1204&ndash;1211.</li>
+                        <li id="ref-20">Ollivier-Hourmand I et al. Pegylated interferon may be considered in chronic viral hepatitis E resistant to ribavirin in kidney transplant recipients. <em>BMC Infect Dis</em> 2020;20:527.</li>
+                        <li id="ref-21">Harvala H et al. Hepatitis E virus in blood donors in England, 2016 to 2017: from selective to universal screening. <em>Eurosurveillance</em> 2019;24(10).</li>
+                        <li id="ref-22">Kim SB. Hepatitis E vaccine landscape update 2025. <em>Expert Rev Vaccines</em> 2025.</li>
+                        <li id="ref-23">OFSP. Guide de la déclaration obligatoire &mdash; Maladies infectieuses et agents pathogènes 2026.</li>
+                        <li id="ref-24">Songtanin B et al. Hepatitis E virus infections: epidemiology, genetic diversity, and clinical considerations. <em>Viruses</em> 2023;15:1389.</li>
+                        <li id="ref-25">Jha AK et al. Neurological manifestations of hepatitis E virus infection: an overview. <em>World J Gastroenterol</em> 2021;27(18):2090&ndash;2104.</li>
+                        <li id="ref-26">Horvatits T et al. The clinical perspective on hepatitis E. <em>Viruses</em> 2019;11:617.</li>
+                        <li id="ref-27">Kupke P et al. Hepatitis E virus infection in immunosuppressed patients and its clinical manifestations. <em>Dig Liver Dis</em> 2025;57:378&ndash;384.</li>
+                        <li id="ref-28">Domanovic D et al. Hepatitis E and blood donation safety in selected European countries: a shift to screening? <em>Eurosurveillance</em> 2017;22(16):30514.</li>
+                        <li id="ref-29">OFSP. Hépatite E &mdash; page informative. https://www.bag.admin.ch/fr/hepatite-e</li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#virologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Virologie &amp; génotypes</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#extra-hepatiques" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Extra-hépatiques</a></li>
+                <li><a href="#biologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#declaration" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Déclaration obligatoire</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+
+    <script>
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+    </script>
 </body>
 </html>

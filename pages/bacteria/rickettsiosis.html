@@ -3,248 +3,468 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rickettsiose — Tropical Notebook</title>
-    <meta name="description" content="Rickettsioses : fievre africaine a tiques, fievre boutonneuse, typhus — clinique, diagnostic et traitement pour le medecin de premier recours.">
-    <meta name="keywords" content="rickettsiose, fievre africaine tiques, fievre boutonneuse, typhus, doxycycline, medecine tropicale">
+    <title>Rickettsioses — Tropical Notebook</title>
+    <meta name="description" content="Rickettsioses du voyageur : fièvre africaine à tiques (ATBF), fièvre boutonneuse méditerranéenne (FBM) — épidémiologie, diagnostic (PCR escarre), traitement (doxycycline tous âges) et prise en charge pour le médecin de premier recours.">
+    <meta name="keywords" content="rickettsiose, fièvre africaine tiques, ATBF, fièvre boutonneuse méditerranéenne, FBM, Rickettsia africae, Rickettsia conorii, escarre, tache noire, doxycycline, médecine tropicale">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="flex items-center gap-3 group">
-                    <span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span>
-                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
-                </a>
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a>
-                    <div class="dropdown relative">
-                        <button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
-                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
-                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a>
-                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
-                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
-                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
-                        </div>
-                    </div>
-                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
-                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
-                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                </div>
-                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-            </div>
-            <div id="mobileMenu" class="mobile-menu md:hidden">
-                <div class="py-3 border-t border-teal-700/50 space-y-1">
-                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
-                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
-                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
-                    <div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto">
-        <nav class="flex items-center gap-2 text-sm text-teal-600/60">
-            <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <a href="../bacteria.html" class="hover:text-teal-600 transition-colors">Bacteries</a>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span class="text-teal-800 font-medium">Rickettsiose</span>
-        </nav>
-    </div></div>
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../bacteria.html" class="hover:text-teal-600 transition-colors">Bactéries</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Rickettsioses</span></nav></div></div>
 
+    <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
         <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
             <article class="min-w-0">
-
                 <header class="mb-10">
-                    <span class="section-label text-teal-500">Bacterie</span>
-                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Rickettsiose</h1>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Infections a rickettsies : fievre africaine a tiques, fievre boutonneuse, typhus et autres rickettsioses.</p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
-                        <span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span>
-                    </div>
+                    <span class="section-label text-teal-500">Bactérie</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Rickettsioses</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Fièvre africaine à tiques (ATBF) &mdash; <em>R. africae</em> | Fièvre boutonneuse méditerranéenne (FBM) &mdash; <em>R. conorii</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Les rickettsioses sont la première cause infectieuse de fièvre au retour d'Afrique après le paludisme. Diagnostic avant tout clinique : fièvre + escarre(s) = doxycycline immédiate, sans attendre la sérologie. La PCR sur écouvillon d'escarre est l'outil diagnostique le plus performant en phase aiguë.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
-                <!-- Repartition geographique -->
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Données clés pour le praticien suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>ATBF (<em>R. africae</em>)</strong> = rickettsiose la plus fréquemment diagnostiquée chez le voyageur de retour ; 2<sup>e</sup> cause de fièvre après le paludisme chez les voyageurs revenant d'Afrique subsaharienne<sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li>Données GeoSentinel (17 353 voyageurs malades) : l'infection rickettsienne était <strong>plus fréquente que la typhoïde ou la dengue</strong> chez les voyageurs d'Afrique subsaharienne<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li><strong>Taux d'attaque</strong> lors de safaris en Afrique australe : ~4 % clinique, jusqu'à ~40 % de séroconversion dans certains clusters<sup><a href="#ref-4">[4,5]</a></sup></li>
+                        <li>~40 % des cas d'ATBF surviennent en <strong>clusters</strong> (groupes de voyageurs, safaris) &mdash; caractéristique quasi-pathognomonique<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li><strong>Cas suisses documentés</strong> : Jackson et al. 2004 &mdash; 4 cas de voyageurs genevois de retour d'Afrique du Sud (HUG)<sup><a href="#ref-6">[6]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Risque entomologique</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>64,9 %</strong> des larves d'<em>Amblyomma hebraeum</em> infectées par <em>R. africae</em> en Eswatini (Ledger et al. 2022)<sup><a href="#ref-7">[7]</a></sup> &mdash; risque entomologique très élevé dans les zones de safari</li>
+                        <li><strong>En Suisse</strong> : <em>Rickettsia helvetica</em> présente dans ~10,5 % des tiques <em>Ixodes ricinus</em><sup><a href="#ref-8">[8]</a></sup> ; cas autochtones sporadiques de rickettsiose à <em>R. helvetica</em>, généralement bénins</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Fièvre aiguë indifférenciée du voyageur</h3>
+                    <div class="callout-info">
+                        <p class="text-sm text-teal-800"><strong>30,5 %</strong> des fièvres aiguës indifférenciées du voyageur sont causées par des infections sensibles à la doxycycline (rickettsioses, leptospirose, fièvre Q)<sup><a href="#ref-24">[24]</a></sup> &mdash; argument fort pour inclure la doxycycline dans le traitement empirique de la fièvre du voyageur non palustre.</p>
+                    </div>
+                </section>
+
+                <!-- REPARTITION GEOGRAPHIQUE -->
                 <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <div class="overflow-x-auto rounded-xl border border-teal-100">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+
+                    <div class="overflow-x-auto rounded-xl border border-teal-100 mb-6">
                         <table class="article-table">
                             <thead>
                                 <tr>
-                                    <th>Agent</th>
                                     <th>Maladie</th>
+                                    <th>Agent</th>
                                     <th>Vecteur</th>
-                                    <th>Reservoir</th>
-                                    <th>Geographie</th>
+                                    <th>Géographie</th>
+                                    <th>Mortalité sans traitement</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr><td class="font-medium"><em>Rickettsia africae</em></td><td>Fievre africaine a tiques</td><td>Tiques</td><td>Tiques, rongeurs, chiens</td><td>Afrique</td></tr>
-                                <tr><td class="font-medium"><em>Rickettsia conorii</em></td><td>Fievre boutonneuse mediterraneenne</td><td>Tiques</td><td>Tiques, rongeurs, chiens</td><td>Bassin mediterraneen, Proche-Orient, Afrique</td></tr>
-                                <tr><td class="font-medium"><em>Rickettsia rickettsii</em></td><td>Fievre pourpree des Montagnes Rocheuses</td><td>Tiques</td><td>Tiques, rongeurs</td><td>USA, Canada, Mexique, Amerique du Sud</td></tr>
-                                <tr><td class="font-medium"><em>Rickettsia prowazekii</em></td><td>Typhus exanthematique epidemique</td><td>Poux</td><td>Homme</td><td>Repartition mondiale, surtout Asie et CEI</td></tr>
-                                <tr><td class="font-medium"><em>Rickettsia typhi</em></td><td>Typhus murin endemique</td><td>Poux des rongeurs</td><td>Rongeurs</td><td>Repartition mondiale, rare sous les tropiques</td></tr>
-                                <tr><td class="font-medium"><em>Bartonella quintana</em></td><td>Fievre des tranchees</td><td>Poux</td><td>Homme</td><td>CEI, Pologne, Tunisie, Erythree, Mexique</td></tr>
-                                <tr><td class="font-medium"><em>Orientia tsutsugamushi</em></td><td>Typhus des broussailles (Scrub typhus)</td><td>Larves d'acariens</td><td>Rongeurs, mites</td><td>Asie, Pacifique, Australie</td></tr>
-                                <tr><td class="font-medium"><em>Rickettsia sibirica</em></td><td>Fievre siberienne a tiques</td><td>Tiques</td><td>Tiques, rongeurs</td><td>CEI, nord de l'Inde</td></tr>
+                                <tr><td class="font-medium">Fièvre africaine à tiques (ATBF)</td><td><em>R. africae</em></td><td>Tiques <em>Amblyomma</em></td><td>Afrique subsaharienne, Antilles</td><td><strong>~0 %</strong></td></tr>
+                                <tr><td class="font-medium">Fièvre boutonneuse méditerranéenne</td><td><em>R. conorii</em></td><td>Tiques <em>Rhipicephalus</em></td><td>Bassin méditerranéen, Proche-Orient, Afrique</td><td><strong>2–3 %</strong></td></tr>
+                                <tr><td class="font-medium">Fièvre pourprée des Montagnes Rocheuses</td><td><em>R. rickettsii</em></td><td>Tiques</td><td>Amériques</td><td><strong>20 %</strong></td></tr>
+                                <tr><td class="font-medium">Typhus épidémique</td><td><em>R. prowazekii</em></td><td>Poux</td><td>Mondial (camps, prisons)</td><td><strong>20–40 %</strong></td></tr>
+                                <tr><td class="font-medium">Scrub typhus</td><td><em>Orientia tsutsugamushi</em></td><td>Larves d'acariens</td><td>Asie-Pacifique</td><td>3–30 %</td></tr>
+                                <tr><td class="font-medium">TIBOLA / DEBONEL / SENLAT</td><td><em>R. slovaca</em>, <em>R. raoultii</em></td><td>Tiques <em>Dermacentor</em></td><td>Europe (y.c. Suisse)</td><td>~0 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Rickettsioses en Europe</p>
+                        <p class="text-sm text-teal-800">La FBM (<em>R. conorii</em>) est endémique dans le bassin méditerranéen. En Bulgarie (région de Plovdiv), l'incidence atteint 9,44/100 000 avec 549 cas sur 10 ans ; formes malignes et létales possibles chez l'adulte.<sup><a href="#ref-10">[10]</a></sup> Autres espèces européennes : <em>R. helvetica</em>, <em>R. monacensis</em>, <em>R. massiliae</em>, <em>R. aeschlimannii</em>, <em>R. slovaca</em>.<sup><a href="#ref-9">[9]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- TRANSMISSION -->
+                <section id="transmission" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Vecteur principal</strong> : morsure de tique (genre <em>Amblyomma</em> pour l'ATBF, <em>Rhipicephalus sanguineus</em> pour la FBM)</li>
+                        <li><strong>Agent causal</strong> : bactéries intracellulaires strictes de la famille des <em>Rickettsiaceae</em>, genre <em>Rickettsia</em></li>
+                        <li>Les tiques <em>Amblyomma</em> sont <strong>agressives</strong>, chassent activement et piquent à travers les vêtements ; elles vivent dans l'herbe haute et les buissons des zones de safari<sup><a href="#ref-22">[22]</a></sup></li>
+                        <li>Transmission dès les premières minutes de la morsure (contrairement à <em>Borrelia</em>, qui nécessite un attachement prolongé)</li>
+                        <li>Les tiques sont à la fois <strong>vecteur et réservoir</strong> (transmission transovarienne)</li>
+                        <li>Pas de transmission interhumaine</li>
+                    </ul>
+
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Rickettsiose</th><th>Incubation</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>ATBF</strong> (<em>R. africae</em>)</td><td>4–10 jours (2–14 jours)</td></tr>
+                                <tr><td><strong>FBM</strong> (<em>R. conorii</em>)</td><td>5–7 jours</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </section>
 
-                <!-- Agent causal -->
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Bacteries intracellulaires strictes de la famille des <em>Rickettsiaceae</em>.</p>
-                </section>
-
-                <!-- Transmission -->
-                <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><strong>Vectorielle :</strong> Morsure d'ectoparasites tels que arachnides acariens hematophages (<a href="https://fr.wikipedia.org/wiki/Tique" target="_blank" class="ref-link">Tiques</a>), de larves d'acariens (<a href="https://fr.wikipedia.org/wiki/Ao%C3%BBtat" target="_blank" class="ref-link">Aoutats</a>) ou insectes (<a href="https://fr.wikipedia.org/wiki/Pou" target="_blank" class="ref-link">Poux</a>).</p>
-                </section>
-
-                <!-- Incubation -->
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">3-28 jours</p>
-                </section>
-
-                <!-- Presentation clinique -->
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">EF, cephalees, arthralgies, myalgies. Lesion cutanee typique (presente dans environ 50% des cas) : tache noire = ulcere indolore a fond noir (quelques mm a 1-2cm). Eventuellement exantheme, symptomes neurologiques par la suite.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
 
-                    <div class="space-y-4">
-                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
-                            <h4 class="font-semibold text-teal-800 mb-2">Fievre africaine a tiques</h4>
-                            <p class="text-sm text-teal-800/80">Tache noire typique. Lymphadenite, lymphangite, oedeme local. La maladie est souvent ramenee par les voyageurs effectuant des safaris en Afrique.</p>
-                        </div>
-                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
-                            <h4 class="font-semibold text-teal-800 mb-2">Fievre boutonneuse mediterraneenne</h4>
-                            <p class="text-sm text-teal-800/80">Tache noire caracteristique d'un diametre d'environ 5 mm, accompagnee d'ADP regionales. Exantheme 3-5 jours apres debut EF, touche egalement paumes et plantes. Le plus souvent benigne, mais la mortalite est quand-meme de 2 a 3%. Une maladie tres semblable a la fievre boutonneuse est causee par <em>R. sibirica</em> (nord de l'Asie), <em>R. australis</em> (typhus du Queensland) ou <em>R. helvetica</em> (Europe centrale et du Nord, y.c. la Suisse !).</p>
-                        </div>
-                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
-                            <h4 class="font-semibold text-teal-800 mb-2">Fievre pourpree des Montagnes Rocheuses</h4>
-                            <p class="text-sm text-teal-800/80">Dans la moitie des cas, l'exantheme touche egalement la paume des mains. Sans traitement, la mortalite est de 20%.</p>
-                        </div>
-                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
-                            <h4 class="font-semibold text-teal-800 mb-2">Typhus exanthematique epidemique</h4>
-                            <p class="text-sm text-teal-800/80">Debut aigu, d'allure grippale. Exantheme apres 4 a 7 jours, s'etend rapidement des aisselles au corps entier. Le visage, la paume des mains et la plante des pieds restent le plus souvent epargnes. Les lesions deviennent souvent hemorragiques apres quelques jours. L'apparition d'ecchymoses, d'un etat de choc, d'insuffisance renale, de pneumonie ou d'encephalite est de mauvais pronostic. Sans traitement, la duree de la maladie est de 2 semaines. Mortalite elevee. Tres rare chez les voyageurs, mais peut toucher les travailleurs humanitaires qui ont des contacts avec des populations tres defavorisees (prisonniers, camps de refugies).</p>
-                        </div>
-                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
-                            <h4 class="font-semibold text-teal-800 mb-2">Typhus murin</h4>
-                            <p class="text-sm text-teal-800/80">Cliniquement semblable au typhus exanthematique epidemique, evolution le plus souvent benigne. Atteintes viscerales sont rares. Toux plus frequente.</p>
-                        </div>
-                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
-                            <h4 class="font-semibold text-teal-800 mb-2">Fievre des tranchees</h4>
-                            <p class="text-sm text-teal-800/80">Cours clinique plus chronique que dans les autres rickettsioses. Recidives frequentes, souvent multiples, meme apres quelques annees. Les cas mortels sont rares.</p>
-                        </div>
-                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
-                            <h4 class="font-semibold text-teal-800 mb-2">Fievre de tsutsugamushi (typhus des rivieres, scrub typhus)</h4>
-                            <p class="text-sm text-teal-800/80">EF eleve, cephalees intenses, myalgies. Eventuellement rash, escarre. La severite est variable de symptomes moderes a une defaillance multi-systemique. En l'absence de traitement, mortalite de 3-30%.</p>
-                        </div>
+                    <h3 class="font-semibold text-teal-800 mb-3">Fièvre africaine à tiques (<em>R. africae</em>) &mdash; la plus pertinente pour le MG suisse</h3>
+                    <p class="text-sm text-teal-800/80 mb-3"><strong>Triade classique</strong> : fièvre + escarre(s) noire(s) + adénopathies régionales</p>
+                    <p class="text-sm text-teal-800/80 mb-3">Revue systématique (Silva-Ramos &amp; Faccini-Martinez 2021, n = 108 cas confirmés)<sup><a href="#ref-2">[2]</a></sup> :</p>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Signe / Symptôme</th><th>Fréquence ATBF</th></tr></thead>
+                            <tbody>
+                                <tr><td>Fièvre</td><td><strong>&gt; 80 %</strong></td></tr>
+                                <tr><td>Escarre (tache noire)</td><td><strong>86,1 %</strong></td></tr>
+                                <tr><td>Escarres <strong>multiples</strong></td><td><strong>54,8 %</strong> &mdash; quasi-pathognomonique</td></tr>
+                                <tr><td>Rash</td><td>&lt; 50 %</td></tr>
+                                <tr><td>Céphalées</td><td>~60 %</td></tr>
+                                <tr><td>Myalgies</td><td>~49 %</td></tr>
+                                <tr><td>Adénopathies régionales</td><td>~51 %</td></tr>
+                                <tr><td>Lymphangite</td><td>11 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Complications : <strong>rares (4 %)</strong> ; hospitalisation : 12 % ; mortalité : <strong>0 %</strong> dans toutes les séries publiées<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li>Un cas sévère avec hypotension symptomatique a été décrit (Saxena et al. 2023) &mdash; exceptionnellement rare<sup><a href="#ref-11">[11]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Fièvre boutonneuse méditerranéenne (<em>R. conorii</em>)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Triade</strong> : fièvre + escarre unique (~75 %) + rash maculopapuleux (J3–5, <strong>touchant paumes et plantes</strong>)</li>
+                        <li>Le plus souvent bénigne, mais <strong>mortalité 2–3 %</strong> ; formes malignes possibles<sup><a href="#ref-10">[10]</a></sup></li>
+                        <li>Facteurs de risque de forme maligne : âge avancé, immunosuppression, diabète, alcoolisme, insuffisance cardiaque, déficit en G6PD<sup><a href="#ref-12">[12]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Comparaison ATBF vs FBM</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Caractéristique</th><th>ATBF (<em>R. africae</em>)</th><th>FBM (<em>R. conorii</em>)</th></tr></thead>
+                            <tbody>
+                                <tr><td>Zone endémique</td><td>Afrique subsaharienne</td><td>Bassin méditerranéen</td></tr>
+                                <tr><td>Escarre</td><td><strong>Multiples (55 %)</strong></td><td>Unique (~75 %)</td></tr>
+                                <tr><td>Rash</td><td>&lt; 50 %, discret</td><td>Maculopapuleux, paumes/plantes</td></tr>
+                                <tr><td>Adénopathies régionales</td><td>Fréquentes (~51 %)</td><td>Moins fréquentes</td></tr>
+                                <tr><td>Clusters</td><td>~40 % des cas</td><td>Rares</td></tr>
+                                <tr><td>Sévérité</td><td>Bénigne (mortalité 0 %)</td><td>Formes malignes possibles (mortalité 2–3 %)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Fluoroquinolones = facteur de risque de forme sévère</p>
+                        <p class="text-sm text-teal-800">Dans la FBM, les fluoroquinolones sont associées à un <strong>risque 2,5&times; plus élevé de forme maligne</strong> (RR 2,53 ; IC95% 1,40–4,55). La doxycycline préalable protège au contraire contre les formes sévères (RR 0,25) avec défervescence plus rapide (3 vs 7 jours).<sup><a href="#ref-12">[12]</a></sup></p>
                     </div>
                 </section>
 
-                <!-- Diagnostic -->
-                <section id="diagnostic" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Clinique. Traitement presomptif si suspicion clinique, c'est-a-dire en cas de fievre + rash (surtout si petechial), ou fievre + tache noire (et malaria et dengue negatifs), ou fievre + debut de perturbation de l'etat de conscience.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Serologie ou PCR (sur biopsie cutanee) a discuter de cas en cas (notamment selon la presence de lesions cutanees, l'evolution et la severite de la presentation clinique).</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">NB : La serologie est difficile a interpreter a cause de potentielles reactions croisees avec d'autres Flavivirus. Si patiente enceinte discuter avec un specialiste.</p>
-                </section>
-
-                <!-- Traitement -->
-                <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><strong>Doxycycline 2x100 mg/j pour 7-10j</strong></p>
+                <!-- BIOLOGIE -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <p class="text-sm text-teal-800/80 mb-3">Anomalies fréquentes (&ge; 70 % des cas d'ATBF)<sup><a href="#ref-2">[2]</a></sup> :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Élévation de la CRP</strong></li>
+                        <li><strong>Cytolyse hépatique</strong> (transaminases)</li>
+                        <li>Lymphopénie</li>
+                        <li>Thrombopénie possible &mdash; diagnostic différentiel avec dengue et paludisme</li>
+                    </ul>
 
                     <div class="callout-piege">
-                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege &mdash; Beta-lactamines INEFFICACES</p>
-                        <p class="text-sm text-teal-800">Resistance intrinseque des <em>Rickettsia</em> aux beta-lactamines. Le MG prescrit amoxicilline pour &laquo; syndrome grippal avec rash &raquo; &rarr; pas d'amelioration. <strong>Devant toute fievre + escarre au retour d'Afrique : doxycycline MAINTENANT.</strong></p>
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; TDR paludisme faussement positif</p>
+                        <p class="text-sm text-teal-800">Zewude et al. (2024) ont documenté un <strong>TDR malaria HRP2 faussement positif</strong> chez un voyageur avec ATBF<sup><a href="#ref-15">[15]</a></sup>. Mécanisme : cross-réactivité antigénique présumée. <strong>Implication</strong> : ne jamais fermer le diagnostic sur un TDR malaria positif isolé &mdash; toujours vérifier par frottis + goutte épaisse.</p>
                     </div>
                 </section>
 
-                <section id="referer" class="mb-10">
+                <!-- DIAGNOSTIC -->
+                <section id="diagnostic" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
+
+                    <div class="callout-danger mb-6">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Principe fondamental</p>
+                        <p class="text-sm text-teal-800"><strong>Le diagnostic est avant tout CLINIQUE.</strong> Le traitement ne doit PAS attendre la confirmation biologique. Fièvre + escarre(s) au retour d'Afrique = doxycycline immédiate.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">PCR sur écouvillon / biopsie d'escarre</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Sensibilité &gt; 90 %</strong> en phase aiguë, avant antibiothérapie<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>L'écouvillon (swab) d'escarre est une <strong>alternative non invasive</strong> à la biopsie &mdash; technique sous-utilisée mais de plus en plus recommandée<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>Cherry et al. (CDC, 2018) : sur 127 cas de SFGR importés aux USA, <strong>60 % avaient une PCR positive avec sérologie initiale négative</strong><sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>Permet l'identification d'espèce (distinction <em>R. africae</em> vs <em>R. conorii</em> vs autres)</li>
+                        <li>La probabilité d'isolement est <strong>12&times; plus élevée</strong> chez les patients non traités par antibiotiques<sup><a href="#ref-14">[14]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Sérologie (IFA = immunofluorescence indirecte)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Méthode de référence historique mais <strong>nombreuses limites</strong> :</li>
+                        <li>Séroconversion <strong>tardive</strong> : IgM/IgG souvent négatives avant J10–J14<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>33 % des patients avaient une sérologie initiale non réactive mais ont séroconverti avec le sérum convalescent (titre &ge; 64)<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li><strong>Réactions croisées entre rickettsies du groupe SFG</strong> (fièvres boutonneuses) &mdash; ne permet pas la distinction d'espèce<sup><a href="#ref-1">[1,9,14]</a></sup></li>
+                        <li>Seuils diagnostiques : IgG &ge; 128 et/ou IgM &gt; 64 en IFA<sup><a href="#ref-10">[10]</a></sup></li>
+                        <li>Un seul sérum ne suffit pas : il faut une <strong>paire de sérums</strong> (aigu + convalescent à J14–21) avec augmentation &times;4 du titre</li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Méthode</th><th>Sensibilité en phase aiguë</th><th>Avantages</th><th>Limites</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>PCR sur escarre</strong></td><td><strong>&gt; 90 %</strong></td><td>Rapide, non invasive (écouvillon), identification d'espèce</td><td>Nécessite une escarre visible ; sensibilité &darr; sous ATB</td></tr>
+                                <tr><td><strong>Sérologie IFA</strong></td><td>Faible (&lt; 50 % avant J10)</td><td>Disponible largement</td><td>Tardive, réactions croisées SFG, paire de sérums nécessaire</td></tr>
+                                <tr><td>Biopsie + immunohistochimie</td><td>Variable</td><td>Possible même sous ATB</td><td>Invasive, laboratoire de référence</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Sérologie négative en phase aiguë</p>
+                        <p class="text-sm text-teal-800">Une sérologie négative à la première consultation <strong>n'exclut pas</strong> une rickettsiose. La séroconversion est tardive (&gt; J10). Si disponible, privilégier la <strong>PCR sur écouvillon d'escarre</strong> (Se &gt; 90 % en phase aiguë).<sup><a href="#ref-1">[1,13]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- TRAITEMENT -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">1<sup>re</sup> ligne : Doxycycline &mdash; TOUS âges</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Population</th><th>Posologie</th><th>Durée</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Adulte</strong></td><td>Doxycycline <strong>2 &times; 100 mg/j</strong></td><td>7 jours (5–10 jours selon sévérité)</td></tr>
+                                <tr><td><strong>Enfant &lt; 45 kg</strong></td><td>2,2 mg/kg &times; 2/j (max 100 mg &times; 2/j)</td><td>7 jours</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Amélioration clinique typique en 48 heures</strong></li>
+                        <li>Le CDC (2025) recommande la doxycycline comme traitement de 1<sup>re</sup> ligne pour <strong>tous les âges</strong>, y compris les enfants, pour toutes les rickettsioses<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li>La doxycycline à courte durée (&lt; 21 jours) ne provoque <strong>pas de coloration dentaire</strong> chez l'enfant &mdash; cette crainte historique est infondée pour les cures courtes<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li><strong>Femme enceinte</strong> : doxycycline désormais recommandée par le CDC pour les rickettsioses mettant en jeu le pronostic vital (RMSF). Pour l'ATBF (bénigne), discuter avec un spécialiste<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li>Défervescence sous traitement adapté : <strong>3,0 &pm; 2,2 jours</strong> (vs 7,1 &pm; 6,6 jours sous autre traitement)<sup><a href="#ref-12">[12]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Alternative (si allergie vraie aux tétracyclines)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Azithromycine</strong> : 500 mg J1, puis 250 mg/j &times; 4 jours &mdash; données limitées, ne pas utiliser en 1<sup>re</sup> intention</li>
+                        <li>Clarithromycine également rapportée comme efficace chez l'enfant dans la FBM<sup><a href="#ref-17">[17]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; À NE PAS prescrire</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Bêta-lactamines</strong> : résistance intrinsèque de toutes les <em>Rickettsia</em> spp. &mdash; <strong>INEFFICACES</strong></li>
+                            <li><strong>Fluoroquinolones</strong> : associées à une <strong>aggravation</strong> des rickettsioses (RR 2,53 pour forme sévère de FBM) et à des échecs thérapeutiques<sup><a href="#ref-12">[12]</a></sup>. <strong>Ne jamais utiliser.</strong></li>
+                            <li><strong>Cotrimoxazole, aminosides</strong> : inefficaces</li>
+                            <li><strong>Chloramphénicol</strong> : alternative historique, toxicité limitant l'usage &mdash; réservé aux situations sans alternative</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout-piege mt-4">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Bêta-lactamines INEFFICACES</p>
+                        <p class="text-sm text-teal-800">Le MG prescrit amoxicilline pour &laquo; syndrome grippal avec rash &raquo; au retour d'Afrique &rarr; aucune amélioration (résistance intrinsèque aux bêta-lactamines). <strong>Règle d'or : fièvre + escarre + retour d'Afrique = doxycycline MAINTENANT, sans attendre la sérologie.</strong></p>
+                    </div>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Pas de vaccin</strong> disponible</li>
+                        <li><strong>Pas de chimioprophylaxie</strong> recommandée</li>
+                        <li>Vêtements longs couvrant les chevilles (les tiques <em>Amblyomma</em> chassent depuis le sol)</li>
+                        <li>Répulsifs (DEET, icaridine) sur la peau exposée</li>
+                        <li><strong>Perméthrine</strong> sur les vêtements &mdash; mesure la plus efficace contre les tiques</li>
+                        <li>Inspection cutanée systématique après chaque sortie en brousse/safari</li>
+                        <li><strong>Zones à haut risque</strong> : safaris en Afrique australe (Afrique du Sud, Eswatini, Mozambique, Zimbabwe), parcs nationaux d'Afrique de l'Est</li>
+                        <li>Informer les voyageurs de la possibilité d'une fièvre avec escarre au retour &mdash; consultation rapide si symptômes</li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Diagnostic de &laquo; grippe &raquo; avec rash au retour d'Afrique</p>
+                            <p class="text-sm text-teal-800">Le MG prescrit de l'amoxicilline pour un &laquo; syndrome grippal avec rash &raquo; &rarr; aucune amélioration. <strong>Fièvre + escarre + retour d'Afrique = doxycycline MAINTENANT</strong>, sans attendre la sérologie.<sup><a href="#ref-1">[1]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">TDR malaria faussement positif</p>
+                            <p class="text-sm text-teal-800">Un TDR HRP2 positif chez un patient avec ATBF est documenté<sup><a href="#ref-15">[15]</a></sup>. Risque de fermeture prématurée du diagnostic &rarr; traitement antipaludéen inutile sans doxycycline. <strong>Toujours confirmer un TDR positif par frottis + goutte épaisse.</strong></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Sérologie négative en phase aiguë</p>
+                            <p class="text-sm text-teal-800">La séroconversion est tardive (&gt; J10). <strong>Une sérologie négative à la première consultation n'exclut pas une rickettsiose.</strong> Privilégier la PCR sur écouvillon d'escarre (Se &gt; 90 %).<sup><a href="#ref-13">[13]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Fluoroquinolones comme &laquo; couverture empirique large &raquo;</p>
+                            <p class="text-sm text-teal-800">Les fluoroquinolones sont associées à une <strong>aggravation de la maladie</strong> (RR 2,53 pour FBM sévère)<sup><a href="#ref-12">[12]</a></sup>. Si hésitation entre typhoïde et rickettsiose : ajouter la doxycycline et ne pas compter sur la fluoroquinolone seule.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Escarre unique vs multiples : orientation diagnostique</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li>Escarre unique + rash incluant paumes/plantes &rarr; <strong>FBM</strong> (<em>R. conorii</em>) probable</li>
+                                <li>Escarres multiples + adénopathies régionales &rarr; <strong>ATBF</strong> (<em>R. africae</em>) quasi-certaine (54,8 % d'escarres multiples)<sup><a href="#ref-2">[2]</a></sup></li>
+                                <li>Escarre du cuir chevelu + adénopathies cervicales &rarr; <strong>TIBOLA/DEBONEL</strong> (<em>R. slovaca</em> &mdash; Europe, y.c. Suisse)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Perles cliniques</h3>
+                    <div class="space-y-3">
+                        <div class="callout-info">
+                            <p class="text-sm text-teal-800"><strong>30,5 % des fièvres aiguës indifférenciées du voyageur sont sensibles à la doxycycline</strong> (rickettsioses, leptospirose, fièvre Q) &mdash; argument supplémentaire pour inclure la doxycycline dans le traitement empirique de la fièvre du voyageur non palustre.<sup><a href="#ref-24">[24]</a></sup></p>
+                        </div>
+                        <div class="callout-info">
+                            <p class="text-sm text-teal-800">La <strong>PCR sur écouvillon d'escarre</strong> est une technique simple, non invasive, disponible dans les laboratoires de référence &mdash; à privilégier par rapport à la biopsie quand l'escarre est présente.<sup><a href="#ref-13">[13]</a></sup></p>
+                        </div>
+                        <div class="callout-info">
+                            <p class="text-sm text-teal-800">L'ATBF a une mortalité de <strong>0 %</strong> dans toutes les séries publiées &mdash; rassurer le patient.<sup><a href="#ref-2">[2]</a></sup></p>
+                        </div>
+                        <div class="callout-info">
+                            <p class="text-sm text-teal-800">En cas de doute diagnostique entre paludisme et rickettsiose chez un voyageur fébrile d'Afrique : <strong>traiter les deux</strong> (antipaludéen + doxycycline) en attendant les résultats.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Diagnostic différentiel de l'escarre (tache noire) au retour de voyage</h3>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Cause</th><th>Contexte</th><th>Indices distinctifs</th></tr></thead>
+                            <tbody>
+                                <tr><td class="font-medium">Rickettsiose (ATBF, FBM)</td><td>Afrique, Méditerranée</td><td>Fièvre, escarres multiples possibles, adénopathies</td></tr>
+                                <tr><td class="font-medium">Anthrax cutané</td><td>Contact animaux, peaux, laine</td><td>Oedème important, escarre indolore, papule puis vésicule</td></tr>
+                                <tr><td class="font-medium">Tularémie</td><td>Amérique du Nord, Scandinavie</td><td>Contact gibier/rongeurs, adénopathie majeure</td></tr>
+                                <tr><td class="font-medium">Scrub typhus</td><td>Asie-Pacifique</td><td>Escarre unique typique, rash tardif</td></tr>
+                                <tr><td class="font-medium">Ecthyma gangrenosum</td><td>Immunodéprimé</td><td><em>Pseudomonas</em> ; contexte neutropénique</td></tr>
+                                <tr><td class="font-medium">Morsure d'araignée nécrotique</td><td>Ubiquitaire</td><td>Pas de fièvre initiale, nécrose progressive</td></tr>
+                                <tr><td class="font-medium">Leishmaniose cutanée</td><td>Bassin méditerranéen, Amérique latine</td><td>Évolution lente (semaines), nodule puis ulcère</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Suspicion clinique : fièvre + escarre(s) au retour de voyage</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Débuter la doxycycline immédiatement</strong> (2 &times; 100 mg/j) &mdash; ne pas attendre les résultats de laboratoire</li>
+                        <li><strong>Exclure le paludisme</strong> : frottis + goutte épaisse (ne pas se fier au TDR seul &mdash; faux positifs possibles)<sup><a href="#ref-15">[15]</a></sup></li>
+                        <li><strong>Si escarre visible</strong> : écouvillon de l'escarre pour PCR rickettsienne (avant ou dès le début de l'antibiothérapie, idéalement avant)<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li><strong>Bilan biologique</strong> : NFS, CRP, transaminases, créatinine, sérologie rickettsienne (sérum aigu = J0)</li>
+                        <li><strong>Sérologie de contrôle</strong> à J14–21 (sérum convalescent) si la sérologie initiale est négative</li>
+                        <li><strong>Évaluer la réponse</strong> : amélioration attendue en 48h ; si pas d'amélioration &rarr; reconsidérer le diagnostic</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Indications de traitement présomptif</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Fièvre + escarre(s) au retour d'Afrique</li>
+                        <li>Fièvre + rash pétéchial + voyage en zone endémique</li>
+                        <li>Fièvre + début de troubles de conscience + voyage en zone endémique</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">En cas de doute paludisme vs rickettsiose</h3>
+                    <div class="callout-info">
+                        <p class="text-sm text-teal-800"><strong>Traiter les deux</strong> : antipaludéen + doxycycline en attendant les résultats du frottis. La co-prescription est sûre et couvre les deux diagnostics les plus fréquents chez le voyageur fébrile revenant d'Afrique.</p>
+                    </div>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
                     <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">Formes severes, atteinte neurologique, grossesse. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p>
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Formes sévères</strong> : fièvre pourprée des Montagnes Rocheuses, typhus épidémique, forme maligne de FBM</li>
+                            <li><strong>Atteinte neurologique</strong> : troubles de conscience, convulsions</li>
+                            <li><strong>Grossesse</strong> : discuter la prise en charge avec un spécialiste</li>
+                            <li><strong>Absence de réponse à la doxycycline en 48–72h</strong> : reconsidérer le diagnostic</li>
+                            <li><strong>Doute diagnostique</strong> : identification d'espèce, sérologie difficile à interpréter</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
                     </div>
                 </section>
 
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Jensenius M, Fournier PE, Kelly P, Myrvang B, Raoult D. African tick bite fever. <em>Lancet Infect Dis</em> 2003;3(9):557-64. <a href="https://doi.org/10.1016/s1473-3099(03)00739-4" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-2">Silva-Ramos CR, Faccini-Martinez AA. Clinical, epidemiological, and laboratory features of <em>R. africae</em> infection, African tick-bite fever: A systematic review. <em>Infez Med</em> 2021;29(3):366-377. <a href="https://doi.org/10.53854/liim-2903-7" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-3">Freedman DO et al. Spectrum of disease and relation to place of exposure among ill returned travelers. <em>N Engl J Med</em> 2006;354(2):119-30. <a href="https://doi.org/10.1056/NEJMoa051331" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-4">Jensenius M, Fournier PE, Raoult D. Tick-borne rickettsioses in international travellers. <em>Int J Infect Dis</em> 2004;8(3):139-46. <a href="https://doi.org/10.1016/j.ijid.2003.06.004" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-5">Atias D, Meltzer E et al. <em>Rickettsia africae</em> infection among participants in a women's safari to South Africa. <em>Harefuah</em> 2010;149(9):572-5.</li>
+                        <li id="ref-6">Jackson Y, Chappuis F, Loutan L. African tick-bite fever: four cases among Swiss travelers returning from South Africa. <em>J Travel Med</em> 2004;11(4):225-230. <a href="https://doi.org/10.2310/7060.2004.19006" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-7">Ledger KJ et al. Entomological risk of African tick-bite fever (<em>Rickettsia africae</em> infection) in Eswatini. <em>PLoS Negl Trop Dis</em> 2022;16(5):e0010437. <a href="https://doi.org/10.1371/journal.pntd.0010437" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-8">Lommano E et al. Tick-borne pathogens in ticks collected from breeding and migratory birds in Switzerland. <em>Ticks Tick Borne Dis</em> 2014;5(6):871-82. <a href="https://doi.org/10.1016/j.ttbdis.2014.07.001" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-9">Portillo A et al. Rickettsioses in Europe. <em>Microbes Infect</em> 2015;17(11-12):834-8. <a href="https://doi.org/10.1016/j.micinf.2015.09.009" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-10">Baltadzhiev I, Kevorkyan A, Popivanova N. Mediterranean spotted fever in child and adult patients: investigation from an endemic region in Bulgaria. <em>Cent Eur J Public Health</em> 2020;28(3):187-192. <a href="https://doi.org/10.21101/cejph.a5608" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-11">Saxena SS et al. When a travel bug gets you down: severe, hypotensive African tick bite fever and response to therapy. <em>Dermatol Online J</em> 2023;29(6). <a href="https://doi.org/10.5070/D329662991" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-12">Botelho-Nevers E, Rovery C, Richet H, Raoult D. Analysis of risk factors for malignant Mediterranean spotted fever indicates that fluoroquinolone treatment has a deleterious effect. <em>J Antimicrob Chemother</em> 2011;66(8):1821-30. <a href="https://doi.org/10.1093/jac/dkr218" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-13">Cherry CC et al. Diagnosis of Spotted Fever Group Rickettsioses in U.S. Travelers Returning from Africa, 2007-2016. <em>Am J Trop Med Hyg</em> 2018;99(1):136-142. <a href="https://doi.org/10.4269/ajtmh.17-0882" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-14">Angelakis E et al. Comparison of real-time quantitative PCR and culture for the diagnosis of emerging Rickettsioses. <em>PLoS Negl Trop Dis</em> 2012;6(3):e1540. <a href="https://doi.org/10.1371/journal.pntd.0001540" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-15">Zewude RT et al. False-positive malaria rapid diagnostic test likely due to African tick bite fever: a case report. <em>Reports (MDPI)</em> 2024;7(4):100. <a href="https://doi.org/10.3390/reports7040100" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-16">CDC. Clinical Care of Other Spotted Fever Rickettsioses. Centers for Disease Control and Prevention, March 2025. <a href="https://www.cdc.gov/other-spotted-fever/hcp/clinical-care/index.html" class="ref-link" target="_blank">CDC</a></li>
+                        <li id="ref-17">Torpiano P, Pace D. Clinically-diagnosed Mediterranean Spotted Fever in Malta. <em>Travel Med Infect Dis</em> 2018;26:16-24. <a href="https://doi.org/10.1016/j.tmaid.2018.02.005" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-18">Brunet A et al. Another traveler's tale: African tick-bite fever. <em>ASM Case Rep</em> 2025;1(2). <a href="https://doi.org/10.1128/asmcr.00010-24" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-19">Ando N et al. Imported African Tick Bite Fever in Japan: A Literature Review and Report of Three Cases. <em>Intern Med</em> 2022;61(7):1093-1098. <a href="https://doi.org/10.2169/internalmedicine.7109-21" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-20">Albizuri Prado F et al. Fever and Multiple Eschars After an African Safari: Report of Three Cases (children). <em>Pediatr Dermatol</em> 2017;34(4):e179-e181. <a href="https://doi.org/10.1111/pde.13163" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-21">Gautret P et al. Travel-associated illness in older adults (&gt;60 y). <em>J Travel Med</em> 2012;19(3):169-77. <a href="https://doi.org/10.1111/j.1708-8305.2012.00613.x" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-22">Mazhetese E et al. <em>Rickettsia africae</em>: identifying gaps in the current knowledge on vector-pathogen-host interactions. <em>J Infect Dev Ctries</em> 2021;15(8):1039-1047. <a href="https://doi.org/10.3855/jidc.13291" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-23">Smit A et al. Infection Rates and Characterisation of <em>Rickettsia africae</em> (Rickettsiaceae) Detected in Amblyomma Species from Southern Africa. <em>Microorganisms</em> 2024;12:1663. <a href="https://doi.org/10.3390/microorganisms12081663" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-24">Camprubi-Ferrer D et al. Acute undifferentiated febrile illness in returned travelers. <em>J Travel Med</em> 2023;30(4):taac094.</li>
+                        <li id="ref-25">Lindner AK, Gertler M, Richter J. Eschar: An Important Visual Diagnosis in a Returning Traveler. <em>Dtsch Arztebl Int</em> 2019;116(9):148. <a href="https://doi.org/10.3238/arztebl.2019.0148b" class="ref-link" target="_blank">DOI</a></li>
+                    </ol>
+                </section>
             </article>
 
             <!-- FLOATING TOC -->
-            <aside class="toc-sidebar hidden lg:block">
-                <nav class="toc">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
-                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                        <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
-                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                    </div>
-                </nav>
-            </aside>
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
         </div>
     </main>
 
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <div>
-                    <div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div>
-                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-8 text-sm">
-                    <div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div>
-                    <div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div>
-                </div>
-            </div>
-            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p>
-                <p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p>
-            </div>
-        </div>
-    </footer>
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
     <script>
-        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
     </script>
 </body>
 </html>

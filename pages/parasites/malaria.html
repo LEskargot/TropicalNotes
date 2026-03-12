@@ -4,567 +4,533 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Malaria — Tropical Notebook</title>
-    <meta name="description" content="Malaria : repartition geographique, agent causal, transmission, incubation, presentation clinique, diagnostic et traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="malaria, paludisme, plasmodium, falciparum, vivax, medecine tropicale, Suisse">
+    <meta name="description" content="Paludisme (malaria) : épidémiologie suisse, diagnostic (TDR, frottis, goutte épaisse), traitement (Riamet, artésunate IV, primaquine) et pièges pour le médecin de premier recours.">
+    <meta name="keywords" content="malaria, paludisme, plasmodium, falciparum, vivax, ovale, malariae, knowlesi, Riamet, artésunate, PADH, médecine tropicale, Suisse">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        teal: {
-                            50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd',
-                            300: '#7ecec5', 400: '#54b5aa', 500: '#479793',
-                            600: '#387a77', 700: '#2d5e5b', 800: '#234a48',
-                            900: '#1a3836', 950: '#0f2322'
-                        },
-                        mint: {
-                            50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc',
-                            300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98',
-                            600: '#0e8b7a', 700: '#0f6f63', 800: '#115850',
-                            900: '#114943'
-                        },
-                        gold: {
-                            50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a',
-                            300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c',
-                            600: '#b47d15', 700: '#8f5d14', 800: '#774a18',
-                            900: '#633d1a'
-                        },
-                        cream: {
-                            50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8',
-                            300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99'
-                        },
-                    },
-                    fontFamily: {
-                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
-                        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-        .nav-fixed { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; }
-        .dropdown:hover .dropdown-menu, .dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-        .mobile-menu.open { max-height: 400px; }
-        .toc { position: sticky; top: 5.5rem; }
-        .toc a.active { color: #12ad98; border-left-color: #12ad98; font-weight: 600; }
-        .section-label { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
-        .article-table { width: 100%; text-align: left; font-size: 0.875rem; }
-        .article-table thead { background: #f0fafa; color: #2d5e5b; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
-        .article-table th { padding: 0.75rem 1rem; font-weight: 600; }
-        .article-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #d2f0ee; vertical-align: top; }
-        .article-table tbody tr:hover { background: #fdfaf3; }
-        .callout-piege { border-left: 4px solid #d4a01c; background: #fffceb; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-referer { border-left: 4px solid #12ad98; background: #edfcf8; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-danger { border-left: 4px solid #dc2626; background: #fef2f2; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        a.ref-link { color: #12ad98; font-weight: 500; border-bottom: 1px solid rgba(18, 173, 152, 0.3); transition: all 0.2s; text-decoration: none; }
-        a.ref-link:hover { color: #0e8b7a; border-bottom-color: #0e8b7a; }
-        html { scroll-behavior: smooth; }
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+        .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
+        .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="flex items-center gap-3 group">
-                    <span class="text-mint-400 text-xl">
-                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/>
-                            <path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-                            <path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-                        </svg>
-                    </span>
-                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">
-                        Tropical Notebook
-                    </span>
-                </a>
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a>
-                    <div class="dropdown relative">
-                        <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
-                            Pathogenes
-                            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
-                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a>
-                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
-                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
-                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
-                        </div>
-                    </div>
-                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
-                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
-                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
-                        Référer un patient
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    </a>
-                </div>
-                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-            <div id="mobileMenu" class="mobile-menu md:hidden">
-                <div class="py-3 border-t border-teal-700/50 space-y-1">
-                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
-                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
-                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
-                    <div class="border-t border-teal-700/50 mt-2 pt-2">
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">
-                            Référer un patient &rarr;
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <nav class="flex items-center gap-2 text-sm text-teal-600/60">
-                <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span class="text-teal-800 font-medium">Malaria</span>
-            </nav>
-        </div>
-    </div>
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Malaria</span></nav></div></div>
 
     <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
         <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
-
-            <!-- MAIN CONTENT -->
             <article class="min-w-0">
 
                 <header class="mb-10">
                     <span class="section-label text-teal-500">Parasite</span>
                     <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Malaria</h1>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">
-                        Paludisme : repartition geographique, agents causaux, diagnostic, traitement et pieges pour le medecin de premier recours.
-                    </p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
-                        <span>Derniere mise a jour : mars 2026</span>
-                        <span class="hidden sm:inline">|</span>
-                        <span>Dr. L. Cobuccio</span>
-                    </div>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Paludisme &mdash; <em>Plasmodium falciparum</em>, <em>P. vivax</em>, <em>P. ovale</em>, <em>P. malariae</em>, <em>P. knowlesi</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Première cause de fièvre importée chez le voyageur de retour des tropiques. En Suisse, 8&nbsp;439 cas importés et 52 décès entre 1990 et 2019 (létalité ~0,6&nbsp;%). L'erreur la plus fréquente du médecin de premier recours : ne pas poser la question du voyage et étiqueter le tableau comme « grippe » ou « gastro-entérite ».</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
-                <!-- Repartition geographique -->
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <p class="text-sm text-teal-800/80 mb-4">Afrique, Amerique centrale et du Sud, Asie, Oceanie. <em>P. falciparum</em> predomine en Afrique subsaharienne et <em>P. vivax</em> predomine en Asie du Sud, Amerique latine et Moyen-Orient.</p>
-                    <figure class="my-6">
-                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria_map.jpg" alt="Distribution geographique du risque de malaria" />
-                        <figcaption class="text-xs text-teal-600/60 mt-2">Carte du risque de malaria elabore par l'ECTM pour <a target="_blank" href="https://www.healthytravel.ch" class="ref-link">www.healthytravel.ch</a></figcaption>
-                    </figure>
-                    <p class="text-sm text-teal-800/80">
-                        <strong>Contexte suisse :</strong> entre 1990 et 2019, 8 439 cas importes et 52 deces ont ete enregistres en Suisse (letalite ~0,6 %) [1]. Sur la periode 2013–2023, 8,6 % des cas etaient severes, quasi exclusivement dus a <em>P. falciparum</em>. Depuis 2014, <em>P. vivax</em> represente 36 % des cas importes (contre 11 % avant 2014), refletant une evolution des flux de voyage vers l'Asie du Sud et l'Amerique latine.
-                    </p>
-                </section>
+                <!-- ÉPIDÉMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
 
-                <!-- Agent causal -->
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80">
-                        Parasite protozoaire : <em>Plasmodium falciparum</em> / <em>malariae</em> / <em>vivax</em> / <em>ovale</em> / <em>knowlesi</em>
-                    </p>
-                </section>
-
-                <!-- Transmission -->
-                <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80">
-                        Piqure du moustique anophele femelle piquant surtout la nuit, souvent apres minuit.
-                    </p>
-                </section>
-
-                <!-- Incubation -->
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><em><strong>P. falciparum</strong></em> : min. 6 j, typiquement 12 &ndash; 14 j. Temps d'incubation souvent prolonge lors de prise de prophylaxie anti-malarique</li>
-                        <li><em><strong>P. vivax</strong></em> et <em><strong>P. ovale</strong></em> : typiquement env. 14j, rechutes jusqu'a 2-3 ans apres infection initiale</li>
-                        <li><em><strong>P. malariae</strong></em> : tres variable, jusqu'a plusieurs annees</li>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Données suisses</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>1990–2019</strong> : 8&nbsp;439 cas importés, 52 décès — létalité ~0,6&nbsp;%<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li><strong>2013–2023</strong> : 532 cas dont 46 cas sévères (8,6&nbsp;%) ; 45/46 dus à <em>P. falciparum</em></li>
+                        <li>Provenance dominante : <strong>Afrique de l'Ouest et Centrale</strong></li>
+                        <li>Depuis 2014, <em>P. vivax</em> représente <strong>36&nbsp;%</strong> des cas importés (contre 11&nbsp;% avant 2014), reflétant l'évolution des flux migratoires et de voyage vers l'Asie du Sud et l'Amérique latine</li>
+                        <li><em>P. falciparum</em> reste l'espèce majoritaire et la <strong>seule responsable de paludisme sévère</strong> dans la cohorte suisse</li>
                     </ul>
-                </section>
 
-                <!-- Presentation clinique -->
-                <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <p class="text-sm text-teal-800/80 mb-3">
-                        Symptomes souvent peu specifiques : fievre, frissons, tachycardie, malaise, fatigue, diaphorese, cephalees, toux, anorexie, nausees, vomissements, douleurs abdominales, diarrhees, arthralgies, myalgies.
-                    </p>
-                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Criteres de paludisme severe (OMS / SSTTM 2025) :</p>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
-                        <li>Troubles de la conscience / coma (malaria cerebrale)</li>
-                        <li>Hemoglobine &lt; 7 g/dL (anemie severe)</li>
-                        <li>Insuffisance renale aigue</li>
-                        <li>Syndrome de detresse respiratoire aigue (SDRA)</li>
-                        <li>Choc circulatoire</li>
-                        <li>Acidose metabolique</li>
-                        <li>Ictere + autres signes de severite</li>
-                        <li>Parasitemie &ge; 2 % (seuil suisse) ou &ge; 5 % (OMS)</li>
-                        <li>Hypoglycemie</li>
-                    </ul>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Seuil suisse d'hyperparasitémie</h3>
+                    <p class="text-sm text-teal-800/80 mb-6">En Suisse, le seuil de parasitémie définissant le paludisme sévère est fixé à <strong>&ge;&nbsp;2&nbsp;%</strong> (vs 5&nbsp;% OMS, 2&nbsp;% UK). Ce seuil bas est justifié par la progression rapide vers des formes sévères chez les patients non immuns au-delà de 2&nbsp;%.<sup><a href="#ref-5">[5]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Espèces de <em>Plasmodium</em></h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Espèce</th><th>Répartition</th><th>Forme clinique</th><th>Hypnozoïtes</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>P. falciparum</em></td><td>Afrique subsaharienne (prédominant), Asie du SE, Amérique du Sud</td><td>Potentiellement sévère &mdash; seule espèce causant le paludisme grave</td><td>Non</td></tr>
+                                <tr><td><em>P. vivax</em></td><td>Asie du Sud, Amérique latine, Moyen-Orient, Corne de l'Afrique</td><td>Bénigne habituellement ; rechutes possibles</td><td>Oui</td></tr>
+                                <tr><td><em>P. ovale</em></td><td>Afrique de l'Ouest, Asie du SE</td><td>Bénigne ; rechutes possibles</td><td>Oui</td></tr>
+                                <tr><td><em>P. malariae</em></td><td>Distribution tropicale large</td><td>Bénigne ; recrudescences tardives (pas de rechutes hépatiques)</td><td>Non</td></tr>
+                                <tr><td><em>P. knowlesi</em></td><td>Bornéo, Asie du SE</td><td>Zoonose simienne ; formes sévères possibles malgré parasitémie basse</td><td>Non</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Déclaration obligatoire</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Déclaration obligatoire (Guide OFSP 2026)</p>
+                        <p class="text-sm text-teal-800 mb-2">Délai : <strong>1 semaine</strong> pour le médecin et le laboratoire.</p>
+                        <ul class="text-sm text-teal-800 space-y-1 list-disc list-inside">
+                            <li><strong>Médecin</strong> &rarr; Médecin cantonal (formulaire HIN-Secure Mail, fax ou courrier postal). Critère : résultat positif d'analyses de laboratoire.</li>
+                            <li><strong>Laboratoire</strong> &rarr; OFSP via CH-ELM (API) ou Infreport. Critère : tout résultat positif (PCR/séquençage, microscopie, mise en évidence de l'antigène). Indiquer l'espèce si connue.</li>
+                        </ul>
+                    </div>
+
                     <div class="callout-piege">
-                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege</p>
-                        <p class="text-sm text-teal-800">Jusqu'a 1/3 des patients avec malaria ne presentent pas de fievre lorsqu'ils consultent. Ne pas exclure le diagnostic sur l'absence de fievre au moment de la consultation.</p>
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Paludisme d'aéroport/de port</p>
+                        <p class="text-sm text-teal-800">Des cas de paludisme transmis par des moustiques importés dans les bagages ou le fret aérien sont documentés en Suisse et en Europe, sans voyage en zone endémique. La létalité du paludisme d'aéroport/de port est élevée : <strong>13,24&nbsp;%</strong> dans une revue systématique couvrant 1969–2022, principalement en raison d'un retard diagnostique majeur.<sup><a href="#ref-2">[2]</a></sup></p>
                     </div>
                 </section>
 
-                <!-- Examen clinique -->
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><strong>Splenomegalie</strong> : frequente, parfois volumineuse dans les infections prolongees ou recidivantes</li>
-                        <li><strong>Ictere</strong> : modere dans les formes non compliquees ; prononce (bilirubine conjuguee elevee) dans les formes severes</li>
-                        <li><strong>Absence de rash</strong> : utile pour le diagnostic differentiel — l'absence d'exantheme oriente contre la dengue et les rickettsioses</li>
-                        <li><strong>Formes severes</strong> : paleur (anemie), ictere marque, prostration ; signes de defaillance d'organe (oligurie, confusion, detresse respiratoire)</li>
-                    </ul>
+                <!-- RÉPARTITION GÉOGRAPHIQUE -->
+                <section id="repartition" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+                    <p class="text-sm text-teal-800/80 mb-4">Afrique subsaharienne, Amérique centrale et du Sud, Asie du Sud et du Sud-Est, Océanie. <em>P. falciparum</em> prédomine en Afrique subsaharienne et <em>P. vivax</em> prédomine en Asie du Sud, Amérique latine et Moyen-Orient.</p>
+                    <figure class="my-6">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/malaria_map.jpg" alt="Distribution géographique du risque de malaria" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Carte du risque de malaria élaborée par l'ECTM pour <a target="_blank" href="https://www.healthytravel.ch" class="ref-link">www.healthytravel.ch</a></figcaption>
+                    </figure>
                 </section>
 
-                <!-- Labo -->
+                <!-- TRANSMISSION -->
+                <section id="transmission" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Vecteur</strong> : piqûre du moustique <em>Anopheles</em> femelle, piquant principalement la nuit (surtout après minuit)</li>
+                        <li><strong>Cycle</strong> : sporozoïtes (foie) &rarr; mérozoïtes (érythrocytes) &rarr; gamétocytes (transmission au moustique)</li>
+                        <li><strong>Hypnozoïtes</strong> : <em>P. vivax</em> et <em>P. ovale</em> forment des stades dormants dans les hépatocytes, responsables de rechutes tardives (jusqu'à 2–3 ans)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Périodes d'incubation</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Espèce</th><th>Incubation minimale</th><th>Incubation typique</th><th>Remarque</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>P. falciparum</em></td><td>6 jours</td><td>12–14 jours</td><td>Souvent prolongée sous prophylaxie antipaludique</td></tr>
+                                <tr><td><em>P. vivax</em> / <em>P. ovale</em></td><td>12 jours</td><td>~14 jours</td><td>Rechutes possibles jusqu'à 2–3 ans (hypnozoïtes)</td></tr>
+                                <tr><td><em>P. malariae</em></td><td>18 jours</td><td>Très variable</td><td>Recrudescences tardives possibles (années)</td></tr>
+                                <tr><td><em>P. knowlesi</em></td><td>11 jours</td><td>11–12 jours</td><td>Cycle érythrocytaire de 24 h (fièvre quotidienne)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- CLINIQUE -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Présentation initiale</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">Les symptômes sont souvent <strong>peu spécifiques</strong>, mimant une grippe ou une gastro-entérite : fièvre, frissons, céphalées, myalgies, fatigue, nausées, vomissements, douleurs abdominales, diarrhées, tachycardie, diaphorèse.<sup><a href="#ref-13">[13]</a></sup></p>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Absence de fièvre</p>
+                        <p class="text-sm text-teal-800">Jusqu'à <strong>1/3 des patients</strong> avec paludisme ne présentent pas de fièvre lors de la consultation. Ne jamais exclure le diagnostic sur l'absence de fièvre au moment de l'examen.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6 text-sm uppercase tracking-wide">Examen clinique</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Splénomégalie</strong> : fréquente, parfois volumineuse dans les infections prolongées ou récidivantes</li>
+                        <li><strong>Ictère</strong> : modéré dans les formes non compliquées ; prononcé (bilirubine conjuguée élevée) dans les formes sévères</li>
+                        <li><strong>Absence de rash</strong> : utile pour le diagnostic différentiel &mdash; l'absence d'exanthème oriente contre la dengue et les rickettsioses</li>
+                        <li><strong>Formes sévères</strong> : pâleur (anémie), ictère marqué, prostration ; signes de défaillance d'organe (oligurie, confusion, détresse respiratoire)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6 text-sm uppercase tracking-wide">Critères de paludisme sévère (OMS / SSTTM 2025)</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Critère</th><th>Seuil / Description</th></tr></thead>
+                            <tbody>
+                                <tr><td>Troubles de la conscience / coma</td><td>Malaria cérébrale (Glasgow &le; 11)</td></tr>
+                                <tr><td>Anémie sévère</td><td>Hémoglobine &lt; 7 g/dL</td></tr>
+                                <tr><td>Insuffisance rénale aiguë</td><td>Créatinine &gt; 265 &micro;mol/L</td></tr>
+                                <tr><td>SDRA</td><td>Syndrome de détresse respiratoire aiguë</td></tr>
+                                <tr><td>Choc circulatoire</td><td>Hypotension réfractaire au remplissage</td></tr>
+                                <tr><td>Acidose métabolique</td><td>pH &lt; 7,25 ou lactates &gt; 5 mmol/L</td></tr>
+                                <tr><td>Ictère</td><td>Bilirubine &gt; 50 &micro;mol/L + autre critère de sévérité</td></tr>
+                                <tr><td>Hyperparasitémie</td><td><strong>&ge; 2&nbsp;% (seuil suisse)</strong> ou &ge; 5&nbsp;% (OMS)<sup><a href="#ref-5">[5]</a></sup></td></tr>
+                                <tr><td>Hypoglycémie</td><td>&lt; 2,2 mmol/L</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Pourquoi le seuil suisse est-il plus bas ?</p>
+                        <p class="text-sm text-teal-800">Chez les patients non immuns (voyageurs, expatriés), la progression de la parasitémie au-delà de 2&nbsp;% est rapide et imprévisible. Le seuil de 2&nbsp;% permet une prise en charge agressive précoce, justifiant l'hospitalisation et le recours à l'artésunate IV avant l'installation d'une défaillance d'organe.<sup><a href="#ref-5">[5]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- BIOLOGIE -->
                 <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Forme non compliquee :</p>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
-                        <li>Thrombopenie &lt; 150 G/L (quasi constante — valeur diagnostique)</li>
-                        <li>Bilirubine conjuguee elevee (hemolyse + atteinte hepatique)</li>
-                        <li>Transaminases moderement elevees</li>
-                        <li>Creatinine elevee (surveillance de la fonction renale)</li>
-                        <li>LDH eleve (marqueur d'hemolyse)</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Forme non compliquée</h3>
+                    <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Thrombopénie &lt; 150 G/L</strong> : quasi constante &mdash; valeur diagnostique élevée chez le voyageur fébrile</li>
+                        <li>Bilirubine conjuguée élevée (hémolyse + atteinte hépatique)</li>
+                        <li>Transaminases modérément élevées</li>
+                        <li>Créatinine élevée (surveillance de la fonction rénale)</li>
+                        <li>LDH élevé (marqueur d'hémolyse)</li>
                     </ul>
-                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Forme severe (criteres biologiques) :</p>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Hemoglobine &lt; 7 g/dL</li>
-                        <li>Hypoglycemie (&lt; 2,2 mmol/L)</li>
-                        <li>Acidose metabolique (pH &lt; 7,25 ou lactates &gt; 5 mmol/L)</li>
-                        <li>Insuffisance renale : creatinine &gt; 265 &micro;mol/L</li>
-                        <li>Parasitemie &ge; 2 % (seuil suisse)</li>
-                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Forme sévère &mdash; critères biologiques</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Seuil de sévérité</th></tr></thead>
+                            <tbody>
+                                <tr><td>Hémoglobine</td><td>&lt; 7 g/dL</td></tr>
+                                <tr><td>Glycémie</td><td>&lt; 2,2 mmol/L</td></tr>
+                                <tr><td>pH / Lactates</td><td>&lt; 7,25 ou &gt; 5 mmol/L</td></tr>
+                                <tr><td>Créatinine</td><td>&gt; 265 &micro;mol/L</td></tr>
+                                <tr><td>Parasitémie</td><td><strong>&ge; 2&nbsp;% (seuil suisse)</strong><sup><a href="#ref-5">[5]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
-                <!-- Diagnostic -->
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
 
-                    <table class="article-table rounded-xl overflow-hidden mb-4">
-                        <thead>
-                            <tr>
-                                <th>Examen</th>
-                                <th>Remarque</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>TDR HRP2</strong> (<em>P. falciparum</em>)</td>
-                                <td>Sensibilite elevee pour <em>P. falciparum</em> ; ne fournit pas la parasitemie ; ne detecte pas fiablement les autres especes. Deletions hrp2/hrp3 peuvent causer des faux-negatifs.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Frottis + goutte epaisse</strong></td>
-                                <td>Gold standard. Permet l'identification de l'espece et la quantification de la parasitemie. Preparer dans l'heure suivant le prelevement sur EDTA.</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Repetition a 12–24 h</strong></td>
-                                <td>Si suspicion forte avec premier bilan negatif. Etude CHUV (Slack &amp; Genton 2024, n&nbsp;=&nbsp;4&nbsp;972) : seulement 0,08&nbsp;% des cas positifs detectes au 2e ou 3e test — mais repeter si forte suspicion clinique persistante [4].</td>
-                            </tr>
-                            <tr>
-                                <td><strong>PCR</strong></td>
-                                <td>Reference pour confirmation d'espece, coinfections et detection de resistance. Non disponible en urgence ; utile en cas de discordance TDR/frottis.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="callout-danger">
-                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Declaration obligatoire (Guide OFSP 2026)</p>
-                        <p class="text-sm text-teal-800 mb-2">Delai : <strong>1 semaine</strong> pour le medecin et le laboratoire.</p>
-                        <ul class="text-sm text-teal-800 space-y-1 list-disc list-inside">
-                            <li><strong>Medecin</strong> → Medecin cantonal (formulaire HIN-Secure Mail, fax ou courrier postal). Critere : resultat positif d'analyses de laboratoire.</li>
-                            <li><strong>Laboratoire</strong> → OFSP via CH-ELM (API) ou Infreport. Critere : tout resultat positif (PCR/sequencage, microscopie, mise en evidence de l'antigene). Indiquer l'espece si connue.</li>
-                        </ul>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Examen</th><th>Caractéristiques</th><th>Limites</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>TDR HRP2</strong></td>
+                                    <td>Sensibilité élevée pour <em>P. falciparum</em> ; résultat en 15–20 min</td>
+                                    <td>Ne fournit pas la parasitémie ; ne détecte pas fiablement les autres espèces ; faux-négatifs par délétion <em>hrp2/hrp3</em> (Afrique de l'Est, Amérique du Sud)<sup><a href="#ref-6">[6]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frottis + goutte épaisse</strong></td>
+                                    <td><strong>Gold standard</strong> &mdash; identification de l'espèce + quantification de la parasitémie</td>
+                                    <td>Préparer dans l'heure suivant le prélèvement sur EDTA ; requiert un microscopiste expérimenté</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Répétition à 12–24 h</strong></td>
+                                    <td>Si suspicion forte avec premier bilan négatif</td>
+                                    <td>Étude CHUV (Slack &amp; Genton 2024, n&nbsp;=&nbsp;4&nbsp;972) : seulement 0,08&nbsp;% des cas positifs détectés au 2e ou 3e test &mdash; la valeur ajoutée des tests sériés est très faible<sup><a href="#ref-4">[4]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PCR</strong></td>
+                                    <td>Référence pour confirmation d'espèce, co-infections, détection de résistance</td>
+                                    <td>Non disponible en urgence ; utile en cas de discordance TDR/frottis</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div class="callout-piege">
-                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege — TDR faux-negatif</p>
-                        <p class="text-sm text-teal-800">Un TDR negatif n'exclut pas le paludisme. Des deletions des genes <em>hrp2/hrp3</em> chez <em>P. falciparum</em> (Afrique de l'Est, Amerique du Sud) peuvent rendre le TDR HRP2 faussement negatif. Le frottis + goutte epaisse reste indispensable. A l'inverse, un TDR peut etre faussement positif dans d'autres infections febriles du voyageur (Slack &amp; Genton, J Travel Med 2024 [4] ; Zewude et al. 2024 [7]).</p>
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; TDR faux-négatif et faux-positif</p>
+                        <p class="text-sm text-teal-800">Un TDR négatif <strong>n'exclut pas</strong> le paludisme. Des délétions des gènes <em>hrp2/hrp3</em> chez <em>P. falciparum</em> (Afrique de l'Est, Amérique du Sud) peuvent rendre le TDR HRP2 faussement négatif.<sup><a href="#ref-6">[6]</a></sup> Le frottis + goutte épaisse reste indispensable. À l'inverse, un TDR peut être <strong>faussement positif</strong> dans d'autres infections fébriles du voyageur (fièvre à tique africaine notamment).<sup><a href="#ref-7">[7]</a></sup></p>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">En pratique : algorithme diagnostique</p>
+                        <p class="text-sm text-teal-800">Devant toute fièvre au retour d'une zone endémique : <strong>TDR + frottis/goutte épaisse en urgence</strong>. Si négatif et forte suspicion clinique (thrombopénie, voyage compatible) : répéter frottis à 12–24&nbsp;h. La PCR est réservée à la confirmation d'espèce ou aux discordances.<sup><a href="#ref-4">[4]</a></sup></p>
                     </div>
                 </section>
 
-                <!-- Traitement -->
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
 
-                    <!-- P. falciparum non complique -->
-                    <h3 id="traitement-non-complique" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3"><em>P. falciparum</em> non complique</h3>
+                    <!-- P. falciparum non compliqué -->
+                    <h3 id="traitement-non-complique" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3"><em>P. falciparum</em> non compliqué</h3>
 
-                    <p class="text-sm text-teal-800/80 mb-2"><strong>1re ligne — Artemether-lumefantrine (Riamet&reg;)</strong></p>
-                    <table class="article-table rounded-xl overflow-hidden mb-3">
-                        <thead>
-                            <tr>
-                                <th>Prise</th>
-                                <th>Heure</th>
-                                <th>Dose adulte</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>H0</td><td>4 comprimes</td></tr>
-                            <tr><td>2</td><td>H8</td><td>4 comprimes</td></tr>
-                            <tr><td>3</td><td>H24</td><td>4 comprimes</td></tr>
-                            <tr><td>4</td><td>H36</td><td>4 comprimes</td></tr>
-                            <tr><td>5</td><td>H48</td><td>4 comprimes</td></tr>
-                            <tr><td>6</td><td>H60</td><td>4 comprimes</td></tr>
-                        </tbody>
-                    </table>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
-                        <li>Prendre avec un repas gras (ameliore l'absorption de la lumefantrine)</li>
-                        <li>ECG non systematique aux doses standard. Indique si : QT long congenital, arythmie, cardiopathie severe, co-prescription de medicaments allongeant le QTc (quinine, antipsychotiques), inhibiteurs CYP3A4, ou traitement prealable par halofantrine</li>
-                        <li><strong>Patient &gt; 65 kg :</strong> efficacite reduite — taux d'echec tardif ~10 % (recrudescence J15–J29). Planifier un frottis de controle a J28 [3].</li>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>1re ligne &mdash; Artéméther-luméfantrine (Riamet&reg;)</strong></p>
+                    <div class="overflow-x-auto mb-3">
+                        <table class="article-table">
+                            <thead><tr><th>Prise</th><th>Heure</th><th>Dose adulte</th></tr></thead>
+                            <tbody>
+                                <tr><td>1</td><td>H0</td><td>4 comprimés</td></tr>
+                                <tr><td>2</td><td>H8</td><td>4 comprimés</td></tr>
+                                <tr><td>3</td><td>H24</td><td>4 comprimés</td></tr>
+                                <tr><td>4</td><td>H36</td><td>4 comprimés</td></tr>
+                                <tr><td>5</td><td>H48</td><td>4 comprimés</td></tr>
+                                <tr><td>6</td><td>H60</td><td>4 comprimés</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li>Prendre avec un <strong>repas gras</strong> (améliore l'absorption de la luméfantrine)</li>
+                        <li><strong>ECG non systématique</strong> aux doses standard recommandées : la luméfantrine peut allonger le QTc mais sans effet arythmogène cliniquement significatif aux doses thérapeutiques</li>
+                        <li><strong>ECG indiqué si :</strong> QT long congénital, arythmie symptomatique, cardiopathie sévère, co-prescription de médicaments allongeant le QTc (quinine, quinidine, antipsychotiques, antidépresseurs), inhibiteurs puissants du CYP3A4 (kétoconazole), ou traitement antérieur par halofantrine (contre-indiqué dans le mois suivant l'artéméther-luméfantrine)</li>
+                        <li><strong>Note :</strong> le paludisme lui-même peut modifier le QTc &mdash; toute anomalie ECG n'est pas imputable au médicament</li>
                     </ul>
 
                     <div class="callout-piege">
-                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege — Patient &gt; 65 kg sous Riamet</p>
-                        <p class="text-sm text-teal-800">L'efficacite du Riamet est de 100 % chez les patients &le; 65 kg mais seulement 90,4 % chez les patients &gt; 65 kg (etude belge, Vuuren et al. J Travel Med 2024 [3]). Plannifier systematiquement un frottis de controle a J28. Considerer Malarone comme alternative chez les patients lourds ou en retour du Grand Mekong.</p>
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Patient &gt; 65 kg sous Riamet</p>
+                        <p class="text-sm text-teal-800">L'efficacité du Riamet est de <strong>100&nbsp;%</strong> chez les patients &le;&nbsp;65&nbsp;kg mais seulement <strong>90,4&nbsp;%</strong> chez les patients &gt;&nbsp;65&nbsp;kg.<sup><a href="#ref-3">[3]</a></sup> Taux d'échec tardif de <strong>5,2&nbsp;%</strong> à J20–J28 chez les voyageurs non immuns européens.<sup><a href="#ref-3b">[3b]</a></sup> Planifier systématiquement un <strong>frottis de contrôle à J28</strong>. Considérer Malarone comme alternative chez les patients &gt;&nbsp;65&nbsp;kg ou en retour du Grand Mékong.</p>
                     </div>
 
-                    <p class="text-sm text-teal-800/80 mb-1 mt-4"><strong>Alternative — Atovaquone-proguanil (Malarone&reg;)</strong></p>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-2">
-                        <li>4 comprimes/j (adulte) x 3 jours, avec repas gras</li>
-                        <li>Option preferentielle en retour du Grand Mekong (resistance artémisinine) ou patient &gt; 65 kg</li>
+                    <p class="text-sm text-teal-800/80 mb-1 mt-4"><strong>Alternative &mdash; Atovaquone-proguanil (Malarone&reg;)</strong></p>
+                    <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside mb-2">
+                        <li>4 comprimés/j &times; 3 jours (adulte), avec repas gras</li>
+                        <li>Option préférentielle en retour du <strong>Grand Mékong</strong> (résistances artémisinine) ou patient &gt;&nbsp;65&nbsp;kg<sup><a href="#ref-12">[12]</a></sup></li>
                     </ul>
 
-                    <!-- P. falciparum severe -->
-                    <h3 id="traitement-severe" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3"><em>P. falciparum</em> severe — Artesunate IV</h3>
+                    <!-- P. falciparum sévère -->
+                    <h3 id="traitement-severe" class="font-sans text-base font-semibold text-teal-800 mt-8 mb-3"><em>P. falciparum</em> sévère &mdash; Artésunate IV</h3>
 
-                    <table class="article-table rounded-xl overflow-hidden mb-3">
-                        <thead>
-                            <tr>
-                                <th>Moment</th>
-                                <th>Dose</th>
-                                <th>Voie</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>H0</td><td>2,4 mg/kg</td><td>IV</td></tr>
-                            <tr><td>H12</td><td>2,4 mg/kg</td><td>IV</td></tr>
-                            <tr><td>H24</td><td>2,4 mg/kg</td><td>IV</td></tr>
-                            <tr><td>Puis toutes les 24 h</td><td>2,4 mg/kg</td><td>IV</td></tr>
-                        </tbody>
-                    </table>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
-                        <li>Relais oral (Riamet ou Malarone) des que parasitemie &le; 1 %</li>
-                        <li>Hospitalisation obligatoire</li>
+                    <div class="overflow-x-auto mb-3">
+                        <table class="article-table">
+                            <thead><tr><th>Moment</th><th>Dose</th><th>Voie</th></tr></thead>
+                            <tbody>
+                                <tr><td>H0</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                                <tr><td>H12</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                                <tr><td>H24</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                                <tr><td>Puis toutes les 24 h</td><td>2,4 mg/kg</td><td>IV</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li>Relais oral (Riamet ou Malarone) dès que parasitémie &le;&nbsp;1&nbsp;%</li>
+                        <li><strong>Hospitalisation obligatoire</strong></li>
                     </ul>
 
                     <div class="callout-danger">
-                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; PADH — Hemolysediferee post-artesunate</p>
-                        <p class="text-sm text-teal-800">
-                            Survient chez <strong>15–22 % des voyageurs</strong> traites par artesunate IV (Jaureguiberry S et al. Emerg Infect Dis 2015 [8]), parfois jusqu'a J30 post-traitement. Mecanisme : « pitting » splenique des erythrocytes parasites avec liberation differee.<br>
-                            <strong>Surveillance obligatoire :</strong> Hb + LDH + haptoglobine toutes les semaines pendant 4 semaines apres arret de l'artesunate IV.
-                        </p>
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; PADH &mdash; Hémolyse différée post-artésunate</p>
+                        <p class="text-sm text-teal-800 mb-2">Survient chez <strong>15–22&nbsp;%</strong> des voyageurs traités par artésunate IV (certaines séries rapportent jusqu'à 27&nbsp;%).<sup><a href="#ref-8">[8]</a></sup> Délai : <strong>J7–J30</strong> post-traitement.</p>
+                        <p class="text-sm text-teal-800 mb-2"><strong>Mécanisme :</strong> « pitting » splénique des érythrocytes parasités avec libération différée de l'hémoglobine résiduelle.</p>
+                        <p class="text-sm text-teal-800"><strong>Surveillance obligatoire :</strong> Hb + LDH + haptoglobine <strong>1&times;/semaine pendant 4 semaines</strong> après arrêt de l'artésunate IV.<sup><a href="#ref-9">[9,</a></sup><sup><a href="#ref-10">10]</a></sup></p>
                     </div>
 
                     <!-- P. vivax / P. ovale -->
-                    <h3 id="traitement-vivax" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3"><em>P. vivax</em> / <em>P. ovale</em> — Prevention des rechutes</h3>
-                    <p class="text-sm text-teal-800/80 mb-2">Traiter l'acces aigu (chloroquine si souche sensible ; ACT si resistance chloroquine). Puis traitement radical des hypnozoites hepatiques :</p>
-                    <table class="article-table rounded-xl overflow-hidden mb-3">
-                        <thead>
-                            <tr>
-                                <th>Medicament</th>
-                                <th>Posologie</th>
-                                <th>Prerequis</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Primaquine</strong></td>
-                                <td>0,25–0,5 mg/kg/j x 14 jours (adulte : 15–30 mg/j)</td>
-                                <td><strong>Test G6PD OBLIGATOIRE avant</strong> — risque d'hemolyse severe</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Tafenoquine</strong> (alternative)</td>
-                                <td>300 mg dose unique</td>
-                                <td><strong>G6PD &ge; 70 % de la normale.</strong> Avantage : dose unique. Risque : hemolyse prolongee (demi-vie longue) si G6PD deficient [11]</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h3 id="traitement-vivax" class="font-sans text-base font-semibold text-teal-800 mt-8 mb-3"><em>P. vivax</em> / <em>P. ovale</em> &mdash; Prévention des rechutes</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">Traiter l'accès aigu (chloroquine si souche sensible ; ACT si résistance chloroquine). Puis <strong>traitement radical des hypnozoïtes hépatiques</strong> :</p>
+                    <div class="overflow-x-auto mb-3">
+                        <table class="article-table">
+                            <thead><tr><th>Médicament</th><th>Posologie</th><th>Prérequis</th><th>Remarques</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Primaquine</strong></td>
+                                    <td>0,25–0,5 mg/kg/j &times; 14 jours<br>(adulte : 15–30 mg/j)</td>
+                                    <td><strong>Test G6PD OBLIGATOIRE</strong> &mdash; risque d'hémolyse sévère</td>
+                                    <td>Si G6PD déficient : régime hebdomadaire sous supervision</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Tafénoquine</strong></td>
+                                    <td>300 mg dose unique</td>
+                                    <td><strong>G6PD &ge; 70&nbsp;% de la normale</strong></td>
+                                    <td>Avantage : dose unique (meilleure observance). Risque : hémolyse prolongée si G6PD déficient (demi-vie longue, hémolyse impossible à stopper). Contre-indiquée en grossesse.<sup><a href="#ref-11">[11]</a></sup></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Test G6PD obligatoire</p>
+                        <p class="text-sm text-teal-800">Ne jamais prescrire primaquine ou tafénoquine sans résultat de G6PD. L'hémolyse peut être fatale chez les patients déficients. La tafénoquine est particulièrement dangereuse car sa demi-vie longue rend l'hémolyse impossible à arrêter une fois déclenchée.<sup><a href="#ref-11">[11]</a></sup></p>
+                    </div>
 
                     <!-- P. malariae / P. knowlesi -->
-                    <h3 id="traitement-malariae" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-2"><em>P. malariae</em> / <em>P. knowlesi</em></h3>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><em>P. malariae</em> : sensible a la chloroquine dans la plupart des regions ; pas d'hypnozoites (pas de rechute hepatique)</li>
-                        <li><em>P. knowlesi</em> (Bornéo, Asie du Sud-Est) : parasite simien ; peut provoquer des formes severes malgre une parasitemie apparemment faible (erythrocytes non elargis). Traiter comme <em>P. falciparum</em> severe en cas de doute clinique.</li>
+                    <h3 id="traitement-malariae" class="font-sans text-base font-semibold text-teal-800 mt-8 mb-3"><em>P. malariae</em> / <em>P. knowlesi</em></h3>
+                    <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><em>P. malariae</em> : sensible à la chloroquine dans la plupart des régions ; pas d'hypnozoïtes (pas de rechute hépatique)</li>
+                        <li><em>P. knowlesi</em> (Bornéo, Asie du Sud-Est) : parasite simien ; peut provoquer des <strong>formes sévères malgré une parasitémie apparemment faible</strong> (érythrocytes non élargis). Traiter comme <em>P. falciparum</em> sévère en cas de doute clinique.</li>
                     </ul>
                 </section>
 
-                <!-- Quand referer -->
-                <section id="referer" class="mb-10">
-                    <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">Toute suspicion de malaria severe (alteration de conscience, detresse respiratoire, insuffisance renale, hyperparasitemie &ge;2%) necessite un <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">avis specialise</a>.</p>
+                <!-- PRÉVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Mesures anti-vectorielles</h3>
+                    <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Moustiquaire imprégnée d'insecticide (dormir sous moustiquaire en zone endémique)</li>
+                        <li>Répulsifs cutanés à base de DEET (20–50&nbsp;%) ou d'icaridine</li>
+                        <li>Vêtements longs et de couleur claire, imprégnés de perméthrine</li>
+                        <li>Rappeler que l'<em>Anopheles</em> pique <strong>principalement la nuit</strong></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Chimioprophylaxie</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Médicament</th><th>Posologie adulte</th><th>Début</th><th>Fin après retour</th><th>Remarques</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Atovaquone-proguanil</strong><br>(Malarone&reg;)</td><td>1 cp/j</td><td>J-1</td><td>7 jours</td><td>Bien toléré ; courte durée post-exposition ; option de choix pour séjours courts</td></tr>
+                                <tr><td><strong>Doxycycline</strong></td><td>100 mg/j</td><td>J-1</td><td>28 jours</td><td>Économique ; photosensibilité, troubles digestifs ; contre-indiquée &lt; 8 ans et grossesse</td></tr>
+                                <tr><td><strong>Méfloquine</strong><br>(Lariam&reg;)</td><td>250 mg/sem</td><td>2–3 sem avant</td><td>4 semaines</td><td>Effets neuropsychiatriques possibles ; intérêt pour séjours longs ; contre-indiquée si ATCD psychiatriques</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-2">&#10022; Perle clinique</p>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Rappel pour le praticien</p>
+                        <p class="text-sm text-teal-800">La chimioprophylaxie ne garantit pas une protection à 100&nbsp;%. Des cas de paludisme sous prophylaxie correctement prise existent. L'incubation est souvent prolongée en cas de prophylaxie, rendant le diagnostic encore plus tardif. Toute fièvre au retour d'une zone endémique doit faire évoquer le paludisme, même sous prophylaxie.</p>
+                    </div>
+                </section>
+
+                <!-- PIÈGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles</h2>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège 1 &mdash; Ne pas poser la question du voyage</p>
+                        <p class="text-sm text-teal-800">L'erreur la plus fréquente et la plus grave du médecin de premier recours : ne pas demander l'anamnèse de voyage devant un tableau fébrile non spécifique. Le diagnostic de « grippe » ou « gastro-entérite » est souvent posé à tort. <strong>Tout patient fébrile devrait être interrogé sur un séjour en zone tropicale dans les 3 mois précédents.</strong></p>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège 2 &mdash; TDR négatif = paludisme exclu ?</p>
+                        <p class="text-sm text-teal-800">Non. Le TDR HRP2 peut être faussement négatif (délétions <em>hrp2/hrp3</em>) ou faussement positif (rickettsiose, fièvre typhoïde).<sup><a href="#ref-7">[7]</a></sup> Le frottis + goutte épaisse reste indispensable. Si premier bilan négatif avec forte suspicion clinique : répéter à 12–24 h.<sup><a href="#ref-4">[4]</a></sup></p>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège 3 &mdash; Patient &gt; 65 kg sous Riamet</p>
+                        <p class="text-sm text-teal-800">Taux d'échec tardif d'environ 10&nbsp;% (recrudescence J15–J29) chez les patients &gt; 65 kg.<sup><a href="#ref-3">[3]</a></sup> Planifier systématiquement un frottis de contrôle à J28. Considérer Malarone si poids &gt; 65 kg ou retour du Grand Mékong.</p>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège 4 &mdash; PADH méconnu</p>
+                        <p class="text-sm text-teal-800">L'anémie hémolytique J7–J30 après artésunate IV est souvent diagnostiquée à tort comme une rechute parasitaire. Ne pas omettre la surveillance Hb + LDH + haptoglobine pendant 4 semaines post-traitement.<sup><a href="#ref-8">[8]</a></sup></p>
+                    </div>
+
+                    <div class="callout-referer mt-6">
+                        <p class="text-sm font-bold text-mint-700 mb-2">&#10022; Perles cliniques</p>
                         <ul class="space-y-1.5 text-sm text-teal-800">
-                            <li><strong>Suivi J28 obligatoire</strong> pour tout patient &gt; 65 kg traite par Riamet : frottis de controle pour exclure une recrudescence tardive</li>
-                            <li><strong>Surveillance PADH</strong> apres artesunate IV : Hb + LDH + haptoglobine chaque semaine pendant 4 semaines post-traitement</li>
+                            <li><strong>Thrombopénie</strong> : quasi constante dans le paludisme &mdash; sa présence chez un voyageur fébrile a une forte valeur d'orientation diagnostique</li>
+                            <li><strong>Suivi J28 obligatoire</strong> pour tout patient &gt; 65 kg traité par Riamet : frottis de contrôle pour exclure une recrudescence tardive</li>
+                            <li><strong>Surveillance PADH</strong> après artésunate IV : Hb + LDH + haptoglobine 1&times;/semaine pendant 4 semaines</li>
+                            <li><strong>G6PD</strong> : toujours doser avant primaquine ou tafénoquine &mdash; l'hémolyse peut être fatale</li>
                         </ul>
                     </div>
                 </section>
 
-                <!-- References -->
-                <section id="references" class="mb-14">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">References</h2>
-                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside">
-                        <li>Giannone B et al. Imported malaria in Switzerland (1990–2019): A retrospective analysis. <em>Travel Med Infect Dis</em> 2022;45:102233.</li>
-                        <li>Balzli D et al. Airport/seaport and autochthonous malaria in Europe from 1969 to 2022. <em>New Microbes New Infect</em> 2025;67:101627. DOI:<a href="https://doi.org/10.1016/j.nmni.2025.101627" target="_blank" class="ref-link">10.1016/j.nmni.2025.101627</a></li>
-                        <li>Vuuren C van et al. Weight-based treatment failure with artemether-lumefantrine in non-immune travelers. <em>J Travel Med</em> 2024. [Cf. aussi Sonden K et al. High rate of treatment failures. <em>CID</em> 2017;64:199–207.]</li>
-                        <li>Slack A, Genton B. Usefulness of serial testing for the diagnosis of malaria. <em>J Travel Med</em> 2024;31:taae030.</li>
-                        <li>SSTTM. Malaria Treatment Recommendations 2025.</li>
-                        <li>Maltha J, Jacobs J. Clinical practice: diagnosis of imported malaria in children. <em>Eur J Pediatr</em> 2011;170:821–829. DOI:<a href="https://doi.org/10.1007/s00431-011-1451-4" target="_blank" class="ref-link">10.1007/s00431-011-1451-4</a></li>
-                        <li>Zewude RT et al. False-positive malaria RDT likely due to African tick bite fever. <em>Reports (MDPI)</em> 2024;7(4). DOI:<a href="https://doi.org/10.3390/reports7040100" target="_blank" class="ref-link">10.3390/reports7040100</a></li>
-                        <li>Jaureguiberry S et al. Delayed-onset hemolytic anemia after artesunate, France 2011–2013. <em>Emerg Infect Dis</em> 2015;21:804–812.</li>
-                        <li>Travis J et al. Treatment failure and post-artesunate delayed haemolysis in a returned traveller from Uganda. <em>Med J Aust</em> 2026;224:e70136. DOI:<a href="https://doi.org/10.5694/mja2.70136" target="_blank" class="ref-link">10.5694/mja2.70136</a></li>
-                        <li>Murphy F et al. From 64 % hyperparasitemia to recovery: managing severe falciparum malaria and PADH. <em>IJID Reg</em> 2025;15:100644. DOI:<a href="https://doi.org/10.1016/j.ijregi.2025.100644" target="_blank" class="ref-link">10.1016/j.ijregi.2025.100644</a></li>
-                        <li>Hanboonkunupakarn B, White NJ. Advances and roadblocks in the treatment of malaria. <em>Br J Clin Pharmacol</em> 2020;88:374–382. DOI:<a href="https://doi.org/10.1111/bcp.14474" target="_blank" class="ref-link">10.1111/bcp.14474</a></li>
-                        <li>Visser MT et al. National treatment guidelines for falciparum malaria in non-endemic countries. <em>Trop Med Int Health</em> 2022;27:129–136. DOI:<a href="https://doi.org/10.1111/tmi.13715" target="_blank" class="ref-link">10.1111/tmi.13715</a></li>
-                        <li>Thwaites GE, Day NP. Approach to fever in the returning traveler. <em>NEJM</em> 2017;376:548–560.</li>
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Au cabinet &mdash; Suspicion de paludisme</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Anamnèse de voyage</strong> : destination, dates, prophylaxie antipaludique prise/non prise, observance</li>
+                        <li><strong>Bilan urgent</strong> : TDR + frottis/goutte épaisse, FSC, créatinine, bilirubine, transaminases, LDH, glycémie, CRP</li>
+                        <li><strong>Si TDR ou frottis positif</strong> : identifier l'espèce, quantifier la parasitémie, rechercher les critères de sévérité</li>
+                        <li><strong>Si négatif avec forte suspicion</strong> : répéter frottis à 12–24 h ; ne pas laisser rentrer le patient sans suivi planifié</li>
+                        <li><strong>Déclaration obligatoire</strong> dans la semaine</li>
                     </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Algorithme de traitement simplifié</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Situation</th><th>Traitement</th><th>Suivi</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><em>P. falciparum</em> non compliqué, &le; 65 kg</td>
+                                    <td>Riamet&reg; 6 prises / 3 jours</td>
+                                    <td>Frottis J3, J7</td>
+                                </tr>
+                                <tr>
+                                    <td><em>P. falciparum</em> non compliqué, &gt; 65 kg</td>
+                                    <td>Riamet&reg; ou Malarone&reg;</td>
+                                    <td>Frottis J3, J7, <strong>J28</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><em>P. falciparum</em> sévère ou parasitémie &ge; 2&nbsp;%</td>
+                                    <td>Artésunate IV &rarr; relais oral</td>
+                                    <td>Frottis /12–24h ; <strong>PADH 4 sem</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><em>P. vivax</em> / <em>P. ovale</em></td>
+                                    <td>Chloroquine ou ACT + primaquine/tafénoquine</td>
+                                    <td>G6PD obligatoire avant 8-aminoquinoléines</td>
+                                </tr>
+                                <tr>
+                                    <td><em>P. malariae</em></td>
+                                    <td>Chloroquine</td>
+                                    <td>Contrôle standard</td>
+                                </tr>
+                                <tr>
+                                    <td><em>P. knowlesi</em> (doute clinique)</td>
+                                    <td>Traiter comme <em>P. falciparum</em></td>
+                                    <td>Frottis sériés</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
+                <!-- QUAND RÉFÉRER -->
+                <section id="referer" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Quand référer</h2>
+
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Référer sans délai dans les situations suivantes :</p>
+                        <ul class="space-y-1.5 text-sm text-teal-800 list-disc list-inside">
+                            <li>Tout critère de <strong>paludisme sévère</strong> (altération de conscience, détresse respiratoire, insuffisance rénale, choc, acidose)</li>
+                            <li><strong>Hyperparasitémie &ge; 2&nbsp;%</strong> (seuil suisse)</li>
+                            <li>Suspicion de <em>P. knowlesi</em></li>
+                            <li>Échec thérapeutique (recrudescence sous traitement bien conduit)</li>
+                            <li>Grossesse</li>
+                            <li>Enfant en bas âge avec fièvre au retour des tropiques</li>
+                            <li>Doute diagnostique persistant (TDR/frottis discordants, espèce non identifiée)</li>
+                        </ul>
+                    </div>
+
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">&#10022; Consultation spécialisée</p>
+                        <p class="text-sm text-teal-800">Pour toute question ou cas complexe, un <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">avis spécialisé</a> peut être obtenu via <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">traveldoctor.ch/professionnels</a>.</p>
+                    </div>
+                </section>
+
+                <!-- RÉFÉRENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Giannone B et al. Imported malaria in Switzerland (1990–2019): A retrospective analysis. <em>Travel Med Infect Dis</em> 2022;45:102233. DOI:<a href="https://doi.org/10.1016/j.tmaid.2022.102233" target="_blank" class="ref-link">10.1016/j.tmaid.2022.102233</a></li>
+                        <li id="ref-2">Balzli D et al. Airport/seaport and autochthonous malaria in Europe from 1969 to 2022: A systematic review. <em>New Microbes New Infect</em> 2025;67:101627. DOI:<a href="https://doi.org/10.1016/j.nmni.2025.101627" target="_blank" class="ref-link">10.1016/j.nmni.2025.101627</a></li>
+                        <li id="ref-3">Vuuren C van et al. Weight-based treatment failure risk with artemether-lumefantrine in non-immune travelers. <em>J Travel Med</em> 2024.</li>
+                        <li id="ref-3b">Sonden K et al. High rate of treatment failures in nonimmune travelers treated with artemether-lumefantrine for uncomplicated <em>P. falciparum</em> malaria in Sweden: retrospective study. <em>Clin Infect Dis</em> 2017;64:199–207.</li>
+                        <li id="ref-4">Slack A, Genton B. Usefulness of serial testing for the diagnosis of malaria. <em>J Travel Med</em> 2024;31:taae030.</li>
+                        <li id="ref-5">SSTTM. Malaria Treatment Recommendations 2025.</li>
+                        <li id="ref-6">Maltha J, Jacobs J. Clinical practice: the diagnosis of imported malaria in children. <em>Eur J Pediatr</em> 2011;170:821–829. DOI:<a href="https://doi.org/10.1007/s00431-011-1451-4" target="_blank" class="ref-link">10.1007/s00431-011-1451-4</a></li>
+                        <li id="ref-7">Zewude RT et al. False-positive malaria rapid diagnostic test likely due to African tick bite fever in a returning traveler. <em>Reports (MDPI)</em> 2024;7(4):100. DOI:<a href="https://doi.org/10.3390/reports7040100" target="_blank" class="ref-link">10.3390/reports7040100</a></li>
+                        <li id="ref-8">Jaureguiberry S et al. Delayed-onset hemolytic anemia in patients with severe malaria treated with artesunate, France, 2011–2013. <em>Emerg Infect Dis</em> 2015;21:804–812.</li>
+                        <li id="ref-9">Travis J et al. Treatment failure and post-artesunate delayed haemolysis in a returned traveller from Uganda with partially drug-resistant severe <em>P. falciparum</em> malaria. <em>Med J Aust</em> 2026;224:e70136. DOI:<a href="https://doi.org/10.5694/mja2.70136" target="_blank" class="ref-link">10.5694/mja2.70136</a></li>
+                        <li id="ref-10">Murphy F et al. From 64% hyperparasitemia to recovery: Managing severe falciparum malaria and delayed hemolytic anemia. <em>IJID Reg</em> 2025;15:100644. DOI:<a href="https://doi.org/10.1016/j.ijregi.2025.100644" target="_blank" class="ref-link">10.1016/j.ijregi.2025.100644</a></li>
+                        <li id="ref-11">Hanboonkunupakarn B, White NJ. Advances and roadblocks in the treatment of malaria. <em>Br J Clin Pharmacol</em> 2020;88:374–382. DOI:<a href="https://doi.org/10.1111/bcp.14474" target="_blank" class="ref-link">10.1111/bcp.14474</a></li>
+                        <li id="ref-12">Visser MT et al. Are national treatment guidelines for falciparum malaria in line with WHO recommendations? <em>Trop Med Int Health</em> 2022;27:129–136. DOI:<a href="https://doi.org/10.1111/tmi.13715" target="_blank" class="ref-link">10.1111/tmi.13715</a></li>
+                        <li id="ref-13">Thwaites GE, Day NP. Approach to fever in the returning traveler. <em>N Engl J Med</em> 2017;376:548–560.</li>
+                    </ol>
+                </section>
             </article>
 
             <!-- FLOATING TOC -->
-            <aside class="toc-sidebar hidden lg:block">
-                <nav class="toc">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
-                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                        <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                        <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                        <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a>
-                            <ul class="space-y-0.5 mt-0.5 ml-3">
-                                <li><a href="#traitement-non-complique" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Non complique</a></li>
-                                <li><a href="#traitement-severe" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Forme severe</a></li>
-                                <li><a href="#traitement-vivax" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">P. vivax / ovale</a></li>
-                                <li><a href="#traitement-malariae" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">P. malariae / knowlesi</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
-                        <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">References</a></li>
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a>
+                    <ul class="space-y-0.5 mt-0.5 ml-3">
+                        <li><a href="#traitement-non-complique" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Non compliqué</a></li>
+                        <li><a href="#traitement-severe" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Forme sévère</a></li>
+                        <li><a href="#traitement-vivax" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">P. vivax / ovale</a></li>
+                        <li><a href="#traitement-malariae" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">P. malariae / knowlesi</a></li>
                     </ul>
-                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
-                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
-                            Référer un patient
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-                    </div>
-                    <div class="mt-4 p-4 bg-teal-50 border border-teal-200/50 rounded-xl">
-                        <p class="text-xs text-teal-700/70 mb-2">Contexte clinique</p>
-                        <a href="../syndromes/fievre.html" class="text-sm text-teal-600 hover:text-mint-600 font-medium transition-colors">&rarr; Fievre au retour de voyage</a>
-                    </div>
-                </nav>
-            </aside>
+                </li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><div class="mt-4 p-4 bg-teal-50 border border-teal-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Contexte clinique</p><a href="../syndromes/fievre.html" class="text-sm text-teal-600 hover:text-mint-600 font-medium transition-colors">&rarr; Fièvre au retour de voyage</a></div></nav></aside>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <div>
-                    <div class="flex items-center gap-2 text-cream-100">
-                        <svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8">
-                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/>
-                        </svg>
-                        <span class="font-serif text-sm">Tropical Notebook</span>
-                    </div>
-                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">
-                        Handbook de medecine tropicale et du voyage pour le praticien.
-                    </p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-8 text-sm">
-                    <div>
-                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4>
-                        <div class="space-y-2">
-                            <a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a>
-                            <a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a>
-                            <a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4>
-                        <div class="space-y-2">
-                            <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">
-                                traveldoctor.ch &rarr;
-                            </a>
-                            <span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-cream-200/30">
-                    &copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.
-                </p>
-                <p class="text-xs text-cream-200/30">
-                    Dr. Ludovico Cobuccio
-                </p>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
-    <!-- SCRIPTS -->
     <script>
-        const toggle = document.getElementById('mobileToggle');
-        const menu = document.getElementById('mobileMenu');
-        toggle.addEventListener('click', () => { menu.classList.toggle('open'); });
-        menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => menu.classList.remove('open')); });
-        document.querySelectorAll('.dropdown > button').forEach(btn => {
-            btn.addEventListener('click', (e) => { if (window.innerWidth < 768) { e.preventDefault(); btn.closest('.dropdown').classList.toggle('active'); } });
-        });
-        const nav = document.querySelector('.nav-fixed');
-        window.addEventListener('scroll', () => { if (window.scrollY > 50) { nav.classList.add('shadow-lg'); } else { nav.classList.remove('shadow-lg'); } });
-        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
-        const sections = document.querySelectorAll('section[id], div[id]');
-        const observerToc = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    tocLinks.forEach(link => { link.classList.remove('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); link.classList.add('border-transparent', 'text-teal-600'); });
-                    const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
-                    if (activeLink) { activeLink.classList.add('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); activeLink.classList.remove('border-transparent', 'text-teal-600'); }
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
-        sections.forEach(section => observerToc.observe(section));
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
     </script>
 </body>
 </html>

@@ -3,377 +3,492 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fievre enterique — Tropical Notebook</title>
-    <meta name="description" content="Fievre enterique (typhoide et paratyphoide) : agent causal, clinique, diagnostic, traitement et prevention — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="fievre enterique, typhoide, paratyphoide, Salmonella Typhi, medecine tropicale">
+    <title>Fièvre entérique — Tropical Notebook</title>
+    <meta name="description" content="Fièvre entérique (typhoïde et paratyphoïde) : épidémiologie suisse, diagnostic, résistances (MDR/FQNS/XDR), traitement et prévention — guide pour le médecin de premier recours.">
+    <meta name="keywords" content="fièvre entérique, typhoïde, paratyphoïde, Salmonella Typhi, Salmonella Paratyphi, XDR, azithromycine, ceftriaxone, médecine tropicale, voyageur">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        teal: {
-                            50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd',
-                            300: '#7ecec5', 400: '#54b5aa', 500: '#479793',
-                            600: '#387a77', 700: '#2d5e5b', 800: '#234a48',
-                            900: '#1a3836', 950: '#0f2322'
-                        },
-                        mint: {
-                            50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc',
-                            300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98',
-                            600: '#0e8b7a', 700: '#0f6f63', 800: '#115850',
-                            900: '#114943'
-                        },
-                        gold: {
-                            50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a',
-                            300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c',
-                            600: '#b47d15', 700: '#8f5d14', 800: '#774a18',
-                            900: '#633d1a'
-                        },
-                        cream: {
-                            50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8',
-                            300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99'
-                        },
-                    },
-                    fontFamily: {
-                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
-                        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-        .nav-fixed { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; }
-        .dropdown:hover .dropdown-menu, .dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-        .mobile-menu.open { max-height: 400px; }
-        .toc { position: sticky; top: 5.5rem; }
-        .toc a.active { color: #12ad98; border-left-color: #12ad98; font-weight: 600; }
-        .section-label { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
-        .article-table { width: 100%; text-align: left; font-size: 0.875rem; }
-        .article-table thead { background: #f0fafa; color: #2d5e5b; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
-        .article-table th { padding: 0.75rem 1rem; font-weight: 600; }
-        .article-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #d2f0ee; vertical-align: top; }
-        .article-table tbody tr:hover { background: #fdfaf3; }
-        .callout-piege { border-left: 4px solid #d4a01c; background: #fffceb; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-referer { border-left: 4px solid #12ad98; background: #edfcf8; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-danger { border-left: 4px solid #dc2626; background: #fef2f2; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        a.ref-link { color: #12ad98; font-weight: 500; border-bottom: 1px solid rgba(18, 173, 152, 0.3); transition: all 0.2s; text-decoration: none; }
-        a.ref-link:hover { color: #0e8b7a; border-bottom-color: #0e8b7a; }
-        html { scroll-behavior: smooth; }
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+        .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
+        .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="flex items-center gap-3 group">
-                    <span class="text-mint-400 text-xl">
-                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/>
-                            <path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-                            <path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
-                        </svg>
-                    </span>
-                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
-                </a>
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a>
-                    <div class="dropdown relative">
-                        <button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">
-                            Pathogenes
-                            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                        </button>
-                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
-                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a>
-                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
-                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
-                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
-                        </div>
-                    </div>
-                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
-                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
-                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
-                        Référer un patient
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    </a>
-                </div>
-                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                </button>
-            </div>
-            <div id="mobileMenu" class="mobile-menu md:hidden">
-                <div class="py-3 border-t border-teal-700/50 space-y-1">
-                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
-                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
-                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
-                    <div class="border-t border-teal-700/50 mt-2 pt-2">
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <nav class="flex items-center gap-2 text-sm text-teal-600/60">
-                <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <a href="../bacteria.html" class="hover:text-teal-600 transition-colors">Bacteries</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span class="text-teal-800 font-medium">Fievre enterique</span>
-            </nav>
-        </div>
-    </div>
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../bacteria.html" class="hover:text-teal-600 transition-colors">Bactéries</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Fièvre entérique</span></nav></div></div>
 
     <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
         <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
-
             <article class="min-w-0">
-
                 <header class="mb-10">
-                    <span class="section-label text-teal-500">Bacterie</span>
-                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Fievre enterique</h1>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">
-                        Fievre typhoide et paratyphoide : agent causal, transmission, clinique, diagnostic, traitement et prevention.
-                    </p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
-                        <span>Derniere mise a jour : mars 2026</span>
-                        <span class="hidden sm:inline">|</span>
-                        <span>Dr. L. Cobuccio</span>
-                    </div>
+                    <span class="section-label text-teal-500">Bactérie</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Fièvre entérique</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Fièvre typhoïde &amp; paratyphoïde &mdash; <em>Salmonella enterica</em> sérotype Typhi &amp; Paratyphi</p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Cause bactérienne majeure de fièvre chez le voyageur de retour d'Asie du Sud. L'émergence de souches XDR au Pakistan et en Inde et les premiers cas de résistance aux carbapénèmes imposent une adaptation constante de l'antibiothérapie empirique.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
-                <!-- Repartition geographique -->
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <figure class="mb-4">
-                        <img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/typhoid_map.jpg" alt="Distribution geographique de la fievre enterique" />
-                        <figcaption class="text-xs text-teal-600/50 mt-2"><a target="_blank" href="https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(14)70301-8/fulltext" class="ref-link">Lancet Glob Health. 2014 Oct;2(10):e570-80</a></figcaption>
-                    </figure>
-                </section>
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
 
-                <!-- Agent causal -->
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        <em>Salmonella</em> serotype Typhi, responsable d'environ 75 % des cas de fievre enterique dans le monde.<br>
-                        <em>Salmonella</em> serotype Paratyphi A et B.
-                    </p>
-                </section>
-
-                <!-- Transmission -->
-                <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        Consommation d'eau ou aliments contamines.
-                        Un acces insuffisant a l'eau potable et des conditions d'assainissement et d'hygiene
-                        inadequates augmentent le risque de transmission.
-                    </p>
-                </section>
-
-                <!-- Incubation -->
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">3-60 jours (en general 5-21 jours)</p>
-                </section>
-
-                <!-- Presentation clinique -->
-                <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        EF (progressif, puis persistant), toux seche (souvent durant les 2 premieres semaines), symptomes abdominaux : douleurs, constipation, puis diarrhees, inappetence, cephalees.
-                    </p>
-                </section>
-
-                <!-- Examen clinique -->
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        +/- splenomegalie, eruption maculaire tronculaire couleur saumon, douleurs a la palpation abdominale.
-                    </p>
-                </section>
-
-                <!-- Labo -->
-                <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        Anemie, leucopenie (+ souvent chez adultes avec deviation G), leucocytose (+ souvent chez enfants), perturbation tests hepatiques.
-                    </p>
-                </section>
-
-                <!-- Diagnostic -->
-                <section id="diagnostic" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        Hemoculture, coproculture (moins sensible, positif a un stade plus tardif).
-                    </p>
-                </section>
-
-                <!-- Diagnostic differentiel -->
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        Gastroenterite bacterienne, malaria, amibiase, rickettsiose, dengue.
-                        Cosmopolite : Hepatite virale.
-                    </p>
-                </section>
-
-                <!-- Complications -->
-                <section id="complications" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Complications</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">
-                        Hepatosplenomegalie, hemorragie digestive, peritonite, encephalopathie typhoide.
-                    </p>
-                </section>
-
-                <!-- Prevention primaire -->
-                <section id="prevention" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prevention primaire</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Boire de l'eau en bouteille, ne consommer que des aliments bien cuits et des produits laitiers pasteurises</li>
-                        <li>Vivotif&reg; : vaccin oral (vivant attenue). Efficacite 60-80% pendant 1 an. A prendre idealement 3 semaines avant le depart</li>
-                        <li>Typhim Vi&reg; : vaccin IM (inactive) recommande chez les patients immunosupprimes. Protection 3 ans</li>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Charge mondiale</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Environ <strong>14 millions de cas et 136 000 décès par an</strong> dans le monde (GBD 2017)<sup><a href="#ref-3">[3,4]</a></sup></li>
+                        <li>Prévalence la plus élevée en <strong>Asie du Sud</strong> (Pakistan, Inde, Bangladesh, Népal) et <strong>Afrique subsaharienne</strong></li>
+                        <li><em>S.</em> Typhi responsable d'environ 75 % des cas ; <em>S.</em> Paratyphi A d'environ 25 %</li>
                     </ul>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mt-4">
-                        Jusqu'a 10% des personnes ayant eu un episode de fievre enterique peuvent continuer a excreter des salmonelles dans les selles ou urines avec un risque de transmission pour leur entourage.
-                    </p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mt-2">
-                        Si excretion de salmonelles dans les selles ou l'urine &gt; 12 mois.
-                    </p>
-                </section>
 
-                <!-- Traitement -->
-                <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Les formes severes necessitent un traitement intraveineux : Ceftriaxone 2 g/j iv</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Les formes legeres peuvent etre traitees oralement par :</p>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Ciprofloxacine 2x500 mg/j pour 7-10 jours</li>
-                        <li>Si voyage en Asie (risque eleve de resistances aux quinolones) : Azithromycine 1 g en une prise, puis 500 mg/j pour 7-10 jours</li>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Données suisses</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>208 cas de fièvre typhoïde</strong> en Suisse entre 1993 et 2004, dont 88,5 % liés au voyage ; &lt; 15 cas/an depuis 2001<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Risque le plus élevé pour les voyageurs suisses : <strong>Pakistan</strong> (24/100 000), Cambodge (20/100 000), Népal (14/100 000), Inde (12/100 000)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li><strong>Déclaration obligatoire</strong> en Suisse : le médecin et le laboratoire doivent déclarer tout cas confirmé à l'OFSP<sup><a href="#ref-21">[21]</a></sup></li>
                     </ul>
-                </section>
 
-                <!-- Quand referer -->
-                <section id="referer" class="mb-10">
-                    <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">Formes severes, suspicion de souche XDR (retour du Pakistan ou Inde), complications (hemorragie, perforation). <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Population à risque</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Voyageurs VFR</strong> (visiting friends and relatives) au sous-continent indien et au Pakistan : population la plus touchée en Europe<sup><a href="#ref-6">[6,7]</a></sup></li>
+                        <li>71 % des cas XDR importés en Europe/Amérique du Nord sont des <strong>enfants</strong> rendant visite à la famille au Pakistan<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>En Europe : environ 300 cas/an déclarés en Angleterre et Pays de Galles, la plupart importés d'Asie du Sud<sup><a href="#ref-2">[2]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Agent causal</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><em>Salmonella enterica</em> sérotype <strong>Typhi</strong> &mdash; responsable de la fièvre typhoïde (~75 % des fièvres entériques)</li>
+                            <li><em>Salmonella enterica</em> sérotype <strong>Paratyphi A</strong> (et plus rarement B, C) &mdash; responsable des fièvres paratyphoïdes (~25 %)</li>
+                            <li>Bactéries à Gram négatif, strictement humaines (pas de réservoir animal), à tropisme intracellulaire</li>
+                        </ul>
                     </div>
                 </section>
 
+                <!-- REPARTITION GEOGRAPHIQUE -->
+                <section id="repartition" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+                    <figure class="mb-4">
+                        <img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/typhoid_map.jpg" alt="Distribution géographique de la fièvre entérique dans le monde" />
+                        <figcaption class="text-xs text-teal-600/50 mt-2">Incidence estimée de la fièvre typhoïde dans le monde. <a target="_blank" href="https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(14)70301-8/fulltext" class="ref-link">Lancet Glob Health 2014;2(10):e570-80</a></figcaption>
+                    </figure>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Région</th><th>Risque</th><th>Profil de résistance dominant</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Asie du Sud</strong> (Pakistan, Inde, Bangladesh, Népal)</td><td>Très élevé</td><td>FQNS généralisée ; XDR (Pakistan &gt; 70 %) ; émergence résistance azithromycine et carbapénèmes<sup><a href="#ref-10">[10]</a></sup></td></tr>
+                                <tr><td><strong>Asie du Sud-Est</strong> (Cambodge, Indonésie)</td><td>Élevé</td><td>FQNS fréquente ; MDR en diminution</td></tr>
+                                <tr><td><strong>Afrique subsaharienne</strong></td><td>Élevé (données limitées)</td><td>MDR variable ; fluoroquinolones souvent encore actives</td></tr>
+                                <tr><td><strong>Amérique latine</strong></td><td>Faible à modéré</td><td>Fluoroquinolones généralement actives</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- TRANSMISSION -->
+                <section id="transmission" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission &amp; incubation</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Voie féco-orale</strong> : consommation d'eau ou d'aliments contaminés par les selles d'un porteur (malade ou porteur asymptomatique)</li>
+                        <li>Facteurs de risque : eau non traitée, aliments crus, fruits de mer, produits laitiers non pasteurisés, glaçons</li>
+                        <li>Réservoir <strong>strictement humain</strong> &mdash; pas de réservoir animal</li>
+                        <li>Jusqu'à <strong>10 % des patients</strong> deviennent porteurs chroniques (excrétion &gt; 12 mois) avec risque de transmission pour l'entourage<sup><a href="#ref-21">[21]</a></sup></li>
+                    </ul>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Sérotype</th><th>Incubation</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>S.</em> Typhi</td><td><strong>7&ndash;14 jours</strong> (extrêmes : 3&ndash;60 jours)</td><td>Durée proportionnelle à l'inoculum ingéré</td></tr>
+                                <tr><td><em>S.</em> Paratyphi A</td><td><strong>1&ndash;10 jours</strong></td><td>Incubation souvent plus courte<sup><a href="#ref-3">[3,8]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- CLINIQUE -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase d'état (1<sup>re</sup>&ndash;2<sup>e</sup> semaine)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Fièvre d'installation progressive</strong> sur 3&ndash;7 jours, devenant persistante en plateau à 39&ndash;40 &deg;C</li>
+                        <li>Céphalées, malaise, myalgies</li>
+                        <li>Toux sèche (fréquente dans les 2 premières semaines)</li>
+                        <li>Symptômes abdominaux : douleurs diffuses, <strong>constipation initiale</strong> puis diarrhées</li>
+                        <li>Inappétence, nausées</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Examen clinique</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Bradycardie relative</strong> (dissociation pouls-température) &mdash; signe classique mais inconstant</li>
+                        <li>Splénomégalie (fréquente en 2<sup>e</sup> semaine)</li>
+                        <li>Éruption maculaire tronculaire couleur saumon (&laquo; <strong>taches rosées</strong> &raquo;) &mdash; inconstante, fugace</li>
+                        <li>Douleurs abdominales diffuses à la palpation</li>
+                        <li>Hépatomégalie possible</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Complications (2<sup>e</sup>&ndash;3<sup>e</sup> semaine si non traité)</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Complication</th><th>Mécanisme</th><th>Remarque</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Hémorragie digestive</strong></td><td>Érosion des plaques de Peyer</td><td>Survient en 2<sup>e</sup>&ndash;3<sup>e</sup> semaine</td></tr>
+                                <tr><td><strong>Perforation intestinale</strong></td><td>Nécrose iléale</td><td>Urgence chirurgicale ; mortalité 10&ndash;30 %</td></tr>
+                                <tr><td>Encéphalopathie typhoïde</td><td>Toxicité systémique</td><td>Confusion, obnubilation</td></tr>
+                                <tr><td>Myocardite</td><td>Atteinte toxique/immunologique</td><td>Rare mais grave</td></tr>
+                                <tr><td>Cholécystite</td><td>Infection biliaire (portage)</td><td>Associée au portage chronique</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Tableau modifié par l'automédication</p>
+                        <p class="text-sm text-teal-800">La prise préalable d'antibiotiques (automédication fréquente en zone endémique) peut modifier considérablement le tableau clinique et retarder le diagnostic. Toujours interroger le patient sur la prise médicamenteuse récente.<sup><a href="#ref-8">[8]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- BIOLOGIE -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Anémie normochrome normocytaire</li>
+                        <li><strong>Leucopénie avec déviation gauche</strong> (plus fréquente chez l'adulte) &mdash; leucocytose possible chez l'enfant</li>
+                        <li>Perturbation des tests hépatiques (cytolyse modérée fréquente)</li>
+                        <li><strong>CRP élevée</strong> (souvent &gt; 100 mg/L)</li>
+                        <li>Thrombopénie possible dans les formes sévères</li>
+                    </ul>
+                    <div class="callout-piege mt-4">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Leucopénie &#8800; origine virale</p>
+                        <p class="text-sm text-teal-800">Contrairement à la plupart des bactériémies, la fièvre typhoïde s'accompagne typiquement d'une <strong>leucopénie</strong>. Ce profil peut orienter à tort vers un diagnostic viral (dengue, hépatite) et retarder la mise en culture.</p>
+                    </div>
+                </section>
+
+                <!-- DIAGNOSTIC -->
+                <section id="diagnostic" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Méthode</th><th>Sensibilité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Hémoculture</strong> (gold standard en pratique)</td><td>40&ndash;80 %</td><td>Optimale en 1<sup>re</sup> semaine ; prélever <strong>2&ndash;3 hémocultures</strong> (10&ndash;15 mL/flacon) avant toute antibiothérapie. Positivité en 2&ndash;5 jours. Antibiothérapie préalable réduit la sensibilité de 20&ndash;30 %.<sup><a href="#ref-3">[3,8]</a></sup></td></tr>
+                                <tr><td><strong>Culture de moelle osseuse</strong></td><td>80&ndash;95 %</td><td>Méthode de référence absolue mais rarement pratiquée en routine. Reste positive même sous antibiothérapie. À considérer si forte suspicion et hémocultures négatives.<sup><a href="#ref-3">[3,8]</a></sup></td></tr>
+                                <tr><td>Coproculture</td><td>~30 %</td><td>Se positive plus tardivement (2<sup>e</sup>&ndash;3<sup>e</sup> semaine). Utile pour le suivi du portage chronique.</td></tr>
+                                <tr><td>Tests sérologiques (Widal, TDR)</td><td>Variable, faible</td><td><strong>NON recommandés</strong> en milieu non endémique. Manque de sensibilité et de spécificité chez le voyageur.<sup><a href="#ref-3">[3,8,9]</a></sup></td></tr>
+                                <tr><td>PCR</td><td>En développement</td><td>Pas encore largement disponible en routine. Potentiellement utile pour la détection rapide et la caractérisation des résistances.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Diagnostic différentiel</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Diagnostic</th><th>Éléments distinctifs</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Paludisme</strong></td><td>Toujours exclure en priorité chez un fébrile de retour de zone tropicale (frottis + TDR)</td></tr>
+                                <tr><td>Dengue, chikungunya</td><td>Fièvre plus brutale, myalgies intenses, éruption, thrombopénie profonde</td></tr>
+                                <tr><td>Rickettsiose</td><td>Escarre d'inoculation, éruption, voyage en zone d'endémie (Afrique australe ++)</td></tr>
+                                <tr><td>Leptospirose</td><td>Ictère, insuffisance rénale, exposition hydrique</td></tr>
+                                <tr><td>Hépatite virale aiguë (A, E)</td><td>Ictère prédominant, transaminases très élevées (&gt; 10N)</td></tr>
+                                <tr><td>Amibiase hépatique</td><td>Hépatomégalie douloureuse, imagerie évocatrice</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; TDR paludisme faussement positif</p>
+                        <p class="text-sm text-teal-800">Un TDR paludisme (HRP2) peut être <strong>faussement positif</strong> dans la fièvre typhoïde. Ne pas exclure la typhoïde en présence d'un TDR paludisme positif si le tableau clinique est évocateur &mdash; toujours confirmer par frottis/goutte épaisse et prélever des hémocultures.</p>
+                    </div>
+                </section>
+
+                <!-- TRAITEMENT -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Classification des résistances<sup><a href="#ref-7">[7,10]</a></sup></h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Terme</th><th>Définition</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>MDR</strong> (multidrug-resistant)</td><td>Résistance à ampicilline + chloramphénicol + triméthoprime-sulfaméthoxazole</td></tr>
+                                <tr><td><strong>FQNS</strong> (fluoroquinolone non-susceptible)</td><td>CMI ciprofloxacine &ge; 0,06 mg/L (EUCAST) ; échecs cliniques documentés</td></tr>
+                                <tr><td><strong>XDR</strong> (extensively drug-resistant)</td><td>MDR + résistance aux fluoroquinolones + résistance aux céphalosporines de 3<sup>e</sup> génération (ceftriaxone)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Épidémiologie des résistances (données récentes)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Asie du Sud</strong> : non-susceptibilité aux fluoroquinolones généralisée ; haute résistance à la ciprofloxacine (&ge; 3 déterminants) atteignant <strong>20 % des isolats</strong><sup><a href="#ref-10">[10]</a></sup></li>
+                        <li><strong>Pakistan</strong> : souche XDR (clade H58/4.3.1) devenue dominante &mdash; <strong>70 % des isolats en 2020</strong><sup><a href="#ref-10">[10]</a></sup></li>
+                        <li><strong>Inde</strong> : émergence de résistance à la ceftriaxone dans le lignage 4.3.1.2.1<sup><a href="#ref-10">[10]</a></sup></li>
+                        <li><strong>Résistance à l'azithromycine</strong> : détectée à faible prévalence en Asie du Sud, y compris dans des génotypes ciprofloxacine-résistants &mdash; tendance préoccupante<sup><a href="#ref-10">[10,11]</a></sup></li>
+                        <li><strong>Résistance aux carbapénèmes</strong> : premier cas de <em>S.</em> Typhi carbapénème-résistant (bla<sub>NDM-5</sub>) en <strong>Allemagne en 2024</strong>, chez un voyageur de retour d'Inde ; plusieurs cas documentés en Inde en 2025<sup><a href="#ref-12">[12,13]</a></sup></li>
+                        <li><strong>Bangladesh 2024</strong> : foyer de <em>S.</em> Typhi résistant à la ceftriaxone<sup><a href="#ref-22">[22]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Résistance aux carbapénèmes</p>
+                        <p class="text-sm text-teal-800">Premier cas mondial de <em>S.</em> Typhi porteur de bla<sub>NDM-5</sub> (carbapénème-résistant) importé en Allemagne en 2024 d'Inde. Potentiel de souches <strong>pan-résistantes</strong> si combiné avec la résistance à l'azithromycine. Le patient allemand a été traité avec succès par triméthoprime-sulfaméthoxazole (la souche ayant perdu la résistance MDR classique).<sup><a href="#ref-12">[12,13]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Formes non compliquées &mdash; Traitement oral</h3>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold">Retour d'Asie du Sud (empirique, avant antibiogramme) :</p>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Option</th><th>Posologie</th><th>Durée</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Azithromycine</strong> (1<sup>re</sup> ligne)</td><td>500 mg&ndash;1 g J1, puis 500 mg/j</td><td><strong>7 jours</strong></td><td>Préférée empiriquement car active sur souches FQNS et XDR (sauf résistance azithromycine)<sup><a href="#ref-3">[3,8,14]</a></sup></td></tr>
+                                <tr><td>Ciprofloxacine</td><td>2 &times; 500 mg/j</td><td>7&ndash;10 jours</td><td><strong>NE PAS utiliser empiriquement si retour d'Asie du Sud</strong> (taux de résistance &gt; 90 % Pakistan/Inde)<sup><a href="#ref-3">[3,8]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold">Retour d'Afrique / Amérique latine / autres régions :</p>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Option</th><th>Posologie</th><th>Durée</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Ciprofloxacine</strong></td><td>2 &times; 500 mg/j</td><td>7&ndash;10 jours</td><td>Reste une option si provenance hors Asie du Sud et antibiogramme sensible</td></tr>
+                                <tr><td>Azithromycine</td><td>500 mg&ndash;1 g J1, puis 500 mg/j</td><td>7 jours</td><td>Alternative sûre et efficace</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Formes sévères / compliquées &mdash; Traitement IV</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Option</th><th>Posologie</th><th>Durée</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Ceftriaxone</strong> (1<sup>re</sup> ligne)</td><td><strong>2 g/j IV</strong></td><td><strong>10&ndash;14 jours</strong></td><td>Efficace sauf souches XDR/ESBL ; disponible partout en Suisse<sup><a href="#ref-3">[3,8,9]</a></sup></td></tr>
+                                <tr><td><strong>Méropénème</strong></td><td>1 g toutes les 8 h IV</td><td>10&ndash;14 jours</td><td>Réservé aux souches <strong>XDR</strong> (résistantes à la ceftriaxone) ou en cas d'échec clinique<sup><a href="#ref-6">[6,7,14]</a></sup></td></tr>
+                                <tr><td>Azithromycine IV + méropénème</td><td>Association</td><td>Variable</td><td>Stratégie en cas de <strong>XDR sévère</strong> ; l'azithromycine cible les bactéries intracellulaires<sup><a href="#ref-14">[14]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Souche XDR confirmée (retour du Pakistan, Inde)</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Prise en charge XDR</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Ceftriaxone est <strong>INEFFICACE</strong> (souche porteuse de bla<sub>CTX-M-15</sub>)</li>
+                            <li>Forme sévère : <strong>méropénème IV</strong> &plusmn; azithromycine po<sup><a href="#ref-6">[6,7,14]</a></sup></li>
+                            <li>Forme non compliquée : <strong>azithromycine seule</strong> si souche sensible<sup><a href="#ref-7">[7]</a></sup></li>
+                            <li>Vérifier systématiquement la sensibilité à l'azithromycine (émergence de résistance)<sup><a href="#ref-10">[10,11]</a></sup></li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Portage chronique (excrétion &gt; 12 mois)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Ciprofloxacine 750 mg &times; 2/j pendant 28 jours (si souche sensible)<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li>Cholécystectomie à discuter si lithiase biliaire associée</li>
+                        <li>Peu d'évidence solide pour guider le traitement du portage</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Disponibilité en Suisse</h3>
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Médicaments disponibles</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Azithromycine</strong> (Zithromax&reg; et génériques) : largement disponible, formes orales</li>
+                            <li><strong>Ceftriaxone</strong> (Rocephin&reg; et génériques) : disponible IV dans tous les hôpitaux</li>
+                            <li><strong>Méropénème</strong> (Meronem&reg; et génériques) : disponible IV, usage hospitalier</li>
+                            <li><strong>Ciprofloxacine</strong> (Ciproxin&reg; et génériques) : disponible, mais à éviter empiriquement si retour d'Asie du Sud</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccination</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Vaccin</th><th>Type</th><th>Efficacité</th><th>Protection</th><th>Administration</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Vivotif&reg;</strong></td><td>Oral, vivant atténué (Ty21a)</td><td>60&ndash;80 %</td><td>~1 an (rappel si voyage répété)</td><td>3 capsules en alternance (J1, J3, J5) ; &ge; 3 semaines avant le départ</td></tr>
+                                <tr><td><strong>Typhim Vi&reg;</strong></td><td>IM, polysaccharide Vi inactivé</td><td>60&ndash;75 %</td><td>~3 ans</td><td>1 injection ; &ge; 2 semaines avant le départ ; recommandé chez les immunosupprimés (CI au vaccin vivant)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccin conjugué Vi-TCV (Typbar-TCV&reg;)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Recommandé par l'OMS depuis 2018 pour les programmes de vaccination en zones endémiques</li>
+                        <li>Efficacité programmatique : <strong>56 % de réduction</strong> des cas dans une campagne pédiatrique en Inde<sup><a href="#ref-15">[15]</a></sup> ; <strong>55 % de réduction</strong> dans un essai cluster-randomisé au Bangladesh<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li><strong>Non encore enregistré en Suisse</strong> mais représente une avancée majeure pour les populations endémiques</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Limites de la vaccination</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Aucun vaccin ne protège contre <strong><em>S.</em> Paratyphi A</strong> (responsable de ~25 % des fièvres entériques)</li>
+                            <li>Efficacité modérée (60&ndash;80 %) &mdash; la vaccination <strong>ne dispense pas des précautions alimentaires</strong></li>
+                            <li>Vaccin vivant (Vivotif&reg;) contre-indiqué chez les immunosupprimés et sous antibiotiques</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Mesures hygiéniques</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>&laquo; <strong>Faites-le cuire, faites-le bouillir, épluchez-le ou oubliez-le !</strong> &raquo; (principe OFSP)</li>
+                        <li>Eau en bouteille capsulée, aliments bien cuits, produits laitiers pasteurisés</li>
+                        <li>Hygiène des mains rigoureuse (solution hydro-alcoolique)</li>
+                        <li>Éviter les glaçons, les fruits de mer crus, les salades non lavées</li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Ne pas penser à la fièvre entérique</p>
+                            <p class="text-sm text-teal-800">La fièvre typhoïde est la <strong>cause bactérienne la plus fréquente</strong> de fièvre chez le voyageur de retour d'Asie du Sud. Présentation aspécifique (&laquo; syndrome grippal &raquo;) au début &mdash; le diagnostic initial de &laquo; grippe &raquo; ou &laquo; gastro-entérite &raquo; est fréquent et retarde la prise en charge. <strong>Toujours demander le pays de voyage</strong> et prélever des hémocultures avant antibiothérapie.<sup><a href="#ref-3">[3,4]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Ciprofloxacine en empirique pour un retour d'Asie du Sud</p>
+                            <p class="text-sm text-teal-800">Taux d'échec des fluoroquinolones <strong>&gt; 40 %</strong> dans les séries européennes.<sup><a href="#ref-5">[5]</a></sup> Non-susceptibilité généralisée en Asie du Sud. Privilégier <strong>azithromycine</strong> (forme non compliquée) ou <strong>ceftriaxone</strong> (forme sévère).<sup><a href="#ref-3">[3,8]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Méconnaître la typhoïde XDR</p>
+                            <p class="text-sm text-teal-800">Les souches XDR sont résistantes à <strong>toutes les 1<sup>res</sup> lignes classiques</strong> (ampicilline, cotrimoxazole, fluoroquinolones, ceftriaxone). Seules options : <strong>méropénème</strong> (IV) et/ou <strong>azithromycine</strong> (si souche sensible). Émergence récente de <strong>résistance aux carbapénèmes</strong> en Inde (2024&ndash;2025).<sup><a href="#ref-6">[6,7,10,12,13]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Sensibilité insuffisante de l'hémoculture</p>
+                            <p class="text-sm text-teal-800">Sensibilité de l'hémoculture : seulement <strong>40&ndash;80 %</strong>. Une hémoculture négative n'exclut pas la fièvre entérique. Si forte suspicion clinique : répéter les prélèvements, envisager un traitement empirique, considérer la culture de moelle osseuse.<sup><a href="#ref-3">[3,8]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Oublier le suivi post-traitement</p>
+                            <p class="text-sm text-teal-800">Coprocultures de contrôle nécessaires pour documenter l'éradication. Risque de <strong>portage chronique (~10 %)</strong>. Rechute possible (5&ndash;10 % des cas) dans les semaines suivant l'arrêt du traitement.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Perles</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Azithromycine = antibiotique de référence</strong> pour le traitement empirique de la fièvre entérique non compliquée chez le voyageur de retour d'Asie du Sud (actif sur souches FQNS et XDR)</li>
+                        <li>La <strong>bradycardie relative</strong> (pouls inapproprié pour le degré de fièvre) est un signe classique mais inconstant &mdash; sa présence est évocatrice</li>
+                        <li>En cas de fièvre persistante &gt; 5&ndash;7 jours après début du traitement : suspecter un <strong>échec thérapeutique</strong>, une complication, ou un diagnostic alternatif</li>
+                        <li>L'émergence de la résistance à l'azithromycine et aux carbapénèmes en Asie du Sud est une <strong>menace imminente</strong> qui pourrait limiter les dernières options thérapeutiques<sup><a href="#ref-10">[10,11,12,13]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Devant une suspicion de fièvre entérique</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Interrogatoire ciblé</strong> : pays visité (Asie du Sud ?), durée du séjour, précautions alimentaires, vaccination typhoïde, automédication antibiotique</li>
+                        <li><strong>Exclure le paludisme</strong> en priorité : frottis sanguin + TDR (mais attention aux faux positifs du TDR dans la typhoïde)</li>
+                        <li><strong>Prélever 2&ndash;3 hémocultures</strong> (10&ndash;15 mL/flacon) <strong>avant toute antibiothérapie</strong></li>
+                        <li><strong>Bilan biologique</strong> : NFS, CRP, créatinine, transaminases, bilirubine, ionogramme</li>
+                        <li><strong>Débuter l'antibiothérapie empirique</strong> sans attendre les résultats de culture :
+                            <ul class="mt-1 ml-4 list-disc space-y-1">
+                                <li>Forme non compliquée, retour d'Asie du Sud : <strong>azithromycine po</strong></li>
+                                <li>Forme non compliquée, retour d'ailleurs : ciprofloxacine ou azithromycine po</li>
+                                <li>Forme sévère : <strong>ceftriaxone 2 g/j IV</strong> (sauf suspicion XDR &rarr; méropénème)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Adapter à l'antibiogramme</strong> dès réception (impératif)</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Suivi post-traitement</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Coprocultures de contrôle pour documenter l'éradication</li>
+                        <li>Surveillance clinique : rechute possible dans les 2&ndash;4 semaines suivant l'arrêt</li>
+                        <li>Si portage prolongé (&gt; 3 mois) : discuter un traitement dédié et un suivi spécialisé</li>
+                        <li>Rappel : <strong>déclaration obligatoire</strong> à l'OFSP<sup><a href="#ref-21">[21]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Forme sévère</strong> nécessitant une antibiothérapie IV (ceftriaxone, méropénème)</li>
+                            <li><strong>Suspicion de souche XDR</strong> (retour du Pakistan ou d'Inde) &mdash; nécessité de méropénème</li>
+                            <li><strong>Complications</strong> : hémorragie digestive, perforation intestinale, encéphalopathie</li>
+                            <li><strong>Échec thérapeutique</strong> : fièvre persistante &gt; 5&ndash;7 jours sous traitement adapté</li>
+                            <li><strong>Portage chronique</strong> ne répondant pas au traitement standard</li>
+                            <li>Doute diagnostique chez un voyageur fébrile avec hémocultures négatives</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Keller A et al. Imported typhoid fever in Switzerland, 1993 to 2004. <em>J Travel Med</em> 2008;15(4):248-51. <a href="https://doi.org/10.1111/j.1708-8305.2008.00216.x" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-2">Nair S et al. ESBL-producing strains isolated from imported cases of enteric fever in England and Wales reveal multiple chromosomal integrations of blaCTX-M-15 in XDR Salmonella Typhi. <em>J Antimicrob Chemother</em> 2021;76(6):1459-1466. <a href="https://doi.org/10.1093/jac/dkab049" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-3">Kuehn R et al. Enteric (typhoid and paratyphoid) fever. <em>Lancet</em> 2025. <a href="https://doi.org/10.1016/S0140-6736(25)01335-2" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-4">Basnyat B et al. Enteric fever. <em>BMJ</em> 2021;372:n437. <a href="https://doi.org/10.1136/bmj.n437" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-5">Trojanek M et al. Enteric fever imported to the Czech Republic: epidemiology, clinical characteristics and antimicrobial susceptibility. <em>Folia Microbiol</em> 2014;60(3):217-24. <a href="https://doi.org/10.1007/s12223-014-0348-9" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-6">Posen HJ et al. Travel-associated extensively drug-resistant typhoid fever: a case series to inform management in non-endemic regions. <em>J Travel Med</em> 2023;30(1). <a href="https://doi.org/10.1093/jtm/taac086" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-7">Hughes MJ et al. Extensively Drug-Resistant Typhoid Fever in the United States. <em>Open Forum Infect Dis</em> 2021;8(12):ofab572. <a href="https://doi.org/10.1093/ofid/ofab572" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-8">Manesh A et al. Typhoid and paratyphoid fever: a clinical seminar. <em>J Travel Med</em> 2021;28(3). <a href="https://doi.org/10.1093/jtm/taab012" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-9">Nabarro LE et al. British Infection Association guidelines for the diagnosis and management of enteric fever in England. <em>J Infect</em> 2022;84(4):469-489. <a href="https://doi.org/10.1016/j.jinf.2022.01.014" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-10">Carey ME, Dyson ZA, Ingle DJ et al. Global diversity and antimicrobial resistance of typhoid fever pathogens: Insights from a meta-analysis of 13,000 <em>S.</em> Typhi genomes. <em>eLife</em> 2023;12:e85867. <a href="https://doi.org/10.7554/eLife.85867" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-11">Alexander V et al. Increasing azithromycin resistance in patients with enteric fever: Cause for concern. <em>Trop Doct</em> 2024;54(3):294. <a href="https://doi.org/10.1177/00494755241247082" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-12">Carbapenem-Resistant <em>Salmonella</em> Typhi Infection in Traveler Returning to Germany from India, 2024. <em>Emerg Infect Dis</em> 2025;31(12). <a href="https://wwwnc.cdc.gov/eid/article/31/12/25-1234_article" target="_blank" class="ref-link">CDC EID</a></li>
+                        <li id="ref-13">Thirumoorthy TP et al. Emergence of carbapenem-resistant <em>Salmonella</em> Typhi harboring bla<sub>NDM-5</sub> in India: genomic evidence from a multicenter study. <em>Front Microbiol</em> 2025;16:1685068. <a href="https://doi.org/10.3389/fmicb.2025.1685068" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-14">Parry CM et al. What Should We Be Recommending for the Treatment of Enteric Fever? <em>Open Forum Infect Dis</em> 2023;10(Suppl 1):S26-S31. <a href="https://doi.org/10.1093/ofid/ofad179" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-15">Hoffman SA et al. Programmatic Effectiveness of a Pediatric Typhoid Conjugate Vaccine Campaign in Navi Mumbai, India. <em>Clin Infect Dis</em> 2023;77(1):138-144. <a href="https://doi.org/10.1093/cid/ciad132" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-16">Tadesse BT et al. Prevention of Typhoid by Vi Conjugate Vaccine and Achievable Improvements in Household Water, Sanitation, and Hygiene. <em>Clin Infect Dis</em> 2022;75(10):1681-1687. <a href="https://doi.org/10.1093/cid/ciac289" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-17">Kuehn R et al. Treatment of enteric fever (typhoid and paratyphoid fever) with cephalosporins. <em>Cochrane Database Syst Rev</em> 2022;11(11):CD010452. <a href="https://doi.org/10.1002/14651858.CD010452.pub2" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-18">Chatham-Stephens K et al. Emergence of Extensively Drug-Resistant <em>Salmonella</em> Typhi Infections Among Travelers to or from Pakistan — United States, 2016-2018. <em>MMWR</em> 2019;68(1):11-13. <a href="https://doi.org/10.15585/mmwr.mm6801a3" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-19">Abdullah MA et al. XDR typhoid in Pakistan: A threat to global health security and a wake-up call for antimicrobial stewardship. <em>PLoS Negl Trop Dis</em> 2025;19(5):e0013067. <a href="https://doi.org/10.1371/journal.pntd.0013067" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-20">GBD 2021 Antimicrobial Resistance Collaborators. Global burden of bacterial antimicrobial resistance 1990-2021: a systematic analysis with forecasts to 2050. <em>Lancet</em> 2024;404(10459):1199-1226. <a href="https://doi.org/10.1016/S0140-6736(24)01867-1" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-21">OFSP/BAG. Fièvre typhoïde / Paratyphoïde. <a href="https://www.bag.admin.ch/fr/fievre-typhoide-paratyphoide" target="_blank" class="ref-link">bag.admin.ch</a></li>
+                        <li id="ref-22">Hooda Y et al. Outbreak of Ceftriaxone-Resistant <em>Salmonella enterica</em> Serovar Typhi, Bangladesh, 2024. <em>Emerg Infect Dis</em> 2025;31(7). <a href="https://wwwnc.cdc.gov/eid/article/31/7/24-1987_article" target="_blank" class="ref-link">CDC EID</a></li>
+                    </ol>
+                </section>
             </article>
 
             <!-- FLOATING TOC -->
-            <aside class="toc-sidebar hidden lg:block">
-                <nav class="toc">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
-                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                        <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                        <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                        <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                        <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                        <li><a href="#complications" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Complications</a></li>
-                        <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prevention primaire</a></li>
-                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
-                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
-                            Référer un patient
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-                    </div>
-                </nav>
-            </aside>
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <div>
-                    <div class="flex items-center gap-2 text-cream-100">
-                        <svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg>
-                        <span class="font-serif text-sm">Tropical Notebook</span>
-                    </div>
-                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-8 text-sm">
-                    <div>
-                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4>
-                        <div class="space-y-2">
-                            <a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a>
-                            <a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a>
-                            <a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4>
-                        <div class="space-y-2">
-                            <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a>
-                            <span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p>
-                <p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
-    <!-- SCRIPTS -->
     <script>
-        const toggle = document.getElementById('mobileToggle');
-        const menu = document.getElementById('mobileMenu');
-        toggle.addEventListener('click', () => { menu.classList.toggle('open'); });
-        menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => menu.classList.remove('open')); });
-        document.querySelectorAll('.dropdown > button').forEach(btn => {
-            btn.addEventListener('click', (e) => { if (window.innerWidth < 768) { e.preventDefault(); btn.closest('.dropdown').classList.toggle('active'); } });
-        });
-        const nav = document.querySelector('.nav-fixed');
-        window.addEventListener('scroll', () => { if (window.scrollY > 50) { nav.classList.add('shadow-lg'); } else { nav.classList.remove('shadow-lg'); } });
-        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
-        const sections = document.querySelectorAll('section[id]');
-        const observerToc = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    tocLinks.forEach(link => { link.classList.remove('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); link.classList.add('border-transparent', 'text-teal-600'); });
-                    const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
-                    if (activeLink) { activeLink.classList.add('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); activeLink.classList.remove('border-transparent', 'text-teal-600'); }
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
-        sections.forEach(section => observerToc.observe(section));
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
     </script>
 </body>
 </html>

@@ -4,105 +4,526 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rage — Tropical Notebook</title>
-    <meta name="description" content="Rage : clinique, diagnostic, prophylaxie pre et post-expositionnelle — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="rage, rabies, rhabdovirus, prophylaxie, vaccination, medecine tropicale">
+    <meta name="description" content="Rage : épidémiologie, clinique, diagnostic, prophylaxie pré- et post-expositionnelle (PrEP/PEP) — guide complet pour le médecin de premier recours suisse.">
+    <meta name="keywords" content="rage, rabies, rhabdovirus, lyssavirus, prophylaxie, PrEP, PEP, vaccination antirabique, immunoglobulines, médecine tropicale, médecine du voyage">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Rage</span></nav></div></div>
-    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16"><div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12"><article class="min-w-0">
-                <header class="mb-10"><span class="section-label text-teal-500">Virus</span><h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Rage</h1><p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Virus neurotrope mortel : clinique, diagnostic et prophylaxie pre/post-expositionnelle.</p><div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div></header>
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Rage</span></nav></div></div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+            <article class="min-w-0">
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Virus</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Rage</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic"><em>Rabies lyssavirus</em> &mdash; famille des <em>Rhabdoviridae</em>, genre <em>Lyssavirus</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Encéphalite virale mortelle à ~100 % une fois symptomatique, mais entièrement évitable par la prophylaxie. La vaccination pré-expositionnelle (PrEP) élimine le besoin d'immunoglobulines antirabiques &mdash; souvent introuvables à l'étranger. La PEP doit être initiée sans délai après toute exposition suspecte.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                </header>
+
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Données mondiales</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Environ <strong>59 000 décès/an</strong> (OMS), probablement sous-estimé ; <strong>95 % des cas en Asie et en Afrique</strong><sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li><strong>~40 % des victimes</strong> sont des enfants de moins de 15 ans<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li><strong>99 % des cas humains</strong> sont transmis par des chiens domestiques<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Objectif mondial <strong>&laquo; Zero by 30 &raquo;</strong> : élimination des décès humains par rage canine d'ici 2030 (OMS/OIE/FAO)<sup><a href="#ref-1">[1]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Situation en Suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Aucun cas humain autochtone</strong> depuis 1977 ; rage terrestre éliminée chez le renard depuis 1999<sup><a href="#ref-3">[3,4]</a></sup></li>
+                        <li>Seul réservoir persistant : <strong>chauves-souris</strong> (European Bat Lyssavirus 1 et 2)<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>Chaque année : <strong>plusieurs dizaines de consultations</strong> pour exposition potentielle à la rage chez les voyageurs (morsure/griffure à l'étranger)<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>Risque résiduel : morsure de chauve-souris en Suisse ; importation illégale de chiens/chats depuis pays endémiques<sup><a href="#ref-3">[3,4]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Risque pour les voyageurs</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Incidence d'une blessure à risque : environ <strong>0,4 % des voyageurs par mois</strong> de séjour en zone endémique<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li>Données GeoSentinel (1997&ndash;2012) : 2 697 voyageurs ayant nécessité une PEP ; <strong>70 % des expositions en Asie</strong> (surtout Asie du Sud-Est) ; durée médiane du voyage de seulement 15 jours<sup><a href="#ref-5">[5,6]</a></sup></li>
+                        <li>Animaux impliqués chez les voyageurs : <strong>chiens (60&ndash;80 %)</strong>, singes (5&ndash;15 %), chats (10&ndash;15 %)<sup><a href="#ref-5">[5,6]</a></sup></li>
+                        <li>Seulement <strong>2&ndash;3 % des voyageurs</strong> sont vaccinés contre la rage avant le départ<sup><a href="#ref-6">[6]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- REPARTITION GEOGRAPHIQUE -->
                 <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Suisse : aucun cas humain decrit depuis 1977, mais chaque annee nombreux cas d'exposition potentielle parmi les voyageurs. Occasionnellement exposition potentielle en Suisse par morsure de chauve-souris ou animaux (chiens et chats) importes illegalement.</p>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/rage.jpg" alt="Distribution geographique de la rage" /></figure>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">La rage est présente sur tous les continents sauf l'Antarctique. Les zones de risque le plus élevé pour les voyageurs sont l'<strong>Asie du Sud et du Sud-Est</strong> (Inde, Bangladesh, Thaïlande, Cambodge, Vietnam, Indonésie), l'<strong>Afrique sub-saharienne</strong> et dans une moindre mesure l'<strong>Amérique latine</strong>. L'Inde concentre à elle seule environ un tiers des décès mondiaux.</p>
+                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/rage.jpg" alt="Distribution géographique mondiale de la rage" /><figcaption class="text-xs text-teal-600/60 mt-2">Distribution géographique de la rage canine. Source : OMS.</figcaption></figure>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Zones sans rage terrestre</p>
+                        <p class="text-sm text-teal-800">Europe occidentale (y compris la Suisse depuis 1999), Japon, Australie, Nouvelle-Zélande, Hawaï, de nombreuses îles du Pacifique et des Caraïbes. Attention : des lyssavirus de chauves-souris circulent dans plusieurs de ces pays, y compris en Europe.<sup><a href="#ref-3">[3,8]</a></sup></p>
+                    </div>
                 </section>
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Virus neurotrope de la famille des <em>Rhabdoviridae</em>.</p>
-                </section>
+
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Contact entre la salive d'un animal enrage et une blessure (le plus souvent, morsure ou griffure) ou une muqueuse.</p>
-                </section>
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">En general 30-90 jours, mais peut parfois (rarement) depasser 1 an.</p>
-                </section>
-                <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <ul class="space-y-3 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><strong>Premiere phase aspecifique :</strong> cephalees, maux de gorges, malaise, myalgies, frissons, leger EF, nausees, vomissements et paresthesies au niveau de la morsure.</li>
-                        <li><strong>Deuxieme phase d'excitation :</strong> hyperkinesie, convulsions, troubles respiratoires et de la deglutition, hydrophobie. Evolution vers paralysie, coma et deces.</li>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Morsure</strong> d'un animal enragé (voie principale) : inoculation du virus par la salive dans le tissu sous-cutané/musculaire<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li><strong>Griffure</strong> contaminée par la salive</li>
+                        <li><strong>Léchage d'une plaie ouverte ou d'une muqueuse</strong> (yeux, nez, bouche) &mdash; catégorie III si muqueuse<sup><a href="#ref-1">[1,7]</a></sup></li>
+                        <li><strong>Contact avec chauve-souris</strong> : morsure souvent imperceptible (dents très fines) &mdash; considéré comme catégorie III par défaut<sup><a href="#ref-1">[1,7]</a></sup></li>
+                        <li>Transmission interhumaine : extrêmement rare, documentée uniquement lors de <strong>transplantations d'organes</strong><sup><a href="#ref-1">[1]</a></sup></li>
                     </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Classification OMS des expositions</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Catégorie</th><th>Type de contact</th><th>PEP requise</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>I</strong></td><td>Toucher/nourrir l'animal, léchage sur peau intacte</td><td>Non (pas d'exposition réelle)</td></tr>
+                                <tr><td><strong>II</strong></td><td>Mordillage sur peau découverte, griffure/abrasion mineure sans saignement</td><td><strong>Vaccination immédiate</strong></td></tr>
+                                <tr><td><strong>III</strong></td><td>Morsure(s) transdermique(s), griffure(s) avec saignement, léchage sur muqueuse ou peau lésée, tout contact avec chauve-souris</td><td><strong>Vaccination immédiate + immunoglobulines antirabiques (RIG)</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60">Adapté de : OMS, Position paper 2018<sup><a href="#ref-1">[1]</a></sup> et recommandations OFSP 2021<sup><a href="#ref-3">[3,7]</a></sup></p>
                 </section>
-                <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Leucocytose.</p>
+
+                <!-- CLINIQUE -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Incubation</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Habituellement 20&ndash;90 jours</strong>, mais peut varier de quelques jours à &gt; 1 an (cas documentés jusqu'à 6&ndash;7 ans)<sup><a href="#ref-1">[1,8]</a></sup></li>
+                        <li>Facteurs raccourcissant l'incubation : morsure à la <strong>tête/cou/mains</strong> (zones très innervées), morsures multiples/profondes, inoculum viral élevé</li>
+                        <li><strong>Implication clinique</strong> : la PEP doit être initiée même des mois après une morsure non traitée &mdash; il n'est <strong>jamais trop tard</strong><sup><a href="#ref-7">[7]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase prodromique (2&ndash;10 jours)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Céphalées, fièvre, malaise général, myalgies</li>
+                        <li><strong>Paresthésies/douleur/prurit au site de la morsure</strong> &mdash; signe quasi-pathognomonique, présent dans ~50&ndash;80 % des cas<sup><a href="#ref-8">[8]</a></sup></li>
+                        <li>Nausées, vomissements, pharyngalgie</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Rage furieuse (encéphalitique) &mdash; 80 % des cas</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Agitation, hyperexcitabilité, hallucinations</li>
+                        <li><strong>Hydrophobie</strong> : spasmes du pharynx/larynx à la vue ou au bruit de l'eau &mdash; signe classique</li>
+                        <li><strong>Aérophobie</strong> : spasmes provoqués par un courant d'air</li>
+                        <li>Hypersalivation, convulsions</li>
+                        <li>Épisodes de lucidité entre les crises</li>
+                        <li>Évolution vers coma et décès en <strong>2&ndash;10 jours</strong></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Rage paralytique &mdash; 20 % des cas</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Paralysie flasque ascendante (début au membre mordu)</li>
+                        <li>Confusion diagnostique fréquente avec le <strong>syndrome de Guillain-Barré</strong><sup><a href="#ref-8">[8]</a></sup></li>
+                        <li>Évolution plus lente (jusqu'à 30 jours) vers paralysie respiratoire et décès</li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Caractéristique</th><th>Rage furieuse (80 %)</th><th>Rage paralytique (20 %)</th></tr></thead>
+                            <tbody>
+                                <tr><td>Présentation dominante</td><td>Agitation, hydrophobie, aérophobie</td><td>Paralysie flasque ascendante</td></tr>
+                                <tr><td>Conscience</td><td>Épisodes de lucidité alternant avec agitation</td><td>Relativement préservée initialement</td></tr>
+                                <tr><td>Diagnostic différentiel principal</td><td>Encéphalite virale, tétanos</td><td>Guillain-Barré, poliomyélite</td></tr>
+                                <tr><td>Durée jusqu'au décès</td><td>2&ndash;10 jours</td><td>Jusqu'à 30 jours</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Létalité ~100 %</p>
+                        <p class="text-sm text-teal-800">Une fois les symptômes déclarés, l'évolution est virtuellement toujours fatale. À ce jour, &lt; 30 cas de survie documentés dans la littérature mondiale, presque tous avec séquelles neurologiques sévères.<sup><a href="#ref-9">[9]</a></sup> Il n'existe <strong>aucun traitement curatif</strong> &mdash; le protocole de Milwaukee est considéré comme un échec (Jackson AC, <em>CID</em> 2025).<sup><a href="#ref-9">[9,10]</a></sup></p>
+                    </div>
                 </section>
+
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Anamnestique et clinique.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Serologie positive chez patients non prealablement vaccines. Mise en evidence d'antigenes viraux par immunofluorescence (cornee, peau, cerveau), isolement du virus dans des cultures cellulaires ou xenodiagnostic (inoculation sur souris).</p>
-                </section>
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">La rage paralytique peut etre confuse avec syndrome de Guillain-Barre, poliomyelite, West Nile et myelite aigue transverse.</p>
-                </section>
-                <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et prevention</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Aucun traitement specifique n'est actuellement disponible. Une fois les symptomes survenus l'evolution est virtuellement toujours fatale.</p>
-                    <h3 class="font-semibold text-teal-800 mb-2">Prevention primaire</h3>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Ante mortem</h3>
                     <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
-                        <li>Eviter tout contact avec des animaux dans les zones endemiques</li>
-                        <li>Vaccin recommande pour : personnes exposees professionnellement, sejour prolonge &gt; 1 mois dans le sous-continent indien, en Asie du Sud-Est ou en Afrique sub-saharienne, ou de &gt; 6 mois en Amerique latine ou si le voyageur est particulierement susceptible d'entrer en contact avec des animaux (p.ex. randonnee, tour a velo)</li>
-                        <li>Schema : vaccin antirabique 2 injections IM a J0 et entre J7-J28. 3eme dose apres 12 mois si nouveau voyage a risque.</li>
+                        <li><strong>Clinique + anamnèse d'exposition</strong> : pilier du diagnostic</li>
+                        <li><strong>RT-PCR</strong> sur salive, biopsie cutanée (nuque, follicules pileux), LCR &mdash; sensibilité variable, répétition recommandée<sup><a href="#ref-8">[8]</a></sup></li>
+                        <li><strong>Immunofluorescence directe (DFA)</strong> sur biopsie cutanée (nuque)</li>
+                        <li><strong>Sérologie</strong> : anticorps neutralisants dans le sérum et le LCR &mdash; positive uniquement chez les patients <strong>non vaccinés</strong> (apparition tardive)</li>
+                        <li><strong>IRM cérébrale</strong> : anomalies non spécifiques (hippocampe, tronc cérébral)<sup><a href="#ref-8">[8]</a></sup></li>
                     </ul>
-                    <h3 class="font-semibold text-teal-800 mb-2">Prophylaxie post-expositionnelle</h3>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Les blessures doivent etre lavees immediatement et soigneusement a l'eau et au savon, puis desinfectees.</li>
-                        <li><strong>Schema chez les patients non vaccines :</strong> Berirab&reg; 150UI/ml (immunoglobulines antirabiques) : injecter un maximum de Berirab dans la lesion, maximum 20UI/kg. NB : il n'est plus recommande d'administrer en IM le volume restant dans le deltoide ou la cuisse. Vaccination par vaccin antirabique IM a J0, J3, J7 et J14. Serologie a J21 et injections supplementaires en fonction du resultat de la serologie.</li>
-                        <li><strong>Schema chez les patients prealablement vaccines avec au moins 2 doses :</strong> vaccin antirabique IM a J0 et J3 puis controle par serologie a J14. Injections supplementaires en fonction du resultat de la serologie.</li>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Post mortem</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>DFA sur tissu cérébral</strong> (gold standard)</li>
+                        <li>RT-PCR sur tissu cérébral</li>
                     </ul>
-                    <div class="callout-danger"><p class="text-sm font-bold text-red-700 mb-1">&#9888; Urgence absolue</p><p class="text-sm text-teal-800">Mortalite ~100% une fois les symptomes declares. La prophylaxie post-expositionnelle doit etre initiee sans delai. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a> immediatement.</p></div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Diagnostic différentiel</h3>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Diagnostic</th><th>Éléments distinctifs</th></tr></thead>
+                            <tbody>
+                                <tr><td>Encéphalite virale (herpès, arboviroses)</td><td>Pas d'hydrophobie/aérophobie ; IRM et PCR LCR orientent</td></tr>
+                                <tr><td>Syndrome de Guillain-Barré</td><td>Mimique de la rage paralytique ; dissociation albumino-cytologique au LCR</td></tr>
+                                <tr><td>Poliomyélite</td><td>Paralysie asymétrique, pas de troubles sensitifs</td></tr>
+                                <tr><td>Tétanos</td><td>Trismus, opisthotonos, pas de troubles de conscience</td></tr>
+                                <tr><td>Encéphalite à virus West Nile</td><td>Paralysie flasque aiguë ; sérologie/PCR</td></tr>
+                                <tr><td>Intoxication anticholinergique</td><td>Mydriase, tachycardie, rétention urinaire, contexte toxicologique</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
-                <section id="referer" class="mb-10"><div class="callout-referer"><p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p><p class="text-sm text-teal-800">Cas complexes ou severes necessitant un avis specialise. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p></div></section>
-            </article>
-            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et prevention</a></li>
+                <!-- TRAITEMENT -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4"><strong>Aucun traitement curatif</strong> n'est disponible une fois les symptômes apparus. Le protocole de Milwaukee (coma thérapeutique induit + antiviraux), développé en 2004, a été formellement abandonné en 2025 par son propre promoteur (Jackson AC, <em>CID</em> 2025).<sup><a href="#ref-9">[9]</a></sup> Le taux de survie était &lt; 5&ndash;10 %, avec séquelles neurologiques sévères chez la quasi-totalité des survivants.<sup><a href="#ref-9">[9,10]</a></sup></p>
 
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside></div></main>
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
-    <script>const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}});});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}});},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));</script>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Message clé</p>
+                        <p class="text-sm text-teal-800">La <strong>prévention</strong> (PrEP + PEP) est la <strong>seule stratégie efficace</strong>. Il n'existe aucun traitement curatif de la rage symptomatique.</p>
+                    </div>
+                </section>
+
+                <!-- PrEP -->
+                <section id="prep" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">PrEP &mdash; Prophylaxie pré-expositionnelle</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Indications (OFSP/CFV 2021, Plan de vaccination suisse 2025)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Professionnels exposés</strong> : vétérinaires, étudiants vétérinaires, laborantins rage, chiroptérologues, taxidermistes<sup><a href="#ref-3">[3,4,11]</a></sup></li>
+                        <li><strong>Voyageurs</strong> se rendant dans des pays où la rage est très répandue :
+                            <ul class="ml-6 mt-1 space-y-1 list-disc list-inside">
+                                <li>Séjour &gt; 1 mois en <strong>Asie du Sud/Sud-Est</strong> ou en <strong>Afrique sub-saharienne</strong></li>
+                                <li>Séjour &gt; 6 mois en <strong>Amérique latine</strong></li>
+                                <li>Activités à risque : randonnée, tour à vélo, spéléologie, contact avec animaux</li>
+                                <li>Zones à accès limité aux soins médicaux (RIG souvent indisponible)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Schéma PrEP (OMS 2018 / OFSP 2021)</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Voie</th><th>Schéma</th><th>Rappel</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>IM</strong></td><td>2 doses à <strong>J0 et J7&ndash;J28</strong> (intervalle minimal 7 jours)</td><td>3<sup>e</sup> dose après 12 mois si nouveau voyage à risque ou exposition continue</td></tr>
+                                <tr><td><strong>ID</strong> (0,1 mL)</td><td>2 doses à <strong>J0 et J7</strong> (schéma dose-sparing OMS)</td><td>Idem</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Pas de sérologie de contrôle nécessaire en routine après PrEP chez les immunocompétents<sup><a href="#ref-1">[1,11]</a></sup></li>
+                        <li>2 doses ID J0&ndash;J7 : non-inférieur au schéma 3 doses classique chez l'adulte immunocompétent<sup><a href="#ref-12">[12]</a></sup></li>
+                        <li>Réponse anamnestique documentée jusqu'à 3 ans après une PrEP 2 doses, avec rappel efficace<sup><a href="#ref-12">[12,13]</a></sup></li>
+                        <li>Chez les immunodéprimés : schéma 2 doses valide mais <strong>sérologie de contrôle recommandée</strong><sup><a href="#ref-13">[13]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Avantages majeurs de la PrEP pour les voyageurs</h3>
+                    <div class="callout-info">
+                        <ol class="text-sm text-teal-800 list-decimal list-inside space-y-2">
+                            <li><strong>Élimine le besoin d'immunoglobulines antirabiques (RIG)</strong> en cas d'exposition &mdash; RIG souvent introuvable hors des grandes villes<sup><a href="#ref-14">[14,15]</a></sup></li>
+                            <li><strong>Simplifie la PEP</strong> : seulement 2 doses de rappel (J0, J3) au lieu de 4 doses + RIG</li>
+                            <li><strong>Allonge le délai acceptable</strong> pour initier la PEP (marge de sécurité accrue)</li>
+                            <li><strong>Coût global</strong> : la PrEP est souvent moins coûteuse qu'une PEP complète avec rapatriement sanitaire<sup><a href="#ref-15">[15]</a></sup></li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- PEP -->
+                <section id="pep" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">PEP &mdash; Prophylaxie post-expositionnelle</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">1. Soins immédiats de la plaie</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Geste salvateur n°1</p>
+                        <p class="text-sm text-teal-800"><strong>Lavage immédiat à l'eau courante + savon pendant 15 minutes minimum</strong>, puis désinfection (povidone-iodée ou alcool 70 %). Ce geste seul peut réduire le risque de rage de ~90 %.<sup><a href="#ref-7">[7]</a></sup></p>
+                    </div>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Ne <strong>pas suturer</strong> la plaie (ou si indispensable : sutures lâches, minimales, après infiltration de RIG)<sup><a href="#ref-1">[1,7]</a></sup></li>
+                        <li>Prophylaxie antitétanique selon statut vaccinal</li>
+                        <li>Antibiothérapie si plaie profonde/souillée</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">2. Schéma PEP chez les patients NON vaccinés</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">Recommandations OFSP 2021 / OMS 2018<sup><a href="#ref-3">[3,4,7,11]</a></sup></p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Catégorie</th><th>Vaccin antirabique</th><th>Immunoglobulines (RIG)</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>II</strong></td>
+                                    <td>IM : <strong>J0, J3, J7, J14</strong> (4 doses)<br>ou ID (2 sites) : <strong>J0, J3, J7</strong></td>
+                                    <td>Non</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>III</strong></td>
+                                    <td>IM : <strong>J0, J3, J7, J14</strong> (4 doses)<br>ou ID (2 sites) : <strong>J0, J3, J7</strong></td>
+                                    <td><strong>Oui &mdash; Bérirab (HRIG) 20 UI/kg</strong><br>Infiltrer un maximum dans et autour de la plaie<br>NB : il n'est <strong>plus recommandé</strong> d'administrer le volume restant en IM<sup><a href="#ref-4">[4]</a></sup><br>RIG au J0, au plus tard <strong>J7 après la 1<sup>re</sup> dose de vaccin</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-teal-800/80 mb-6">Sérologie à J21 avec injections supplémentaires en fonction du résultat.<sup><a href="#ref-4">[4]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">3. Schéma PEP chez les patients PRÉALABLEMENT vaccinés (&ge; 2 doses PrEP)</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Vaccin</th><th>RIG</th><th>Sérologie</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>IM : <strong>J0 et J3</strong> (2 doses de rappel)</td>
+                                    <td><strong>Non &mdash; quel que soit le délai</strong> depuis la vaccination</td>
+                                    <td>J14, injections supplémentaires selon résultat<sup><a href="#ref-4">[4,11]</a></sup></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">4. Points critiques de la PEP</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Pas de contre-indication à la PEP</strong> : grossesse, allaitement, immunosuppression, nourrisson &mdash; la PEP doit <strong>toujours</strong> être administrée<sup><a href="#ref-1">[1,7]</a></sup></li>
+                        <li><strong>Il n'est jamais trop tard</strong> pour débuter la PEP, même si l'exposition remonte à des semaines ou des mois<sup><a href="#ref-7">[7]</a></sup></li>
+                        <li><strong>Délai idéal</strong> : dans les <strong>24 heures</strong> suivant l'exposition (recommandation OMS)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Si l'animal peut être observé pendant 10 jours (chien, chat, furet) et reste sain : la PEP peut être interrompue<sup><a href="#ref-7">[7]</a></sup></li>
+                        <li>Si l'animal est une <strong>chauve-souris</strong> : PEP toujours indiquée (catégorie III par défaut), même en l'absence de morsure visible<sup><a href="#ref-3">[3,7]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">5. Problématique de la disponibilité de la PEP à l'étranger</h3>
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Données récentes : de Feij et al., <em>J Travel Med</em> 2025</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Étude sur <strong>1 410 voyageurs néerlandais</strong> (2019&ndash;2024) avec blessure animale à l'étranger<sup><a href="#ref-14">[14]</a></sup></li>
+                            <li><strong>59,4 % ont subi un retard</strong> dans l'initiation de la PEP</li>
+                            <li>Facteur principal de retard : besoin de RIG &mdash; OR 6,46 (IC 95 % : 4,26&ndash;9,79)</li>
+                            <li><strong>65 voyageurs (7,8 %)</strong> ont dû être rapatriés faute de RIG disponible sur place</li>
+                            <li>Retard le plus élevé : <strong>Amérique centrale et du Sud</strong> (médiane 4,5 jours pour les RIG)</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-4">6. Anticorps monoclonaux &mdash; alternatives aux RIG</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Rabishield</strong> (Serum Institute of India) : premier anticorps monoclonal antirabique approuvé (Inde, 2016) ; étude post-homologation (Lancet 2025, n &gt; 4 000) : non-inférieur à l'ERIG, mieux toléré ; dose fixe de 3,33 UI/kg<sup><a href="#ref-17">[17]</a></sup></li>
+                        <li><strong>Docaravimab + miromavimab</strong> (cocktail mAb) : profil de sécurité favorable (Nature 2025)<sup><a href="#ref-18">[18]</a></sup></li>
+                        <li><strong>CRM25</strong> : cocktail mAb humain avec neutralisation large incluant les lyssavirus non-RABV<sup><a href="#ref-19">[19]</a></sup></li>
+                        <li>Ces anticorps monoclonaux pourraient résoudre la pénurie mondiale de RIG à moyen terme, mais <strong>ne sont pas encore disponibles en Suisse</strong></li>
+                    </ul>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Éviter tout contact avec des animaux</strong> en zone endémique (chiens errants, singes dans les temples, chats, chauves-souris)</li>
+                        <li><strong>PrEP</strong> avant le voyage : 2 doses IM J0&ndash;J7 (schéma court possible juste avant le départ)<sup><a href="#ref-4">[4,11,20]</a></sup></li>
+                        <li>Éduquer les voyageurs : en cas de morsure, <strong>laver immédiatement 15 min à l'eau et au savon</strong> puis consulter dans les 24 h</li>
+                        <li>Conserver le carnet de vaccination en voyage</li>
+                        <li>La <strong>PrEP ne dispense pas de la PEP</strong> après une exposition (mais la simplifie considérablement)</li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&laquo; La Suisse est exempte de rage, pas besoin de PEP &raquo;</p>
+                            <p class="text-sm text-teal-800"><strong>FAUX</strong> pour les voyageurs exposés à l'étranger : la PEP doit être initiée/complétée au retour si non faite sur place. <strong>FAUX</strong> pour les contacts avec chauves-souris en Suisse : EBLV-1/2 circule chez les chiroptères européens.<sup><a href="#ref-3">[3]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&laquo; L'animal avait l'air sain, pas de risque &raquo;</p>
+                            <p class="text-sm text-teal-800"><strong>FAUX</strong> : un animal peut excréter le virus <strong>5&ndash;10 jours AVANT</strong> l'apparition des symptômes. En zone endémique, toute morsure de chien/chat non vacciné = exposition potentielle.<sup><a href="#ref-1">[1]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&laquo; La morsure date de 3 mois, c'est trop tard pour la PEP &raquo;</p>
+                            <p class="text-sm text-teal-800"><strong>FAUX</strong> : il n'est <strong>JAMAIS trop tard</strong> pour initier la PEP &mdash; l'incubation peut durer &gt; 1 an.<sup><a href="#ref-7">[7]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&laquo; Le voyageur est vacciné, pas besoin de consulter après une morsure &raquo;</p>
+                            <p class="text-sm text-teal-800"><strong>FAUX</strong> : la PrEP ne dispense <strong>PAS</strong> de la PEP (2 doses de rappel nécessaires après exposition).<sup><a href="#ref-4">[4,11]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&laquo; Les RIG seront disponibles sur place en cas de besoin &raquo;</p>
+                            <p class="text-sm text-teal-800"><strong>FAUX</strong> : 59 % des voyageurs subissent un retard de PEP à l'étranger ; 7,8 % sont rapatriés faute de RIG. En Inde, les RIG ne sont disponibles que dans 20,3 % des établissements publics. C'est l'argument principal pour recommander la PrEP.<sup><a href="#ref-14">[14,16]</a></sup></p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Perles</h3>
+                    <div class="space-y-3">
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Lavage de la plaie 15 min</p>
+                            <p class="text-sm text-teal-800">Ce geste simple à l'eau et au savon est le plus important de toute la prise en charge initiale. Il peut réduire le risque de rage de <strong>~90 %</strong> même sans PEP.<sup><a href="#ref-7">[7]</a></sup></p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">PrEP 2 doses en 1 semaine</p>
+                            <p class="text-sm text-teal-800">Un des meilleurs investissements en médecine du voyage : élimine le besoin de RIG et de rapatriement urgent. Schéma court J0&ndash;J7 possible même juste avant le départ.<sup><a href="#ref-12">[12,20]</a></sup></p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Chauve-souris = catégorie III</p>
+                            <p class="text-sm text-teal-800">Toute morsure de chauve-souris (y compris en Suisse) nécessite une PEP complète, même si aucune lésion n'est visible. Les morsures de chauves-souris sont souvent imperceptibles.<sup><a href="#ref-3">[3,7]</a></sup></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Scénario 1 : Consultation pré-voyage</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Évaluer le risque d'exposition</strong> : destination (Asie du Sud/Sud-Est, Afrique = risque élevé), durée, activités prévues, accès aux soins sur place</li>
+                        <li><strong>Recommander la PrEP largement</strong> : 2 doses IM J0 et J7 (schéma court possible juste avant le départ) &mdash; la PrEP élimine le besoin de RIG, souvent introuvable<sup><a href="#ref-14">[14,15]</a></sup></li>
+                        <li><strong>Éduquer le voyageur</strong> :
+                            <ul class="ml-6 mt-1 space-y-1 list-disc list-inside">
+                                <li>Éviter de toucher/nourrir les animaux (chiens errants, singes dans les temples)</li>
+                                <li>En cas de morsure : <strong>laver immédiatement 15 min à l'eau et au savon</strong> puis consulter dans les 24 h</li>
+                                <li>Conserver le carnet de vaccination en voyage</li>
+                            </ul>
+                        </li>
+                        <li>Rappeler que la <strong>PrEP ne dispense PAS de la PEP</strong> après une exposition</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Scénario 2 : Patient consulte au retour après une morsure/griffure à l'étranger</h3>
+                    <div class="callout-danger mb-4">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; URGENCE ABSOLUE</p>
+                        <p class="text-sm text-teal-800">La rage est mortelle à ~100 % une fois symptomatique. La PEP doit être initiée <strong>sans délai</strong>.</p>
+                    </div>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Anamnèse détaillée</strong> : date/lieu de la morsure, animal impliqué (espèce, comportement, vaccination connue ?), type de plaie (catégorie I/II/III), PrEP antérieure ? PEP déjà initiée sur place ?</li>
+                        <li><strong>Soins de la plaie</strong> si non effectués : lavage eau + savon 15 min, désinfection povidone-iodée</li>
+                        <li><strong>Si PEP non initiée ou incomplète</strong> :
+                            <ul class="ml-6 mt-1 space-y-1 list-disc list-inside">
+                                <li>Patient <strong>non vacciné</strong> : débuter schéma complet (vaccin J0, J3, J7, J14 + RIG si catégorie III)</li>
+                                <li>Patient <strong>vacciné</strong> (&ge; 2 doses PrEP) : rappel vaccinal J0, J3 (pas de RIG)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Commander les produits</strong> : vaccin antirabique (Rabipur&reg; ou Verorab&reg;, disponible en pharmacie) + Bérirab&reg; P (HRIG, stock obligatoire Suisse &mdash; contacter la pharmacie de l'hôpital cantonal si non disponible en officine)<sup><a href="#ref-3">[3,4]</a></sup></li>
+                        <li><strong>Sérologie de contrôle</strong> : J14 (patient vacciné) ou J21 (patient non vacciné)<sup><a href="#ref-4">[4]</a></sup></li>
+                        <li><strong>Déclaration</strong> : pas d'obligation pour l'exposition ; déclaration uniquement en cas de rage confirmée (maladie à déclaration obligatoire)<sup><a href="#ref-23">[23]</a></sup></li>
+                        <li><strong>Ne pas attendre un test de l'animal</strong> pour commencer la PEP &mdash; débuter immédiatement</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Scénario 3 : Morsure de chauve-souris en Suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Toujours considérer comme catégorie III</strong> (morsure potentiellement invisible)<sup><a href="#ref-3">[3,7]</a></sup></li>
+                        <li>PEP complète (vaccin + RIG) sauf si PrEP antérieurement complétée</li>
+                        <li>Contacter le <strong>Centre suisse de la rage</strong> (Institut de virologie, Université de Berne) pour analyse de la chauve-souris si disponible<sup><a href="#ref-3">[3]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Aide-mémoire &mdash; Schéma décisionnel rapide</p>
+                        <table class="article-table mt-2">
+                            <thead><tr><th>Situation</th><th>Action</th></tr></thead>
+                            <tbody>
+                                <tr><td>Morsure en zone endémique, patient <strong>non vacciné</strong>, catégorie III</td><td>Lavage 15 min + vaccin J0-J3-J7-J14 + RIG J0 + sérologie J21</td></tr>
+                                <tr><td>Morsure en zone endémique, patient <strong>vacciné</strong> (&ge; 2 doses PrEP)</td><td>Lavage 15 min + vaccin J0-J3 + sérologie J14</td></tr>
+                                <tr><td>Chauve-souris en Suisse, patient <strong>non vacciné</strong></td><td>Lavage + vaccin J0-J3-J7-J14 + RIG + Centre suisse de la rage (Berne)</td></tr>
+                                <tr><td>Contact catégorie I (peau intacte)</td><td>Pas de PEP</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Exposition de catégorie III</strong> nécessitant des RIG non disponibles en officine &mdash; contacter la pharmacie hospitalière</li>
+                            <li><strong>Patient immunodéprimé</strong> : réponse vaccinale incertaine, nécessité de suivi sérologique rapproché</li>
+                            <li><strong>Cas complexes</strong> : PEP débutée à l'étranger de façon incomplète, schéma vaccinal non standard, grossesse</li>
+                            <li><strong>Suspicion de rage clinique</strong> : transfert immédiat en milieu hospitalier (soins intensifs)</li>
+                            <li><strong>Doute sur la catégorisation de l'exposition</strong> ou la conduite à tenir</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">WHO. Rabies vaccines: WHO position paper, April 2018. <em>Wkly Epidemiol Rec</em> 2018;93:201-220.</li>
+                        <li id="ref-2">Hampson K et al. Estimating the global burden of endemic canine rabies. <em>PLoS Negl Trop Dis</em> 2015;9(5):e0003786.</li>
+                        <li id="ref-3">OFSP/CFV. Prophylaxie pré- et postexpositionnelle de la rage humaine — Directives et recommandations. Avril 2021.</li>
+                        <li id="ref-4">OFSP. Mise à jour des directives et recommandations « Prophylaxie pré- et postexpositionnelle de la rage humaine ». <em>Bull OFSP</em> 15/2021.</li>
+                        <li id="ref-5">Gautret P et al. Animal-associated exposure to rabies virus among travelers, 1997-2012. <em>Emerg Infect Dis</em> 2015;21(4):569-577.</li>
+                        <li id="ref-6">Blanton JD et al. Pre-exposure rabies vaccination among US international travelers: findings from the Global TravEpiNet Consortium. <em>PLoS Negl Trop Dis</em> 2014;8(2):e2588.</li>
+                        <li id="ref-7">WHO. Protocol for a well-performed rabies post-exposure prophylaxis delivery. 2024.</li>
+                        <li id="ref-8">CDC Yellow Book 2026 — Rabies. Wallace RM, Shlim DR.</li>
+                        <li id="ref-9">Jackson AC. Demise of the Milwaukee Protocol for Rabies. <em>Clin Infect Dis</em> 2025;ciaf157.</li>
+                        <li id="ref-10">Tolentino Junior DS et al. Adapted Milwaukee protocol for rabies treatment in a Brazilian indigenous child: case report. <em>Virology J</em> 2024;21:265.</li>
+                        <li id="ref-11">Infovac.ch. Rage : la maladie et le vaccin. Mis à jour août 2025.</li>
+                        <li id="ref-12">Soentjens P et al. Preexposure intradermal rabies vaccination: a noninferiority trial in healthy adults on shortening the vaccination schedule from 28 to 7 days. <em>Clin Infect Dis</em> 2019;68(4):607-614.</li>
+                        <li id="ref-13">Mills DJ et al. Two-year immunogenicity of a pre-exposure rabies vaccination administered as a two-dose schedule. <em>J Travel Med</em> 2022;29(4):taac029.</li>
+                        <li id="ref-14">de Feij M et al. Delays in rabies post-exposure prophylaxis abroad. <em>J Travel Med</em> 2025;32(8):taaf111.</li>
+                        <li id="ref-15">Kessels J et al. Rabies post-exposure prophylaxis: a systematic review on abridged vaccination schedules and the effect of changing administration routes during a single course. <em>Vaccine</em> 2019;37(27):3533-3545.</li>
+                        <li id="ref-16">Murhekar MV et al. Availability of anti-rabies vaccine and rabies immunoglobulin in Indian health facilities: a nationwide cross-sectional health facility survey. <em>Lancet Reg Health Southeast Asia</em> 2025.</li>
+                        <li id="ref-17">Serum Institute of India / Lancet. Post-licensure study of Rabishield (rabies monoclonal antibody) vs ERIG in &gt; 4000 patients. <em>Lancet</em> 2025.</li>
+                        <li id="ref-18">Ravish HS et al. Safety and tolerability of a novel monoclonal antibody cocktail for rabies post-exposure prophylaxis. <em>npj Vaccines</em> 2025;10:article.</li>
+                        <li id="ref-19">Long C et al. Developing a human monoclonal antibody combination CRM25 to prevent rabies after exposure. <em>Int J Antimicrob Agents</em> 2024;64(6):107383.</li>
+                        <li id="ref-20">SSTTM. Nouveau schéma de vaccination contre la rage pour les voyageurs. <em>Swiss Med Forum</em> 2018.</li>
+                        <li id="ref-21">Rao AK et al. Use of a modified preexposure prophylaxis vaccination schedule to prevent human rabies: recommendations of the ACIP — United States, 2022. <em>MMWR</em> 2022;71(18):619-627.</li>
+                        <li id="ref-22">OFSP. Plan de vaccination suisse 2025.</li>
+                        <li id="ref-23">BAG/OFSP. Rage — page d'information. Novembre 2024.</li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prep" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">PrEP</a></li>
+                <li><a href="#pep" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">PEP</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+
+    <script>
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+    </script>
 </body>
 </html>

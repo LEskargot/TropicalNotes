@@ -4,227 +4,464 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Leptospirose — Tropical Notebook</title>
-    <meta name="description" content="Leptospirose : agent causal, clinique, diagnostic, traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="leptospirose, Leptospira interrogans, maladie de Weil, medecine tropicale">
+    <meta name="description" content="Leptospirose : épidémiologie suisse et européenne, clinique biphasique, maladie de Weil, diagnostic (PCR/sérologie), traitement et prise en charge pour le médecin de premier recours.">
+    <meta name="keywords" content="leptospirose, Leptospira interrogans, maladie de Weil, spirochétose, fièvre du voyageur, suffusion conjonctivale, médecine tropicale">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="flex items-center gap-3 group">
-                    <span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span>
-                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
-                </a>
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a>
-                    <div class="dropdown relative">
-                        <button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
-                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
-                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a>
-                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
-                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
-                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
-                        </div>
-                    </div>
-                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
-                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
-                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                </div>
-                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-            </div>
-            <div id="mobileMenu" class="mobile-menu md:hidden">
-                <div class="py-3 border-t border-teal-700/50 space-y-1">
-                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
-                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
-                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
-                    <div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto">
-        <nav class="flex items-center gap-2 text-sm text-teal-600/60">
-            <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <a href="../bacteria.html" class="hover:text-teal-600 transition-colors">Bacteries</a>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-            <span class="text-teal-800 font-medium">Leptospirose</span>
-        </nav>
-    </div></div>
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../bacteria.html" class="hover:text-teal-600 transition-colors">Bactéries</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Leptospirose</span></nav></div></div>
 
     <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
         <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
             <article class="min-w-0">
-
                 <header class="mb-10">
-                    <span class="section-label text-teal-500">Bacterie</span>
+                    <span class="section-label text-teal-500">Bactérie</span>
                     <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Leptospirose</h1>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Spirochetose zoonotique : agent causal, clinique, diagnostic et traitement.</p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
-                        <span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span>
-                    </div>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Spirochétose zoonotique &mdash; <em>Leptospira interrogans</em> sensu lato</p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Zoonose sous-diagnostiquée en Suisse, pas uniquement tropicale. Forme bénigne pseudo-grippale dans 85-90 % des cas, mais la maladie de Weil (ictère + insuffisance rénale + hémorragie) est grevée d'une mortalité de 5-15 %. Le diagnostic repose sur la PCR en phase aiguë et la sérologie en phase tardive.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Facteurs d'exposition : regions humides / inondations / trekking / baignade dans l'eau douce.</p>
-                    <figure class="mb-4">
-                        <img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/leptospirosis_map.png" alt="Distribution geographique de la leptospirose" />
-                        <figcaption class="text-xs text-teal-600/50 mt-2">Burden of leptospirosis in terms of DALYs/100,000 per year. <a target="_blank" href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0004122" class="ref-link">PLoS Negl Trop Dis. 2015 Oct 2;9(10):e0004122</a></figcaption>
-                    </figure>
-                </section>
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
 
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><em>Leptospira interrogans</em>, spirochete mobile.</p>
-                </section>
-
-                <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Hotes naturels : mammiferes (rats, souris, chiens, taupes, herissons, bovins, porcs, moutons, chevres).</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mt-2">Contact de lesions cutanees, muqueuses ou conjonctives avec eau / sol / aliments infectes par l'urine d'animaux porteurs. Rarement : inhalation ou consommation d'aliments infectes.</p>
-                </section>
-
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">1-26 jours (en moyenne 10 jours)</p>
-                </section>
-
-                <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <ul class="space-y-3 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><strong>Formes anicteriques :</strong> syndrome grippal avec fievre d'apparition subite, souvent biphasique (phase septicemique et phase de reponse immunitaire), frissons, cephalees, myalgies. Eventuellement, nausees/vomissements, diarrhees, toux. Dans la 2eme phase survient alors une meningite aseptique.</li>
-                        <li><strong>Formes severes (maladie de Weil = leptospirose ictero-hemorragique) :</strong> atteinte hepatique (jaunisse) et renale (nephrite et insuffisance renale), manifestations hemorragiques (sur thrombopenie), uveite, rhabdomyolyse, myocardite, syndrome de detresse respiratoire aigue.</li>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Situation suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Maladie rare mais probablement <strong>sous-diagnostiquée</strong> : environ <strong>5 cas/année</strong> rapportés (thèse Fiechter, Université de Genève 2020)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li><strong>3/4 des cas autochtones</strong> dans l'étude genevoise (Suisse du Sud, Tessin) &mdash; pas uniquement une maladie d'importation tropicale<sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li>4 cas de leptospirose sévère ictéro-hémorragique au Tessin : insuffisance rénale dialysée, ventilation mécanique ; 3/4 contaminés en <strong>Suisse méridionale</strong><sup><a href="#ref-2">[2]</a></sup></li>
+                        <li>Leptospirose canine en Suisse : incidence inhabituellement élevée (jusqu'à <strong>28,1 cas/100 000 chiens/an</strong>), confirmant un réservoir animal actif sur le territoire helvétique<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>La leptospirose <strong>n'est pas à déclaration obligatoire</strong> au niveau fédéral, contribuant au sous-diagnostic et à la sous-notification</li>
                     </ul>
-                </section>
 
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Injection conjonctivale, sensibilite a la palpation musculaire, hepatosplenomegalie, lymphadenopathies, pharyngite, auscultation pulmonaire pathologique, rash cutane.</p>
-                </section>
-
-                <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Hyponatremie, hypokaliemie, perturbation minime a moderee des tests hepatiques, augmentation des CK (50%), rares thrombopenes, leucocytes souvent normaux</li>
-                        <li>Urines : pyurie sterile, proteinurie, hematurie microscopique</li>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Épidémiologie européenne</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>EU/EEA 2010-2021</strong> : 12 180 cas confirmés dans 23 pays, taux moyen de notification 0,24/100 000 hab. ; augmentation de <strong>+5,0 % par an</strong><sup><a href="#ref-4">[4]</a></sup></li>
+                        <li>79 % des cas dans 5 pays : France, Allemagne, Pays-Bas, Portugal, Roumanie</li>
+                        <li>En <strong>Bretagne</strong> (France), incidence atteignant 1/100 000 en 2016 &mdash; foyer lié aux sports nautiques en eau douce, avec 14 cas chez des kayakistes<sup><a href="#ref-5">[5,6]</a></sup></li>
+                        <li><strong>Danemark 2012-2021</strong> : expositions principales identifiées &mdash; voyage à l'étranger, agriculture, et <strong>sports nautiques récréatifs</strong> (exposition émergente)<sup><a href="#ref-7">[7]</a></sup></li>
                     </ul>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mt-3">(Apres 7 jours de symptomes, meningite aseptique frequemment documentee au niveau du LCR)</p>
-                </section>
 
-                <section id="diagnostic" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Si symptomes depuis moins de 7 jours : PCR sanguine</li>
-                        <li>Si symptomes depuis plus de 7 mais moins de 14 jours : PCR urinaire +/- serologie</li>
-                        <li>Si symptomes depuis plus de 14 jours : Serologie</li>
-                    </ul>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mt-3">La majorite des cas sont confirmes a posteriori par serologie avec apparition d'anticorps apres plusieurs jours ou meme semaines ou une augmentation du titre d'anticorps d'un facteur de 4 en 2 semaines.</p>
-                </section>
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Ne pas oublier les cas autochtones</p>
+                        <p class="text-sm text-teal-800">En Suisse, la majorité des cas dans les séries publiées étaient <strong>autochtones</strong> (Tessin, expositions récréatives ou professionnelles). L'absence de voyage tropical n'exclut pas le diagnostic. Interroger systématiquement sur les expositions à l'eau douce, aux animaux, et aux activités de plein air.</p>
+                    </div>
 
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Malaria, dengue, rickettsiose (fievre boutonneuse), fievre enterique, viral (influenza...)</p>
-                </section>
-
-                <section id="prevention" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prevention primaire</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Protection peau lesee, pas de baignade en eau douce.</p>
-                </section>
-
-                <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><strong>Cas severes :</strong> penicilline G 1,5 MU 4x/j iv</li>
-                        <li><strong>Cas legers :</strong> doxycycline 2x100 mg/j pour 10-14 jours. Alternative : azithromycine 500 mg/j pour 3 jours</li>
-                    </ul>
-                </section>
-
-                <section id="referer" class="mb-10">
-                    <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">Formes severes (maladie de Weil), atteinte renale ou respiratoire. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p>
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6 text-sm uppercase tracking-wide">Mortalité</h3>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Forme clinique</th><th>Mortalité</th></tr></thead>
+                            <tbody>
+                                <tr><td>Formes non compliquées traitées</td><td>&lt; 5 %</td></tr>
+                                <tr><td>Maladie de Weil (formes sévères)</td><td><strong>5-15 %</strong><sup><a href="#ref-9">[9]</a></sup></td></tr>
+                                <tr><td>Hémorragie pulmonaire sévère (SPHS)</td><td><strong>&gt; 50 %</strong><sup><a href="#ref-10">[10]</a></sup></td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </section>
 
+                <!-- REPARTITION -->
+                <section id="repartition" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Distribution mondiale, prédominance tropicale mais présente aussi en Europe tempérée. Facteurs de risque géographiques : régions humides, inondations, proximité d'élevages, zones d'eaux douces récréatives.</p>
+                    <figure class="mb-4">
+                        <img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/leptospirosis_map.png" alt="Distribution géographique de la leptospirose — DALYs par 100 000 habitants/an" />
+                        <figcaption class="text-xs text-teal-600/50 mt-2">Burden of leptospirosis in terms of DALYs/100,000 per year. <a target="_blank" href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0004122" class="ref-link">PLoS Negl Trop Dis. 2015 Oct 2;9(10):e0004122</a></figcaption>
+                    </figure>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Zones à haute incidence</strong> : Asie du Sud-Est, Amérique latine (Brésil), Océanie, Caraïbes, Afrique sub-saharienne</li>
+                        <li><strong>Europe</strong> : incidence en augmentation ; foyers liés aux inondations et aux sports nautiques en eau douce</li>
+                        <li><strong>Suisse</strong> : Tessin et Suisse romande les plus touchés ; cas sporadiques liés à l'agriculture, aux loisirs aquatiques et au contact avec des rongeurs</li>
+                    </ul>
+                </section>
+
+                <!-- TRANSMISSION -->
+                <section id="transmission" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Réservoir</strong> : mammifères — rats (principal), souris, chiens, bovins, porcs, hérissons, taupes. Le rat est porteur chronique asymptomatique et excrète les leptospires dans ses urines</li>
+                        <li><strong>Voie de transmission</strong> : contact de lésions cutanées (même minimes), de muqueuses ou de conjonctives avec de l'eau, du sol ou des aliments contaminés par l'urine d'animaux porteurs</li>
+                        <li>Plus rarement : inhalation d'aérosols contaminés, ingestion d'eau contaminée</li>
+                        <li><strong>Pas de transmission interhumaine</strong></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Facteurs de risque</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Catégorie</th><th>Exemples</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Professionnel</strong></td><td>Agriculteurs, éleveurs, égoutiers, vétérinaires, militaires</td></tr>
+                                <tr><td><strong>Récréatif</strong></td><td>Kayak, canyoning, triathlon en eau libre, rafting, baignade en eau douce<sup><a href="#ref-5">[5,6,7]</a></sup></td></tr>
+                                <tr><td><strong>Voyage</strong></td><td>Trekking en zone tropicale, contact avec eaux d'inondation, séjour en zone rurale</td></tr>
+                                <tr><td><strong>Environnemental</strong></td><td>Inondations, contact avec rongeurs ou animaux de ferme, jardinage</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Incubation</p>
+                        <p class="text-sm text-teal-800"><strong>2-30 jours</strong> (moyenne 7-12 jours) &mdash; compatible avec les voyages courts et moyens. Interroger les expositions à l'eau douce dans les 4 semaines précédant les symptômes.<sup><a href="#ref-11">[11]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- CLINIQUE -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase 1 &mdash; Septicémique (J1-J7)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Fièvre d'apparition <strong>brutale</strong>, frissons, céphalées intenses</li>
+                        <li><strong>Myalgies sévères</strong>, typiquement des <strong>mollets</strong> &mdash; signe distinctif par rapport aux autres causes de fièvre du retour</li>
+                        <li>Nausées, vomissements, diarrhées</li>
+                        <li><strong>Suffusion conjonctivale</strong> (injection conjonctivale sans exsudat purulent) &mdash; signe clinique évocateur, présent dans 30-40 % des cas</li>
+                        <li>Toux sèche, douleurs thoraciques (atteinte pulmonaire précoce possible)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase 2 &mdash; Immune (J7-J30)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Après une brève défervescence, <strong>rechute fébrile</strong> possible (évolution biphasique classique)</li>
+                        <li>Méningite aseptique (pléocytose lymphocytaire dans le LCR)</li>
+                        <li>Uvéite antérieure (peut survenir des semaines à mois après l'épisode aigu)</li>
+                        <li>Formes bénignes : guérison spontanée en 1-3 semaines</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Formes sévères &mdash; Maladie de Weil (5-15 % des cas)</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-2">&#9888; Triade classique : ictère + insuffisance rénale + diathèse hémorragique</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Ictère</strong> hépatocellulaire/cholestatique : bilirubine très élevée, transaminases modérément augmentées (&le; 5x N) &mdash; <strong>discordance bilio-transaminases</strong> caractéristique</li>
+                            <li><strong>Insuffisance rénale aiguë non oligurique</strong> (typique) avec hypokaliémie<sup><a href="#ref-9">[9]</a></sup></li>
+                            <li><strong>Thrombopénie</strong> souvent sévère avec manifestations hémorragiques</li>
+                            <li>Rhabdomyolyse (CK élevées dans &gt; 50 % des cas)</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-4">Complications graves</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Hémorragie pulmonaire sévère (SPHS)</strong> : létalité &gt; 50 %, mécanisme de vasculite immuno-médiée<sup><a href="#ref-10">[10]</a></sup></li>
+                        <li>Tamponnade cardiaque hémorragique : complication rare mais décrite<sup><a href="#ref-12">[12]</a></sup></li>
+                        <li>Myocardite, arythmies cardiaques</li>
+                        <li><strong>Réaction de Jarisch-Herxheimer</strong> possible dans les 24h suivant le début de l'antibiothérapie (spirochétose) &mdash; fièvre, frissons, hypotension ; cas fatal rapporté<sup><a href="#ref-13">[13]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Triade évocatrice</p>
+                        <p class="text-sm text-teal-800"><strong>Fièvre + myalgies des mollets + suffusion conjonctivale</strong> chez un patient exposé à l'eau douce = penser leptospirose jusqu'à preuve du contraire. L'ictère, quand il est présent, renforce fortement la suspicion.</p>
+                    </div>
+                </section>
+
+                <!-- BIOLOGIE -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Anomalie typique</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Bilirubine</strong></td><td>Très élevée (conjuguée ++)</td><td rowspan="2"><strong>Discordance bilio-transaminases</strong> = indice fort de leptospirose</td></tr>
+                                <tr><td><strong>ASAT / ALAT</strong></td><td>Modérément augmentées (&le; 5x N)</td></tr>
+                                <tr><td><strong>CK</strong></td><td>Élevées (&ge; 50 % des cas)</td><td>Rhabdomyolyse &mdash; demander systématiquement</td></tr>
+                                <tr><td><strong>Créatinine</strong></td><td>Élevée</td><td>IRA non oligurique typique + hypokaliémie</td></tr>
+                                <tr><td><strong>Natrémie / Kaliémie</strong></td><td>Hyponatrémie, hypokaliémie</td><td>Fréquentes, aident au diagnostic différentiel</td></tr>
+                                <tr><td><strong>Thrombocytes</strong></td><td>Thrombopénie</td><td>Variable, parfois sévère dans la maladie de Weil</td></tr>
+                                <tr><td><strong>Leucocytes</strong></td><td>Normaux ou légèrement élevés</td><td>Pas d'hyperleucocytose franche habituellement</td></tr>
+                                <tr><td><strong>Urines</strong></td><td>Pyurie stérile, protéinurie, hématurie microscopique</td><td>Stix urinaire = aide diagnostique peu coûteuse<sup><a href="#ref-14">[14]</a></sup></td></tr>
+                                <tr><td><strong>LCR</strong> (après J7)</td><td>Méningite aseptique lymphocytaire</td><td>Fréquente en phase immune</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Discordance bilio-transaminases</p>
+                        <p class="text-sm text-teal-800">Bilirubine très élevée + ASAT/ALAT &le; 5x N + insuffisance rénale + CK élevées = <strong>leptospirose probable</strong>. Dans l'hépatite virale, les transaminases sont &gt; 10x N avec une bilirubine proportionnellement moins élevée.</p>
+                    </div>
+                </section>
+
+                <!-- DIAGNOSTIC -->
+                <section id="diagnostic" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Stratégie selon la durée des symptômes</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Durée symptômes</th><th>Test de 1<sup>er</sup> choix</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>&lt; 7 jours</strong></td><td><strong>PCR sang</strong> (phase septicémique)</td><td>Sensibilité élevée en phase aiguë ; cible lipL32 ou rrs ; PCR TaqMan lipL32 recommandée (spécificité 100 %, sensibilité 86 %)<sup><a href="#ref-15">[15]</a></sup></td></tr>
+                                <tr><td><strong>7-14 jours</strong></td><td><strong>PCR urines</strong> +/- sérologie IgM</td><td>Leptospires éliminés dans les urines dès J7 ; combiner PCR + sérologie augmente le taux de détection<sup><a href="#ref-16">[16]</a></sup></td></tr>
+                                <tr><td><strong>&gt; 14 jours</strong></td><td><strong>Sérologie</strong> (MAT ou ELISA IgM)</td><td>MAT = gold standard sérologique ; nécessite un 2<sup>e</sup> prélèvement à 2-4 semaines (séroconversion ou titre &times;4)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Tests diagnostiques en détail</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>MAT (Microscopic Agglutination Test)</strong> : gold standard sérologique ; séroconversion ou augmentation &times;4 du titre sur sérum de convalescence (2-4 semaines) ; ne permet pas de confirmer rapidement en phase aiguë</li>
+                        <li><strong>ELISA IgM</strong> : sensibilité 83-96 % après J5-J7 ; plus pratique que le MAT ; faux positifs possibles (réactions croisées avec syphilis, <em>Borrelia</em>, maladies auto-immunes)</li>
+                        <li><strong>PCR (sang/urines)</strong> : sensibilité 60-100 % selon le timing ; PCR TaqMan lipL32 recommandée car haute spécificité ; <strong>PCR 16S rrs à abandonner</strong> pour le diagnostic en raison de réactions croisées<sup><a href="#ref-15">[15]</a></sup></li>
+                        <li><strong>Culture</strong> : très lente (semaines), peu utile en clinique aiguë ; <strong>microscopie à fond noir</strong> : faible sensibilité, déconseillée pour le diagnostic</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Sérologie négative en phase aiguë</p>
+                        <p class="text-sm text-teal-800">La sérologie (MAT, ELISA IgM) est fréquemment <strong>négative durant la 1<sup>re</sup> semaine</strong> de symptômes. Ne jamais exclure la leptospirose sur un seul résultat sérologique précoce négatif. Privilégier la PCR sanguine en phase aiguë (&lt; 7 jours) et répéter la sérologie à 2-4 semaines.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Diagnostic différentiel</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">Dans le contexte du voyageur fébrile au retour, la leptospirose représente <strong>~23 % des causes bactériennes</strong> de fièvre (après les rickettsioses ~50 %).</p>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Diagnostic</th><th>Éléments distinctifs</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Paludisme</strong></td><td>Frottis/TDR positif ; thrombopénie + anémie ; pas de myalgies des mollets typiques</td></tr>
+                                <tr><td><strong>Dengue</strong></td><td>Thrombopénie sévère ; rash ; douleurs rétro-orbitaires ; PCR dengue/NS1 positifs</td></tr>
+                                <tr><td><strong>Rickettsiose</strong></td><td>Escarre d'inoculation ; rash maculopapuleux ou purpurique ; fièvre boutonneuse</td></tr>
+                                <tr><td><strong>Fièvre entérique</strong></td><td>Fièvre en plateau ; bradycardie relative ; douleurs abdominales prédominantes</td></tr>
+                                <tr><td><strong>Hépatite virale A/E</strong></td><td>Transaminases très élevées (&gt; 10x N) vs leptospirose (&le; 5x N) ; pas de myalgies des mollets</td></tr>
+                                <tr><td><strong>Hantavirus</strong></td><td>IRA + thrombopénie ; contact avec rongeurs ; pas d'ictère typiquement</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Bilan minimal devant une fièvre au retour (suspicion de leptospirose)</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>FSC avec formule, CRP, créatinine, ASAT/ALAT, bilirubine, <strong>CK</strong></li>
+                            <li>Stix urinaire (protéinurie, hématurie)</li>
+                            <li>TDR + microscopie malaria (obligatoire si pays à risque)</li>
+                            <li>Test VIH 4<sup>e</sup> génération</li>
+                            <li>PCR leptospirose sang + urines si exposition compatible</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- TRAITEMENT -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Formes légères à modérées (ambulatoire)</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Molécule</th><th>Posologie</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Doxycycline</strong> (1<sup>re</sup> ligne)</td><td>100 mg 2x/jour PO &times; <strong>7 jours</strong></td><td>Réduit significativement le temps de défervescence (MD -1,53 j vs contrôle)<sup><a href="#ref-17">[17]</a></sup>. CI : grossesse, enfant &lt; 8 ans</td></tr>
+                                <tr><td><strong>Azithromycine</strong> (alternative)</td><td>500 mg/jour PO &times; 3 jours</td><td>Efficacité comparable (MD -1,74 j). Option pour femmes enceintes, enfants, intolérance doxycycline<sup><a href="#ref-17">[17]</a></sup></td></tr>
+                                <tr><td><strong>Amoxicilline</strong> (alternative)</td><td>500 mg 3x/jour PO &times; 7 jours</td><td>Option pour enfants et femmes enceintes</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Formes sévères (hospitalisation obligatoire)</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Molécule</th><th>Posologie</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Ceftriaxone</strong> (1<sup>re</sup> ligne)</td><td><strong>2 g 1x/jour IV</strong> &times; 7 jours</td><td>Couvre aussi la fièvre entérique (DD fréquent). 1 administration/jour. MD -1,22 j<sup><a href="#ref-17">[17]</a></sup></td></tr>
+                                <tr><td><strong>Pénicilline G</strong> (alternative)</td><td>1,5 MU 4x/jour IV &times; 7 jours</td><td>Traitement historique de référence ; efficacité équivalente à la ceftriaxone<sup><a href="#ref-17">[17,18]</a></sup></td></tr>
+                                <tr><td><strong>Céfotaxime</strong> (alternative)</td><td>1 g 3x/jour IV</td><td>Meilleur p-score dans la méta-analyse en réseau pour le temps de défervescence<sup><a href="#ref-17">[17]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Traitement empirique du voyageur fébrile</p>
+                        <p class="text-sm text-teal-800">Devant une fièvre au retour avec critères de gravité ou forte suspicion bactérienne, <strong>ceftriaxone 2 g 1x/j IV</strong> couvre à la fois la leptospirose et la fièvre entérique &mdash; traitement empirique recommandé en attendant les résultats microbiologiques.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-4">Réaction de Jarisch-Herxheimer</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Risque de JHR dans les 24 premières heures</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Possible dans les <strong>24 premières heures</strong> après le début de l'antibiothérapie (mécanisme de spirochétose)</li>
+                            <li>Clinique : fièvre, frissons, hypotension, tachycardie, altération de l'état général</li>
+                            <li><strong>Cas fatal rapporté</strong><sup><a href="#ref-13">[13]</a></sup> &mdash; justifie une surveillance rapprochée (idéalement en milieu hospitalier) lors de l'initiation du traitement dans les formes sévères</li>
+                            <li>Pas de prémédication validée pour prévenir la JHR dans la leptospirose</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-4">Corticostéroïdes et échange plasmatique</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Evidence actuelle <strong>insuffisante</strong> pour recommander les corticostéroïdes dans la leptospirose sévère (Petakh et al. 2024)<sup><a href="#ref-19">[19]</a></sup></li>
+                        <li>L'échange plasmatique thérapeutique (TPE) dans l'hémorragie pulmonaire sévère reste <strong>non prouvé</strong> (revue systématique Bandara et al. 2025)<sup><a href="#ref-10">[10]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Mesures primaires</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Éviter le contact avec l'eau douce potentiellement contaminée (lacs, rivières, eau d'inondation)</li>
+                        <li>Protéger les lésions cutanées lors d'activités aquatiques (pansements imperméables)</li>
+                        <li>Porter des équipements de protection (bottes, gants) lors d'activités à risque</li>
+                        <li><strong>Sports nautiques en eau douce</strong> = facteur de risque émergent en Europe (kayak, canyoning, triathlon en eau libre)<sup><a href="#ref-5">[5,6,7]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccination et chimioprophylaxie</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Pas de vaccin humain disponible en Suisse</strong> ; un vaccin inactivé est autorisé en France pour les professionnels exposés, mais ne couvre que le sérovar Icterohaemorrhagiae</li>
+                        <li>La revue Cochrane 2024 conclut que les données sont <strong>insuffisantes</strong> pour recommander l'antibioprophylaxie par doxycycline chez les voyageurs<sup><a href="#ref-20">[20]</a></sup></li>
+                        <li>La prophylaxie par doxycycline 200 mg/semaine n'est <strong>pas recommandée en routine</strong> ; mesures de prévention primaire à privilégier</li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 1 &mdash; Ne pas penser à la leptospirose chez un patient NON voyageur</p>
+                            <p class="text-sm text-teal-800">En Suisse, 3/4 des cas dans l'étude genevoise étaient <strong>autochtones</strong> (Tessin, expositions récréatives ou professionnelles). Demander systématiquement les expositions à l'eau douce, aux animaux, et aux activités de plein air.<sup><a href="#ref-1">[1,2]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 2 &mdash; Sérologie faussement négative en phase aiguë</p>
+                            <p class="text-sm text-teal-800">La sérologie (MAT, ELISA IgM) est fréquemment négative durant la 1<sup>re</sup> semaine. Privilégier la <strong>PCR sanguine</strong> en phase aiguë (&lt; 7 jours) et répéter la sérologie à 2-4 semaines.<sup><a href="#ref-15">[15]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 3 &mdash; Confondre avec une hépatite virale</p>
+                            <p class="text-sm text-teal-800">L'ictère de la leptospirose s'accompagne de transaminases <strong>modérément élevées (&le; 5x N)</strong> alors que la bilirubine est très élevée. Dans l'hépatite virale, les transaminases sont &gt; 10x N. Un ictère + IRA + CK élevées = leptospirose.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 4 &mdash; Sous-estimer le risque de Jarisch-Herxheimer</p>
+                            <p class="text-sm text-teal-800">L'initiation de l'antibiothérapie dans les formes sévères peut déclencher une JHR <strong>potentiellement fatale</strong> dans les 24h. Débuter le traitement en milieu surveillé et prévenir le patient.<sup><a href="#ref-13">[13]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 5 &mdash; Ignorer les sports nautiques comme facteur de risque</p>
+                            <p class="text-sm text-teal-800">Kayak, canyoning, triathlon en eau libre, rafting : facteur de risque <strong>émergent</strong> en Europe, y compris dans les pays tempérés. Foyer de 14 cas chez des kayakistes en Bretagne en 2016.<sup><a href="#ref-6">[6]</a></sup></p>
+                        </div>
+
+                        <div class="callout-info mt-3">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perles cliniques</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li><strong>Triade évocatrice</strong> : fièvre + myalgies des mollets + suffusion conjonctivale chez un patient exposé à l'eau douce</li>
+                                <li><strong>Discordance bilio-transaminases</strong> : bilirubine très élevée + ASAT/ALAT &le; 5x N + IRA + CK élevées = leptospirose probable</li>
+                                <li><strong>Ceftriaxone en empirique</strong> : couvre leptospirose + fièvre entérique &mdash; idéal en traitement empirique du voyageur fébrile avec critères de gravité</li>
+                                <li><strong>PCR sang &lt; 7 jours, PCR urines 7-14 jours, sérologie &gt; 14 jours</strong> : adapter le test diagnostique au timing des symptômes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">En cas de suspicion clinique</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Bilan biologique</strong> : FSC, CRP, créatinine, ASAT/ALAT, bilirubine, <strong>CK</strong>, ionogramme (Na+, K+) + stix urinaire</li>
+                        <li><strong>Exclure le paludisme</strong> : TDR + frottis/goutte épaisse si voyage en zone d'endémie</li>
+                        <li><strong>PCR leptospirose</strong> sang (&lt; 7 jours) ou urines (7-14 jours) +/- sérologie IgM</li>
+                        <li><strong>Évaluer la gravité</strong> : ictère, insuffisance rénale, hémorragies, atteinte pulmonaire &rarr; hospitalisation si oui</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Forme légère (ambulatoire)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Doxycycline 100 mg 2x/jour PO &times; 7 jours</li>
+                        <li>Contrôle clinique et biologique à J3-J5</li>
+                        <li>Reconsulter si apparition d'ictère, oligurie, saignements, dyspnée</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Forme sévère ou doute diagnostique</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Hospitalisation + <strong>ceftriaxone 2 g 1x/jour IV</strong></li>
+                        <li>Surveillance rapprochée les 24 premières heures (risque de Jarisch-Herxheimer)</li>
+                        <li>Avis spécialisé infectiologie/médecine tropicale</li>
+                    </ul>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Formes sévères</strong> : maladie de Weil (ictère + IRA + hémorragies), atteinte pulmonaire, rhabdomyolyse sévère</li>
+                            <li><strong>Incertitude diagnostique</strong> : fièvre du voyageur avec bilan initial non concluant &mdash; intérêt d'un avis spécialisé pour orienter les investigations</li>
+                            <li><strong>Nécessité de dialyse</strong> ou support ventilatoire</li>
+                            <li><strong>Complication cardiaque</strong> : myocardite, arythmie, tamponnade</li>
+                            <li><strong>Réaction de Jarisch-Herxheimer</strong> sévère</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Fiechter GI. Leptospirosis in Switzerland: an emerging disease or emerging awareness? Thèse de doctorat, Université de Genève, 2020. <a href="https://archive-ouverte.unige.ch/unige:134857" target="_blank" class="ref-link">archive-ouverte.unige.ch</a></li>
+                        <li id="ref-2">Bernasconi E et al. Endemic and imported severe leptospirosis (Weil's disease) in southern Switzerland. <em>Schweiz Med Wochenschr</em> 2000;130(41):1487-92. <a href="https://pubmed.ncbi.nlm.nih.gov/11075413/" target="_blank" class="ref-link">PMID:11075413</a></li>
+                        <li id="ref-3">Major A, Schweighauser A, Francey T. Increasing incidence of canine leptospirosis in Switzerland. <em>Int J Environ Res Public Health</em> 2014;11(7):7242-7260. <a href="https://doi.org/10.3390/ijerph110707242" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-4">Beauté J et al. Epidemiology of reported cases of leptospirosis in the EU/EEA, 2010 to 2021. <em>Euro Surveill</em> 2024;29(7):2300266. <a href="https://doi.org/10.2807/1560-7917.ES.2024.29.7.2300266" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-5">Velardo F et al. A cross-sectional study on infectious health risks regarding freshwater sports practice in Brittany, France. <em>J Water Health</em> 2022;20(2):356-368. <a href="https://doi.org/10.2166/wh.2022.232" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-6">Guillois Y et al. An outbreak of leptospirosis among kayakers in Brittany, North-West France, 2016. <em>Euro Surveill</em> 2018;23(48):1700848. <a href="https://doi.org/10.2807/1560-7917.ES.2018.23.48.1700848" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-7">Eves C et al. Trends in human leptospirosis in Denmark, 2012-2021. <em>Front Cell Infect Microbiol</em> 2023;13:1079946. <a href="https://doi.org/10.3389/fcimb.2023.1079946" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-8">Lucas A et al. Imported leptospirosis in travellers and migrants in Spain: a study of the +REDIVI collaborative network. <em>J Travel Med</em> 2021;28(6):taab095. <a href="https://doi.org/10.1093/jtm/taab095" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-9">Petakh P et al. Current treatment options for leptospirosis: a mini-review. <em>Front Microbiol</em> 2024;15:1403765. <a href="https://doi.org/10.3389/fmicb.2024.1403765" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-10">Bandara JMRP et al. Is therapeutic plasma exchange effective in leptospirosis-associated severe pulmonary haemorrhagic syndrome? A systematic review. <em>Trans R Soc Trop Med Hyg</em> 2025;119(5):453-463. <a href="https://doi.org/10.1093/trstmh/trae107" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-11">CDC Yellow Book 2026. Leptospirosis. <a href="https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/leptospirosis.html" target="_blank" class="ref-link">cdc.gov</a></li>
+                        <li id="ref-12">Walsh S, McGibbon P, Loew C. Leptospirosis complicated by haemorrhagic cardiac tamponade: a challenging case of Weil's disease. <em>Cureus</em> 2025;17(12):e99035. <a href="https://doi.org/10.7759/cureus.99035" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-13">Chiko Y et al. Report of Weil's disease with a fatal course triggered by Jarisch-Herxheimer reaction. <em>J Infect Chemother</em> 2023;29(8):800-802. <a href="https://doi.org/10.1016/j.jiac.2023.04.009" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-14">Musara C, Kapungu F. Addressing the burden of leptospirosis in Africa. <em>Trop Dis Travel Med Vaccines</em> 2025;11(1):16. <a href="https://doi.org/10.1186/s40794-025-00250-7" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-15">Villumsen S et al. Novel TaqMan PCR for detection of Leptospira species in urine and blood: pit-falls of in silico validation. <em>J Microbiol Methods</em> 2012;91(1):184-90. <a href="https://doi.org/10.1016/j.mimet.2012.06.009" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-16">Iwasaki H et al. Combined antibody and DNA detection for early diagnosis of leptospirosis after a disaster. <em>Diagn Microbiol Infect Dis</em> 2016;84(4):287-91. <a href="https://doi.org/10.1016/j.diagmicrobio.2016.01.001" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-17">Ji Z et al. Efficacy and safety of antibiotics for treatment of leptospirosis: a systematic review and network meta-analysis. <em>Syst Rev</em> 2024;13(1):108. <a href="https://doi.org/10.1186/s13643-024-02519-y" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-18">UpToDate. Leptospirosis: Treatment and prevention. Day NP. Literature review current through Jan 2025. <a href="https://www.uptodate.com/contents/leptospirosis-treatment-and-prevention" target="_blank" class="ref-link">uptodate.com</a></li>
+                        <li id="ref-19">Petakh P, Oksenych V, Kamyshnyi O. Corticosteroid treatment for leptospirosis: a systematic review and meta-analysis. <em>J Clin Med</em> 2024;13(15):4310. <a href="https://doi.org/10.3390/jcm13154310" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-20">Win TZ et al. Antibiotic prophylaxis for leptospirosis (Cochrane Review). <em>Cochrane Database Syst Rev</em> 2024;3:CD014959. <a href="https://doi.org/10.1002/14651858.CD014959.pub2" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-21">Thwaites GE, Day NP. Approach to fever in the returning traveler. <em>NEJM</em> 2017;376:548-560.</li>
+                        <li id="ref-22">ECDC. Leptospirosis &mdash; Annual Epidemiological Report for 2019. Stockholm: ECDC; 2022. <a href="https://www.ecdc.europa.eu/en/publications-data/leptospirosis-annual-epidemiological-report-2019" target="_blank" class="ref-link">ecdc.europa.eu</a></li>
+                    </ol>
+                </section>
             </article>
 
             <!-- FLOATING TOC -->
-            <aside class="toc-sidebar hidden lg:block">
-                <nav class="toc">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
-                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                        <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                        <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                        <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                        <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                        <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prevention primaire</a></li>
-                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
-                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                    </div>
-                </nav>
-            </aside>
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <div>
-                    <div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div>
-                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-8 text-sm">
-                    <div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div>
-                    <div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div>
-                </div>
-            </div>
-            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p>
-                <p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
     <script>
-        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
     </script>
 </body>
 </html>

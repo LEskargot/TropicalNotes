@@ -3,98 +3,475 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hepatite A — Tropical Notebook</title>
-    <meta name="description" content="Hepatite A : clinique, diagnostic, vaccination — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="hepatite A, HAV, picornavirus, vaccination, Havrix, medecine tropicale">
+    <title>Hépatite A — Tropical Notebook</title>
+    <meta name="description" content="Hépatite A : épidémiologie suisse, clinique, diagnostic sérologique, vaccination (Havrix, Twinrix), prophylaxie post-exposition et prise en charge pour le médecin de premier recours.">
+    <meta name="keywords" content="hépatite A, HAV, VHA, picornavirus, vaccination, Havrix, Twinrix, PEP, prophylaxie post-exposition, voyageur, VFR, médecine tropicale">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Hepatite A</span></nav></div></div>
-    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16"><div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12"><article class="min-w-0">
-                <header class="mb-10"><span class="section-label text-teal-500">Virus</span><h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Hepatite A</h1><p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Hepatite virale a transmission feco-orale : clinique, diagnostic et prevention vaccinale.</p><div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div></header>
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Partout dans le monde mais plus frequent dans les regions ou les conditions d'hygiene sont defavorables.</p>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/hepa_map.jpg" alt="Pays a haute endemie pour l'Hepatite A" /></figure>
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Hépatite A</span></nav></div></div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+            <article class="min-w-0">
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Virus</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Hépatite A</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Virus de l'hépatite A (VHA) &mdash; famille <em>Picornaviridae</em>, genre <em>Hepatovirus</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Hépatite virale aiguë à transmission féco-orale. Maladie « bénigne » chez l'enfant, souvent sévère chez l'adulte non immunisé. En Suisse, 60&ndash;80 % des cas sont liés aux voyages. Vaccination efficace dès la première dose (&gt; 95 % de séroprotection). Déclaration obligatoire.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                </header>
+
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>13 578 cas notifiés</strong> entre 1988 et 2016 ; incidence passée de ~16/100 000 (1988) à <strong>~1/100 000</strong> (2016) &mdash; réduction &gt; 90 % en 29 ans<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li><strong>60&ndash;80 % des cas</strong> avec facteur de risque identifié sont associés à un voyage en zone d'endémie<sup><a href="#ref-1">[1,7]</a></sup></li>
+                        <li>Groupes d'âge les plus touchés : 20&ndash;40 ans (Suisses), 5&ndash;19 ans (résidents non suisses / VFR)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Proportion d'hospitalisations en hausse : <strong>&gt; 50 % des cas notifiés</strong> sont hospitalisés &mdash; reflet du déplacement de l'âge d'infection vers l'adulte<sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li>Létalité en Europe : <strong>0,03&ndash;0,26 %</strong> selon les pays ; taux de case-fatality ~1 % dans les flambées récentes aux USA<sup><a href="#ref-2">[2,3]</a></sup></li>
+                        <li><strong>Déclaration obligatoire</strong> en Suisse : médecin + laboratoire &rarr; médecin cantonal et OFSP ; délai 1 semaine<sup><a href="#ref-1">[1,7]</a></sup></li>
+                        <li>La Suisse est un pays de <strong>faible endémicité</strong> &mdash; la majorité de la population adulte née après 1970 est susceptible (pas d'immunité naturelle)<sup><a href="#ref-1">[1,7]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Transition épidémiologique en Europe</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Revue systématique Andani et al. (2023) couvrant 2001&ndash;2021 dans 11 pays européens : les notifications ont culminé en <strong>2017</strong> à cause d'épidémies chez les <strong>HSH</strong> (hommes ayant des rapports sexuels avec des hommes)<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li>Épidémie européenne HSH 2016&ndash;2017 : <strong>4 475 cas confirmés</strong> dans 22 pays UE/EEE, 3 souches génotype IA ; ratio H/F jusqu'à 11,8 au pic<sup><a href="#ref-10">[10]</a></sup></li>
+                        <li>Nouvelle épidémie HSH au Portugal 2023&ndash;2024 : souche génotype IA, transmission sexuelle confirmée<sup><a href="#ref-11">[11]</a></sup></li>
+                        <li>Taux d'hospitalisation &gt; 50 % dans 7/11 pays européens &mdash; la maladie est plus sévère chez l'adulte susceptible dans les pays à faible endémicité<sup><a href="#ref-3">[3]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Paradoxe épidémiologique</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">L'amélioration de l'hygiène a réduit l'exposition naturelle &rarr; la séroprévalence anti-VHA diminue dans les cohortes jeunes &rarr; <strong>plus d'adultes susceptibles</strong> &rarr; formes cliniques plus sévères lorsque l'infection survient. Ce paradoxe touche toute l'Europe : meilleures conditions de vie = plus de vulnérabilité chez les groupes d'âge avancés qui sont à risque accru de formes graves.<sup><a href="#ref-4">[4,5]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Cas chez le voyageur (GeoSentinel 2008&ndash;2020)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Voyageurs VFR (Visiting Friends and Relatives) : <strong>28 % des cas GeoSentinel</strong> ; 69 % des VFR touchés avaient &lt; 20 ans<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li><strong>98 % des voyageurs atteints n'étaient pas vaccinés</strong><sup><a href="#ref-6">[6]</a></sup></li>
+                        <li><strong>59 % des voyageurs touchés</strong> ont été hospitalisés<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>6 % des cas acquis en Europe occidentale / Amériques &mdash; pas uniquement les destinations « exotiques »<sup><a href="#ref-6">[6]</a></sup></li>
+                    </ul>
                 </section>
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Virus (RNA simple brin, famille Picornaviridae).</p>
-                </section>
+
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Feco-orale (aliments contamines ou eau souillee par des selles). Groupes a risque : voyageurs, HSH (Hommes ayants rapports sexuels avec hommes).</p>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Féco-orale</strong> principalement : eau ou aliments contaminés (crudités, fruits de mer, glaçons)</li>
+                        <li><strong>Contact direct</strong> personne-à-personne : contamination par les selles (y compris contact sexuel oro-anal)</li>
+                        <li><strong>Transmission sexuelle</strong> : facteur majeur chez les HSH (épidémies européennes récurrentes)<sup><a href="#ref-2">[2,10,11]</a></sup></li>
+                        <li>Transmission par le sang : très rare (virémie transitoire)</li>
+                        <li>Contagiosité maximale : <strong>2 semaines avant les symptômes</strong> jusqu'à environ 1 semaine après le début de l'ictère</li>
+                        <li>L'excrétion virale fécale peut persister plus longtemps chez les immunodéprimés et les jeunes enfants (jusqu'à 6 mois)</li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Agent causal</p>
+                        <p class="text-sm text-teal-800"><strong>Virus de l'hépatite A (VHA/HAV)</strong> : virus à ARN simple brin non enveloppé, famille <em>Picornaviridae</em>, genre <em>Hepatovirus</em>. Un seul sérotype (6 génotypes, dont I&ndash;III infectent l'homme ; génotype IA prédominant en Europe). Très résistant dans l'environnement (plusieurs semaines à température ambiante). Inactivation : chauffage &gt; 85 °C pendant 1 minute, chlore, formaldéhyde.</p>
+                    </div>
+
+                    <div class="overflow-x-auto mt-4">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Valeur</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Incubation</strong></td><td>15&ndash;50 jours (moyenne ~28&ndash;30 jours)</td></tr>
+                                <tr><td><strong>Contagiosité</strong></td><td>2 semaines avant &rarr; ~1 semaine après le début de l'ictère</td></tr>
+                                <tr><td><strong>Réservoir</strong></td><td>Humain (pas de réservoir animal significatif)</td></tr>
+                                <tr><td><strong>Chronicité</strong></td><td>Aucune &mdash; l'infection confère une immunité à vie</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">15-50 jours (en moyenne ~30 jours)</p>
-                </section>
+
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-3">
-                        <li>Premiers symptomes : EF, fatigue, malaise, nausees, vomissements, inappetence</li>
-                        <li>Apres quelques jours a 1 sem. : urines foncees, selles claires, ictere, prurit</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase prodromique (5&ndash;7 jours)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Fièvre, fatigue intense, malaise, anorexie</li>
+                        <li>Nausées, vomissements, douleurs abdominales (hypochondre droit)</li>
                     </ul>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Souvent asymptomatique ou subclinique chez les enfants. Chez l'adulte peut aller d'un syndrome grippal a une hepatite fulminante (~1%).</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Recuperation souvent lente et prolongee (plusieurs semaines, voire plusieurs mois). L'infection donne une immunite a vie.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase ictérique (2&ndash;4 semaines)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Urines foncées, selles décolorées, ictère, prurit</li>
+                        <li>Apparaît quelques jours à 1 semaine après les prodromes</li>
+                        <li>Guérison souvent lente (fatigue résiduelle pendant des semaines/mois)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Formes selon l'âge</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Groupe d'âge</th><th>Présentation</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td>Enfants &lt; 6 ans</td><td><strong>70&ndash;80 % asymptomatiques</strong></td><td>Excrètent le virus &mdash; source de contamination méconnue</td></tr>
+                                <tr><td>Adultes</td><td><strong>&gt; 70 % symptomatiques</strong>, ictère fréquent</td><td>59 % des voyageurs hospitalisés<sup><a href="#ref-6">[6]</a></sup></td></tr>
+                                <tr><td>Personnes &gt; 50 ans</td><td>Risque accru de formes sévères et de décès</td><td>OR 1,84 pour mortalité intrahospitalière<sup><a href="#ref-8">[8]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Formes atypiques et complications</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Hépatite cholestatique prolongée</strong> : ictère &gt; 3 mois, prurit intense, PAL très élevées</li>
+                        <li><strong>Hépatite à rechute</strong> (<em>relapse</em>) : 10&ndash;15 % des cas ; récidive des transaminases 4&ndash;15 semaines après amélioration initiale</li>
+                        <li><strong>Hépatite fulminante</strong> : ~0,5&ndash;1 % des cas chez l'adulte (mortalité 40&ndash;70 % sans transplantation)</li>
+                        <li><strong>Pas de chronicité</strong> (contrairement à l'hépatite B/C) ; l'infection confère une immunité à vie</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Examen clinique</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Ictère</strong> sclérotique et cutané</li>
+                        <li><strong>Hépatomégalie</strong> sensible</li>
+                        <li>Plus rarement : splénomégalie, adénopathies cervicales, rash cutané, arthrites</li>
+                    </ul>
                 </section>
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Ictere et hepatomegalie (plus rarement : splenomegalie, adenopathies cervicales, rash, arthrite).</p>
+
+                <!-- FACTEURS DE RISQUE FORME SEVERE -->
+                <section id="facteurs-risque" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Facteurs de risque de forme sévère</h2>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Facteur</th><th>Risque</th><th>Réf.</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Âge &ge; 55 ans</strong></td><td>OR 1,84 pour mortalité intrahospitalière</td><td><sup><a href="#ref-8">[8]</a></sup></td></tr>
+                                <tr><td><strong>Cirrhose alcoolique</strong></td><td>OR 2,53</td><td><sup><a href="#ref-8">[8]</a></sup></td></tr>
+                                <tr><td><strong>Ascite</strong></td><td>OR 2,65</td><td><sup><a href="#ref-8">[8]</a></sup></td></tr>
+                                <tr><td><strong>Syndrome hépatorénal</strong></td><td>OR 9,04</td><td><sup><a href="#ref-8">[8]</a></sup></td></tr>
+                                <tr><td><strong>Insuffisance rénale aiguë surajoutée</strong></td><td>aOR 4,34 pour mortalité</td><td><sup><a href="#ref-9">[9]</a></sup></td></tr>
+                                <tr><td><strong>Sepsis</strong></td><td>aOR 4,66 pour mortalité</td><td><sup><a href="#ref-9">[9]</a></sup></td></tr>
+                                <tr><td><strong>Dénutrition</strong></td><td>OR 5,33</td><td><sup><a href="#ref-9">[9]</a></sup></td></tr>
+                                <tr><td><strong>Insuffisance cardiaque, HTAP, néoplasie</strong></td><td>Facteurs indépendants</td><td><sup><a href="#ref-8">[8]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-teal-800/80 mb-2">Mortalité intrahospitalière globale aux USA (1998&ndash;2020) : <strong>2,7 %</strong><sup><a href="#ref-8">[8]</a></sup></p>
+                    <p class="text-sm text-teal-800/80">Grossesse : pas de surmortalité rapportée dans les cohortes américaines ; pas de transmission verticale significative, mais risque de complications obstétricales (contractions prématurées).</p>
                 </section>
-                <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Importante elevation des transaminases (ALAT &gt; ASAT) et PAL, puis dans un deuxieme temps elevation de la bilirubine. Serologie : la mise en evidence d'IgM contre le virus de l'hepatite A permet de poser le diagnostic d'une infection recente.</p>
+
+                <!-- BIOLOGIE -->
+                <section id="biologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Transaminases</strong> très élevées : ALAT &gt; ASAT (souvent &gt; 10&times; la normale, parfois &gt; 100&times;)</li>
+                        <li>Phosphatases alcalines (PAL) élevées</li>
+                        <li>Bilirubine totale et conjuguée élevées (ictère)</li>
+                        <li>TP/INR : normal dans les formes bénignes ; <strong>INR élevé = signe d'alarme</strong> (insuffisance hépatique)</li>
+                        <li>NFS : leucopénie relative possible ; lymphocytes atypiques</li>
+                    </ul>
+
+                    <div class="callout-danger mt-4">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Signe d'alarme</p>
+                        <p class="text-sm text-teal-800">Un <strong>INR &gt; 1,5</strong> et/ou des signes d'encéphalopathie hépatique doivent faire suspecter une hépatite fulminante et imposent un <strong>transfert urgent</strong> vers un centre de transplantation hépatique.</p>
+                    </div>
                 </section>
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Autres hepatites virales (notamment hepatite E), EBV, CMV, HIV, fievre jaune, HSV, leptospirose, fievre Q.</p>
+
+                <!-- DIAGNOSTIC -->
+                <section id="diagnostic" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Sérologie</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Marqueur</th><th>Signification</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Anti-VHA IgM (+)</strong></td><td>Infection aiguë (positif dès le début des symptômes, persiste 3&ndash;6 mois)</td></tr>
+                                <tr><td><strong>Anti-VHA IgG (+), IgM (&minus;)</strong></td><td>Immunité ancienne (infection passée ou vaccination)</td></tr>
+                                <tr><td>Anti-VHA total (+)</td><td>Infection passée ou vaccination &mdash; ne distingue pas</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-teal-800/80 mb-4"><strong>Le diagnostic repose sur la détection des IgM anti-VHA</strong> chez un patient avec tableau clinique compatible. La PCR VHA (ARN) est rarement nécessaire en clinique ; elle est utile pour le typage en contexte épidémiologique (investigation d'épidémie).</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Diagnostic différentiel</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Hépatite E</strong> &mdash; transmission féco-orale similaire, crucial à exclure (doser les IgM anti-VHE en parallèle)</li>
+                        <li>Hépatite B, hépatite C</li>
+                        <li>Hépatite EBV, CMV, HSV, VIH (primo-infection)</li>
+                        <li>Fièvre jaune (voyageur non vacciné de zone d'endémie)</li>
+                        <li>Leptospirose (forme ictéro-hémorragique)</li>
+                        <li>Fièvre Q</li>
+                        <li>Hépatites médicamenteuses et toxiques</li>
+                        <li>Hépatite auto-immune (présentation aiguë possible)</li>
+                    </ul>
                 </section>
+
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et prevention</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-3">
-                        <li>Traitement symptomatique</li>
-                        <li>Contagiosite durant la periode d'incubation et ~1 semaine apres l'apparition de la jaunisse. Prevention pour l'entourage : vaccination au plus vite, utile jusqu'a 1 mois apres le contact</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Prise en charge de l'hépatite A aiguë</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Traitement symptomatique</strong> : repos, hydratation, alimentation adaptée</li>
+                        <li><strong>Pas d'antiviral spécifique</strong></li>
+                        <li>Éviter les hépatotoxiques : <strong>paracétamol à dose minimale</strong>, alcool proscrit</li>
+                        <li>Pas de corticoïdes (sauf forme auto-immune surajoutée, discutée)</li>
+                        <li>Mesures d'isolement entérique : hygiène des mains renforcée, désinfection des toilettes</li>
                     </ul>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Prevention primaire : vaccination (Havrix&reg; a J0 et 6 mois, Twinrix&reg; = vaccin combine hepatite A et B a J0, 1 mois et 6 mois).</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Critères d'hospitalisation</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Vomissements empêchant l'hydratation orale</li>
+                        <li>INR élevé (&gt; 1,5)</li>
+                        <li>Signes d'insuffisance hépatique : encéphalopathie, coagulopathie</li>
+                        <li>Comorbidités hépatiques préexistantes</li>
+                        <li>Âge avancé (&gt; 50 ans) avec forme symptomatique sévère</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Hépatite A fulminante</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Définition : encéphalopathie hépatique + coagulopathie (INR &ge; 1,5) dans les 8 semaines suivant le début de l'ictère, en l'absence d'hépatopathie préexistante</li>
+                        <li><strong>Transfert en centre de transplantation hépatique en urgence</strong></li>
+                        <li>Score ALFA (Kim JD et al. <em>Hepatology</em> 2019) : modèle pronostique spécifique à l'hépatite A fulminante (c-stat 0,87) &mdash; composantes : âge, INR, bilirubine, ammoniémie, créatinine, hémoglobine<sup><a href="#ref-12">[12]</a></sup></li>
+                        <li>Critères de King's College : moins performants pour l'hépatite A (c-stat 0,56) &rarr; préférer le score ALFA ou MELD<sup><a href="#ref-12">[12]</a></sup></li>
+                    </ul>
                 </section>
 
-                <section id="referer" class="mb-10"><div class="callout-referer"><p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p><p class="text-sm text-teal-800">Cas complexes ou severes necessitant un avis specialise. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p></div></section>
-            </article>
-            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et prevention</a></li>
+                <!-- PREVENTION VACCINALE -->
+                <section id="vaccination" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention vaccinale</h2>
 
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside></div></main>
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
-    <script>const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}});});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}});},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));</script>
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccins disponibles en Suisse</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Vaccin</th><th>Composition</th><th>Schéma</th><th>Protection estimée</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Havrix 1440</strong> (adulte)</td><td>VHA inactivé, 1440 U ELISA</td><td>J0 + rappel 6&ndash;12 mois</td><td>&gt; 95 % après 1 dose ; <strong>30&ndash;40 ans</strong> après 2 doses</td></tr>
+                                <tr><td><strong>Havrix 720</strong> (pédiatrique)</td><td>VHA inactivé, 720 U ELISA</td><td>J0 + rappel 6&ndash;12 mois</td><td>Idem</td></tr>
+                                <tr><td><strong>Twinrix</strong> (adulte)</td><td>Vaccin combiné VHA + VHB</td><td>J0, 1 mois, 6 mois</td><td>Protection VHA + VHB</td></tr>
+                                <tr><td><strong>Twinrix junior</strong></td><td>Vaccin combiné pédiatrique</td><td>J0, 1 mois, 6 mois</td><td>Idem</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Immunogénicité et durée de protection</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Après 1 dose : <strong>&gt; 95 % de séroconversion</strong> dans les 2&ndash;4 semaines<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>Après 2 doses : séroprotection estimée <strong>30&ndash;40 ans, probablement à vie</strong> chez les sujets immunocompétents<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>Modélisation Argentine (Espul et al. 2020) : prédiction de 89 % de séroprotection à 30 ans après 1 dose et 85 % après 2 doses &mdash; la dose de rappel renforce le GMC mais la séroprotection à long terme est similaire<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li>Protection <strong>dès la première dose</strong> (délai ~2&ndash;4 semaines) &mdash; pertinent pour la vaccination pré-voyage de dernière minute et la PEP<sup><a href="#ref-13">[13]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Indications selon le plan de vaccination suisse (OFSP/CFV 2026)</h3>
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-2">L'hépatite A n'est PAS un vaccin de base en Suisse. C'est un vaccin recommandé pour les groupes à risque :</p>
+                        <ol class="text-sm text-teal-800 list-decimal list-inside space-y-1">
+                            <li><strong>Voyageurs</strong> à destination de pays d'endémie intermédiaire/élevée (Asie incl. Turquie, Afrique, Amérique latine, Europe de l'Est)</li>
+                            <li><strong>Enfants VFR</strong> originaires de pays d'endémie qui retournent dans leur pays d'origine</li>
+                            <li><strong>HSH</strong> (hommes ayant des rapports sexuels avec des hommes)</li>
+                            <li><strong>Usagers de drogues par injection (UDI)</strong></li>
+                            <li><strong>Patients avec hépatopathie chronique</strong> (risque de décompensation sévère)</li>
+                            <li><strong>Personnel professionnel</strong> : contact étroit avec usagers de drogues, personnes originaires de pays de haute endémicité, travailleurs des canalisations/stations d'épuration, personnel de laboratoire manipulant le VHA</li>
+                            <li><strong>Prophylaxie post-exposition</strong> (voir section dédiée)</li>
+                        </ol>
+                        <p class="text-xs text-teal-600/70 mt-2">Source : Plan de vaccination suisse 2026 ; Recommandations OFSP 2007<sup><a href="#ref-7">[7,15]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- PROPHYLAXIE POST-EXPOSITION -->
+                <section id="pep" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prophylaxie post-exposition (PEP)</h2>
+
+                    <p class="text-sm text-teal-800/80 mb-4">La PEP est efficace si administrée <strong>dans les 14 jours suivant le contact</strong> (idéalement dans les 7 jours).<sup><a href="#ref-16">[16,17]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Recommandations suisses (OFSP / Infovac)</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Population</th><th>PEP recommandée</th></tr></thead>
+                            <tbody>
+                                <tr><td>Personnes non immunes, 1&ndash;40 ans, en bonne santé</td><td><strong>Vaccin hépatite A seul</strong> (1 dose) &mdash; dans les 7 jours après contact (efficace jusqu'à 14 jours)</td></tr>
+                                <tr><td>Personnes &gt; 40 ans</td><td><strong>Vaccin + immunoglobulines (IG)</strong> &mdash; selon évaluation du risque par le médecin</td></tr>
+                                <tr><td>Immunodéprimés (quel que soit l'âge)</td><td><strong>Immunoglobulines</strong> (réponse vaccinale incertaine)</td></tr>
+                                <tr><td>Nourrissons &lt; 12 mois</td><td><strong>Immunoglobulines seules</strong> (vaccin non autorisé)</td></tr>
+                                <tr><td>Patients avec hépatopathie chronique</td><td><strong>Vaccin + immunoglobulines</strong> (risque de forme fulminante)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-4">Sources : Infovac 2025, ACIP/MMWR 2018<sup><a href="#ref-16">[16,17]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Données clés sur la PEP vaccinale</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Étude randomisée Kazakhstan (Victor JC et al. <em>NEJM</em> 2007, n = 4 524) : vaccin VHA <strong>non inférieur aux IG</strong> pour la PEP chez les 2&ndash;40 ans &mdash; taux d'hépatite A symptomatique : 4,4 % (vaccin) vs 3,3 % (IG), différence non significative<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li><strong>Au-delà de 40 ans</strong> : pas de données randomisées ; l'ACIP recommande d'ajouter les IG (0,1 mL/kg) car immunogénicité potentiellement réduite et risque de forme sévère plus élevé<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li>Délai optimal : <strong>le plus tôt possible</strong>, idéalement dans les 7 jours (OFSP) / 14 jours (ACIP) après exposition</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Immunoglobulines (IG)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Dose : <strong>0,1 mL/kg IM</strong> (dose ACIP 2018 mise à jour)<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li>Protection passive immédiate mais courte (2&ndash;3 mois)</li>
+                        <li>Indications : immunodéprimés, &lt; 12 mois, &gt; 40 ans (en complément du vaccin), hépatopathie chronique</li>
+                        <li>Disponibilité limitée dans certains pays</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Ne pas oublier</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Un cas d'hépatite A dans l'entourage = <strong>vaccination PEP de tous les contacts non immuns dans les 7 jours</strong></li>
+                            <li><strong>Déclaration obligatoire</strong> au médecin cantonal &rarr; investigation de l'entourage par les autorités sanitaires</li>
+                            <li>Mesures d'hygiène : lavage des mains rigoureux, désinfection des surfaces et toilettes</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Hépatite A chez le voyageur VFR</p>
+                            <p class="text-sm text-teal-800">Les enfants VFR sont <strong>le groupe le plus à risque</strong> d'hépatite A au retour de voyage (69 % des VFR dans GeoSentinel avaient &lt; 20 ans). <strong>98 % des voyageurs atteints n'étaient pas vaccinés.</strong> Le médecin de premier recours doit systématiquement proposer la vaccination VHA lors de la consultation pré-voyage, même pour les destinations de faible endémicité (6 % des cas acquis en Europe occidentale / Amériques).<sup><a href="#ref-6">[6]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Méconnaître le risque de forme grave chez l'adulte</p>
+                            <p class="text-sm text-teal-800">L'hépatite A est souvent perçue comme une maladie « bénigne » &mdash; or <strong>59 % des voyageurs touchés sont hospitalisés</strong>.<sup><a href="#ref-6">[6]</a></sup> Le risque de forme fulminante augmente significativement avec l'âge (&gt; 50 ans) et en présence d'une hépatopathie chronique préexistante.<sup><a href="#ref-8">[8,9]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Confondre hépatite A et hépatite E</p>
+                            <p class="text-sm text-teal-800">L'hépatite E est également à transmission féco-orale et peut se présenter de manière identique. Penser à <strong>doser les IgM anti-VHE en parallèle</strong> chez tout voyageur avec hépatite aiguë. L'hépatite E peut chroniciser chez l'immunodéprimé (contrairement à l'hépatite A).</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Oublier la PEP pour l'entourage</p>
+                            <p class="text-sm text-teal-800">Un cas d'hépatite A = <strong>vaccination PEP de tous les contacts non immuns dans les 7 jours</strong>. Ne pas oublier la déclaration obligatoire au médecin cantonal (investigation de l'entourage par les autorités sanitaires).</p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perle</p>
+                            <p class="text-sm text-teal-800">La <strong>première dose de vaccin</strong> confère déjà &gt; 95 % de séroprotection en 2&ndash;4 semaines<sup><a href="#ref-13">[13]</a></sup> &mdash; il n'est jamais « trop tard » pour vacciner avant un départ, même de dernière minute.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Consultation pré-voyage</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Vérifier le statut vaccinal VHA</strong> pour tout voyage en zone d'endémie (Asie, Afrique, Amérique latine, Europe de l'Est)</li>
+                        <li>Proposer systématiquement la vaccination aux <strong>enfants VFR</strong> retournant dans le pays d'origine</li>
+                        <li>Rappeler les mesures d'hygiène alimentaire (eau en bouteille, aliments cuits, éviter les glaçons et crudités)</li>
+                        <li>Vaccination de dernière minute : <strong>une seule dose suffit</strong> &mdash; séroprotection &gt; 95 % en 2&ndash;4 semaines</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Devant un ictère au retour de voyage</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Bilan hépatique complet</strong> : ALAT, ASAT, PAL, GGT, bilirubine totale/conjuguée, TP/INR</li>
+                        <li><strong>Sérologies hépatites</strong> : IgM anti-VHA + IgM anti-VHE (en parallèle) ; AgHBs, anti-HBc si statut VHB inconnu ; anti-VHC</li>
+                        <li><strong>Frottis sanguin / goutte épaisse</strong> si zone d'endémie palustre (exclure une co-infection)</li>
+                        <li>Évaluer les <strong>critères de gravité</strong> : INR, signes d'encéphalopathie, état d'hydratation</li>
+                        <li><strong>Déclaration obligatoire</strong> au médecin cantonal si IgM anti-VHA positives</li>
+                        <li><strong>PEP de l'entourage</strong> dans les 7 jours</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Critères de transfert urgent</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Hépatite fulminante</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>INR &gt; 1,5 avec ictère</li>
+                            <li>Signes d'encéphalopathie hépatique (confusion, astérixis, somnolence)</li>
+                            <li>Hépatopathie chronique préexistante avec décompensation</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-2">&rarr; <strong>Transfert immédiat en centre de transplantation hépatique</strong></p>
+                    </div>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Forme sévère</strong> : INR élevé, vomissements incoercibles, signes d'insuffisance hépatique</li>
+                            <li><strong>Hépatite fulminante</strong> : transfert en urgence vers un centre de transplantation hépatique</li>
+                            <li><strong>Hépatopathie chronique préexistante</strong> : risque de décompensation</li>
+                            <li><strong>Patient immunodéprimé</strong> : excrétion virale prolongée, réponse vaccinale incertaine</li>
+                            <li><strong>Doute diagnostique</strong> : hépatite E concomitante, diagnostic différentiel complexe</li>
+                            <li><strong>Conseil vaccinal complexe</strong> : voyageurs immunodéprimés, grossesse, hépatopathie chronique</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Schmutz C, Mäusezahl D, Jost M. Hepatitis A in Switzerland: An analysis of 29 years of surveillance data and contemporary challenges. <em>Travel Med Infect Dis</em> 2018;25:55–62. <a href="https://doi.org/10.1016/j.tmaid.2018.07.012" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-2">Andani A, Bunge E, Kassianos G, et al. Hepatitis A occurrence and outbreaks in Europe over the past two decades: A systematic review. <em>J Viral Hepat</em> 2023;30:497–511. <a href="https://doi.org/10.1111/jvh.13821" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-3">Andani A, Mellou K, Dewda P, et al. Evolution and Impact of Hepatitis A Epidemiology in Europe — Systematic Literature Review of the Last 20 Years. <em>J Viral Hepat</em> 2025;32:e14030. <a href="https://doi.org/10.1111/jvh.14030" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-4">Gloriani NG, de Paz-Silava SL, Allison RD, et al. The Shifting Epidemiology of Hepatitis A in the World Health Organization Western Pacific Region. <em>Vaccines</em> 2024;12:204. <a href="https://doi.org/10.3390/vaccines12020204" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-5">Manageiro V, Matos R, Palminha P, et al. Tracking epidemiological shifts in hepatitis A in Portugal: a comparison of seroprevalence between two nationwide surveys, 2001 to 2002 and 2015 to 2016. <em>Eurosurveillance</em> 2025;30. <a href="https://doi.org/10.2807/1560-7917.ES.2025.30" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-6">Balogun O, Brown A, Angelo KM, et al. Acute hepatitis A in international travellers: a GeoSentinel analysis, 2008–2020. <em>J Travel Med</em> 2022;29:taac032. <a href="https://doi.org/10.1093/jtm/taac032" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-7">OFSP, SEVHep, CFV. Recommandations pour la prévention de l'hépatite A en Suisse. <em>Bulletin OFSP</em>, Janvier 2007. <a href="https://www.bag.admin.ch/dam/fr/sd-web/FaqFJUUJ4-qW/empfehlungen-hepatitis-a-praevention-ch.pdf" class="ref-link" target="_blank">OFSP</a></li>
+                        <li id="ref-8">Wasuwanich P, So JM, Rajborirug S, Karnsakul W. Hepatitis A hospitalisations in the United States and risk factors for inpatient mortality: A nationwide population study, 1998–2020. <em>J Viral Hepat</em> 2023;31:88–95. <a href="https://doi.org/10.1111/jvh.13901" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-9">Lee D, Fan GH, Karagozian R. The Risk Factors Associated With Poor Prognosis in Hospitalized Patients With Acute Hepatitis A Infection: A Nationwide Analysis. <em>Am J Gastroenterol</em> 2020;115:S542. <a href="https://doi.org/10.14309/01.ajg.0000706840.77584.ed" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-10">Ndumbi P, Freidl GS, Williams CJ, et al. Hepatitis A outbreak disproportionately affecting men who have sex with men (MSM) in the European Union and European Economic Area, June 2016 to May 2017. <em>Eurosurveillance</em> 2018;23(33). <a href="https://doi.org/10.2807/1560-7917.ES.2018.23.33.1700641" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-11">Rosendal E, von Schreeb S, Gomes A, et al. Ongoing outbreak of hepatitis A associated with sexual transmission among men who have sex with men, Portugal, October 2023 to April 2024. <em>Eurosurveillance</em> 2024;29(21). <a href="https://doi.org/10.2807/1560-7917.ES.2024.29.21.2400272" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-12">Kim JD, Cho E, Ahn C, et al. A Model to Predict 1-Month Risk of Transplant or Death in Hepatitis A-Related Acute Liver Failure. <em>Hepatology</em> 2019;70:621–629. <a href="https://doi.org/10.1002/hep.30262" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-13">Herzog C, Van Herck K, Van Damme P. Hepatitis A vaccination and its immunological and epidemiological long-term effects — a review of the evidence. <em>Hum Vaccin Immunother</em> 2020;17:1496–1519. <a href="https://doi.org/10.1080/21645515.2020.1819742" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-14">Espul C, Cuello H, Lo Castro I, et al. Statistical modeling alongside observational data predicts long-term immunogenicity of one dose and two doses of pediatric hepatitis A vaccine in the Mendoza province of Argentina. <em>Vaccine</em> 2020;38:7548–7554. <a href="https://doi.org/10.1016/j.vaccine.2020.09.065" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-15">OFSP / CFV. Plan de vaccination suisse 2026. Office fédéral de la santé publique, Berne. <a href="https://www.bag.admin.ch/fr/plan-de-vaccination-suisse" class="ref-link" target="_blank">OFSP</a></li>
+                        <li id="ref-16">Nelson NP, Link-Gelles R, Hofmeister MG, et al. Update: Recommendations of the Advisory Committee on Immunization Practices for Use of Hepatitis A Vaccine for Postexposure Prophylaxis and for Preexposure Prophylaxis for International Travel. <em>MMWR</em> 2018;67(43):1216–1220. <a href="https://doi.org/10.15585/mmwr.mm6743a5" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-17">Infovac. Vaccins recommandés pour les personnes exposées récemment à une infection. Infovac.ch, 2025. <a href="https://www.infovac.ch/fr/vaccination/selon-risques-complication/exposition-infectieuse-recente" class="ref-link" target="_blank">Infovac</a></li>
+                        <li id="ref-18">Severi E, Tavoschi L, Carrillo-Santisteve P, et al. Hepatitis A notifications in the EU/EEA, 2010–2019: what can we learn from case reporting to the European Surveillance System? <em>Eurosurveillance</em> 2023;28(19). <a href="https://doi.org/10.2807/1560-7917.ES.2023.28.19.2200575" class="ref-link" target="_blank">DOI</a></li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#facteurs-risque" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Facteurs de risque</a></li>
+                <li><a href="#biologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#vaccination" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention vaccinale</a></li>
+                <li><a href="#pep" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">PEP</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+
+    <script>
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+    </script>
 </body>
 </html>

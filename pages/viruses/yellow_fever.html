@@ -3,98 +3,543 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fievre Jaune — Tropical Notebook</title>
-    <meta name="description" content="Fievre jaune : clinique, diagnostic, vaccination — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="fievre jaune, yellow fever, flavivirus, vaccination, medecine tropicale">
+    <title>Fièvre jaune — Tropical Notebook</title>
+    <meta name="description" content="Fièvre jaune : épidémiologie, clinique triphasique, diagnostic, vaccination (Stamaril, YEL-AVD, doses fractionnées) et prise en charge pour le médecin de premier recours.">
+    <meta name="keywords" content="fièvre jaune, yellow fever, flavivirus, Stamaril, vaccination, YEL-AVD, YEL-AND, médecine tropicale, Aedes aegypti">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Fievre Jaune</span></nav></div></div>
-    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16"><div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12"><article class="min-w-0">
-                <header class="mb-10"><span class="section-label text-teal-500">Virus</span><h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Fievre Jaune</h1><p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Flavivirus a haute mortalite : clinique, diagnostic, vaccination et prevention.</p><div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div></header>
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Fièvre jaune</span></nav></div></div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+            <article class="min-w-0">
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Virus</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Fièvre jaune</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Yellow fever &mdash; <em>Flavivirus</em>, famille des <em>Flaviviridae</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Arbovirose à haute mortalité transmise par <em>Aedes aegypti</em>, endémique en Afrique et en Amérique du Sud. La vaccination (Stamaril) reste la pierre angulaire de la prévention. Résurgence alarmante en 2025 dans les Amériques. Aucun traitement antiviral spécifique approuvé.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                </header>
+
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Charge mondiale</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>L'OMS estime <strong>67 000&ndash;173 000 infections sévères</strong> et <strong>31 000&ndash;82 000 décès</strong> par an en Afrique et dans les Amériques<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Incidence environ <strong>10x plus élevée en Afrique</strong> qu'en Amérique du Sud<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li><strong>45 pays endémiques</strong> : 34 en Afrique, 11 en Amérique centrale/du Sud<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Aucun cas jamais rapporté en Asie malgré la présence d'<em>Aedes aegypti</em> &mdash; raisons non entièrement comprises (immunité croisée dengue ? facteurs génétiques du vecteur ?)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Situation 2023&ndash;2025</h3>
+
+                    <p class="text-sm text-teal-800/80 font-semibold mb-2">Amériques (OMS/OPS)</p>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>2023 : 41 cas confirmés, 23 décès (CFR ~56 %) dans 4 pays<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>2024 : 61 cas confirmés, 30 décès (CFR ~49 %) dans 5 pays<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>2025 (au 26 avril) : <strong>212 cas confirmés, 85 décès (CFR 40 %)</strong> dans 5 pays &mdash; triplement par rapport à 2024 ; cas détectés hors bassin amazonien (São Paulo, Tolima/Colombie)<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>Mai 2025 (OPS) : augmentation <strong>&times;8 des cas</strong> par rapport à la même période en 2024 ; risque public élevé en raison de cas proches de zones urbaines densément peuplées<sup><a href="#ref-4">[4]</a></sup></li>
+                        <li>Octobre 2025 (OPS/COP30) : 294 cas confirmés, 121 décès dans 6 pays (ajout de la Guyane) ; 1 cas importé au Costa Rica<sup><a href="#ref-5">[5]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Alerte 2025</p>
+                        <p class="text-sm text-teal-800">Quasiment tous les cas 2024&ndash;2025 dans les Amériques sont survenus chez des <strong>individus non vaccinés</strong>. La couverture vaccinale post-COVID est insuffisante : 10/12 pays endémiques sous les seuils cibles.<sup><a href="#ref-4">[4]</a></sup></p>
+                    </div>
+
+                    <p class="text-sm text-teal-800/80 font-semibold mb-2 mt-4">Afrique (OMS AFRO)</p>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Depuis début 2023 : 13 pays de la région AFRO ont rapporté des cas probables/confirmés (RDC, Nigeria, Cameroun, Burkina Faso, Côte d'Ivoire, etc.)<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>CFR préliminaire 2023 en Afrique : ~11 %<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>Stratégie EYE (<em>Eliminate Yellow Fever Epidemics</em>) de l'OMS : campagnes de vaccination de masse en cours<sup><a href="#ref-7">[7]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Maladie à <strong>déclaration obligatoire</strong> (OFSP/BAG) &mdash; délai 1 semaine<sup><a href="#ref-8">[8]</a></sup></li>
+                        <li>Cas importés <strong>extrêmement rares</strong> : un seul cas diagnostiqué en Suisse ces dernières années chez un voyageur de retour<sup><a href="#ref-8">[8]</a></sup></li>
+                        <li>Aucun risque de transmission autochtone (pas d'<em>Aedes aegypti</em> en Suisse)</li>
+                        <li>Vaccination disponible uniquement dans les <strong>centres de vaccination agréés</strong> (liste sur healthytravel.ch) ou chez un médecin accrédité</li>
+                        <li>Capacité diagnostique européenne pour la fièvre jaune : <strong>besoin de renforcement</strong> selon une évaluation externe de 36 laboratoires<sup><a href="#ref-35">[35]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- REPARTITION GEOGRAPHIQUE -->
                 <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Incidence environ 10x plus elevee en Afrique qu'en Amerique.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+
                     <h3 class="font-semibold text-teal-800 mb-2">Afrique</h3>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/yf_africa_map.jpg" alt="Distribution geographique de la Fievre Jaune en Afrique" /></figure>
-                    <h3 class="font-semibold text-teal-800 mb-2">Ameriques</h3>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/yf_america_map.jpg" alt="Distribution geographique de la Fievre Jaune aux Ameriques" /><figcaption class="text-xs text-teal-600/50 mt-2">Cartes des <a href="https://www.cdc.gov/yellow-fever/" target="_blank" class="ref-link">Centers for Disease Control and Prevention</a></figcaption></figure>
+                    <figure class="my-4">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/yf_africa_map.jpg" alt="Distribution géographique de la fièvre jaune en Afrique" />
+                    </figure>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6">Amériques</h3>
+                    <figure class="my-4">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/yf_america_map.jpg" alt="Distribution géographique de la fièvre jaune dans les Amériques" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Cartes des zones à risque. <a href="https://www.cdc.gov/yellow-fever/" target="_blank" class="ref-link">Centers for Disease Control and Prevention, Yellow Book 2026</a><sup><a href="#ref-2">[2]</a></sup></figcaption>
+                    </figure>
                 </section>
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Virus de la famille des Flaviviridae (comme dengue, zika, encephalite japonaise, encephalite a tiques et West Nile).</p>
-                </section>
+
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><strong>Vectorielle :</strong> Moustiques piquant la journee (principalement le <em>Aedes aegypti</em> mais aussi <em>Aedes albopictus</em>, le moustique tigre).</p>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Agent causal</strong> : virus de la fièvre jaune, Flavivirus à ARN, famille des <em>Flaviviridae</em> (apparenté à dengue, zika, encéphalite japonaise, West Nile, encéphalite à tiques)</li>
+                        <li><strong>Vecteur principal</strong> : <em>Aedes aegypti</em> (cycle urbain) ; <em>Haemagogus</em> et <em>Sabethes</em> (cycle sylvatique, Amériques) ; <em>Aedes africanus</em> (cycle sylvatique, Afrique)</li>
+                        <li>Piqûre <strong>diurne</strong> (principalement en fin de journée)</li>
+                        <li><strong>Trois cycles épidémiologiques</strong> : sylvatique (primates non humains &harr; moustiques sylvatiques), intermédiaire/savane (humains &harr; moustiques semi-domestiques), urbain (humain &harr; <em>Ae. aegypti</em>)</li>
+                        <li><strong>Incubation</strong> : 3&ndash;6 jours (maximum 10 jours)<sup><a href="#ref-9">[9]</a></sup></li>
+                    </ul>
                 </section>
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">3-6 jours</p>
-                </section>
+
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Souvent de courte duree : fievre elevee d'apparition subite, cephalees, douleurs des membres, frissons, nausees, vomissements, malaise. Apres quelques jours, ictere progressif.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>Forme severe :</strong> 2eme phase avec nouvel EF, douleurs abdominales, vomissements, ictere.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>Phase toxique :</strong> evolution hemorragique &rArr; epistaxis, saignements du tractus gastro-intestinal, insuffisances d'organe (renal, hepatique), troubles neurologiques (agitation, convulsions, delire, coma), choc.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><strong>Pronostic :</strong> mortalite de 50-60%.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <p class="text-sm text-teal-800/80 mb-4">Évolution classique en <strong>trois phases</strong>. La majorité des infections sont paucisymptomatiques ou asymptomatiques. Parmi les patients symptomatiques, 15&ndash;25 % évoluent vers la phase toxique.<sup><a href="#ref-9">[9]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase 1 &mdash; Infection (J1&ndash;J3)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Fièvre élevée d'apparition subite, frissons, céphalées, myalgies (surtout dorso-lombaires)</li>
+                        <li>Nausées, vomissements</li>
+                        <li><strong>Signe de Faget</strong> : bradycardie relative malgré la fièvre (dissociation pouls-température) &mdash; très évocateur</li>
+                        <li>La majorité des patients guérissent à ce stade</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase 2 &mdash; Rémission (J3&ndash;J4)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Amélioration transitoire de quelques heures à 48h</li>
+                        <li>Piège diagnostique : le patient peut être renvoyé à domicile</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase 3 &mdash; Intoxication (J4&ndash;J7+)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Ictère</strong> (d'où le nom &laquo; fièvre jaune &raquo;)</li>
+                        <li>Insuffisance hépatique : ASAT &gt; ALAT (atteinte médio-zonale typique = corps de Councilman), PAL discrètement élevée<sup><a href="#ref-10">[10]</a></sup></li>
+                        <li><strong>Coagulopathie</strong> : déficit de synthèse des facteurs vitamine K-dépendants + coagulopathie consomptive (D-dimères élevés survenant <strong>indépendamment</strong> de la destruction hépatocytaire)<sup><a href="#ref-36">[36]</a></sup></li>
+                        <li><strong>Diathèse hémorragique</strong> : hématémèse (&laquo; vomito negro &raquo;), méléna, épistaxis, saignements gingivaux, ecchymoses</li>
+                        <li>Insuffisance rénale aiguë avec protéinurie importante</li>
+                        <li>Troubles neurologiques : agitation, convulsions, délire, coma</li>
+                        <li>Choc circulatoire</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Mortalité de la phase toxique : 20&ndash;50 %</p>
+                        <p class="text-sm text-teal-800">Jusqu'à 50&ndash;60 % dans certaines séries. L'évolution vers la défaillance multiorganique est rapide une fois la phase toxique installée.<sup><a href="#ref-9">[9,10]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Particularité histopathologique</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Nécrose hépatocytaire <strong>médio-zonale</strong> (zone 2 du lobule) &mdash; très évocatrice de fièvre jaune (contrairement aux hépatites virales qui touchent la zone périportale)<sup><a href="#ref-10">[10]</a></sup></li>
+                        <li><strong>Corps de Councilman</strong> : corps apoptotiques éosinophiles (pathognomoniques mais non spécifiques)</li>
+                        <li>Détection virale immunohistochimique dans le foie, les reins, la rate, le coeur et les poumons<sup><a href="#ref-37">[37]</a></sup></li>
+                    </ul>
                 </section>
+
+                <!-- BIOLOGIE -->
                 <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Leucopenie, IRA avec importante proteinurie, perturbation des tests hepatiques (ASAT &gt; ALAT), PAL discretement elevee, TP diminue (coagulopathie sur defaut de synthese des facteurs vit. K dependant).</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Anomalie typique</th></tr></thead>
+                            <tbody>
+                                <tr><td>Formule sanguine</td><td>Leucopénie (parfois thrombopénie)</td></tr>
+                                <tr><td>ASAT / ALAT</td><td>Très élevées, <strong>ASAT &gt; ALAT</strong> (atteinte hépatique + musculaire)</td></tr>
+                                <tr><td>Phosphatases alcalines</td><td>Discrètement élevées</td></tr>
+                                <tr><td>Bilirubine</td><td>Élevée (ictère)</td></tr>
+                                <tr><td>TP / INR</td><td>TP diminué, INR augmenté (coagulopathie)</td></tr>
+                                <tr><td>D-dimères</td><td>Élevés (coagulopathie consomptive)<sup><a href="#ref-36">[36]</a></sup></td></tr>
+                                <tr><td>Créatinine / urée</td><td>Élevées (IRA)</td></tr>
+                                <tr><td>Protéinurie</td><td>Importante</td></tr>
+                                <tr><td>Lactate</td><td>Élevé si choc</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
+
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Serologie. Les possibles reactions croisees avec d'autres Flavivirus peuvent rendre l'interpretation difficile. Un test PCR est disponible au <a href="https://www.hug.ch/laboratoire-virologie/centre-national-reference-pour-infections-virales" target="_blank" class="ref-link">Centre national de reference pour les infections virales emergentes (CRIVE)</a> des HUG.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase aiguë (J1&ndash;J5 post-symptômes)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>RT-PCR</strong> : détection du génome viral dans le sérum &mdash; test de choix en phase virémique (J1&ndash;J5). Après J5, la virémie chute et la PCR devient moins sensible<sup><a href="#ref-11">[11]</a></sup></li>
+                        <li><strong>Isolement viral</strong> : possible mais réservé aux laboratoires de référence (BSL-3)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase tardive (à partir de J5&ndash;J7)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Sérologie IgM (ELISA)</strong> : positive à partir de J5&ndash;J7 ; attention aux <strong>réactions croisées</strong> avec d'autres Flavivirus (dengue, zika, West Nile, encéphalite japonaise, encéphalite à tiques) et avec la vaccination antiflavivirus antérieure<sup><a href="#ref-12">[12,13]</a></sup></li>
+                        <li><strong>Sérologie IgG</strong> : séroconversion ou augmentation &ge; 4&times; du titre en sérum pairé (aigu + convalescent à 14&ndash;21 jours d'intervalle)</li>
+                        <li><strong>PRNT</strong> (Plaque Reduction Neutralization Test) : test de confirmation le plus spécifique, mais réactivité croisée possible si co-infections/vaccinations multiples contre des Flavivirus<sup><a href="#ref-12">[12]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Laboratoire de référence en Suisse</h3>
+                    <p class="text-sm text-teal-800/80 mb-4"><strong>CRIVE</strong> (Centre national de référence pour les infections virales émergentes), <a href="https://www.hug.ch/laboratoire-virologie/centre-national-reference-pour-infections-virales" target="_blank" class="ref-link">HUG Genève</a> : RT-PCR et sérologie de confirmation disponibles<sup><a href="#ref-14">[14]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Algorithme diagnostique pratique</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li>Suspicion clinique (fièvre + ictère + voyage en zone endémique) &rarr; <strong>bilan hépatique + coagulation + formule sanguine + fonction rénale</strong></li>
+                        <li>J1&ndash;J5 : envoyer <strong>sérum pour RT-PCR</strong> au CRIVE</li>
+                        <li>À partir de J5 : <strong>sérologie IgM/IgG</strong> (paire) &mdash; attention réactivité croisée</li>
+                        <li>Confirmation : <strong>PRNT</strong> avec panel de Flavivirus</li>
+                        <li><strong>Déclaration obligatoire</strong> dès que cas confirmé ou suspect</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Diagnostic différentiel</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Diagnostic</th><th>Éléments distinctifs</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Paludisme</strong></td><td>Frottis/goutte épaisse + TDR ; pas d'ictère précoce typique ; coinfection possible</td></tr>
+                                <tr><td><strong>Dengue sévère</strong></td><td>Hémoconcentration, thrombopénie profonde, fuite plasmatique ; sérologie croisée possible</td></tr>
+                                <tr><td><strong>Hépatites virales (A, B, E)</strong></td><td>ALAT &gt; ASAT ; pas de diathèse hémorragique précoce</td></tr>
+                                <tr><td><strong>Leptospirose</strong></td><td>Ictère + IRA + myalgies ; suffusion conjonctivale ; sérologie/PCR spécifique</td></tr>
+                                <tr><td><strong>Fièvres hémorragiques virales</strong> (Ebola, Marburg, Lassa)</td><td>Contexte épidémiologique ; mesures d'isolement d'emblée ; PCR spécifique</td></tr>
+                                <tr><td><strong>Fièvre typhoïde</strong></td><td>Fièvre en plateau, tuphos, splénomégalie, leucopénie ; hémocultures</td></tr>
+                                <tr><td><strong>Rickettsiose</strong></td><td>Escarre d'inoculation ; rash ; sérologie</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Point clé</p>
+                        <p class="text-sm text-teal-800">La fièvre jaune doit être évoquée chez <strong>tout voyageur fébrile avec ictère</strong> de retour d'une zone endémique, vacciné ou non (échecs vaccinaux décrits, rares).<sup><a href="#ref-40">[40]</a></sup></p>
+                    </div>
                 </section>
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Dengue, autres fievres hemorragiques, malaria, hepatites virales, enterique, fievre Q.</p>
-                </section>
+
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et prevention</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Aucun traitement specifique n'est actuellement disponible, le traitement repose sur une prise en charge de support.</p>
-                    <h3 class="font-semibold text-teal-800 mb-2">Vaccination</h3>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">(se fait seulement dans centres de vaccination de reference ou chez medecin accredite). En raison d'un risque (tres rare) d'effets secondaires graves, en particulier chez les nourrissons, les personnes de &gt;65 ans et les personnes immunosupprimees, le risque reel d'exposition doit toujours etre mis en balance avec le risque d'effets secondaires avant de decider d'une vaccination.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><strong>Duree de protection de la vaccination :</strong> a vie avec 1 dose unique chez personne immunocompetente. En cas de voyage a haut risque (sejour prolonge en zone a haute endemicite, en zone d'epidemie) une deuxieme dose est recommandee si la premiere dose date de plus de 10 ans.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Pas de traitement antiviral spécifique approuvé</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Prise en charge <strong>de support</strong> : réhydratation, correction des troubles électrolytiques, transfusion si nécessaire, dialyse en cas d'IRA, support en soins intensifs</li>
+                        <li><strong>Cristalloïdes</strong> plutôt que colloïdes pour la réanimation liquidienne IV<sup><a href="#ref-38">[38]</a></sup></li>
+                        <li>Guidage de la réanimation par le <strong>temps de recoloration capillaire</strong> et le <strong>lactate</strong><sup><a href="#ref-38">[38]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Médicaments à éviter</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>AINS</strong> : l'OMS (2025) recommande formellement contre l'usage des AINS dans toute arbovirose aiguë &mdash; risque d'aggravation hémorragique<sup><a href="#ref-38">[38]</a></sup></li>
+                            <li><strong>Aspirine</strong> : même contre-indication (risque hémorragique accru)</li>
+                            <li><strong>Paracétamol à doses élevées</strong> : hépatotoxicité sur foie déjà lésé. L'OMS suggère néanmoins le paracétamol pour la douleur et la fièvre dans les formes non sévères<sup><a href="#ref-38">[38]</a></sup></li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Consensus colombien &mdash; fièvre jaune sévère (2025)</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">Premier consensus formel sur la prise en charge des patients critiques : monitoring hépatique serré, correction de la coagulopathie, support rénal, prise en charge du choc (Forero-Delgadillo et al. <em>Lancet Reg Health Am</em> 2025).<sup><a href="#ref-39">[39]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Piste thérapeutique émergente : sofosbuvir</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Inhibiteur de la polymérase NS5B, approuvé pour l'hépatite C ; activité in vitro et in vivo contre le virus de la fièvre jaune<sup><a href="#ref-15">[15]</a></sup></li>
+                        <li>Cohorte Brésil 2018 (n = 21) : diminution progressive de la charge virale sous sofosbuvir 400 mg/j ; nécessité d'essais randomisés<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li>Cas rapporté 2025 : utilisation comme prophylaxie post-exposition après administration inadvertante du vaccin chez un patient à risque de YEL-AVD &mdash; évolution favorable<sup><a href="#ref-17">[17]</a></sup></li>
+                        <li><strong>Statut</strong> : hors AMM, pas d'essai randomisé achevé ; à considérer dans un contexte compassionnel</li>
+                    </ul>
                 </section>
 
-                <section id="referer" class="mb-10"><div class="callout-referer"><p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p><p class="text-sm text-teal-800">Cas complexes ou severes necessitant un avis specialise. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p></div></section>
-            </article>
-            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et prevention</a></li>
+                <!-- PREVENTION / VACCINATION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention &mdash; Vaccination</h2>
 
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside></div></main>
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
-    <script>const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}});});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}});},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));</script>
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccin Stamaril</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Stamaril</strong> (Sanofi Pasteur) : vaccin vivant atténué, souche <strong>17D-204</strong>, cultivé sur oeufs de poule embryonnés SPF</li>
+                        <li>Voie d'administration : <strong>sous-cutanée (SC)</strong></li>
+                        <li>Dose : 0,5 mL (&ge; 1000 UI)</li>
+                        <li>Délai de validité : le certificat international est valide <strong>10 jours après</strong> la vaccination</li>
+                        <li>Le vaccin 17D est considéré comme l'un des vaccins vivants les plus efficaces jamais développés (introduction en 1937)<sup><a href="#ref-40">[40]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Schéma vaccinal</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Situation</th><th>Schéma</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Primovaccination</strong></td><td>1 dose unique &rarr; protection à vie (OMS, depuis 2013)</td></tr>
+                                <tr><td><strong>RSI (Règlement sanitaire international)</strong></td><td>Certificat valide <strong>à vie</strong> depuis le 11 juillet 2016 (amendement annexe 7 du RSI)<sup><a href="#ref-18">[18]</a></sup></td></tr>
+                                <tr><td><strong>Rappel (position suisse ECTM/SSTTM)</strong></td><td>Un rappel est recommandé après <strong>10 ans</strong> si voyage à haut risque (séjour prolongé en zone de haute endémicité ou d'épidémie)<sup><a href="#ref-30">[30]</a></sup></td></tr>
+                                <tr><td><strong>Rappel CDC/ACIP (USA)</strong></td><td>Rappel considéré pour : voyageurs en zone d'épidémie, femmes enceintes au moment de la 1<sup>re</sup> dose, PVVIH, greffe de cellules souches<sup><a href="#ref-19">[19]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Débat sur la durée de protection</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Arguments pour une protection à vie</strong> : anticorps neutralisants détectables chez &gt;80 % des vaccinés après 20&ndash;35 ans ; mémoire immunitaire cellulaire T persistante<sup><a href="#ref-20">[20,21]</a></sup></li>
+                        <li><strong>Arguments pour un rappel</strong> : déclin d'anticorps chez certains sous-groupes (enfants vaccinés &lt;2 ans, PVVIH, femmes enceintes)<sup><a href="#ref-22">[22]</a></sup> ; bénéfice immunologique de la revaccination démontré (Ferrara et al. <em>J Travel Med</em> 2025)<sup><a href="#ref-23">[23]</a></sup></li>
+                        <li><strong>Échecs vaccinaux</strong> : rares mais documentés sur 8 décennies, surtout chez des patients immunodéprimés ou vaccinés dans la petite enfance<sup><a href="#ref-40">[40]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Position pragmatique suisse (ECTM/SSTTM)</p>
+                        <p class="text-sm text-teal-800">Rappel recommandé après 10 ans en cas de <strong>voyage à haut risque</strong> &mdash; approche plus prudente que l'OMS, justifiée par l'évidence d'un déclin chez certains sous-groupes et par le profil non-immun des voyageurs suisses.<sup><a href="#ref-30">[30]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Contre-indications absolues</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Contre-indication</th><th>Détail</th></tr></thead>
+                            <tbody>
+                                <tr><td>Âge &lt; 6 mois</td><td>Risque accru d'encéphalite post-vaccinale</td></tr>
+                                <tr><td>Allergie sévère aux oeufs</td><td>Anaphylaxie confirmée aux protéines d'oeuf</td></tr>
+                                <tr><td>Allergie au vaccin ou composant</td><td>Réaction anaphylactique antérieure au Stamaril</td></tr>
+                                <tr><td>Immunodéficience sévère</td><td>VIH avec CD4 &lt; 200/mm<sup>3</sup> ou &lt; 15 % (enfant &lt; 6 ans) ; immunosuppresseurs ; chimiothérapie ; greffe d'organe<sup><a href="#ref-24">[24]</a></sup></td></tr>
+                                <tr><td><strong>Pathologie du thymus</strong></td><td>Thymome, thymectomie (risque majeur de YEL-AVD)<sup><a href="#ref-24">[24]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Précautions (vaccination après évaluation bénéfice/risque)</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Précaution</th><th>Conduite</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Âge &ge; 60 ans (primovaccination)</strong></td><td>Risque accru de YEL-AVD et YEL-AND ; vacciner uniquement si risque réel d'exposition significatif<sup><a href="#ref-24">[24,25]</a></sup></td></tr>
+                                <tr><td>Âge 6&ndash;8 mois</td><td>Évaluation au cas par cas</td></tr>
+                                <tr><td><strong>VIH asymptomatique, CD4 200&ndash;499/mm<sup>3</sup></strong></td><td>Séroprotection réduite (~61 %) ; rappel recommandé ; vérifier titres<sup><a href="#ref-26">[26]</a></sup></td></tr>
+                                <tr><td>Grossesse</td><td>Risque théorique pour le foetus ; reporter si possible ; si voyage inévitable en zone d'épidémie : vaccination possible</td></tr>
+                                <tr><td>Allaitement</td><td>Cas rapportés de transmission vaccinale au nourrisson via le lait maternel &rarr; prudence si nourrisson &lt; 6 mois</td></tr>
+                                <tr><td>Immunosuppression temporaire</td><td>Reporter la vaccination d'au moins <strong>4 semaines</strong> après arrêt des corticoïdes systémiques (&ge; 14 jours de traitement) ou de l'immunosuppresseur</td></tr>
+                                <tr><td>Allergie légère aux oeufs</td><td>Vaccination possible en milieu hospitalier avec surveillance</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Interactions avec d'autres vaccins vivants</h3>
+                    <p class="text-sm text-teal-800/80 mb-6">Si non administrés simultanément, respecter un intervalle minimum de <strong>4 semaines</strong> entre deux vaccins vivants (ROR, varicelle, Qdenga, etc.).</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Effets indésirables graves &mdash; YEL-AND et YEL-AVD</h3>
+
+                    <p class="text-sm text-teal-800/80 font-semibold mb-2">YEL-AND (Yellow Fever Vaccine-Associated Neurotropic Disease)</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Incidence : <strong>0,25&ndash;0,8 pour 100 000 doses</strong><sup><a href="#ref-24">[24,27]</a></sup></li>
+                        <li>Délai : 3&ndash;28 jours post-vaccination</li>
+                        <li>Présentations : méningo-encéphalite, syndrome de Guillain-Barré, ADEM, paralysie de nerfs crâniens</li>
+                        <li>Série française (Le Hir et al. 2024) : virémie vaccinale prolongée et réponse auto-immune chez certains patients ; majorité avec évolution favorable<sup><a href="#ref-28">[28]</a></sup></li>
+                        <li>Mortalité : &lt; 5 % ; pronostic généralement favorable</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 font-semibold mb-2">YEL-AVD (Yellow Fever Vaccine-Associated Viscerotropic Disease)</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Incidence globale : <strong>0,3&ndash;0,4 pour 100 000 doses</strong><sup><a href="#ref-24">[24]</a></sup></li>
+                        <li>Chez les &ge; 60 ans : <strong>1,0&ndash;1,8 pour 100 000 doses</strong> ; chez les &ge; 70 ans : <strong>3,2 pour 100 000 doses</strong><sup><a href="#ref-24">[24,25]</a></sup></li>
+                        <li>Délai : 2&ndash;5 jours post-vaccination</li>
+                        <li>Tableau clinique : maladie multisystémique <strong>mimant la fièvre jaune sauvage</strong> &mdash; fièvre, ictère, insuffisance hépatique, coagulopathie, défaillance multiorganique</li>
+                        <li><strong>Mortalité : ~43&ndash;65 %</strong><sup><a href="#ref-24">[24]</a></sup></li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Facteur de risque de YEL-AVD</th><th>Détail</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Âge &ge; 60 ans</strong></td><td>Primovaccination ; risque multiplié par 3&ndash;10 vs adultes jeunes<sup><a href="#ref-42">[42]</a></sup></td></tr>
+                                <tr><td><strong>Pathologie du thymus</strong></td><td>Thymome ou thymectomie (17 % des premiers cas rapportés)<sup><a href="#ref-24">[24]</a></sup></td></tr>
+                                <tr><td>Immunodéficience non reconnue</td><td>Surtout primovaccination</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Message clé pour le médecin de premier recours</p>
+                        <p class="text-sm text-teal-800">Avant toute <strong>primovaccination fièvre jaune</strong> chez un patient <strong>&ge; 60 ans</strong> ou avec <strong>antécédent thymique</strong>, évaluer soigneusement le rapport bénéfice/risque. Si le risque d'exposition est faible (transit aéroportuaire, séjour urbain court dans un pays avec exigence réglementaire mais faible risque réel), préférer un <strong>certificat d'exemption médicale</strong> plutôt que la vaccination.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Sécurité vaccinale chez les immunodéprimés</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">Méta-analyse systématique (Wigg de Araujo Lagos et al. <em>J Travel Med</em> 2023) : RR d'effets indésirables chez les immunodéprimés vs non-immunodéprimés = <strong>1,00 (IC 95 % 0,78&ndash;1,29)</strong>. Pas de surrisque clairement démontré, mais données limitées pour les immunodéficiences sévères.<sup><a href="#ref-41">[41]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Doses fractionnées</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>En cas de pénurie vaccinale lors d'épidémies, l'OMS recommande l'utilisation de <strong>doses fractionnées (1/5 de la dose standard)</strong> depuis 2016<sup><a href="#ref-29">[29]</a></sup></li>
+                        <li>Séroconversion après dose fractionnée : <strong>&gt; 85 %</strong> à 28 jours ; protection d'au moins 12 mois démontrée<sup><a href="#ref-29">[29,31]</a></sup></li>
+                        <li>Immunogénicité comparable à la dose standard à court terme ; données de durée à long terme encore insuffisantes<sup><a href="#ref-45">[45]</a></sup></li>
+                        <li>Le certificat RSI délivré après dose fractionnée est valide <strong>1 an</strong> (et non à vie)</li>
+                        <li>Utilisé avec succès lors des épidémies de Kinshasa (RDC) 2016, São Paulo (Brésil) 2018</li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Fièvre jaune méconnue chez le voyageur fébrile</p>
+                            <p class="text-sm text-teal-800">Maladie rare chez le voyageur vacciné mais pas impossible (échecs vaccinaux décrits).<sup><a href="#ref-40">[40]</a></sup> Doit être évoquée devant toute <strong>fièvre + ictère</strong> au retour d'une zone endémique. Le diagnostic différentiel avec la dengue sévère et les hépatites virales est critique.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Réactions croisées sérologiques avec d'autres Flavivirus</p>
+                            <p class="text-sm text-teal-800">Un patient précédemment vacciné contre la fièvre jaune, l'encéphalite japonaise, l'encéphalite à tiques, ou ayant eu une dengue, peut présenter des IgM/IgG croisées rendant le diagnostic sérologique difficile. <strong>Solution</strong> : PRNT avec panel de Flavivirus ; RT-PCR en phase aiguë.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Primovaccination chez le sujet âgé (&ge; 60 ans)</p>
+                            <p class="text-sm text-teal-800">Risque de YEL-AVD multiplié par 3&ndash;10 par rapport aux adultes jeunes. Le MG doit poser la question du thymus (thymome, thymectomie) avant toute vaccination. Si doute ou patient immunofragile : adresser à un centre de médecine des voyages.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Certificat à vie ≠ immunité à vie</p>
+                            <p class="text-sm text-teal-800">Le RSI accepte le certificat à vie, mais cela ne signifie pas que l'immunité est éternelle chez tous les patients. PVVIH, enfants vaccinés &lt; 2 ans, femmes enceintes lors de la vaccination : immunité potentiellement insuffisante &rarr; vérifier titres et/ou revacciner.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">AINS formellement contre-indiqués</p>
+                            <p class="text-sm text-teal-800">L'OMS recommande formellement contre l'usage des AINS dans toute arbovirose aiguë, quel que soit le degré de sévérité.<sup><a href="#ref-38">[38]</a></sup> Risque d'aggravation hémorragique.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Perles</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>La <strong>bradycardie relative</strong> (signe de Faget) chez un voyageur fébrile et ictérique est très évocatrice de fièvre jaune</li>
+                        <li>ASAT &gt; ALAT dans le contexte d'une hépatite fébrile post-voyage : penser fièvre jaune (nécrose médio-zonale + rhabdomyolyse)</li>
+                        <li>La coagulopathie de la fièvre jaune sévère est en partie <strong>consomptive</strong> (D-dimères élevés), pas uniquement un déficit de synthèse hépatique<sup><a href="#ref-36">[36]</a></sup></li>
+                        <li>Sofosbuvir 400 mg/j = piste thérapeutique émergente en cas de YEL-AVD ou de fièvre jaune sévère (utilisation compassionnelle, hors AMM)<sup><a href="#ref-16">[16,17]</a></sup></li>
+                        <li>En 2025, quasiment tous les cas rapportés aux Amériques sont survenus chez des <strong>non-vaccinés</strong> &mdash; argument fort pour la vaccination pré-voyage<sup><a href="#ref-4">[4]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Pré-voyage (conseil vaccinal)</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li>Vérifier si la destination nécessite la vaccination (exigence RSI et/ou risque réel d'exposition)</li>
+                        <li>Vérifier le statut vaccinal antérieur et la date de la dernière dose</li>
+                        <li>Si <strong>primovaccination &ge; 60 ans</strong> ou <strong>pathologie du thymus</strong> : évaluer le rapport bénéfice/risque ; envisager un certificat d'exemption si risque d'exposition faible</li>
+                        <li>Si <strong>immunodépression</strong> (VIH, immunosuppresseurs, greffe) : adresser à un centre de médecine des voyages</li>
+                        <li>Rappeler que le certificat est valide 10 jours après la vaccination &mdash; anticiper</li>
+                        <li>Si rappel recommandé (position suisse ECTM/SSTTM) : après 10 ans pour voyage à haut risque</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Post-voyage (suspicion clinique)</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li>Suspicion clinique : <strong>fièvre + ictère</strong> au retour d'une zone endémique (même si vacciné)</li>
+                        <li><strong>Bilan initial</strong> : NFS, bilan hépatique complet (ASAT, ALAT, PAL, bilirubine), coagulation (TP, INR, D-dimères), créatinine, urée, bandelette urinaire (protéinurie), lactate</li>
+                        <li><strong>Exclure le paludisme en parallèle</strong> : frottis/goutte épaisse + TDR</li>
+                        <li>J1&ndash;J5 : envoyer sérum pour <strong>RT-PCR fièvre jaune</strong> au CRIVE (HUG Genève)</li>
+                        <li>&ge; J5 : <strong>sérologie IgM/IgG</strong> (paire) ; confirmation par PRNT</li>
+                        <li><strong>Déclaration obligatoire</strong> dès la suspicion</li>
+                        <li>Si forme sévère : <strong>hospitalisation en soins intensifs</strong> sans délai</li>
+                    </ol>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Suspicion de fièvre jaune</strong> : tout voyageur fébrile avec ictère de retour d'une zone endémique</li>
+                            <li><strong>Conseil vaccinal complexe</strong> : patient &ge; 60 ans, immunodéprimé, pathologie du thymus, femme enceinte/allaitante</li>
+                            <li><strong>Effet indésirable vaccinal suspect</strong> : symptômes neurologiques ou viscérotropes dans les 28 jours post-vaccination</li>
+                            <li><strong>Forme sévère</strong> : phase toxique avec ictère, hémorragies, défaillance d'organe &rarr; soins intensifs en urgence</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">WHO. Yellow fever fact sheet. 2024. <a href="https://www.who.int/news-room/fact-sheets/detail/yellow-fever" class="ref-link" target="_blank">who.int</a></li>
+                        <li id="ref-2">CDC Yellow Book 2026. Yellow Fever. Staples JE, O'Laughlin K. <a href="https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/yellow-fever.html" class="ref-link" target="_blank">cdc.gov</a></li>
+                        <li id="ref-3">WHO. Disease Outbreak News: Yellow fever &mdash; Region of the Americas. May 2025. <a href="https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON570" class="ref-link" target="_blank">who.int</a></li>
+                        <li id="ref-4">PAHO. Public health risk of yellow fever remains high in the Americas. Rapid Risk Assessment, 27 May 2025. <a href="https://www.paho.org/en/news/27-5-2025-public-health-risk-yellow-fever-remains-high-americas-due-continued-occurrence-human" class="ref-link" target="_blank">paho.org</a></li>
+                        <li id="ref-5">PAHO. COP30 in Belém: PAHO recommends yellow fever and measles vaccination for travelers. October 2025. <a href="https://www.paho.org/en/news/22-10-2025-cop30-belem-paho-recommends-yellow-fever-and-measles-vaccination-travelers" class="ref-link" target="_blank">paho.org</a></li>
+                        <li id="ref-6">WHO AFRO. Epidemiological Situation of Yellow Fever in Africa, 2024&ndash;2025. <a href="https://cdn.who.int/media/docs/default-source/crs-crr/yf-epidemiologic-situation-in-africa-2024-2025_final.pdf" class="ref-link" target="_blank">who.int [PDF]</a></li>
+                        <li id="ref-7">WHO. Eliminate Yellow Fever Epidemics (EYE) Strategy. <a href="https://www.who.int/teams/immunization-vaccines-and-biologicals/diseases/yellow-fever" class="ref-link" target="_blank">who.int</a></li>
+                        <li id="ref-8">OFSP/BAG. Fièvre jaune &mdash; Maladies et agents pathogènes. <a href="https://www.bag.admin.ch/en/yellow-fever" class="ref-link" target="_blank">bag.admin.ch</a></li>
+                        <li id="ref-9">Monath TP, Vasconcelos PFC. Yellow fever. <em>J Clin Virol</em>. 2015;64:160&ndash;173.</li>
+                        <li id="ref-10">Quaresma JA et al. Midzonal lesions in yellow fever: a specific pattern of liver injury caused by direct virus action and in situ inflammatory response. <em>Med Hypotheses</em>. 2006;67(3):618&ndash;621. <a href="https://doi.org/10.1016/j.mehy.2006.01.060" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-11">WHO. Yellow fever: detection and laboratory diagnosis. 2018. <a href="https://cdn.who.int/media/docs/default-source/inaugural-who-partners-forum/laboratory-diagnosis-yellow-fever-infection-sep-2018.pdf" class="ref-link" target="_blank">who.int [PDF]</a></li>
+                        <li id="ref-12">Maeda A, Maeda J. Review of diagnostic plaque reduction neutralization tests for flavivirus infection. <em>Vet J</em>. 2013;195(1):33&ndash;40.</li>
+                        <li id="ref-13">Oliveira RA et al. Serological cross-reactivity among common flaviviruses. <em>Front Cell Infect Microbiol</em>. 2022;12:975398. <a href="https://doi.org/10.3389/fcimb.2022.975398" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-14">CRIVE &mdash; Centre national de référence pour les infections virales émergentes, HUG Genève. <a href="https://www.hug.ch/laboratoire-virologie/centre-national-reference-pour-infections-virales" class="ref-link" target="_blank">hug.ch</a></li>
+                        <li id="ref-15">de Freitas CS et al. Yellow fever virus is susceptible to sofosbuvir both in vitro and in patients with acute liver failure. <em>PLoS Negl Trop Dis</em>. 2019;13(10):e0007072. <a href="https://doi.org/10.1371/journal.pntd.0007072" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-16">Mendes EA et al. Sofosbuvir off-label treatment of yellow fever patients during an outbreak in Brazil, 2018: a cohort study. <em>Open Forum Infect Dis</em>. 2024;11(6):ofae312. <a href="https://doi.org/10.1093/ofid/ofae312" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-17">Barrett J et al. Sofosbuvir as post-exposure prophylaxis for yellow fever-associated viscerotropic disease (YEL-AVD). <em>J Antimicrob Chemother</em>. 2025;80(3):825&ndash;827. <a href="https://doi.org/10.1093/jac/dkae484" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-18">WHO. Amendment to International Health Regulations (2005), Annex 7 (yellow fever). 2016. <a href="https://www.who.int/docs/default-source/documents/emergencies/travel-advice/extension-to-life-on-yellow-fever-vaccination-en.pdf" class="ref-link" target="_blank">who.int [PDF]</a></li>
+                        <li id="ref-19">CDC/ACIP. Yellow Fever Vaccine Booster Doses: Recommendations. <em>MMWR</em> 2015;64(23):647&ndash;650. <a href="https://www.cdc.gov/mmwr/preview/mmwrhtml/mm6423a5.htm" class="ref-link" target="_blank">cdc.gov</a></li>
+                        <li id="ref-20">Amanna IJ, Slifka MK. Questions regarding the safety and duration of immunity following live yellow fever vaccination. <em>Expert Rev Vaccines</em>. 2016;15(12):1519&ndash;1533. <a href="https://doi.org/10.1080/14760584.2016.1198259" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-21">Hombach J et al. Review of data and knowledge gaps regarding yellow fever vaccine-induced immunity and duration of protection. <em>npj Vaccines</em>. 2020;5:54. <a href="https://doi.org/10.1038/s41541-020-0205-6" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-22">Long-term immunity following yellow fever vaccination: a systematic review and meta-analysis. <em>Lancet Infect Dis</em>. 2025. <a href="https://www.nitag-resource.org/resources/long-term-immunity-following-yellow-fever-vaccination-systematic-review-and-meta-analysis" class="ref-link" target="_blank">nitag-resource.org</a></li>
+                        <li id="ref-23">Ferrara et al. Is a second dose of yellow fever vaccine needed? A systematic review of humoral and cell-mediated immunity after revaccination. <em>J Travel Med</em>. 2025;32(8):taaf106. <a href="https://doi.org/10.1093/jtm/taaf106" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-24">Porudominsky R, Gotuzzo EH. Yellow fever vaccine and risk of developing serious adverse events: a systematic review. <em>BMC Infect Dis</em>. 2018;18(1):241. <a href="https://doi.org/10.1186/s12879-018-3052-y" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-25">Seligman SJ. Risk groups for yellow fever vaccine-associated viscerotropic disease (YEL-AVD). <em>Vaccine</em>. 2014;32(44):5769&ndash;5775. <a href="https://doi.org/10.1016/j.vaccine.2014.08.051" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-26">WHO Global Advisory Committee on Vaccine Safety. Yellow fever vaccine and HIV infection. <a href="https://www.who.int/groups/global-advisory-committee-on-vaccine-safety/topics/yellow-fever-vaccines/hiv" class="ref-link" target="_blank">who.int</a></li>
+                        <li id="ref-27">Lecomte E et al. A clinician's perspective on yellow fever vaccine-associated neurotropic disease. <em>J Travel Med</em>. 2020;27(7):taaa172. <a href="https://doi.org/10.1093/jtm/taaa172" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-28">Le Hir A, Durand GA, Boucraut J et al. Yellow fever vaccine-associated neurologic and viscerotropic disease: a 10-year case series. <em>J Travel Med</em>. 2024;31(2):taad160. <a href="https://doi.org/10.1093/jtm/taad160" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-29">WHO. Fractional doses of the yellow fever vaccine. Q&amp;A, 2017. <a href="https://www.who.int/news-room/questions-and-answers/item/fractional-doses-of-the-yellow-fever-vaccine" class="ref-link" target="_blank">who.int</a></li>
+                        <li id="ref-30">Bühler S, Jaeger VK, Kling K, Hatz C. To vaccinate or let it be &mdash; current recommendations and the reality about yellow fever vaccination. <em>Swiss Med Wkly</em>. 2014;144:w14095. <a href="https://doi.org/10.4414/smw.2014.14095" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-31">Martins RM et al. Immune response induced by standard and fractional doses of 17DD yellow fever vaccine. <em>npj Vaccines</em>. 2024;9:50. <a href="https://doi.org/10.1038/s41541-024-00836-w" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-32">UK Medicines and Healthcare products Regulatory Agency. Stamaril SmPC. <a href="https://www.medicines.org.uk/emc/product/1683/smpc" class="ref-link" target="_blank">medicines.org.uk</a></li>
+                        <li id="ref-33">UK Green Book Chapter 35: Yellow fever. March 2024. <a href="https://travelhealthpro.org.uk/media_lib/mlib-uploads/full/the-green-book-chapter-35-yellow-fever-march-2024.pdf" class="ref-link" target="_blank">travelhealthpro.org.uk [PDF]</a></li>
+                        <li id="ref-34">WHO. Urban Yellow Fever Risk Management: Draft Handbook. October 2025. <a href="https://cdn.who.int/media/docs/default-source/documents/emergencies/health-topics---yellow-fever/publicconsultation_22oct2025_draft_urbanyfhandbook.pdf" class="ref-link" target="_blank">who.int [PDF]</a></li>
+                        <li id="ref-35">Presser LD et al. Excellent capability for molecular detection of Aedes-borne dengue, Zika, and chikungunya viruses but with a need for increased capacity for yellow fever and Japanese encephalitis viruses. <em>J Clin Microbiol</em>. 2024;62(12):e00910-24. <a href="https://doi.org/10.1128/jcm.00910-24" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-36">Bailey AL et al. Consumptive coagulopathy of severe yellow fever occurs independently of hepatocellular tropism and massive hepatic injury. <em>Proc Natl Acad Sci USA</em>. 2020;117(51):32648&ndash;32656. <a href="https://doi.org/10.1073/pnas.2014096117" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-37">Ferreira MS et al. Experimental yellow fever virus infection in the squirrel monkey. <em>Mem Inst Oswaldo Cruz</em>. 2020;115:e190501. <a href="https://doi.org/10.1590/0074-02760190501" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-38">WHO. Guidelines for clinical management of arboviral diseases: dengue, chikungunya, Zika and yellow fever. Geneva: WHO; 2025. ISBN 978-92-4-011111-0. <a href="https://www.who.int/publications/i/item/9789240111110" class="ref-link" target="_blank">who.int</a></li>
+                        <li id="ref-39">Forero-Delgadillo JM et al. Colombian consensus on the care of critically ill patients with suspected or confirmed severe yellow fever. <em>Lancet Reg Health Am</em>. 2025;52:101144. <a href="https://doi.org/10.1016/j.lana.2025.101144" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-40">Coulter MC et al. Breakthroughs and insights: A comprehensive review of yellow fever vaccine breakthrough infection across 8 decades. <em>Vaccine</em>. 2024;42(25):126423. <a href="https://doi.org/10.1016/j.vaccine.2024.126423" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-41">Wigg de Araujo Lagos B et al. Yellow fever vaccine safety in immunocompromised individuals: a systematic review and meta-analysis. <em>J Travel Med</em>. 2023;30(1):taac095. <a href="https://doi.org/10.1093/jtm/taac095" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-42">de Abreu FVS et al. A systematic review and a meta-analysis of the yellow fever vaccine in the elderly population. <em>Vaccines (Basel)</em>. 2022;10(5):711. <a href="https://doi.org/10.3390/vaccines10050711" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-43">McClenathan BM et al. Incidence of anaphylaxis to YF-VAX yellow fever vaccination: a retrospective evaluation. <em>J Travel Med</em>. 2024;31(1):taad154. <a href="https://doi.org/10.1093/jtm/taad154" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-44">Farnsworth A et al. Real-world evidence of yellow fever vaccination data-driven study. <em>Vaccine</em>. 2025;43(4):126758. <a href="https://doi.org/10.1016/j.vaccine.2025.126758" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-45">Nnaji CA et al. Immunogenicity and safety of fractional dose yellow fever vaccination: A systematic review and meta-analysis. <em>Vaccine</em>. 2020;38(9):2282&ndash;2290. <a href="https://doi.org/10.1016/j.vaccine.2019.12.018" class="ref-link" target="_blank">DOI</a></li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention / Vaccination</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+
+    <script>
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+    </script>
 </body>
 </html>

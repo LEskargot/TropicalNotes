@@ -4,295 +4,503 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Leishmaniose — Tropical Notebook</title>
-    <meta name="description" content="Leishmaniose cutanee et viscerale : repartition geographique, agents causaux, diagnostic et traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="leishmaniose, leishmania, cutanee, viscerale, kala azar, medecine tropicale">
+    <meta name="description" content="Leishmaniose cutanée, mucocutanée et viscérale : épidémiologie, formes cliniques, diagnostic par espèce, traitement et prise en charge pour le médecin de premier recours.">
+    <meta name="keywords" content="leishmaniose, leishmania, cutanée, viscérale, mucocutanée, kala-azar, phlébotome, PCR, amphotéricine B, miltéfosine, médecine tropicale">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        teal: { 50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd', 300: '#7ecec5', 400: '#54b5aa', 500: '#479793', 600: '#387a77', 700: '#2d5e5b', 800: '#234a48', 900: '#1a3836', 950: '#0f2322' },
-                        mint: { 50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc', 300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98', 600: '#0e8b7a', 700: '#0f6f63', 800: '#115850', 900: '#114943' },
-                        gold: { 50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a', 300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c', 600: '#b47d15', 700: '#8f5d14', 800: '#774a18', 900: '#633d1a' },
-                        cream: { 50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8', 300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99' },
-                    },
-                    fontFamily: { serif: ['"DM Serif Display"', 'Georgia', 'serif'], sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
-        body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
-        .nav-fixed { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; }
-        .dropdown:hover .dropdown-menu, .dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-        .mobile-menu.open { max-height: 400px; }
-        .toc { position: sticky; top: 5.5rem; }
-        .toc a.active { color: #12ad98; border-left-color: #12ad98; font-weight: 600; }
-        .section-label { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
-        .article-table { width: 100%; text-align: left; font-size: 0.875rem; }
-        .article-table thead { background: #f0fafa; color: #2d5e5b; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
-        .article-table th { padding: 0.75rem 1rem; font-weight: 600; }
-        .article-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #d2f0ee; vertical-align: top; }
-        .article-table tbody tr:hover { background: #fdfaf3; }
-        .callout-piege { border-left: 4px solid #d4a01c; background: #fffceb; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-referer { border-left: 4px solid #12ad98; background: #edfcf8; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-danger { border-left: 4px solid #dc2626; background: #fef2f2; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        a.ref-link { color: #12ad98; font-weight: 500; border-bottom: 1px solid rgba(18, 173, 152, 0.3); transition: all 0.2s; text-decoration: none; }
-        a.ref-link:hover { color: #0e8b7a; border-bottom-color: #0e8b7a; }
-        html { scroll-behavior: smooth; }
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+        .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
+        .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="flex items-center gap-3 group">
-                    <span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span>
-                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
-                </a>
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a>
-                    <div class="dropdown relative">
-                        <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button>
-                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
-                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a>
-                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
-                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
-                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
-                        </div>
-                    </div>
-                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
-                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
-                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                </div>
-                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-            </div>
-            <div id="mobileMenu" class="mobile-menu md:hidden">
-                <div class="py-3 border-t border-teal-700/50 space-y-1">
-                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
-                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
-                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
-                    <div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 px-6">
-        <div class="max-w-6xl mx-auto">
-            <nav class="flex items-center gap-2 text-sm text-teal-600/60">
-                <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a>
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                <span class="text-teal-800 font-medium">Leishmaniose</span>
-            </nav>
-        </div>
-    </div>
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Leishmaniose</span></nav></div></div>
 
     <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
         <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
             <article class="min-w-0">
-
                 <header class="mb-10">
                     <span class="section-label text-teal-500">Parasite</span>
                     <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Leishmaniose</h1>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">
-                        Leishmaniose cutanee et viscerale : especes, diagnostic et prise en charge par le medecin de premier recours.
-                    </p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
-                        <span>Derniere mise a jour : mars 2026</span>
-                        <span class="hidden sm:inline">|</span>
-                        <span>Dr. L. Cobuccio</span>
-                    </div>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Protozoaire intracellulaire &mdash; genre <em>Leishmania</em>, transmis par les phlébotomes</p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Trois formes cliniques majeures &mdash; cutanée, mucocutanée et viscérale &mdash; dont le pronostic et le traitement dépendent de l'espèce infectante. L'identification par PCR est la clé de la prise en charge. Plus d'un milliard de personnes vivent en zone à risque.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
-                <!-- Repartition geographique -->
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
 
-                    <h3 class="font-semibold text-teal-800 mb-2">Leishmaniose cutanee</h3>
-                    <figure class="my-4">
-                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/cutaneous_leishmaniasis_map.jpg" alt="Distribution geographique des differentes especes responsables de leishmaniose cutanee" />
-                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution geographique des differentes especes responsables de leishmaniose cutanee.</figcaption>
-                    </figure>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Données mondiales</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>&gt; 1 milliard</strong> de personnes vivent en zone endémique et sont à risque d'infection<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Estimation : <strong>700 000 &ndash; 1 million</strong> de nouveaux cas de leishmaniose cutanée (LC) et <strong>~30 000</strong> nouveaux cas de leishmaniose viscérale (LV) par an ; <strong>20 000 &ndash; 30 000</strong> décès annuels<sup><a href="#ref-1">[1,16]</a></sup></li>
+                        <li>LC endémique dans <strong>&gt; 90 pays</strong> ; LV endémique dans <strong>&gt; 75 pays</strong></li>
+                        <li>Incidence mondiale de la LV : <strong>baisse de 58 %</strong> entre 2014 et 2024 ; le Bangladesh est le premier pays à éliminer la LV comme problème de santé publique (2023)<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li>Feuille de route OMS 2021&ndash;2030 : éliminer la LV comme problème de santé publique + contrôle renforcé de la LC</li>
+                    </ul>
 
-                    <h3 class="font-semibold text-teal-800 mb-2 mt-6">Leishmaniose viscerale</h3>
-                    <figure class="my-4">
-                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/visceral_leishmaniasis_map.jpg" alt="Distribution geographique des differentes especes responsables de leishmaniose viscerale" />
-                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution geographique des differentes especes responsables de leishmaniose viscerale. Source : The American Society of Tropical Medicine and Hygiene 96, 1; <a target="_blank" href="https://doi.org/10.4269/ajtmh.16-84256" class="ref-link">10.4269/ajtmh.16-84256</a></figcaption>
-                    </figure>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Données européennes</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Réseau LeishMan</strong> (15 centres européens, 11 pays, 2014&ndash;2019) : <strong>1 142 cas</strong> diagnostiqués ; 76 % LC, 21 % LV, 3 % LM ; 68 % hommes, âge médian 37 ans<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li>LV principalement acquise <strong>en Europe</strong> (88 %) &mdash; surtout bassin méditerranéen (<em>L. infantum</em>)</li>
+                        <li>LC principalement importée <strong>hors Europe</strong> (77 %) ; 62 % Ancien Monde, 38 % Nouveau Monde</li>
+                        <li>Belgique (2010&ndash;2018) : traitement spécifique à l'espèce associé à un <strong>meilleur résultat</strong> (guérison 81,8 % vs 57,9 %, p = 0,045)<sup><a href="#ref-9">[9]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Première expérience suisse publiée de traitement spécifique à l'espèce : 61 cas de LC/LM importés (1999&ndash;2011), identification par PCR<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li><strong>Cas fatal (Berne, Inselspital)</strong> : LV à <em>L. donovani</em> chez un patient immunodéprimé de 80 ans, latence <strong>&gt; 15 ans</strong> après exposition en Inde &mdash; échec thérapeutique à l'AmBisome liposomale<sup><a href="#ref-11">[11]</a></sup></li>
+                        <li><strong>Canton du Tessin</strong> : phlébotomes (<em>Phlebotomus perniciosus</em>) présents dans 75 % des sites étudiés (2022&ndash;2023) ; séroprévalence <em>L. infantum</em> chez les chiens domestiques : 3,0 % &mdash; risque de transmission autochtone encore très faible mais en surveillance<sup><a href="#ref-12">[12]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Latence extrême</p>
+                        <p class="text-sm text-teal-800">La LV peut se réactiver <strong>&gt; 15 ans</strong> après l'exposition initiale, en particulier chez les patients immunodéprimés. Un séjour ancien en zone endémique reste pertinent dans l'anamnèse.<sup><a href="#ref-11">[11]</a></sup></p>
+                    </div>
                 </section>
 
-                <!-- Agent causal -->
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 mb-3">Protozoaires</p>
-                    <div class="overflow-x-auto rounded-xl border border-teal-100">
+                <!-- REPARTITION GEOGRAPHIQUE -->
+                <section id="repartition" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2">Leishmaniose cutanée</h3>
+                    <figure class="my-4">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/cutaneous_leishmaniasis_map.jpg" alt="Distribution géographique des différentes espèces responsables de leishmaniose cutanée" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution géographique des principales espèces responsables de leishmaniose cutanée.</figcaption>
+                    </figure>
+
+                    <div class="overflow-x-auto mb-6">
                         <table class="article-table">
-                            <thead>
-                                <tr>
-                                    <th>Leishmaniose cutanee</th>
-                                    <th>Leishmaniose viscerale</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>Espèce</th><th>Régions endémiques</th><th>Particularités</th></tr></thead>
                             <tbody>
-                                <tr><td><em>Leishmania tropica</em></td><td><em>Leishmania infantum</em></td></tr>
-                                <tr><td><em>Leishmania major</em></td><td><em>Leishmania chagasi</em></td></tr>
-                                <tr><td><em>Leishmania aethiopica</em></td><td><em>Leishmania donovani</em></td></tr>
-                                <tr><td><em>Leishmania braziliensis</em></td><td></td></tr>
-                                <tr><td><em>Leishmania mexicana</em></td><td></td></tr>
-                                <tr><td><em>Leishmania guyanensis</em></td><td></td></tr>
-                                <tr><td><em>Leishmania panamensis</em></td><td></td></tr>
+                                <tr><td colspan="3" class="font-semibold text-teal-700 bg-teal-50/50">Ancien Monde</td></tr>
+                                <tr><td><em>L. major</em></td><td>Afrique du Nord, Moyen-Orient, Asie centrale</td><td>Zoonotique ; ulcérations humides ; guérison spontanée 3&ndash;6 mois</td></tr>
+                                <tr><td><em>L. tropica</em></td><td>Moyen-Orient, Asie centrale, Afrique de l'Est</td><td>Anthroponotique ; lésions plus sèches ; guérison lente (12&ndash;18 mois) ; risque de leishmaniose récidivante</td></tr>
+                                <tr><td><em>L. aethiopica</em></td><td>Éthiopie, Kenya (hauts plateaux)</td><td>Risque de forme cutanée diffuse</td></tr>
+                                <tr><td><em>L. infantum</em></td><td>Bassin méditerranéen</td><td>Formes cutanées atypiques possibles</td></tr>
+                                <tr><td colspan="3" class="font-semibold text-teal-700 bg-teal-50/50">Nouveau Monde</td></tr>
+                                <tr><td><em>L. braziliensis</em></td><td>Brésil, Bolivie, Pérou, Colombie, Amérique centrale</td><td><strong>Risque de progression mucocutanée</strong> &rarr; traitement systémique obligatoire</td></tr>
+                                <tr><td><em>L. panamensis</em></td><td>Panama, Costa Rica, Colombie</td><td>Sous-genre <em>Viannia</em> ; risque mucocutané</td></tr>
+                                <tr><td><em>L. guyanensis</em></td><td>Guyane française, Suriname, nord du Brésil</td><td>Sous-genre <em>Viannia</em> ; pentamidine = traitement de choix</td></tr>
+                                <tr><td><em>L. mexicana</em></td><td>Mexique, Guatemala, Belize</td><td>Guérison spontanée possible ; traitement local souvent suffisant</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6">Leishmaniose viscérale</h3>
+                    <figure class="my-4">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/visceral_leishmaniasis_map.jpg" alt="Distribution géographique des différentes espèces responsables de leishmaniose viscérale" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution géographique des espèces responsables de leishmaniose viscérale. Source : <a target="_blank" href="https://doi.org/10.4269/ajtmh.16-84256" class="ref-link">Am J Trop Med Hyg 2017</a></figcaption>
+                    </figure>
+
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Espèce</th><th>Régions endémiques</th><th>Particularités</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>L. donovani</em></td><td>Sous-continent indien, Afrique de l'Est</td><td>Anthroponotique ; PKDL possible après traitement</td></tr>
+                                <tr><td><em>L. infantum</em></td><td>Bassin méditerranéen, Amérique latine (Brésil)</td><td>Zoonotique (chien = réservoir) ; surtout enfants et immunodéprimés en Europe</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </section>
 
-                <!-- Transmission -->
-                <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80">Piqure par phlebotome (mouche des sables).</p>
-                </section>
-
-                <!-- Incubation -->
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>L. cutanee : 1 sem. a plusieurs mois</li>
-                        <li>L. viscerale : 2 sem. &ndash; 10 ans (le plus souvent 2-4 mois)</li>
-                    </ul>
-                </section>
-
-                <!-- Presentation clinique -->
+                <!-- FORMES CLINIQUES -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <ul class="space-y-3 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><u>Leishmaniose cutanee</u> : lesion papulaire/nodulaire erythemateuse le plus souvent indolore (souvent plusieurs nodules le long des lymphatiques) qui peut s'ulcerer. Guerison spontanee en 3-8 mois avec apparition d'une immunite. NB : une infection par <em>L. braziliensis</em> peut se reactiver apres quelques mois a annees et causer une leishmaniose muco-cutanee metastatique au niveau de la bouche et du nez progressive pouvant mener au deces.</li>
-                        <li><u>Leishmaniose viscerale (kala azar)</u> : tres rare chez les voyageurs, par contre plus frequents chez les migrants. Maladie chronique systemique avec : malaise, EF, splenomegalie +/- hepatomegalie, ADP et perte ponderale. Eventuellement, douleurs abdominales sup. Ressemble a une tuberculose miliaire. Souvent mortelle sans traitement. Recidives possibles. Peut atteindre les patients immunosupprimes comme maladie opportuniste.</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Formes cliniques</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Leishmaniose cutanée (LC) &mdash; Ancien Monde</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Papule indolore au site de la piqûre de phlébotome, évoluant vers nodule puis <strong>ulcération à bords surélevés</strong></li>
+                        <li>Lésion unique ou multiple, zones exposées (visage, membres)</li>
+                        <li><em>L. major</em> : ulcérations souvent humides, guérison spontanée en <strong>3&ndash;6 mois</strong> avec cicatrice</li>
+                        <li><em>L. tropica</em> : lésions plus sèches, guérison plus lente (jusqu'à <strong>12&ndash;18 mois</strong>), risque de leishmaniose récidivante</li>
+                        <li>Données LeishMan : parmi les LC importées en Europe, <em>L. tropica</em> retrouvée chez 80 % des migrants, <em>L. major</em> chez 53 % des VFR (visiting friends and relatives)<sup><a href="#ref-6">[6]</a></sup></li>
                     </ul>
-                </section>
 
-                <!-- Labo -->
-                <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80">Leucopenie, anemie, thrombopenie en cas de leishmaniose viscerale.</p>
-                </section>
-
-                <!-- Diagnostic -->
-                <section id="diagnostic" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><u>Leishmaniose cutanee</u> : clinique, PCR sur frottis ou biopsie de lesion cutanee</li>
-                        <li><u>Leishmaniose viscerale</u> : serologie, PCR sanguine ou de materiel de biopsie</li>
+                    <h3 class="font-semibold text-teal-800 mb-3">Leishmaniose cutanée (LC) &mdash; Nouveau Monde</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Ulcérations similaires à celles de l'Ancien Monde, mais plus souvent complexes</li>
+                        <li><em>L. braziliensis</em> et les espèces du sous-genre <em>Viannia</em> : <strong>risque de progression mucocutanée</strong> imposant un traitement systémique<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li>Revue Cochrane (75 RCT, 6 533 patients) : miltéfosine et antimoniaux augmentent les taux de guérison vs placebo<sup><a href="#ref-20">[20]</a></sup></li>
                     </ul>
-                </section>
 
-                <!-- Prevention -->
-                <section id="prevention" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prevention primaire</h2>
-                    <p class="text-sm text-teal-800/80">Mesures pour eviter les piqures d'insectes (habits, insectifuges, moustiquaires).</p>
-                </section>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Sous-genre <em>Viannia</em> = traitement systémique obligatoire</p>
+                        <p class="text-sm text-teal-800">Toute LC acquise en Amérique latine doit faire suspecter <em>L. braziliensis</em> ou une autre espèce <em>Viannia</em>. Le risque de progression mucocutanée (1&ndash;10 %) interdit un traitement uniquement local sans identification d'espèce.<sup><a href="#ref-14">[14]</a></sup></p>
+                    </div>
 
-                <!-- Traitement -->
-                <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement (par le specialiste !)</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><u>Leishmaniose cutanee</u> : guerison spontanee en 3-8 mois pour certaines formes. La guerison peut etre plus rapide apres injection locale d'antimoine ou application de creme contenant de la paromomycine ou traitement p.o. par antimoine, ketoconazole ou itraconazole, en fonction du type de Leishmania et de la clinique</li>
-                        <li><u>Leishmaniose viscerale</u> : miltefosine, antimoine ou amphotericine B</li>
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Leishmaniose mucocutanée (LMC)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Principalement <em>L. braziliensis</em> (sous-genre <em>Viannia</em>), parfois <em>L. panamensis</em>, <em>L. guyanensis</em></li>
+                        <li>Dissémination métastatique aux muqueuses nasales, oropharyngées &mdash; <strong>mois à années</strong> après la LC initiale</li>
+                        <li>Destruction progressive du cartilage nasal, palais, lèvres &mdash; potentiellement <strong>mutilante et mortelle</strong></li>
+                        <li>&gt; 90 % des cas en Bolivie, Brésil, Éthiopie et Pérou<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Formes atypiques : <em>L. infantum</em> peut aussi causer une LMC, habituellement chez immunodéprimés<sup><a href="#ref-26">[26]</a></sup></li>
+                        <li>Réactivation possible même chez l'immunocompétent : cas allemand de LMC linguale par <em>L. infantum</em> &mdash; opérée initialement comme cancer suspecté<sup><a href="#ref-25">[25]</a></sup></li>
                     </ul>
-                </section>
 
-                <!-- Quand referer -->
-                <section id="referer" class="mb-14">
-                    <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">Le traitement de la leishmaniose doit etre conduit par un specialiste. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer le patient</a> pour evaluation et prise en charge.</p>
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; LMC confondue avec un cancer</p>
+                        <p class="text-sm text-teal-800">Les lésions muqueuses de leishmaniose sont souvent prises pour des néoplasies. Biopsie avec PCR systématique en cas de lésion muqueuse chez tout patient ayant séjourné en zone endémique.<sup><a href="#ref-25">[25]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Leishmaniose viscérale (LV / kala-azar)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Fièvre prolongée ondulante</strong>, splénomégalie +++, hépatomégalie, amaigrissement, pancytopénie</li>
+                        <li>Hypergammaglobulinémie polyclonale caractéristique</li>
+                        <li><strong>Mortalité sans traitement : &gt; 95 %</strong> dans les 2 ans<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>En Europe : surtout <em>L. infantum</em> chez immunodéprimés (VIH, transplantés, anti-TNF) et enfants</li>
+                        <li>Rechutes fréquentes chez VIH+ (jusqu'à <strong>60 % à 1 an</strong> sans prophylaxie secondaire)<sup><a href="#ref-18">[18]</a></sup></li>
+                        <li>Rare chez le voyageur immunocompétent ; plus fréquent chez les migrants</li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Forme clinique</th><th>Espèces principales</th><th>Incubation</th><th>Signes clés</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>LC Ancien Monde</strong></td><td><em>L. major</em>, <em>L. tropica</em></td><td>1 sem. &ndash; plusieurs mois</td><td>Papule/ulcère indolore, zones exposées</td></tr>
+                                <tr><td><strong>LC Nouveau Monde</strong></td><td><em>L. braziliensis</em>, <em>L. mexicana</em></td><td>1 sem. &ndash; plusieurs mois</td><td>Ulcère ; risque mucocutané si <em>Viannia</em></td></tr>
+                                <tr><td><strong>LMC</strong></td><td><em>L. braziliensis</em></td><td>Mois à années post-LC</td><td>Destruction muqueuse naso-buccale</td></tr>
+                                <tr><td><strong>LV (kala-azar)</strong></td><td><em>L. donovani</em>, <em>L. infantum</em></td><td>2 sem. &ndash; &gt; 10 ans</td><td>Fièvre, splénomégalie, pancytopénie</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Post-kala-azar dermal leishmaniasis (PKDL)</p>
+                        <p class="text-sm text-teal-800">Complication cutanée après traitement de la LV (surtout <em>L. donovani</em>) : éruption maculaire, papulaire ou nodulaire apparaissant des semaines à années après la guérison. Rarement observé en Europe.<sup><a href="#ref-1">[1]</a></sup></p>
                     </div>
                 </section>
 
+                <!-- BIOLOGIE -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Leishmaniose cutanée</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Bilan sanguin habituellement normal</li>
+                        <li>Pas de marqueur biologique spécifique &mdash; le diagnostic repose sur l'examen de la lésion</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Leishmaniose viscérale</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Pancytopénie</strong> : leucopénie, anémie, thrombopénie (infiltration médullaire)</li>
+                        <li><strong>Hypergammaglobulinémie polyclonale</strong> (IgG +++) &mdash; très évocatrice</li>
+                        <li>Hypoalbuminémie, syndrome inflammatoire (CRP, VS élevées)</li>
+                        <li>Élévation possible des transaminases</li>
+                        <li>Chez le VIH+ : parasitémie souvent élevée, bilan plus sévère</li>
+                    </ul>
+                </section>
+
+                <!-- DIAGNOSTIC -->
+                <section id="diagnostic" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Leishmaniose cutanée</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Méthode</th><th>Sensibilité</th><th>Spécificité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Frottis / biopsie (Giemsa)</strong></td><td>50&ndash;70 %</td><td>~100 %</td><td>Visualisation directe des amastigotes ; sensibilité variable selon technique et ancienneté de la lésion</td></tr>
+                                <tr><td><strong>Culture</strong></td><td>60&ndash;85 %</td><td>~100 %</td><td>Promastigotes en moyenne après 3,6 jours ; permet identification d'espèce</td></tr>
+                                <tr><td><strong>PCR sur biopsie/frottis</strong></td><td><strong>&gt; 90 %</strong></td><td><strong>&gt; 95 %</strong></td><td>Gold standard pour identification d'espèce (qPCR ciblant ITS1, kDNA ou hsp70)<sup><a href="#ref-2">[2]</a></sup></td></tr>
+                                <tr><td><strong>PCR sur paraffine (FFPE)</strong></td><td>70&ndash;90 %</td><td>&gt; 95 %</td><td>Utile si histopathologie non concluante</td></tr>
+                                <tr><td><strong>Histopathologie</strong></td><td>Variable</td><td>Variable</td><td>Granulome avec amastigotes intracellulaires ; peut mimer d'autres pathologies</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Biopsie en médecine de premier recours</p>
+                        <p class="text-sm text-teal-800">Le médecin généraliste peut réaliser la biopsie : <strong>punch 4 mm sur le bord actif de la lésion</strong>. Envoyer le prélèvement au centre de référence pour PCR avec identification d'espèce &mdash; indispensable pour orienter le traitement.<sup><a href="#ref-14">[14]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Leishmaniose viscérale</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Méthode</th><th>Sensibilité</th><th>Spécificité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>TDR rK39</strong></td><td>85&ndash;97 %</td><td>92&ndash;99 %</td><td>Méthode diagnostique primaire pour la LV ; sensibilité variable par région (élevée en Asie du Sud, plus faible en Europe)<sup><a href="#ref-1">[1]</a></sup></td></tr>
+                                <tr><td><strong>DAT</strong></td><td>91&ndash;100 %</td><td>72&ndash;100 %</td><td>Bonne performance en zone méditerranéenne</td></tr>
+                                <tr><td><strong>IFAT / ELISA</strong></td><td>80&ndash;98 %</td><td>85&ndash;95 %</td><td>Sérologie de référence dans de nombreux centres européens</td></tr>
+                                <tr><td><strong>PCR sang / moelle</strong></td><td><strong>&gt; 95 %</strong></td><td><strong>&gt; 95 %</strong></td><td>Très sensible sur sang périphérique ou aspiration médullaire</td></tr>
+                                <tr><td><strong>Aspiration médullaire (Giemsa)</strong></td><td>60&ndash;85 %</td><td>~100 %</td><td>Gold standard historique ; invasif</td></tr>
+                                <tr><td><strong>Aspiration splénique</strong></td><td>&gt; 95 %</td><td>~100 %</td><td>Risque hémorragique &mdash; réservée aux centres spécialisés</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Sérologie faussement négative chez le VIH+</p>
+                        <p class="text-sm text-teal-800">Chez les patients VIH+, la sensibilité de la sérologie (rK39, IFAT) est réduite à <strong>30&ndash;70 %</strong>. Préférer la <strong>PCR ou la microscopie sur moelle osseuse</strong> pour le diagnostic de LV dans ce contexte.<sup><a href="#ref-18">[18]</a></sup></p>
+                    </div>
+
+                    <p class="text-sm text-teal-800/80 mt-4">Données danoises : positivité PCR 17 % vs sérologie 1,4 % dans les prélèvements testés &mdash; la sérologie ne devrait être utilisée que si la LV est spécifiquement suspectée<sup><a href="#ref-10">[10]</a></sup>. En Belgique, l'identification de l'espèce améliore significativement le résultat thérapeutique (p = 0,045)<sup><a href="#ref-9">[9]</a></sup>.</p>
+                </section>
+
+                <!-- TRAITEMENT -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <div class="callout-referer mb-6">
+                        <p class="text-sm font-bold text-mint-700 mb-1">Principe fondamental</p>
+                        <p class="text-sm text-teal-800">Le traitement de la leishmaniose relève du spécialiste. La stratégie thérapeutique dépend de : (1) la forme clinique, (2) l'espèce infectante, (3) l'état immunitaire du patient. Le rôle du MG est de suspecter, biopsier et <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">référer</a>.<sup><a href="#ref-14">[14,15]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">LC Ancien Monde</h3>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Observation seule (watchful waiting)</strong> :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><em>L. major</em> : guérison spontanée fréquente en 3&ndash;6 mois &mdash; traitement indiqué si : lésion &gt; 4 cm, lésions multiples, localisation fonctionnelle/esthétique (visage, articulations), immunosuppression, absence de guérison après 3 mois</li>
+                        <li><em>L. tropica</em> : guérison plus lente ; seuil de traitement plus bas<sup><a href="#ref-14">[14]</a></sup></li>
+                    </ul>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Traitements locaux</strong> (lésion unique, &lt; 4 cm, non compliquée) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Cryothérapie (azote liquide)</li>
+                        <li>Thermothérapie (ThermoMed, 50 °C &times; 30 s)</li>
+                        <li>Injection intralésionnelle d'antimoine pentavalent (Glucantime) &mdash; taux de guérison <strong>86 % pour <em>L. tropica</em></strong><sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>Paromomycine topique</li>
+                    </ul>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Traitements systémiques</strong> (lésions multiples, complexes, ou échec local) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Fluconazole 200 mg/j &times; 6 semaines (pour <em>L. major</em> &mdash; efficacité modérée)</li>
+                        <li>Miltéfosine 2,5 mg/kg/j &times; 28 jours (tératogène &mdash; contraception obligatoire)</li>
+                        <li>Antimoine pentavalent systémique : 20 mg/kg/j &times; 20 jours (cardiotoxicité : surveiller le QTc)</li>
+                        <li>Amphotéricine B liposomale IV (si échec ou contre-indication)<sup><a href="#ref-15">[15]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">LC Nouveau Monde &mdash; traitement spécifique à l'espèce</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Espèce</th><th>Traitement de 1<sup>re</sup> ligne</th><th>Alternative</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>L. braziliensis</em></td><td>Antimoine pentavalent 20 mg/kg/j &times; 20 j <strong>ou</strong> miltéfosine 2,5 mg/kg/j &times; 28 j</td><td>AmBisome IV</td></tr>
+                                <tr><td><em>L. panamensis</em></td><td>Miltéfosine 2,5 mg/kg/j &times; 28 j</td><td>Antimoine pentavalent</td></tr>
+                                <tr><td><em>L. guyanensis</em></td><td><strong>Pentamidine</strong> 3&ndash;4 mg/kg &times; 3 doses</td><td>Miltéfosine</td></tr>
+                                <tr><td><em>L. mexicana</em></td><td>Traitement local souvent suffisant</td><td>Miltéfosine si complexe</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-6">Sources : recommandations LeishMan 2014<sup><a href="#ref-14">[14]</a></sup> et IDSA/ASTMH 2016<sup><a href="#ref-15">[15]</a></sup></p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th colspan="3">Données d'efficacité &mdash; Bolivie (<em>L. braziliensis</em>)<sup><a href="#ref-19">[19]</a></sup></th></tr><tr><th>Traitement</th><th>Guérison LC</th><th>Guérison LM</th></tr></thead>
+                            <tbody>
+                                <tr><td>Glucantime IM</td><td>67 %</td><td>54 %</td></tr>
+                                <tr><td>Glucantime IV</td><td>71 %</td><td>63 %</td></tr>
+                                <tr><td>Miltéfosine p.o.</td><td><strong>75 %</strong></td><td><strong>70 %</strong></td></tr>
+                                <tr><td>Glucantime intralésionnel</td><td>63 %</td><td>&mdash;</td></tr>
+                                <tr><td>AmB déoxycholate IV</td><td>&mdash;</td><td>54 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Leishmaniose mucocutanée (LMC)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Toujours un traitement systémique</strong></li>
+                        <li><strong>Première ligne</strong> : amphotéricine B liposomale (AmBisome) 3 mg/kg/j &times; 7 jours, puis J14 et J21 (dose totale ~20&ndash;40 mg/kg)<sup><a href="#ref-15">[15]</a></sup></li>
+                        <li><strong>Alternative</strong> : antimoine pentavalent 20 mg/kg/j &times; 30 jours (durée plus longue que pour la LC)</li>
+                        <li>Miltéfosine : données limitées mais utilisé en pratique</li>
+                        <li>Suivi prolongé obligatoire &mdash; rechutes possibles même après traitement apparemment efficace</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Leishmaniose viscérale (LV)</h3>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Immunocompétent &mdash; région méditerranéenne (<em>L. infantum</em>)</strong> :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Première ligne : Amphotéricine B liposomale (AmBisome)</strong> &mdash; dose totale <strong>20 mg/kg</strong> ; schéma usuel : 3 mg/kg/j aux J1&ndash;5, puis J14 et J21<sup><a href="#ref-22">[22]</a></sup></li>
+                        <li>Traitement de choix en Europe ; &gt; 30 ans d'expérience clinique</li>
+                        <li>Effets indésirables : néphrotoxicité (réversible), hypokaliémie, réactions liées à la perfusion</li>
+                        <li>Alternative : miltéfosine 2,5 mg/kg/j &times; 28 jours (voie orale &mdash; surtout pour <em>L. donovani</em> en Asie du Sud)</li>
+                        <li>Antimoine pentavalent : moins utilisé en Europe (cardiotoxicité, pancréatotoxicité)<sup><a href="#ref-24">[24]</a></sup></li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Coinfection VIH</strong> :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>AmBisome dose totale <strong>40 mg/kg</strong> (dose plus élevée nécessaire)<sup><a href="#ref-18">[18]</a></sup></li>
+                        <li><strong>Prophylaxie secondaire obligatoire</strong> : AmBisome 3&ndash;5 mg/kg toutes les 2&ndash;4 semaines jusqu'à CD4 &gt; 200/mm³ pendant &gt; 6 mois sous ARV</li>
+                        <li>Rechutes très fréquentes sans prophylaxie (jusqu'à 60 % à 1 an)</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Patients immunodéprimés non-VIH</strong> :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>LC sous anti-TNF : risque de dissémination &mdash; nécessité de traitement systémique même pour des lésions cutanées isolées<sup><a href="#ref-30">[30]</a></sup></li>
+                        <li>Penser à la leishmaniose chez tout patient immunodéprimé ayant séjourné en zone méditerranéenne<sup><a href="#ref-29">[29]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Effets indésirables graves</p>
+                        <p class="text-sm text-teal-800">Revue systématique (157 études, 35 376 patients) : 804 événements indésirables graves rapportés dont 428 décès ; mortalité nettement plus élevée en cas de coinfection VIH. La surveillance rapprochée est indispensable pendant le traitement.<sup><a href="#ref-21">[21]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Pas de vaccin disponible</strong> pour l'homme (recherche en cours &mdash; pipeline DNDi actif en 2024)<sup><a href="#ref-31">[31]</a></sup></li>
+                        <li><strong>Pas de chimioprophylaxie</strong> recommandée</li>
+                        <li><strong>Moustiquaires imprégnées d'insecticide</strong> à mailles fines (les phlébotomes mesurent ~2&ndash;3 mm, plus petits que les moustiques)<sup><a href="#ref-17">[17]</a></sup></li>
+                        <li>Répulsifs cutanés : DEET &ge; 30 %, icaridine, PMD</li>
+                        <li>Vêtements couvrants, imprégnés de perméthrine</li>
+                        <li>Activité <strong>crépusculaire et nocturne</strong> des phlébotomes &mdash; protection surtout en soirée/nuit</li>
+                        <li>Le <strong>chien</strong> est le réservoir principal de <em>L. infantum</em> en Méditerranée &mdash; colliers insecticides pour chiens contribuent à la réduction de la transmission humaine<sup><a href="#ref-12">[12]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Lésion cutanée chronique au retour de voyage = penser à la leishmaniose</p>
+                            <p class="text-sm text-teal-800">Toute lésion papulaire, nodulaire ou ulcéreuse non cicatrisante chez un voyageur de retour d'une zone endémique doit faire évoquer la LC. Diagnostic différentiel : pyodermite, mycose profonde, mycobactériose atypique, sarcoïdose, carcinome basocellulaire. Erreur fréquente : traitements antibiotiques répétés sans amélioration. En Norvège, le délai diagnostique médian de la LV était de <strong>7&ndash;8 semaines</strong>.<sup><a href="#ref-8">[8]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Sous-genre <em>Viannia</em> = jamais de traitement local seul</p>
+                            <p class="text-sm text-teal-800">Toute LC acquise en Amérique latine nécessite une <strong>PCR avec identification d'espèce</strong>. Si <em>L. braziliensis</em> ou une autre espèce <em>Viannia</em> est identifiée, un traitement systémique est obligatoire pour prévenir la progression mucocutanée &mdash; même des mois à années plus tard.<sup><a href="#ref-14">[14]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">LV chez l'immunodéprimé &mdash; sérologie non fiable</p>
+                            <p class="text-sm text-teal-800">Devant fièvre prolongée + pancytopénie + splénomégalie chez un patient VIH+ ou sous immunosuppresseurs ayant séjourné en Méditerranée, évoquer la LV. La sérologie est souvent faussement négative (30&ndash;70 %) &mdash; préférer la PCR ou la microscopie sur moelle osseuse.<sup><a href="#ref-18">[18]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">LMC confondue avec un cancer</p>
+                            <p class="text-sm text-teal-800">Toute lésion muqueuse chez un patient exposé aux zones endémiques doit faire évoquer la LMC. Cas allemand (2025) : ulcère lingual à <em>L. infantum</em> opéré comme cancer suspecté. Biopsie avec PCR systématique.<sup><a href="#ref-25">[25]</a></sup></p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perle : PCR = clé du diagnostic ET du traitement</p>
+                            <p class="text-sm text-teal-800">L'identification de l'espèce par PCR guide le choix thérapeutique et améliore significativement les résultats (guérison 81,8 % vs 57,9 % avec traitement empirique, p = 0,045). Le MG peut réaliser la biopsie (<strong>punch 4 mm, bord actif de la lésion</strong>) et envoyer au centre de référence.<sup><a href="#ref-9">[9]</a></sup></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Suspicion de leishmaniose cutanée</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Anamnèse de voyage</strong> : séjour en zone endémique (Méditerranée, Moyen-Orient, Asie centrale, Amérique latine, Afrique) &mdash; même ancien</li>
+                        <li><strong>Biopsie cutanée</strong> : punch 4 mm sur le bord actif de la lésion &mdash; envoi pour PCR (identification d'espèce) + histopathologie</li>
+                        <li><strong>Référer au spécialiste</strong> avec le résultat de la PCR pour décision thérapeutique adaptée à l'espèce</li>
+                        <li>En cas de LC du Nouveau Monde : <strong>ne jamais se contenter d'un traitement local</strong> sans identification d'espèce</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Suspicion de leishmaniose viscérale</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Triade évocatrice</strong> : fièvre prolongée + splénomégalie + pancytopénie chez un patient ayant séjourné en zone endémique</li>
+                        <li><strong>Bilan biologique</strong> : NFS, CRP, transaminases, albumine, électrophorèse des protéines (hypergammaglobulinémie polyclonale)</li>
+                        <li><strong>Sérologie</strong> (rK39 ou IFAT/ELISA) &mdash; mais si VIH+ : préférer la <strong>PCR sanguine</strong></li>
+                        <li><strong>Référer en urgence</strong> au spécialiste &mdash; la LV est mortelle sans traitement</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Suspicion de lésion muqueuse</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Évoquer la LMC devant toute lésion muqueuse naso-buccale chez un patient ayant séjourné en Amérique latine</li>
+                        <li>Biopsie avec PCR systématique &mdash; ne pas opérer comme néoplasie présumée sans avoir exclu la leishmaniose</li>
+                        <li>Rechercher un antécédent de LC (cicatrice ancienne ?)</li>
+                    </ul>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Toute leishmaniose confirmée ou fortement suspectée</strong> &mdash; le traitement relève du spécialiste</li>
+                            <li><strong>Toute LC du Nouveau Monde</strong> avant traitement (risque mucocutané)</li>
+                            <li>LC de l'Ancien Monde : après biopsie avec PCR, si traitement systémique nécessaire</li>
+                            <li><strong>Suspicion de LV</strong> : référer en urgence (mortalité &gt; 95 % sans traitement)</li>
+                            <li>Tout patient immunodéprimé avec LC ou LV (prise en charge complexe, prophylaxie secondaire)</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Pareyn M, Alves F, Burza S, et al. Leishmaniasis. <em>Nat Rev Dis Primers</em> 2025;11:81. <a href="https://doi.org/10.1038/s41572-025-00663-w" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-2">de Vries HJC, Schallig HD. Cutaneous Leishmaniasis: A 2022 Updated Narrative Review into Diagnosis and Management Developments. <em>Am J Clin Dermatol</em> 2022;23(6):823-840. <a href="https://doi.org/10.1007/s40257-022-00726-8" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-3">Mathison BA, Bradley BT. Review of the Clinical Presentation, Pathology, Diagnosis, and Treatment of Leishmaniasis. <em>Lab Med</em> 2023;54(4):363-371. <a href="https://doi.org/10.1093/labmed/lmac134" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-4">Mann S, Frasca K, Scherrer S, et al. A Review of Leishmaniasis: Current Knowledge and Future Directions. <em>Curr Trop Med Rep</em> 2021;8(2):121-132. <a href="https://doi.org/10.1007/s40475-021-00232-7" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-5">Van der Auwera G, Davidsson L, Buffet P, et al. Surveillance of leishmaniasis cases from 15 European centres, 2014 to 2019. <em>Euro Surveill</em> 2022;27(4):2002028. <a href="https://doi.org/10.2807/1560-7917.ES.2022.27.4.2002028" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-6">Glans H, Dotevall L, Van der Auwera G, et al. Treatment outcome of imported cutaneous leishmaniasis among travelers infected with <em>L. major</em> and <em>L. tropica</em>. <em>Int J Infect Dis</em> 2022;122:375-381. <a href="https://doi.org/10.1016/j.ijid.2022.06.025" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-7">Velechovska J, Fabianova K. Epidemiological analysis of leishmaniasis in the Czech Republic in 1997-2024. <em>Epidemiol Mikrobiol Imunol</em> 2025;73(4):216-223. <a href="https://doi.org/10.61568/emi/11-6600/20251001/141814" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-8">Müller KE, Blomberg B, Tellevik MG, et al. Leishmaniasis in Norway. <em>Tidsskr Nor Laegeforen</em> 2021;141(3). <a href="https://doi.org/10.4045/tidsskr.19.0171" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-9">Vandeputte M, van Henten S, van Griensven J, et al. Epidemiology, clinical pattern and impact of species-specific molecular diagnosis on management of leishmaniasis in Belgium, 2010-2018. <em>Travel Med Infect Dis</em> 2020;38:101885. <a href="https://doi.org/10.1016/j.tmaid.2020.101885" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-10">Zangenberg M, Helleberg M. Leishmaniasis in Denmark. <em>Ugeskr Laeger</em> 2024;186(17). <a href="https://doi.org/10.61409/V09230568" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-11">Eichenberger A, Buechi AE, Neumayr A, et al. A severe case of visceral leishmaniasis and liposomal amphotericin B treatment failure in an immunosuppressed patient 15 years after exposure. <em>BMC Infect Dis</em> 2017;17:81. <a href="https://doi.org/10.1186/s12879-017-2192-4" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-12">Ravasi D, Schnyder M, Guidi V, et al. Exploring Emerging Challenges: Survey on Phlebotomine Sand Flies and <em>L. infantum</em> at the Northern Endemic Border in Europe (Switzerland). <em>Pathogens</em> 2024;13(12):1074. <a href="https://doi.org/10.3390/pathogens13121074" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-13">Mosimann V, Neumayr A, Hatz C, Blum J. Cutaneous leishmaniasis in Switzerland: First experience with species-specific treatment. <em>Infection</em> 2013;41(6). <a href="https://doi.org/10.1007/s15010-013-0500-5" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-14">Blum J, Buffet P, Visser L, et al. LeishMan recommendations for treatment of cutaneous and mucosal leishmaniasis in travelers, 2014. <em>J Travel Med</em> 2014;21(2):116-129. <a href="https://doi.org/10.1111/jtm.12089" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-15">Aronson N, Herwaldt BL, Libman M, et al. Diagnosis and treatment of leishmaniasis: clinical practice guidelines by the IDSA and the ASTMH. <em>Clin Infect Dis</em> 2016;63(12):e202-e264. <a href="https://doi.org/10.1093/cid/ciw670" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-16">OMS. Global leishmaniasis surveillance updates 2024. <em>WER</em> 2025;100(45):535-552. <a href="https://www.who.int/publications/i/item/who-wer10045-535-552" target="_blank" class="ref-link">Lien</a></li>
+                        <li id="ref-17">CDC. Leishmaniasis &mdash; Yellow Book 2026. <a href="https://www.cdc.gov/yellow-book/hcp/travel-associated-infections-diseases/leishmaniasis.html" target="_blank" class="ref-link">Lien</a></li>
+                        <li id="ref-18">NIH. Leishmaniasis: Guidelines for the Prevention and Treatment of Opportunistic Infections in Adults and Adolescents With HIV (2024). <a href="https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-opportunistic-infections/leishmaniasis" target="_blank" class="ref-link">Lien</a></li>
+                        <li id="ref-19">Soto J, Gutierrez P, Soto P, et al. Treatment of Bolivian <em>Leishmania braziliensis</em> Cutaneous and Mucosal Leishmaniasis. <em>Am J Trop Med Hyg</em> 2022;106(4):1182-1190. <a href="https://doi.org/10.4269/ajtmh.21-0928" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-20">Pinart M, Rueda JR, Romero GA, et al. Interventions for American cutaneous and mucocutaneous leishmaniasis (Cochrane Review). <em>Cochrane Database Syst Rev</em> 2020;8:CD004834. <a href="https://doi.org/10.1002/14651858.CD004834.pub3" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-21">Singh-Phulgenda S, Dahal P, Ngu R, et al. Serious adverse events following treatment of visceral leishmaniasis: A systematic review and meta-analysis. <em>PLoS Negl Trop Dis</em> 2021;15(3):e0009302. <a href="https://doi.org/10.1371/journal.pntd.0009302" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-22">Brüggemann RJ, Jensen GM, Lass-Flörl C. Liposomal amphotericin B &mdash; the past. <em>J Antimicrob Chemother</em> 2022;77(Suppl_2):ii3-ii10. <a href="https://doi.org/10.1093/jac/dkac351" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-23">Parkash V, Laundy N, Durojaiye OC. Outpatient parenteral antimicrobial therapy for leishmaniasis: 13 years' experience. <em>Trans R Soc Trop Med Hyg</em> 2023;117(6):473-475. <a href="https://doi.org/10.1093/trstmh/trac128" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-24">Gu Y, Tong X, He Y, et al. Efficacy and safety of different drugs for the treatment of leishmaniasis: a systematic review and network meta-analysis. <em>Front Cell Infect Microbiol</em> 2025;15:1717863. <a href="https://doi.org/10.3389/fcimb.2025.1717863" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-25">Eggers Y, Holtfreter M, et al. A rare case of lingual mucosal leishmaniasis caused by reactivation of <em>Leishmania infantum</em> infection. <em>BMC Infect Dis</em> 2025;25:234. <a href="https://doi.org/10.1186/s12879-025-10592-4" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-26">Berrezouga L, Kooli I, Belgacem S, et al. Mucosal leishmaniasis of the lips and cheeks: concomitant VL and mucosal leishmaniasis in HIV/AIDS, Tunisia. <em>AIDS Res Ther</em> 2024;21:73. <a href="https://doi.org/10.1186/s12981-024-00660-1" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-27">de Arruda JAA, Tomo S, et al. Mucosal Leishmaniasis of the lip: Report of an Exuberant case in a Young man. <em>Head Neck Pathol</em> 2022;17(2):540-545. <a href="https://doi.org/10.1007/s12105-022-01497-8" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-28">Joseph S, Whitman TJ, et al. Miltefosine Failure and Spontaneous Resolution of Cutaneous Leishmaniasis braziliensis. <em>Am J Trop Med Hyg</em> 2021;105(1):142-143. <a href="https://doi.org/10.4269/ajtmh.20-1642" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-29">Carujo A, Reis J, et al. Complicated Cutaneous Leishmaniasis in a Patient under Combined Immunosuppression. <em>Acta Med Port</em> 2023;36(12):841-845. <a href="https://doi.org/10.20344/amp.19446" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-30">Neumayr ALC, Morizot G, et al. Clinical aspects and management of cutaneous leishmaniasis in rheumatoid patients treated with TNF-alpha antagonists. <em>Travel Med Infect Dis</em> 2013;11(6):412-420. <a href="https://doi.org/10.1016/j.tmaid.2013.05.003" target="_blank" class="ref-link">DOI</a></li>
+                        <li id="ref-31">DNDi. 2024 R&amp;D programmes in review: Leishmaniasis. 4 mars 2025. <a href="https://dndi.org/news/2025/2024-rd-programmes-in-review-leishmaniasis/" target="_blank" class="ref-link">Lien</a></li>
+                        <li id="ref-32">OMS. Target product profile for a diagnostic test to confirm cure of visceral leishmaniasis. 2024. <a href="https://www.who.int/publications/i/item/9789240091818" target="_blank" class="ref-link">Lien</a></li>
+                    </ol>
+                </section>
             </article>
 
             <!-- FLOATING TOC -->
-            <aside class="toc-sidebar hidden lg:block">
-                <nav class="toc">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
-                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                        <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                        <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                        <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prevention</a></li>
-                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
-                        <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
-                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                    </div>
-                </nav>
-            </aside>
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Formes cliniques</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <div>
-                    <div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div>
-                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-8 text-sm">
-                    <div>
-                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4>
-                        <div class="space-y-2">
-                            <a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a>
-                            <a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a>
-                            <a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4>
-                        <div class="space-y-2">
-                            <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a>
-                            <span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p>
-                <p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p>
-            </div>
-        </div>
-    </footer>
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
     <script>
-        const toggle = document.getElementById('mobileToggle'); const menu = document.getElementById('mobileMenu');
-        toggle.addEventListener('click', () => { menu.classList.toggle('open'); });
-        menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => menu.classList.remove('open')); });
-        document.querySelectorAll('.dropdown > button').forEach(btn => { btn.addEventListener('click', (e) => { if (window.innerWidth < 768) { e.preventDefault(); btn.closest('.dropdown').classList.toggle('active'); } }); });
-        const nav = document.querySelector('.nav-fixed');
-        window.addEventListener('scroll', () => { if (window.scrollY > 50) { nav.classList.add('shadow-lg'); } else { nav.classList.remove('shadow-lg'); } });
-        const tocLinks = document.querySelectorAll('.toc a[href^="#"]'); const sections = document.querySelectorAll('section[id], div[id]');
-        const observerToc = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { tocLinks.forEach(link => { link.classList.remove('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); link.classList.add('border-transparent', 'text-teal-600'); }); const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`); if (activeLink) { activeLink.classList.add('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); activeLink.classList.remove('border-transparent', 'text-teal-600'); } } }); }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
-        sections.forEach(section => observerToc.observe(section));
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
     </script>
 </body>
 </html>

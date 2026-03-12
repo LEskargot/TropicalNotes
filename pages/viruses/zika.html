@@ -4,98 +4,574 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zika — Tropical Notebook</title>
-    <meta name="description" content="Zika : clinique, diagnostic, traitement, risque teratogene — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="zika, flavivirus, microcephalie, Aedes, medecine tropicale">
+    <meta name="description" content="Virus Zika (ZIKV) : épidémiologie, transmission vectorielle et sexuelle, syndrome congénital, Guillain-Barré, diagnostic (cross-réactivité flavivirus), prévention — guide pour le médecin de premier recours suisse.">
+    <meta name="keywords" content="zika, ZIKV, flavivirus, microcéphalie, syndrome congénital, Guillain-Barré, Aedes, transmission sexuelle, grossesse, médecine tropicale">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Zika</span></nav></div></div>
-    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16"><div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12"><article class="min-w-0">
-                <header class="mb-10"><span class="section-label text-teal-500">Virus</span><h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Zika</h1><p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Flavivirus a transmission vectorielle et sexuelle : clinique, diagnostic et prevention.</p><div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div></header>
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Zika</span></nav></div></div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+            <article class="min-w-0">
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Virus</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Zika</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Flavivirus &mdash; <em>Zika virus</em> (ZIKV)</p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Arbovirose à transmission vectorielle <strong>et sexuelle</strong>, le plus souvent bénigne chez l'adulte mais responsable du syndrome de Zika congénital (microcéphalie) et du syndrome de Guillain-Barré. L'enjeu principal en médecine de premier recours : identifier les grossesses à risque et maîtriser les pièges diagnostiques liés à la cross-réactivité sérologique entre flavivirus.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                </header>
+
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Situation mondiale</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>92 pays et territoires</strong> ont documenté une transmission autochtone du ZIKV (OMS, mai 2024)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Pic épidémique majeur en 2015&ndash;2016 (Amériques) ; depuis 2018, transmission persistante mais à bas bruit</li>
+                        <li><strong>Amériques 2023</strong> : 55 813 cas dans 14 pays, dont 97 % au Brésil (54 116 cas, incidence 25/100 000)<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li><strong>Thaïlande 2023</strong> : 758 cas dans 36 provinces (triplement par rapport à 2022) ; 33 cas chez des femmes enceintes ; 15 cas de microcéphalie<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li><strong>Bangladesh 2024</strong> : première épidémie documentée ; 33 cas ZIKV sur 603 fébriles (5,5 %) par RT-PCR multiplex, 2 co-infections CHIKV-ZIKV ; détection initialement manquée (suspicion dengue/chikungunya)<sup><a href="#ref-3">[3,39]</a></sup></li>
+                        <li>L'OMS classe le ZIKV comme <strong>pathogène prioritaire</strong> (R&amp;D Blueprint)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Maladie à <strong>déclaration obligatoire</strong> (laboratoire &rarr; OFSP)<sup><a href="#ref-41">[41]</a></sup></li>
+                        <li>Nombre de cas importés faible depuis 2018 (phase post-épidémique) ; <strong>pas de transmission autochtone possible</strong> en Suisse (absence d'<em>Ae. aegypti</em> ; <em>Ae. albopictus</em> présent au Tessin mais risque considéré négligeable)</li>
+                        <li><strong>Premier cas importé (2016)</strong> : voyageuse de retour du Brésil ; faux positif NS1 dengue puis confirmation ZIKV au laboratoire de référence OMS &mdash; illustre le piège de la cross-réactivité flavivirus<sup><a href="#ref-29">[29]</a></sup></li>
+                        <li>Recommandations gynécologiques suisses : Expertenbrief N° 70 SGGG (Aebi-Popp K et al.) &mdash; conseil pré-voyage, dépistage échographique, suivi de grossesse<sup><a href="#ref-40">[40]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Phase post-épidémique ≠ élimination</p>
+                        <p class="text-sm text-teal-800">L'incidence mondiale est basse depuis 2018, mais des foyers actifs persistent (Brésil, Thaïlande, Bangladesh 2024, Inde). La surveillance diminuée, le nombre élevé d'infections asymptomatiques et les limites diagnostiques suggèrent une <strong>sous-estimation majeure</strong> de la transmission réelle. Les femmes enceintes et les couples avec projet de grossesse doivent recevoir un conseil pré-voyage <strong>même si « le Zika n'est plus dans les médias »</strong>.<sup><a href="#ref-1">[1,2]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6 text-sm uppercase tracking-wide">Paramètres épidémiologiques clés</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Estimation</th><th>IC 95 %</th></tr></thead>
+                            <tbody>
+                                <tr><td>R<sub>0</sub> (nombre de reproduction de base)</td><td>1,12 &ndash; 7,4</td><td>(n = 77 estimations)</td></tr>
+                                <tr><td>Période d'incubation intrinsèque</td><td>4 &ndash; 12 jours</td><td>(n = 11 estimations)</td></tr>
+                                <tr><td>Proportion symptomatique</td><td><strong>51,2 %</strong></td><td>38,0 &ndash; 64,2 %</td></tr>
+                                <tr><td>Proportion syndrome congénital (grossesses infectées)</td><td><strong>4,65 %</strong></td><td>3,38 &ndash; 6,67 %</td></tr>
+                                <tr><td>Perte f&oelig;tale (grossesses infectées)</td><td>2,48 %</td><td>1,62 &ndash; 3,78 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60">Source : méta-analyse systématique, Nature Health 2026<sup><a href="#ref-1">[1]</a></sup></p>
+                </section>
+
+                <!-- REPARTITION GEOGRAPHIQUE -->
                 <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/zika_map.jpg" alt="Distribution geographique du Zika" /><figcaption class="text-xs text-teal-600/50 mt-2">Zika Map from the <a href="https://wwwnc.cdc.gov/travel/page/zika-information" target="_blank" class="ref-link">CDC</a></figcaption></figure>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+                    <figure class="my-4">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/zika_map.jpg" alt="Distribution géographique du virus Zika — pays avec transmission autochtone documentée" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Pays et territoires avec transmission autochtone documentée du ZIKV. Source : <a href="https://www.cdc.gov/zika/geo/index.html" target="_blank" class="ref-link">CDC</a> / <a href="https://www.who.int/publications/m/item/zika-epidemiology-update-may-2024" target="_blank" class="ref-link">OMS, mai 2024</a><sup><a href="#ref-23">[23]</a></sup></figcaption>
+                    </figure>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Amériques</strong> : Brésil (foyer le plus actif en 2023), Caraïbes, Amérique centrale</li>
+                        <li><strong>Asie du Sud-Est</strong> : Thaïlande, Singapour (30 cas en 2023), Bangladesh (émergence 2024), Inde (clusters multiples)</li>
+                        <li><strong>Afrique</strong> : données limitées mais transmission documentée dans plusieurs pays</li>
+                        <li><strong>Pacifique</strong> : Polynésie française (épidémie historique 2013&ndash;2014)</li>
+                        <li><strong>Europe</strong> : pas de transmission autochtone à ce jour ; risque théorique au sud de l'Europe (présence d'<em>Ae. albopictus</em>)<sup><a href="#ref-24">[24]</a></sup></li>
+                    </ul>
                 </section>
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Virus de la famille des Flaviviridae (comme dengue, fievre jaune, encephalite japonaise, encephalite a tiques et West Nile).</p>
-                </section>
+
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><strong>Vectorielle :</strong> Moustiques piquant la journee (principalement le <em>Aedes aegypti</em> mais aussi <em>Aedes albopictus</em>, le moustique tigre).<br><strong>Sexuelle :</strong> Rapport non protege avec une femme dans les 8 semaines ou avec un homme dans les 6 mois suivant leur retour d'un pays endemique.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Transmission vectorielle (principale)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Piqûre de moustique <em>Aedes</em> (surtout <em>Ae. aegypti</em>, aussi <em>Ae. albopictus</em>)</li>
+                        <li><strong>Piqûres diurnes</strong> — principalement le matin et en fin d'après-midi</li>
+                        <li><em>Ae. albopictus</em> (moustique tigre) présent au Tessin mais risque de transmission locale considéré négligeable en Suisse</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Transmission sexuelle</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Démontrée dans les deux sens : homme &rarr; femme, femme &rarr; homme, homme &rarr; homme<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li>Le <strong>sperme</strong> est le fluide corporel où le virus persiste le plus longtemps : ARN ZIKV détectable jusqu'à <strong>6 mois</strong> post-infection<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>50 % des hommes symptomatiques ont de l'ARN viral dans le sperme à 2 semaines (cohorte NEJM, n = 184)<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>Tropisme pour les cellules souches spermatiques et les cellules de Sertoli ; inflammation de l'épididyme et de la prostate (modèle primate)<sup><a href="#ref-38">[38]</a></sup></li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Voie de transmission sexuelle</th><th>Probabilité par acte non protégé</th><th>IC 95 %</th></tr></thead>
+                            <tbody>
+                                <tr><td>Homme &rarr; homme (anal)</td><td><strong>1,3 %</strong></td><td>0,4 &ndash; 6,0 %</td></tr>
+                                <tr><td>Homme &rarr; femme (vaginal/anal)</td><td><strong>0,4 %</strong></td><td>0,3 &ndash; 0,6 %</td></tr>
+                                <tr><td>Femme &rarr; homme (vaginal)</td><td>0,1 %</td><td>0 &ndash; 0,8 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-6">Source : Major CG et al. J Infect Dis 2021<sup><a href="#ref-37">[37]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Autres voies de transmission</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Verticale (materno-f&oelig;tale)</strong> : responsable du syndrome de Zika congénital</li>
+                        <li><strong>Transfusionnelle</strong> : cas documentés ; dépistage des dons de sang en zone endémique</li>
+                        <li><strong>Allaitement</strong> : ARN viral détecté dans le lait maternel ; transmission probable mais non confirmée comme voie majeure<sup><a href="#ref-4">[4]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Persistance virale dans les fluides corporels</h3>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Fluide</th><th>Durée de détection (ARN)</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Sperme</strong></td><td>Jusqu'à <strong>6 mois</strong></td><td>Charges virales élevées ; durée la plus longue</td></tr>
+                                <tr><td><strong>Urines</strong></td><td>Plusieurs semaines</td><td>Plus longtemps que le plasma ; utile pour le diagnostic</td></tr>
+                                <tr><td>Plasma</td><td>&lt; 14 jours</td><td>Virémie courte</td></tr>
+                                <tr><td>Sécrétions vaginales</td><td>Rapportée, durée plus courte que le sperme</td><td></td></tr>
+                                <tr><td>Salive, sueur</td><td>Détection prolongée possible</td><td></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mt-2">Source : Calvet GA et al. Sci Rep 2023, étude prospective n = 260<sup><a href="#ref-4">[4]</a></sup></p>
                 </section>
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">2-14 jours</p>
-                </section>
+
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3"><strong>Infection asymptomatique :</strong> dans 75% des cas.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed"><strong>Infection symptomatique aigue :</strong> principalement rash maculo-papuleux prurigineux, fievre (max 38.5&deg;), conjonctivite non-purulente, arthralgie surtout des petites articulations des mains et pieds, myalgies, cephalees. Les symptomes durent 2-7 jours. Rarement manifestations neurologiques (meningites, paralysie ascendante transitoire, syndrome de Guillain-Barre).</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Infection aiguë</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Asymptomatique dans ~50 % des cas</strong> (méta-analyse 2026 : proportion symptomatique estimée à 51,2 %, IC 95 % : 38,0&ndash;64,2 %)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>NB : les estimations historiques de 75&ndash;80 % d'asymptomatiques provenaient des épidémies en Micronésie ; les données poolées récentes suggèrent davantage de cas symptomatiques</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Présentation typique</strong> (quand symptomatique) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Rash maculo-papuleux prurigineux</strong> (souvent prédominant, début précoce)</li>
+                        <li>Fièvre modeste (&le; 38,5 °C, souvent absente)</li>
+                        <li><strong>Conjonctivite non purulente</strong> (signe quasi-pathognomonique parmi les arboviroses)</li>
+                        <li>Arthralgies des petites articulations (mains, pieds)</li>
+                        <li>Myalgies, céphalées</li>
+                        <li>Durée : 2&ndash;7 jours, auto-résolutive</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Distinction clinique Zika vs. dengue</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Signe</th><th>Zika</th><th>Dengue</th></tr></thead>
+                            <tbody>
+                                <tr><td>Rash</td><td><strong>Précoce, prurigineux</strong>, prédominant</td><td>Plus tardif (J3&ndash;J7), moins prurigineux</td></tr>
+                                <tr><td>Fièvre</td><td>Modeste (&le; 38,5 °C) ou absente</td><td>Élevée (39&ndash;40 °C), « break-bone fever »</td></tr>
+                                <tr><td>Conjonctivite</td><td><strong>Fréquente</strong>, non purulente</td><td>Rare</td></tr>
+                                <tr><td>Douleur rétro-orbitaire</td><td>Rare</td><td><strong>Caractéristique</strong></td></tr>
+                                <tr><td>Risque hémorragique</td><td>Non</td><td>Oui (dengue sévère)</td></tr>
+                                <tr><td>Risque de choc</td><td>Non</td><td>Oui (dengue sévère)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
-                <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Aspecifique : possible thrombopenie.</p>
+
+                <!-- COMPLICATIONS -->
+                <section id="complications" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Complications</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Syndrome de Zika congénital (SZC)</h3>
+                    <p class="text-sm text-teal-800/80 mb-3"><strong>Relation causale établie</strong> entre infection ZIKV pendant la grossesse et anomalies congénitales (OMS, CDC, 2016)<sup><a href="#ref-7">[7]</a></sup></p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Odds Ratio</th><th>IC 95 %</th></tr></thead>
+                            <tbody>
+                                <tr><td>Microcéphalie (exposition in utero)</td><td><strong>12,5</strong></td><td>7,8 &ndash; 20,1</td></tr>
+                                <tr><td>Calcifications intracrâniennes + ventriculomégalie</td><td><strong>8,4</strong></td><td>4,5 &ndash; 15,7</td></tr>
+                                <tr><td>Infection au <strong>1<sup>er</sup> trimestre</strong> (risque le plus élevé)</td><td><strong>18,3</strong></td><td>9,7 &ndash; 34,6</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-4">Source : Duarte &amp; Moreli, méta-analyse mise à jour 2025<sup><a href="#ref-10">[10]</a></sup></p>
+
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>Spectre du SZC</strong> (au-delà de la microcéphalie) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Microcéphalie sévère (avec crâne collabé)</li>
+                        <li>Anomalies cérébrales : calcifications, ventriculomégalie, hypoplasie cérébrale/cérébelleuse, anomalies du corps calleux<sup><a href="#ref-31">[31,32]</a></sup></li>
+                        <li>Anomalies oculaires : atrophie maculaire, anomalies du nerf optique</li>
+                        <li>Contractures (arthrogrypose)<sup><a href="#ref-35">[35]</a></sup></li>
+                        <li>Troubles neurodéveloppementaux : retard cognitif, langagier, moteur</li>
+                        <li>Épilepsie</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Suivi à long terme indispensable</p>
+                        <p class="text-sm text-teal-800">Les troubles neurodéveloppementaux sont détectés <strong>même chez des enfants sans microcéphalie apparente à la naissance</strong> (suivi jusqu'à 36 mois, étude US).<sup><a href="#ref-12">[12]</a></sup> Un suivi pédiatrique rapproché est nécessaire pour tout enfant exposé in utero.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Syndrome de Guillain-Barré (SGB)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Lien causal établi</strong> entre ZIKV et SGB (OMS, évidence forte)<sup><a href="#ref-7">[7,8,9]</a></sup></li>
+                        <li>Risque estimé : environ <strong>2&ndash;3 cas pour 10 000 infections ZIKV</strong><sup><a href="#ref-8">[8]</a></sup></li>
+                        <li><strong>Délai d'apparition</strong> : 5&ndash;12 jours après les symptômes infectieux (médiane)<sup><a href="#ref-9">[9]</a></sup></li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Caractéristique du SGB-Zika</th><th>Fréquence</th></tr></thead>
+                            <tbody>
+                                <tr><td>Faiblesse des membres</td><td>97 %</td></tr>
+                                <tr><td>Aréflexie</td><td>96 %</td></tr>
+                                <tr><td>Symptômes sensitifs</td><td>82 %</td></tr>
+                                <tr><td>Paralysie faciale</td><td>51 %</td></tr>
+                                <tr><td>Paraparésie (plus fréquent que dans le SGB classique)</td><td>24 %</td></tr>
+                                <tr><td>Admission en soins intensifs</td><td>40&ndash;50 %</td></tr>
+                                <tr><td>Ventilation mécanique</td><td>~20 %</td></tr>
+                                <tr><td>Mortalité</td><td><strong>~2 %</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-4">Source : Leonhard SE et al. PLoS NTD 2020<sup><a href="#ref-9">[9]</a></sup></p>
+
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Phénotype électrophysiologique : AIDP prédominant (<strong>62 %</strong>), AMAN (16 %)</li>
+                        <li>Pas de prédominance masculine (contrairement au SGB classique) : ratio H:F ~1:1</li>
+                        <li>Pronostic : 61&ndash;66 % marchent sans aide à 6 mois ; récupération globalement favorable</li>
+                    </ul>
                 </section>
+
+                <!-- BIOLOGIE -->
+                <section id="biologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Bilan biologique standard souvent <strong>aspécifique</strong></li>
+                        <li>Possible thrombopénie modérée</li>
+                        <li>Leucopénie possible</li>
+                        <li>CRP généralement peu élevée (contrairement à la dengue sévère)</li>
+                        <li>Transaminases normales ou modérément élevées</li>
+                    </ul>
+                    <div class="callout-info mt-4">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Point pratique</p>
+                        <p class="text-sm text-teal-800">La biologie standard ne permet pas de distinguer Zika de dengue ou chikungunya. L'orientation repose sur la clinique (conjonctivite, rash prurigineux prédominant) et la confirmation virologique (PCR).</p>
+                    </div>
+                </section>
+
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Considerer le diagnostic de ZIKV en 2eme intention, apres avoir exclu malaria, dengue et autres possibles etiologies tropicales ou cosmopolites.</p>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Si symptomes depuis &lt; de 7 jours : PCR sur serum ET urines</li>
-                        <li>Si symptomes depuis 7 a 28 jours : serologie + PCR uniquement sur urines</li>
-                        <li>Si symptomes depuis &gt; 28 jours : uniquement serologie</li>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Algorithme diagnostique</h3>
+                    <p class="text-sm text-teal-800/80 mb-4"><strong>Considérer le Zika en 2<sup>e</sup> intention</strong>, après exclusion de la malaria, de la dengue et des autres étiologies fébriles tropicales/cosmopolites.</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Délai depuis les symptômes</th><th>Tests recommandés</th><th>Prélèvements</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>&lt; 7 jours</strong></td><td><strong>PCR (RT-PCR)</strong></td><td>Sérum <strong>ET</strong> urines</td></tr>
+                                <tr><td><strong>7&ndash;28 jours</strong></td><td>Sérologie (IgM) + PCR urines</td><td>Sérum + urines</td></tr>
+                                <tr><td><strong>&gt; 28 jours</strong></td><td>Sérologie uniquement</td><td>Sérum</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">PCR (RT-PCR)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Gold standard en phase aiguë</strong> (&lt; 7 jours)</li>
+                        <li>Détectable dans le sérum pendant ~5&ndash;7 jours, dans les <strong>urines plus longtemps</strong> (jusqu'à 2&ndash;3 semaines)</li>
+                        <li>Spécificité élevée (pas de réaction croisée avec les autres flavivirus)</li>
+                        <li><strong>Toujours prélever sérum ET urines</strong> en phase aiguë (urines plus sensibles après J5)</li>
                     </ul>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mt-3">NB : La serologie est difficile a interpreter a cause de potentielles reactions croisees avec d'autres Flavivirus. Si patiente enceinte discuter avec un specialiste.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Sérologie : le piège de la cross-réactivité</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>La protéine E du ZIKV et du DENV2 partagent ~<strong>54 %</strong> d'identité en acides aminés<sup><a href="#ref-15">[15]</a></sup></li>
+                        <li>Les IgM anti-ZIKV cross-réagissent fréquemment avec : dengue, fièvre jaune, encéphalite japonaise, FSME, West Nile<sup><a href="#ref-15">[15,16]</a></sup></li>
+                        <li>Le problème est <strong>accentué</strong> chez les patients ayant eu une infection flavivirus antérieure ou un vaccin fièvre jaune/FSME/encéphalite japonaise</li>
+                        <li>Cross-réactivité DENV-ZIKV-SARS-CoV-2 également documentée<sup><a href="#ref-17">[17]</a></sup></li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Test sérologique</th><th>Spécificité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td>IgM ELISA standard</td><td><strong>Faible</strong> (cross-réactivité élevée)</td><td>Ne permet pas de distinguer ZIKV des autres flavivirus</td></tr>
+                                <tr><td><strong>PRNT</strong> (Plaque Reduction Neutralization Test)</td><td><strong>Élevée</strong></td><td>Gold standard sérologique ; laboratoire de référence uniquement</td></tr>
+                                <tr><td>Tests basés sur NS1 (en développement)</td><td>Meilleure que IgM ELISA</td><td>En cours de validation<sup><a href="#ref-14">[14]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège diagnostique majeur</p>
+                        <p class="text-sm text-teal-800">Un IgM anti-ZIKV positif peut être un <strong>faux positif</strong> lié à une infection dengue antérieure ou à une vaccination fièvre jaune/FSME. En cas de doute, la <strong>PCR</strong> (sérum + urines) est le test le plus fiable en phase aiguë. Pour la confirmation sérologique tardive, seul le <strong>PRNT</strong> (laboratoire de référence) peut distinguer les flavivirus.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Points pratiques pour le MG suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Prescrire <strong>PCR sérum + urines</strong> si &lt; 28 jours post-symptômes</li>
+                        <li>Sérologie seule si &gt; 28 jours &mdash; mais <strong>interpréter avec prudence</strong> (surtout si voyages antérieurs en zone dengue, vaccination fièvre jaune ou FSME)</li>
+                        <li><strong>Femme enceinte avec exposition possible</strong> : discussion avec un spécialiste obligatoire (infectiologue ou médecine tropicale) pour algorithme diagnostique adapté incluant échographie de référence et suivi</li>
+                    </ul>
                 </section>
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Infections <u>cosmopolites</u> : parvovirus, rougeole.<br>Infections <u>tropicales</u> : malaria, dengue, chikungunya, leptospirose, rickettsioses.</p>
-                </section>
+
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et prevention</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Prevention primaire avec mesures pour eviter les piqures de moustiques y compris le jour.</li>
-                        <li>Pour les couples avec un projet de grossesse il est recommande d'avoir des rapports sexuels proteges durant le voyage et jusqu'a un mois apres le retour au vu de la possible presence de virus dans le sperme.</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <div class="callout-info mb-6">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Guidelines OMS 2025</p>
+                        <p class="text-sm text-teal-800">Première publication de recommandations globales couvrant les 4 arboviroses à <em>Aedes</em> (dengue, chikungunya, Zika, fièvre jaune) dans un seul document (juillet 2025).<sup><a href="#ref-30">[30]</a></sup></p>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Pas de traitement antiviral spécifique</strong></li>
+                        <li><strong>Pas de vaccin disponible</strong> (mars 2026) &mdash; 16 candidats vaccins en phase 1&ndash;2 clinique ; aucun en phase 3 (incidence trop faible pour alimenter les essais)<sup><a href="#ref-18">[18]</a></sup></li>
+                        <li>VLA1601 (Valneva) : résultats phase 1 positifs en nov. 2025 ; séroconversion jusqu'à 85,7 %<sup><a href="#ref-18">[18]</a></sup></li>
                     </ul>
-                    <div class="callout-piege"><p class="text-sm font-bold text-gold-700 mb-1">&#9888; Risque teratogene</p><p class="text-sm text-teal-800">Risque de microcephalie et anomalies cerebrales et oculaires chez le foetus. <strong>Conseil pre-conceptionnel obligatoire</strong> apres voyage en zone endemique.</p></div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Traitement symptomatique</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Paracétamol</strong> pour la fièvre et les douleurs</li>
+                        <li>Hydratation orale</li>
+                        <li>Repos</li>
+                    </ul>
+
+                    <div class="callout-danger mt-4">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Éviter les AINS et l'aspirine</p>
+                        <p class="text-sm text-teal-800">Tant que la <strong>dengue n'est pas exclue</strong>, les AINS et l'aspirine sont contre-indiqués en raison du risque hémorragique en cas de dengue sévère.</p>
+                    </div>
                 </section>
 
-                <section id="referer" class="mb-10"><div class="callout-referer"><p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p><p class="text-sm text-teal-800">Cas complexes ou severes necessitant un avis specialise. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p></div></section>
-            </article>
-            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et prevention</a></li>
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
 
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside></div></main>
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
-    <script>const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}});});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}});},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));</script>
+                    <h3 class="font-semibold text-teal-800 mb-3">Protection anti-vectorielle</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Répulsifs cutanés contenant du DEET (20&ndash;50 %), de l'icaridine ou de l'IR3535</li>
+                        <li>Vêtements longs imprégnés de perméthrine</li>
+                        <li>Moustiquaire de lit (même en journée, siestes)</li>
+                        <li>Réduction des eaux stagnantes (gîtes larvaires <em>Aedes</em>)</li>
+                        <li><strong>Rappel</strong> : <em>Aedes</em> pique principalement <strong>de jour</strong> (matin et fin d'après-midi)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Prévention de la transmission sexuelle</h3>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Source</th><th>Homme (retour de zone à risque)</th><th>Femme (retour de zone à risque)</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>CDC (2024&ndash;2025)</strong><sup><a href="#ref-19">[19]</a></sup></td><td>Préservatif ou abstinence &ge; <strong>3 mois</strong></td><td>Préservatif ou abstinence &ge; <strong>2 mois</strong></td></tr>
+                                <tr><td><strong>OMS (2020)</strong><sup><a href="#ref-20">[20]</a></sup></td><td>Préservatif ou abstinence &ge; <strong>6 mois</strong></td><td>Préservatif ou abstinence &ge; <strong>2 mois</strong></td></tr>
+                                <tr><td><strong>ECTM/UZH Suisse</strong><sup><a href="#ref-21">[21]</a></sup></td><td colspan="2">Préservatif pendant le voyage <strong>et &ge; 2 mois</strong> après le retour</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Synthèse pratique pour le MG suisse</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Adopter la <strong>position CDC</strong> (3 mois pour les hommes, 2 mois pour les femmes) comme compromis raisonnable</li>
+                            <li>Homme symptomatique : préférer les <strong>3 mois post-résolution des symptômes</strong></li>
+                            <li>Projet de grossesse : <strong>3 mois</strong> (homme) et <strong>2 mois</strong> (femme) avant toute tentative de conception</li>
+                            <li>Ces délais s'appliquent <strong>indépendamment de la présence de symptômes</strong></li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Grossesse et voyage</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Femmes enceintes</strong> : déconseiller fortement le voyage en zone de transmission active du ZIKV<sup><a href="#ref-19">[19,40]</a></sup></li>
+                        <li><strong>Couples avec projet de grossesse</strong> : conseil pré-voyage obligatoire ; envisager de reporter le voyage ou d'appliquer strictement les mesures de prévention vectorielle ET sexuelle</li>
+                        <li>Recommandations SGGG (Expertenbrief N° 70) : conseil pré-voyage, dépistage échographique, suivi de grossesse<sup><a href="#ref-40">[40]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-danger mt-4">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Risque tératogène</p>
+                        <p class="text-sm text-teal-800">Risque de <strong>microcéphalie</strong> et d'anomalies cérébrales, oculaires et musculo-squelettiques chez le f&oelig;tus, en particulier lors d'une infection au <strong>1<sup>er</sup> trimestre</strong> (OR 18,3). <strong>Conseil pré-conceptionnel obligatoire</strong> pour tout voyage en zone endémique.</p>
+                    </div>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Confusion avec la dengue</p>
+                            <p class="text-sm text-teal-800">Cliniquement similaires (fièvre + rash + arthralgies après voyage tropical). La <strong>conjonctivite non purulente</strong> et le <strong>rash prurigineux prédominant</strong> orientent vers le Zika. La sérologie est cross-réactive &mdash; privilégier la <strong>PCR</strong> en phase aiguë.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Oublier la transmission sexuelle</p>
+                            <p class="text-sm text-teal-800">Le virus persiste dans le sperme bien au-delà de la virémie plasmatique. Un homme <strong>asymptomatique</strong> peut transmettre le virus sexuellement. <strong>Toujours informer</strong> les hommes revenant de zone endémique des recommandations de protection sexuelle, même en l'absence de symptômes.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Femme enceinte exposée : ne pas banaliser</p>
+                            <p class="text-sm text-teal-800">Toute femme enceinte ayant voyagé en zone de transmission ZIKV (ou dont le <strong>partenaire</strong> a voyagé) doit faire l'objet d'un bilan : PCR &plusmn; sérologie selon le délai + échographie de référence + suivi rapproché. <strong>Discussion avec un spécialiste recommandée.</strong></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Sérologie positive = interprétation prudente</p>
+                            <p class="text-sm text-teal-800">Un IgM anti-ZIKV positif chez un patient vacciné fièvre jaune ou FSME, ou ayant voyagé en zone dengue, peut être un <strong>faux positif</strong>. Seul le PRNT (laboratoire de référence) permet la distinction.<sup><a href="#ref-15">[15,16]</a></sup></p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perle : conjonctivite non purulente</p>
+                            <p class="text-sm text-teal-800">La conjonctivite non purulente est un signe d'orientation <strong>quasi-pathognomonique</strong> vers le Zika parmi les arboviroses (rare dans la dengue et le chikungunya typiques). À rechercher systématiquement chez le voyageur fébrile avec rash.</p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perle : SGB post-Zika</p>
+                            <p class="text-sm text-teal-800">Le délai symptômes infectieux &rarr; symptômes neurologiques est court (~5&ndash;12 jours). Y penser devant toute <strong>faiblesse ascendante</strong> dans les semaines suivant un voyage tropical, même si les symptômes infectieux ont été mineurs.</p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perle : SZC au-delà de la microcéphalie</p>
+                            <p class="text-sm text-teal-800">Même les enfants sans microcéphalie à la naissance peuvent développer des troubles neurodéveloppementaux à moyen terme. Un suivi neurodéveloppemental est nécessaire pour tout enfant exposé in utero.<sup><a href="#ref-12">[12]</a></sup></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Voyageur symptomatique au retour</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Exclure la malaria</strong> en priorité (frottis + goutte épaisse / TDR)</li>
+                        <li><strong>Exclure la dengue</strong> (NS1, PCR dengue, sérologie)</li>
+                        <li>Si &lt; 28 jours post-symptômes : <strong>PCR ZIKV sérum + urines</strong></li>
+                        <li>Si &gt; 28 jours : sérologie ZIKV (IgM) &mdash; interpréter avec prudence (cross-réactivité)</li>
+                        <li>Traitement symptomatique : paracétamol, hydratation, repos. <strong>Pas d'AINS</strong> tant que la dengue n'est pas exclue</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Femme enceinte exposée</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>PCR ZIKV sérum + urines</strong> (quelle que soit la présence de symptômes)</li>
+                        <li>Sérologie selon le délai (&gt; 7 jours)</li>
+                        <li><strong>Échographie obstétricale de référence</strong> (recherche microcéphalie, calcifications, ventriculomégalie)</li>
+                        <li><strong>Discussion obligatoire avec un spécialiste</strong> (infectiologue / médecine tropicale / gynécologue référent)</li>
+                        <li>Suivi échographique rapproché si exposition confirmée</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Conseil pré-voyage</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Femmes enceintes</strong> : déconseiller fortement le voyage en zone de transmission active</li>
+                        <li><strong>Couples avec projet de grossesse</strong> : discuter du report du voyage ou des mesures strictes de prévention</li>
+                        <li>Informer sur la protection anti-vectorielle <strong>diurne</strong></li>
+                        <li>Informer sur la <strong>transmission sexuelle</strong> et les délais de protection post-retour</li>
+                        <li>Vérifier le site <a href="https://www.healthytravel.ch" target="_blank" class="ref-link">HealthyTravel.ch</a> (ECTM) pour les recommandations actualisées par destination</li>
+                    </ul>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Femme enceinte</strong> avec exposition possible au ZIKV (voyage ou partenaire ayant voyagé)</li>
+                            <li><strong>Suspicion de syndrome de Guillain-Barré</strong> post-voyage tropical (faiblesse ascendante, aréflexie)</li>
+                            <li>Diagnostic sérologique douteux nécessitant un <strong>PRNT</strong> (laboratoire de référence)</li>
+                            <li>Couple avec projet de grossesse et <strong>voyage récent</strong> en zone endémique</li>
+                            <li>Tout cas complexe nécessitant un avis spécialisé en infectiologie / médecine tropicale</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">McCain K, Vicco A, Morgenstern C et al. A systematic review and meta-analysis of Zika virus epidemiology. <em>Nature Health</em> 2026;1:355&ndash;367.</li>
+                        <li id="ref-2">Harrington J et al. A review of the recent epidemiology of Zika virus infection. <em>Am J Trop Med Hyg</em> 2025;112(5):1026&ndash;1035.</li>
+                        <li id="ref-3">Ferdous J et al. Zika virus outbreak &mdash; Bangladesh, September&ndash;December 2024. <em>MMWR</em> 2026;75(1):1&ndash;6.</li>
+                        <li id="ref-4">Calvet GA, Kara EO, Botto-Menezes CHA et al. Detection and persistence of Zika virus in body fluids and associated factors: a prospective cohort study. <em>Sci Rep</em> 2023;13:21178.</li>
+                        <li id="ref-5">Counotte MJ, Kim CR, Wang J et al. Sexual transmission of Zika virus and other flaviviruses: a living systematic review. <em>PLOS Med</em> 2018;15:e1002611.</li>
+                        <li id="ref-6">Mead PS, Duggal NK, Hook SA et al. Zika virus shedding in semen of symptomatic infected men. <em>N Engl J Med</em> 2018;378:1377&ndash;1385.</li>
+                        <li id="ref-7">Krauer F, Riesen M, Reveiz L et al. Zika virus infection as a cause of congenital brain abnormalities and Guillain-Barré syndrome: systematic review. <em>PLOS Med</em> 2017;14:e1002203.</li>
+                        <li id="ref-8">Mier-y-Teran-Romero L, Delorey MJ, Sejvar JJ, Johansson MA. Guillain-Barré syndrome risk among individuals infected with Zika virus: a multi-country assessment. <em>BMC Med</em> 2018;16:67.</li>
+                        <li id="ref-9">Leonhard SE, Bresani-Salvi CC et al. Guillain-Barré syndrome related to Zika virus infection: a systematic review and meta-analysis of the clinical and electrophysiological phenotype. <em>PLoS Negl Trop Dis</em> 2020;14:e0008264.</li>
+                        <li id="ref-10">Duarte TRE, Moreli ML. Beyond microcephaly: quantitative assessment of congenital outcomes following Zika virus infection during pregnancy &mdash; an updated meta-analysis. <em>medRxiv</em> 2025.</li>
+                        <li id="ref-11">Johansson MA, Mier-y-Teran-Romero L, Reefhuis J et al. Zika and the risk of microcephaly. <em>N Engl J Med</em> 2016;375:1&ndash;4.</li>
+                        <li id="ref-12">Tong VT et al. Outcomes up to age 36 months after congenital Zika virus infection &mdash; U.S. states. <em>Pediatr Res</em> 2023;94:1373&ndash;1379.</li>
+                        <li id="ref-13">Duarte TRE et al. Genetic variants underlying congenital Zika syndrome and severe microcephaly: a systematic review and meta-analysis. <em>VirusDisease</em> 2025;36:313&ndash;325.</li>
+                        <li id="ref-14">Madere FS, Andrade da Silva AV et al. Flavivirus infections and diagnostic challenges for dengue, West Nile and Zika viruses. <em>npj Viruses</em> 2025;3:36.</li>
+                        <li id="ref-15">Chan KR, Ismail AA et al. Serological cross-reactivity among common flaviviruses. <em>Front Cell Infect Microbiol</em> 2022;12:975398.</li>
+                        <li id="ref-16">Gaspar-Castillo C et al. Structural and immunological basis of cross-reactivity between dengue and Zika infections: implications in serosurveillance in endemic regions. <em>Front Microbiol</em> 2023;14:1107496.</li>
+                        <li id="ref-17">Munoz-Jordan J et al. Evaluation of serologic cross-reactivity between dengue virus and SARS-CoV-2 in patients with acute febrile illness. <em>MMWR</em> 2022;71(10):375&ndash;377.</li>
+                        <li id="ref-18">Lee HJ et al. An updated review of Zika virus vaccine development. <em>Clin Exp Vaccine Res</em> 2025;14:325&ndash;334. / Valneva SE. Positive results for Phase 1 trial of VLA1601. Press release, Nov 4, 2025.</li>
+                        <li id="ref-19">CDC. Zika virus &mdash; Recommendations for travelers and people living abroad. Updated 2025. / CDC. Zika virus &mdash; Prevention.</li>
+                        <li id="ref-20">WHO. Guidelines for the prevention of sexual transmission of Zika virus. Geneva: WHO; 2020.</li>
+                        <li id="ref-21">Zentrum für Reisemedizin UZH. Zika &mdash; Pre-travel advice. ECTM/HealthyTravel.ch.</li>
+                        <li id="ref-22">Public Health Agency of Canada. Zika virus: Pregnant or planning a pregnancy. Updated 2024.</li>
+                        <li id="ref-23">WHO. Zika epidemiology update &mdash; May 2024.</li>
+                        <li id="ref-24">WHO Europe. Zika virus technical report: interim risk assessment for WHO European region. 2025.</li>
+                        <li id="ref-25">Kurscheidt FA et al. Persistence and clinical relevance of Zika virus in the male genital tract. <em>Nat Rev Urol</em> 2019;16:211&ndash;230.</li>
+                        <li id="ref-26">de Jong HK, Grobusch MP. Zika virus: an overview update. <em>Curr Opin HIV AIDS</em> 2025;20(3).</li>
+                        <li id="ref-27">Revue Médicale Suisse. Virus Zika : mise à jour des recommandations. <em>Rev Med Suisse</em> 2019;649.</li>
+                        <li id="ref-28">Herrera TT, Cubilla-Batista I, Goodridge A, Pereira TV. Diagnostic accuracy of prenatal imaging for the diagnosis of congenital Zika syndrome: systematic review and meta-analysis. <em>Front Med</em> 2022;9:962765.</li>
+                        <li id="ref-29">Gyurech D, Schilling J, Schmidt-Chanasit J et al. False positive dengue NS1 antigen test in a traveller with an acute Zika virus infection imported into Switzerland. <em>Swiss Med Wkly</em> 2016;146:w14296.</li>
+                        <li id="ref-30">WHO. Guidelines for clinical management of arboviral diseases: dengue, chikungunya, Zika and yellow fever. Geneva: WHO; 4 July 2025.</li>
+                        <li id="ref-31">Vasco Aragão MF, van der Linden V, Brainer-Lima AM et al. Clinical features and neuroimaging (CT and MRI) findings in presumed Zika virus related congenital infection and microcephaly. <em>BMJ</em> 2016;353:i1901.</li>
+                        <li id="ref-32">Soares de Oliveira-Szejnfeld P, Levine D, Melo AS et al. Congenital brain abnormalities and Zika virus: what the radiologist can expect to see prenatally and postnatally. <em>Radiology</em> 2016;281:203&ndash;218.</li>
+                        <li id="ref-33">Okafor C, Kanekar S. Imaging of microcephaly. <em>Clin Perinatol</em> 2022;49:693&ndash;713.</li>
+                        <li id="ref-34">Freitas DA, Souza-Santos R, Carvalho LMA et al. Congenital Zika syndrome: a systematic review. <em>PLoS One</em> 2020;15:e0242367.</li>
+                        <li id="ref-35">Hageman G, Nihom J. Fetuses and infants with Amyoplasia congenita in congenital Zika syndrome: the evidence of a viral cause. A narrative review of 144 cases. <em>Eur J Paediatr Neurol</em> 2022;42:1&ndash;14.</li>
+                        <li id="ref-36">Tajik S, Farahani AV et al. Zika virus tropism and pathogenesis: understanding clinical impacts and transmission dynamics. <em>Virol J</em> 2024;21:271.</li>
+                        <li id="ref-37">Major CG, Paz-Bailey G, Hills SL et al. Risk estimation of sexual transmission of Zika virus &mdash; United States, 2016&ndash;2017. <em>J Infect Dis</em> 2021;224:1756&ndash;1764.</li>
+                        <li id="ref-38">Ball EE, Pesavento PA et al. Zika virus persistence in the male macaque reproductive tract. <em>PLoS Negl Trop Dis</em> 2022;16:e0010566.</li>
+                        <li id="ref-39">Mizanur R, Ayaz KF et al. Reported circulation of Zika and re-circulation of Chikungunya in Dengue-endemic Dhaka, Bangladesh in 2024. <em>PLoS One</em> 2026;21:e0340119.</li>
+                        <li id="ref-40">Aebi-Popp K, Baud D, Martinez de Tejada B et al. Zikavirus und Schwangerschaft. Expertenbrief No 70 (ersetzt Nr. 46). SGGG.</li>
+                        <li id="ref-41">OFSP (BAG). Zika virus.</li>
+                        <li id="ref-42">ECDC. Strategies and guidelines for Zika virus infection.</li>
+                        <li id="ref-43">Cortes N, Lira A, Prates-Syed W et al. Integrated control strategies for dengue, Zika, and Chikungunya virus infections. <em>Front Immunol</em> 2023;14:1281667.</li>
+                        <li id="ref-44">Zammarchi L, Chechi F, Spinicci M, Bartoloni A. Flaviviruses proteases. <em>The Enzymes</em> 2025;58:251&ndash;278.</li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#complications" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Complications</a></li>
+                <li><a href="#biologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+
+    <script>
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+    </script>
 </body>
 </html>

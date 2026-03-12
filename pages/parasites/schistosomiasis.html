@@ -4,72 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Schistosomiase — Tropical Notebook</title>
-    <meta name="description" content="Schistosomiase : repartition geographique, especes, fievre de Katayama, diagnostic et traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="schistosomiase, bilharziose, schistosoma, katayama, praziquantel, medecine tropicale">
+    <meta name="description" content="Schistosomiase (bilharziose) : épidémiologie suisse et européenne, cycle parasitaire, fièvre de Katayama, diagnostic sérologique, traitement par praziquantel et pénurie en Europe — guide pour le médecin de premier recours.">
+    <meta name="keywords" content="schistosomiase, bilharziose, schistosoma, katayama, praziquantel, sérologie, CAA, dermatite cercarienne, médecine tropicale, voyageur">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        teal: { 50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd', 300: '#7ecec5', 400: '#54b5aa', 500: '#479793', 600: '#387a77', 700: '#2d5e5b', 800: '#234a48', 900: '#1a3836', 950: '#0f2322' },
-                        mint: { 50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc', 300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98', 600: '#0e8b7a', 700: '#0f6f63', 800: '#115850', 900: '#114943' },
-                        gold: { 50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a', 300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c', 600: '#b47d15', 700: '#8f5d14', 800: '#774a18', 900: '#633d1a' },
-                        cream: { 50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8', 300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99' },
-                    },
-                    fontFamily: { serif: ['"DM Serif Display"', 'Georgia', 'serif'], sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'] },
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
-        body::after { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
-        .nav-fixed { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; }
-        .dropdown:hover .dropdown-menu, .dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-        .mobile-menu.open { max-height: 400px; }
-        .toc { position: sticky; top: 5.5rem; }
-        .toc a.active { color: #12ad98; border-left-color: #12ad98; font-weight: 600; }
-        .section-label { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
-        .article-table { width: 100%; text-align: left; font-size: 0.875rem; }
-        .article-table thead { background: #f0fafa; color: #2d5e5b; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
-        .article-table th { padding: 0.75rem 1rem; font-weight: 600; }
-        .article-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #d2f0ee; vertical-align: top; }
-        .article-table tbody tr:hover { background: #fdfaf3; }
-        .callout-piege { border-left: 4px solid #d4a01c; background: #fffceb; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-referer { border-left: 4px solid #12ad98; background: #edfcf8; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        .callout-danger { border-left: 4px solid #dc2626; background: #fef2f2; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-        a.ref-link { color: #12ad98; font-weight: 500; border-bottom: 1px solid rgba(18, 173, 152, 0.3); transition: all 0.2s; text-decoration: none; }
-        a.ref-link:hover { color: #0e8b7a; border-bottom-color: #0e8b7a; }
-        html { scroll-behavior: smooth; }
+        body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
+        .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
+        .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a>
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a>
-                    <div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div>
-                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
-                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
-                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                </div>
-                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-            </div>
-            <div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div>
-        </div>
-    </nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Schistosomiase</span></nav></div></div>
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Schistosomiase</span></nav></div></div>
 
     <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
@@ -78,121 +37,451 @@
                 <header class="mb-10">
                     <span class="section-label text-teal-500">Parasite</span>
                     <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Schistosomiase</h1>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Bilharziose : especes, fievre de Katayama, formes chroniques, diagnostic et traitement par praziquantel.</p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Bilharziose &mdash; <em>Schistosoma mansoni</em>, <em>S. haematobium</em>, <em>S. japonicum</em>, <em>S. mekongi</em>, <em>S. intercalatum</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Deuxième helminthiase importée en Europe après la strongyloïdose. Trois phases cliniques distinctes &mdash; de la dermatite cercarienne bénigne à la fibrose hépatique irréversible. Le timing du diagnostic et du traitement est critique : sérologie négative en phase aiguë, praziquantel inefficace sur les formes immatures.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Charge mondiale</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Selon l'OMS, au moins <strong>253,7 millions</strong> de personnes nécessitaient un traitement préventif en 2024, dont &gt;100,5 millions effectivement traitées<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Cinq espèces pathogènes pour l'homme : <em>S. haematobium</em>, <em>S. mansoni</em>, <em>S. japonicum</em>, <em>S. mekongi</em>, <em>S. intercalatum</em></li>
+                        <li>Maladie tropicale négligée ciblée par l'OMS pour le contrôle et l'élimination<sup><a href="#ref-27">[27]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Cas importés en Europe et en Suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>2<sup>e</sup> helminthiase importée</strong> la plus fréquente après la strongyloïdose chez les migrants et voyageurs en Europe ; réseau TropNetEurop : &gt;160 cas/an<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li><strong>GeoSentinel (2016&ndash;2018)</strong> : sur 5 319 réfugiés/migrants évalués, schistosomiase principalement d'origine africaine (480/510 = <strong>94 %</strong>)<sup><a href="#ref-4">[4]</a></sup></li>
+                        <li><strong>Réseau +Redivi (Espagne, 2012&ndash;2022)</strong> : tendance à l'augmentation des diagnostics ; 82,3 % des cas acquis en Afrique<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li><strong>Cohorte Barcelone (2009&ndash;2022)</strong> : 917 cas, dont <strong>96 (10,5 %) liés au voyage</strong> ; 88,5 % diagnostiqués par sérologie seule (oeufs trouvés dans seulement 11,5 %)<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li><strong>Séroprévalence chez les migrants</strong> : 18,4 % globale, <strong>24,1 % si Afrique sub-saharienne</strong></li>
+                        <li><strong>Cohorte suisse</strong> (Rochat L et al., Rev Med Suisse 2015, n=42) : sous-diagnostic fréquent par le médecin de premier recours ; exposition au Lac Malawi prédominante</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Cas suisse remarquable</p>
+                        <p class="text-sm text-teal-800">Staehelin C et al. (J Travel Med 2025) : infection active à <em>S. mansoni</em> diagnostiquée <strong>41 ans après la dernière exposition</strong> (baignade unique au Lac Kivu, Rwanda) &mdash; démontrant la longévité extraordinaire du parasite sans réplication chez l'hôte humain.<sup><a href="#ref-6">[6]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 mt-6 text-sm uppercase tracking-wide">Transmission autochtone en Europe</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Corse (France), 2013&ndash;2014</strong> : première transmission autochtone de schistosomiase humaine en Europe moderne ; parasite hybride <em>S. haematobium</em> / <em>S. bovis</em> (77 % génome <em>S. haematobium</em>, 23 % <em>S. bovis</em>)<sup><a href="#ref-7">[7,8]</a></sup></li>
+                        <li><strong>Espagne du Sud</strong> : transmission autochtone rétrospectivement confirmée<sup><a href="#ref-9">[9]</a></sup></li>
+                        <li><strong>Risque en Italie</strong> : <em>Bulinus truncatus</em> (mollusque vecteur) endémique en Sardaigne et Sicile ; risque de cycle autochtone si introduction par migrants/touristes<sup><a href="#ref-9">[9]</a></sup></li>
+                        <li><strong>Génotypes hybrides</strong> : grande variation de génotypes purs et hybrides chez les migrants sub-sahariens en Europe du Sud-Ouest<sup><a href="#ref-10">[10]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Implication pour le clinicien suisse</p>
+                        <p class="text-sm text-teal-800">Ne pas exclure une schistosomiase chez un patient n'ayant jamais voyagé en zone tropicale &mdash; une exposition en <strong>Corse</strong> ou en <strong>Espagne du Sud</strong> est possible.</p>
+                    </div>
+                </section>
+
+                <!-- REPARTITION GEOGRAPHIQUE -->
                 <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+
                     <figure class="my-4">
-                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/schistosomiasis_map.png" alt="Distribution geographique des differentes especes de Schistosoma" />
-                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution geographique des differentes especes de <em>Schistosoma</em>. Source : <a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S0140673606694403?via%3Dihub" class="ref-link">Lancet. 2006 Sep 23;368(9541):1106-18</a></figcaption>
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/schistosomiasis_map.png" alt="Distribution géographique des différentes espèces de Schistosoma" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution géographique des différentes espèces de <em>Schistosoma</em>. Source : <a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S0140673606694403?via%3Dihub" class="ref-link">Lancet. 2006 Sep 23;368(9541):1106-18</a></figcaption>
                     </figure>
+
+                    <div class="overflow-x-auto mt-6">
+                        <table class="article-table">
+                            <thead><tr><th>Espèce</th><th>Répartition</th><th>Tropisme</th><th>Mollusque hôte</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>S. haematobium</em></td><td>Afrique, Moyen-Orient, <strong>Corse</strong></td><td>Uro-génital</td><td><em>Bulinus</em> spp.</td></tr>
+                                <tr><td><em>S. mansoni</em></td><td>Afrique, Amérique du Sud, Caraïbes</td><td>Intestinal / hépatique</td><td><em>Biomphalaria</em> spp.</td></tr>
+                                <tr><td><em>S. japonicum</em></td><td>Chine, Philippines, Indonésie</td><td>Intestinal / hépatique (le plus pathogène)</td><td><em>Oncomelania</em> spp.</td></tr>
+                                <tr><td><em>S. mekongi</em></td><td>Cambodge, Laos</td><td>Intestinal / hépatique</td><td><em>Neotricula</em> spp.</td></tr>
+                                <tr><td><em>S. intercalatum</em></td><td>Afrique Centrale</td><td>Intestinal</td><td><em>Bulinus</em> spp.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
 
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 mb-2">Trematode (vers) : <em>Schistosoma</em></p>
-                    <p class="text-sm text-teal-800/80 mb-2">4 especes :</p>
-                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><em>haematobium</em></li>
-                        <li><em>mansoni</em></li>
-                        <li><em>japonicum</em></li>
-                        <li><em>intercalatum</em></li>
-                    </ul>
+                <!-- CYCLE -->
+                <section id="cycle" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Cycle parasitaire</h2>
+
+                    <p class="text-sm text-teal-800/80 mb-4">Le cycle de <em>Schistosoma</em> implique obligatoirement un mollusque d'eau douce comme hôte intermédiaire. La compréhension du cycle est essentielle pour le timing du diagnostic et du traitement.</p>
+
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Pénétration transcutanée des cercaires</strong> en eau douce (lac, rivière, chute d'eau) &rarr; dermatite cercarienne</li>
+                        <li><strong>Migration des schistosomules</strong> via les poumons vers le système porte (2&ndash;6 semaines) &rarr; possibilité de fièvre de Katayama</li>
+                        <li><strong>Maturation en vers adultes</strong> dans les plexus veineux (vésical pour <em>S. haematobium</em>, mésentérique pour les autres)</li>
+                        <li><strong>Ponte des oeufs</strong> (&ge;10&ndash;12 semaines post-exposition) &rarr; granulomes tissulaires</li>
+                        <li><strong>Excrétion des oeufs</strong> dans les selles ou l'urine &rarr; éclosion du miracidium en eau douce</li>
+                        <li><strong>Multiplication dans le mollusque</strong> (4&ndash;6 semaines) &rarr; libération de cercaires</li>
+                    </ol>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Longévité exceptionnelle</p>
+                        <p class="text-sm text-teal-800">Les vers adultes vivent en moyenne <strong>3&ndash;5 ans</strong>, mais des cas de survie &gt;40 ans sont documentés (Staehelin 2025 : 41 ans après une exposition unique).<sup><a href="#ref-6">[6]</a></sup> Il faut donc rechercher des expositions même très anciennes.</p>
+                    </div>
                 </section>
 
-                <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80">Penetration transcutanee du parasite dans l'eau douce (apres sa multiplication par cycle asexue dans un mollusque).</p>
-                </section>
-
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique et incubation</h2>
-                    <ul class="space-y-3 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Eventuellement, papules avec prurit a l'endroit de la penetration transcutanee des parasites (swimmer's itch)</li>
-                        <li>Fievre de Katayama (reaction immunologique) : 2-8 semaines apres l'exposition, chez ~50% des voyageurs touches : EF, frissons, myalgies, arthralgies, toux seche, diarrhees</li>
-                        <li>Les vers adultes vivent dans les vaisseaux sanguins ou ils ne font quasi pas de symptome. Donc la plupart des pts sont asymptomatiques. Signes cliniques dus au depot des oeufs dans les tissus &rarr; granulomes</li>
-                        <li><u><em>S. japonicum</em></u>, <u><em>S. mansoni</em></u> : deposition d'oeufs dans la paroi des intestins &rarr; douleurs abdominales, diarrhees, accompagnees d'emission de sang frais dans les selles</li>
-                        <li><u><em>S. haematobium</em></u> : deposition d'oeufs dans la paroi des voies urinaires &rarr; hematurie, dysurie, calcifications vesicales</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+                    <p class="text-sm text-teal-800/80 mb-4">La schistosomiase évolue en trois phases cliniques successives, chacune ayant des implications diagnostiques et thérapeutiques distinctes.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase 1 &mdash; Dermatite cercarienne (<em>swimmer's itch</em>)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Papules prurigineuses au site de pénétration des cercaires</li>
+                        <li>Apparition dans les <strong>minutes à heures</strong> après le contact avec l'eau</li>
+                        <li>Souvent auto-limitée en 1&ndash;2 semaines</li>
+                        <li>Fréquemment rapportée après exposition au <strong>Lac Malawi</strong>, Lac Victoria, Lac Tanganyika</li>
+                        <li>Peut passer inaperçue &mdash; parfois mentionnée tardivement par le patient à l'interrogatoire</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase 2 &mdash; Fièvre de Katayama (schistosomiase aiguë)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Délai</strong> : <strong>2&ndash;8 semaines</strong> après l'exposition (typiquement 4&ndash;8 semaines)</li>
+                        <li><strong>Mécanisme</strong> : réaction d'hypersensibilité de type sérique aux schistosomules en migration et aux oeufs en dépôt précoce</li>
+                        <li><strong>Symptômes</strong> : fièvre, frissons, myalgies, arthralgies, toux sèche, céphalées, diarrhées, urticaire</li>
+                        <li><strong>Fréquence chez les voyageurs</strong> : environ <strong>50 %</strong> des voyageurs infectés (non-immuns) présentent au moins un symptôme ; seuls 2 % ont un syndrome de Katayama classique complet<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li><strong>Biologie</strong> : éosinophilie souvent <strong>marquée</strong> (&gt;1,5 G/L), parfois massive ; mais 15 % des éosinophiles sont normaux à la présentation</li>
+                        <li><strong>Imagerie</strong> : RX thorax avec infiltrats diffus possibles ; CT avec nodules pulmonaires</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Katayama déguisé</p>
+                        <p class="text-sm text-teal-800">Demolder F et al. (Respir Med Case Rep 2024) : fièvre de Katayama diagnostiquée comme « asthme éosinophilique » avec nodules pulmonaires chez un voyageur de 26 ans revenu de Guinée. Diagnostic posé par reprise minutieuse de l'anamnèse (<em>swimmer's itch</em> mentionné tardivement).<sup><a href="#ref-11">[11]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Phase 3 &mdash; Schistosomiase chronique</h3>
+                    <p class="text-sm text-teal-800/80 mb-3"><strong>La majorité des patients sont asymptomatiques.</strong> Les vers adultes vivent dans les vaisseaux sanguins sans quasi aucun symptôme. Les signes cliniques sont dus au <strong>dépôt des oeufs dans les tissus</strong>, formant des granulomes.</p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Espèce</th><th>Tropisme</th><th>Manifestations chroniques</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>S. mansoni</em> / <em>S. japonicum</em></td><td>Intestinal / hépatique</td><td>Douleurs abdominales, diarrhées, rectorragies ; <strong>fibrose périportale</strong> (Symmers) &rarr; hypertension portale, hépato-splénomégalie</td></tr>
+                                <tr><td><em>S. haematobium</em></td><td>Uro-génital</td><td>Hématurie, dysurie, calcifications vésicales ; <strong>carcinome épidermoïde de la vessie</strong> (risque augmenté) ; <strong>schistosomiase génitale féminine</strong> (FGS)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Schistosomiase génitale féminine (FGS)</p>
+                        <p class="text-sm text-teal-800">&gt;56 millions de femmes affectées en Afrique. Lésions cervico-vaginales, infertilité, grossesses ectopiques. Diagnostic souvent méconnu &mdash; penser à la colposcopie chez les femmes avec sérologie positive et symptômes génito-urinaires.<sup><a href="#ref-12">[12]</a></sup></p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Complications</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Fibrose périportale de Symmers</strong> (cirrhose bilharzienne) : <em>S. mansoni</em>, <em>S. japonicum</em></li>
+                        <li>Hypertension portale avec varices oesophagiennes</li>
+                        <li>Uropathie obstructive : <em>S. haematobium</em></li>
+                        <li>Hypertension pulmonaire</li>
+                        <li><strong>Neuroschistosomiase</strong> (oeufs ectopiques) : myélite transverse (<em>S. mansoni</em>), encéphalite (<em>S. japonicum</em>)</li>
+                        <li>Carcinome épidermoïde de la vessie (<em>S. haematobium</em>)</li>
                     </ul>
                 </section>
 
-                <section id="complications" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Complications</h2>
-                    <p class="text-sm text-teal-800/80">Infection chronique &rarr; fibrose periportale avec hypertension portale (<em>S. japonicum</em>, <em>S. mansoni</em>) ou uropathie obstructive (<em>S. haematobium</em>). Le coeur, les poumons ou le cerveau peuvent aussi etre atteints. L'infection par <em>S. haematobium</em> est associee a un risque accru de carcinome de la vessie.</p>
-                </section>
-
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80">Adenopathies, hepato-splenomegalie (depend de la phase de l'infection).</p>
-                </section>
-
-                <section id="bilan" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Bilan paraclinique</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Labo : eosinophilie souvent importante</li>
-                        <li>RX thorax : evtl. infiltrats diffus</li>
-                        <li>Stix urinaire : eventuellement hematurie microscopique (<em>S. haematobium</em>)</li>
+                <!-- BIOLOGIE -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Éosinophilie</strong> : souvent le premier et seul signe biologique anormal dans les premières semaines ; parfois massive (&gt;3 G/L) en phase de Katayama</li>
+                        <li>Stix urinaire : éventuellement hématurie microscopique (<em>S. haematobium</em>)</li>
+                        <li>Transaminases : possiblement élevées en cas d'atteinte hépatique</li>
+                        <li>RX thorax / CT thorax : infiltrats diffus, nodules pulmonaires (phase aiguë)</li>
+                        <li>Échographie hépatique : épaississement des espaces portes (fibrose périportale)</li>
+                        <li>Échographie vésicale : calcifications pariétales (<em>S. haematobium</em>)</li>
                     </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Éosinophilie normale ≠ exclusion</p>
+                        <p class="text-sm text-teal-800">15 % des patients ont des éosinophiles normaux à la présentation. L'absence d'éosinophilie n'exclut pas le diagnostic de schistosomiase, en particulier dans les formes chroniques.</p>
+                    </div>
                 </section>
 
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Fievre de Katayama : clinique, eosinophilie, serologie positive 6 a 12 semaines apres l'exposition</li>
-                        <li>Schistosomiase chronique : mise en evidence d'oeufs de schistosomes dans l'urine, les selles ou par biopsie. L'excretion des oeufs peut etre discontinue. La serologie est egalement positive</li>
-                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Timing critique des examens</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">La compréhension du délai de positivation de chaque test est fondamentale pour éviter les faux négatifs &mdash; piège majeur chez le voyageur récemment exposé.</p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Semaines post-exposition</th><th>Éosinophilie</th><th>Sérologie</th><th>Oeufs (selles/urine)</th><th>CAA sérique</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>0&ndash;2</strong></td><td class="text-gold-600 font-semibold">+/&minus;</td><td class="text-red-600 font-semibold">&minus;</td><td class="text-red-600 font-semibold">&minus;</td><td class="text-red-600 font-semibold">&minus;</td></tr>
+                                <tr><td><strong>2&ndash;6</strong></td><td class="text-mint-600 font-semibold">+</td><td class="text-red-600 font-semibold">&minus;</td><td class="text-red-600 font-semibold">&minus;</td><td class="text-gold-600 font-semibold">+/&minus;</td></tr>
+                                <tr><td><strong>6&ndash;8</strong></td><td class="text-mint-600 font-semibold">+</td><td class="text-gold-600 font-semibold">+/&minus;</td><td class="text-red-600 font-semibold">&minus;</td><td class="text-mint-600 font-semibold">+</td></tr>
+                                <tr><td><strong>&ge;8&ndash;12</strong></td><td class="text-mint-600 font-semibold">+</td><td class="text-mint-600 font-semibold">+</td><td class="text-mint-600 font-semibold">+/&minus;</td><td class="text-mint-600 font-semibold">+</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-xs text-teal-600/60 mb-6">Légende : <span class="text-mint-600 font-semibold">+</span> = généralement positif ; <span class="text-gold-600 font-semibold">+/&minus;</span> = variable ; <span class="text-red-600 font-semibold">&minus;</span> = généralement négatif</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Tests diagnostiques disponibles</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Méthode</th><th>Sensibilité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Sérologie ELISA (SEA/AWA)</strong></td><td>71&ndash;96 %</td><td>Test de dépistage de référence chez le voyageur ; AWA-IFA &gt; SEA-ELISA pour la détection d'exposition<sup><a href="#ref-13">[13,14]</a></sup></td></tr>
+                                <tr><td><strong>Sérologie IHA</strong></td><td>~43 %</td><td>Moins sensible que l'ELISA ; diminution significative après traitement (&minus;5,73 unités/mois)<sup><a href="#ref-15">[15]</a></sup></td></tr>
+                                <tr><td><strong>Microscopie (selles/urine)</strong></td><td>20&ndash;40 % (1 échantillon)</td><td>Excrétion intermittente ; faible sensibilité chez les voyageurs avec faible charge parasitaire</td></tr>
+                                <tr><td><strong>CAA sérique (UCP-LF)</strong></td><td class="font-semibold">86&ndash;97 %</td><td><strong>Test le plus sensible</strong> pour le diagnostic précoce ET le suivi post-traitement ; détecte l'antigénémie du ver adulte ; positif chez 97 % des voyageurs belges à 7&ndash;8 sem post-exposition<sup><a href="#ref-14">[14]</a></sup></td></tr>
+                                <tr><td>CAA urinaire</td><td>38&ndash;43 %</td><td>Moins sensible que le CAA sérique</td></tr>
+                                <tr><td>POC-CCA urinaire</td><td>~30 %</td><td>Utilisé surtout en zone endémique (MDA) ; insuffisant chez les voyageurs</td></tr>
+                                <tr><td>PCR (selles)</td><td>~25 %</td><td>Sensibilité décevante dans les selles ; PCR urinaire souvent négative<sup><a href="#ref-13">[13]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Algorithme diagnostique pratique pour le MG suisse</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Toute exposition eau douce en Afrique</strong> (lac, rivière, chute d'eau) &rarr; dépistage systématique, même asymptomatique</li>
+                        <li><strong>Bilan à &ge;8 semaines post-exposition</strong> : FSC avec formule (éosinophiles), sérologie <em>Schistosoma</em> ELISA, sérologie <em>Strongyloides</em> (co-infection fréquente)</li>
+                        <li>Si sérologie positive &rarr; parasitologie selles &times;3 et/ou examen urinaire (stix + microscopie par filtration)</li>
+                        <li>Si sérologie négative mais forte suspicion clinique &rarr; <strong>répéter à 3 mois</strong> post-exposition</li>
+                        <li><strong>CAA sérique</strong> : disponible dans certains centres de référence &mdash; meilleur test pour confirmer une infection active et monitorer le traitement<sup><a href="#ref-14">[14,28]</a></sup></li>
+                        <li><strong>Imagerie</strong> si atteinte d'organe suspectée : échographie hépatique (fibrose périportale), échographie vésicale (calcifications), CT thorax (nodules)</li>
+                    </ol>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Piège majeur : sérologie négative en phase aiguë</p>
+                        <p class="text-sm text-teal-800">La sérologie <em>Schistosoma</em> est <strong>NÉGATIVE</strong> dans les 6&ndash;8 premières semaines post-exposition. De plus, 14 % des sérologies restent négatives même à distance. <strong>Ne jamais exclure le diagnostic sur une sérologie unique négative &mdash; répéter à 3 mois.</strong></p>
+                    </div>
                 </section>
 
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et Prevention</h2>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Praziquantel &mdash; Principe fondamental</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">Le praziquantel augmente la perméabilité au calcium du tégument du ver adulte, provoquant sa paralysie et sa destruction par le système immunitaire de l'hôte. <strong>Point critique</strong> : il est actif <strong>UNIQUEMENT sur les vers adultes</strong> ; les schistosomules (formes immatures) y sont <strong>résistantes</strong>.</p>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Ne pas traiter trop tôt</p>
+                        <p class="text-sm text-teal-800"><strong>Ne pas prescrire le praziquantel avant 6&ndash;8 semaines post-exposition</strong> (temps nécessaire à la maturation des vers). Un traitement trop précoce est INEFFICACE et donne une fausse réassurance. En phase de Katayama : corticoïdes d'abord, puis praziquantel différé.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Posologies</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Situation</th><th>Médicament</th><th>Posologie adulte</th><th>Remarques</th></tr></thead>
+                            <tbody>
+                                <tr><td><em>S. mansoni</em> / <em>S. haematobium</em> / <em>S. intercalatum</em></td><td><strong>Praziquantel</strong></td><td><strong>40 mg/kg</strong> dose unique (ou 2&times;20 mg/kg à 4&ndash;6h d'intervalle)</td><td>Répéter à <strong>4&ndash;6 semaines</strong> (certains experts recommandent systématiquement 2 cures)</td></tr>
+                                <tr><td><em>S. japonicum</em> / <em>S. mekongi</em></td><td><strong>Praziquantel</strong></td><td><strong>60 mg/kg</strong> en 3 prises (3&times;20 mg/kg à 4&ndash;6h)</td><td>Charge parasitaire plus élevée ; même schéma de retraitement</td></tr>
+                                <tr><td>Fièvre de Katayama (phase aiguë)</td><td><strong>Corticoïdes</strong> + PZQ <strong>différé</strong></td><td>Prednisone 0,5&ndash;1 mg/kg/j &times; 5&ndash;7 j ; puis PZQ à <strong>&ge;6&ndash;8 sem post-exposition</strong></td><td>Corticoïdes pour contrôler la réaction d'hypersensibilité ; NE PAS donner PZQ pendant la phase aiguë</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Efficacité du praziquantel</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Méta-analyse Afrique de l'Est</strong> (Misganaw D, Sci Rep 2025, 87 articles) : dose unique de 40 mg/kg &rarr; taux de guérison global ~80&ndash;89 % pour <em>S. mansoni</em> ; réduction des oeufs ~91&ndash;93 %<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li><strong>Infections modérées à lourdes</strong> : efficacité significativement réduite (78,6 % vs 91,9 % pour infections légères à 8 semaines)<sup><a href="#ref-17">[17]</a></sup></li>
+                        <li><strong>Dose de 60 mg/kg</strong> : légèrement plus efficace que la dose standard de 40 mg/kg (revue systématique Kabuyaya M et al. 2018)<sup><a href="#ref-18">[18]</a></sup></li>
+                        <li><strong>Combinaison PZQ + dihydroartémisinine-pipéraquine</strong> (RCT, n=639) : combinaison supérieure à PZQ seul à 8 semaines (81,9 % vs 63,9 %, p&lt;0,0001) &mdash; la DHA-PIP agit sur les formes juvéniles<sup><a href="#ref-19">[19]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Suivi post-traitement</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Sérologie</strong> : reste positive longtemps après le traitement (diminution lente, ~25 % de négativation à 63 semaines)<sup><a href="#ref-15">[15]</a></sup></li>
+                        <li><strong>CAA sérique</strong> : le <strong>meilleur marqueur de guérison</strong> &mdash; négativation rapide après traitement efficace (33/34 voyageurs CAA-négatifs après traitement)<sup><a href="#ref-14">[14,20]</a></sup></li>
+                        <li><strong>Éosinophiles</strong> : diminution progressive ; pas un bon marqueur de guérison à court terme</li>
+                        <li><strong>Contrôle parasitologique</strong> : selles/urine à 3&ndash;6 mois post-traitement si oeufs positifs initialement</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Pénurie de praziquantel en Europe (depuis 2025)</h3>
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Pénurie critique</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Bayer a cessé la production de Biltricide</strong> (praziquantel 600 mg comprimés) pour des raisons commerciales<sup><a href="#ref-21">[21]</a></sup></li>
+                            <li>Pénurie déclarée par l'EMA (catégorie « ongoing ») ; affecte l'Allemagne, la France, les Pays-Bas et tous les pays importateurs<sup><a href="#ref-21">[21,22]</a></sup></li>
+                            <li>Lindner AK et al. (2025) : « Shortage of praziquantel in Europe: a clarion call for urgent action »<sup><a href="#ref-23">[23]</a></sup></li>
+                        </ul>
+                    </div>
+
+                    <div class="callout-info mt-4">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Recommandation pratique &mdash; approvisionnement en Suisse</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Le praziquantel n'est <strong>pas inscrit au Compendium suisse</strong> : importation nécessaire (Art. 49 MPLO)</li>
+                            <li>En cas de besoin : contacter la <strong>pharmacie hospitalière</strong> (CHUV, HUG, ou centre de référence)</li>
+                            <li><strong>Ne PAS reporter le traitement</strong> : la schistosomiase non traitée cause des séquelles d'organe irréversibles</li>
+                            <li>Documenter la demande d'importation selon Art. 49 MPLO</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
                     <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li><em>Schistosoma mansoni</em> / <em>haematobium</em> / <em>intercalatum</em> : praziquantel 60 mg/kg 1x en 2-3 prises ev a repeter apres 1 mois.</li>
-                        <li><em>Schistosoma japonicum</em> : praziquantel 75 mg/kg en 3 prises ev a repeter apres 1 mois.</li>
-                        <li>En cas de fievre de Katayama : Prednisone (dosage selon avis specialise)</li>
-                        <li>Prevention primaire : eviter de se baigner dans des eaux douces</li>
+                        <li><strong>Pas de vaccin</strong> disponible</li>
+                        <li><strong>Pas de chimioprophylaxie</strong> recommandée pour les voyageurs</li>
+                        <li><strong>Éviter tout contact avec l'eau douce</strong> en zone endémique (lacs, rivières, chutes d'eau, rizières)</li>
+                        <li>Baignades en piscine chlorée ou en eau de mer : sans risque</li>
+                        <li>L'eau bouillie pendant 1 minute ou stockée &ge;48 heures est considérée sûre pour la toilette</li>
+                        <li>Séchage rapide au soleil après contact accidentel (les cercaires meurent rapidement hors de l'eau, mais la pénétration est quasi instantanée)</li>
+                        <li><strong>Zones à haut risque pour le voyageur suisse</strong> : Lac Malawi, Lac Victoria, Lac Tanganyika, Lac Kivu, chutes du Nil (Ouganda), rivières en Afrique de l'Ouest</li>
+                        <li><strong>Dépistage systématique</strong> : proposer une sérologie à &ge;8 semaines à tout voyageur ayant eu un contact eau douce en Afrique sub-saharienne</li>
                     </ul>
                 </section>
 
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 1 &mdash; Sérologie négative en phase aiguë</p>
+                            <p class="text-sm text-teal-800">La sérologie <em>Schistosoma</em> est <strong>NÉGATIVE</strong> dans les 6&ndash;8 premières semaines post-exposition. De plus, 14 % des sérologies restent négatives même à distance. Ne pas exclure le diagnostic sur une sérologie unique négative &mdash; <strong>répéter à 3 mois</strong>.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 2 &mdash; Praziquantel trop précoce</p>
+                            <p class="text-sm text-teal-800">Traiter avant 6&ndash;8 semaines post-exposition = <strong>traitement inefficace</strong> (le praziquantel ne tue que les vers adultes, pas les schistosomules). En phase aiguë (Katayama) : corticoïdes d'abord, puis praziquantel à &ge;6&ndash;8 semaines. Un retraitement à 4&ndash;6 semaines est souvent nécessaire.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 3 &mdash; Examen de selles négatif = fausse réassurance</p>
+                            <p class="text-sm text-teal-800">Chez les voyageurs, la charge parasitaire est souvent faible. <strong>88,5 %</strong> des cas importés sont diagnostiqués par sérologie seule (oeufs non retrouvés).<sup><a href="#ref-5">[5]</a></sup> Un seul examen de selles a une sensibilité d'environ 20&ndash;30 %.</p>
+                        </div>
+
+                        <div class="callout-danger">
+                            <p class="text-sm font-bold text-red-700 mb-1">&#9888; Piège 4 &mdash; Corticoïdes sans dépistage <em>Strongyloides</em></p>
+                            <p class="text-sm text-teal-800">La co-infection <em>Strongyloides</em> + <em>Schistosoma</em> est fréquente (même zone d'exposition). <strong>JAMAIS de corticoïdes</strong> (même cure courte pour Katayama) sans dépistage/traitement préalable de <em>Strongyloides</em> &rarr; risque d'hyperinfection (mortalité 60&ndash;85 %). En urgence : <strong>ivermectine empirique AVANT les corticoïdes</strong>.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 5 &mdash; Pénurie de praziquantel</p>
+                            <p class="text-sm text-teal-800">Depuis 2025, Biltricide n'est plus commercialisé en Europe (Bayer).<sup><a href="#ref-21">[21,23]</a></sup> Ne pas renoncer au traitement &rarr; contacter la pharmacie hospitalière.</p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perles</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li><strong>Dépistage systématique</strong> : toute exposition eau douce en Afrique sub-saharienne &rarr; sérologie <em>Schistosoma</em> à &ge;8 semaines, même asymptomatique</li>
+                                <li><strong>Longévité du parasite</strong> : documenter même des expositions anciennes (cas suisse : 41 ans !)<sup><a href="#ref-6">[6]</a></sup></li>
+                                <li><strong>Transmission européenne possible</strong> : Corse, Espagne du Sud &mdash; ne pas exclure si voyage en Méditerranée occidentale</li>
+                                <li><strong>Toujours dépister <em>Strongyloides</em> en parallèle</strong> (co-infection fréquente, mêmes zones d'exposition)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Voyageur asymptomatique avec exposition eau douce en Afrique</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Attendre &ge;8 semaines</strong> post-exposition pour le bilan</li>
+                        <li><strong>Prescrire</strong> : FSC avec formule différentielle (éosinophiles), sérologie <em>Schistosoma</em> ELISA, sérologie <em>Strongyloides</em></li>
+                        <li>Si sérologie positive &rarr; parasitologie selles &times;3, examen urinaire (stix + filtration)</li>
+                        <li>Si sérologie négative mais exposition certaine &rarr; <strong>répéter à 3 mois</strong></li>
+                        <li>Si positive : traitement par <strong>praziquantel 40 mg/kg</strong> (&ge;6&ndash;8 sem post-exposition) + contrôle sérologique/CAA à 6&ndash;12 mois</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Voyageur avec fièvre de Katayama (2&ndash;8 semaines post-exposition)</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Bilan initial</strong> : FSC (éosinophilie ?), CRP, transaminases, sérologie <em>Schistosoma</em> (peut être encore négative !), sérologie <em>Strongyloides</em></li>
+                        <li><strong>Dépister/traiter <em>Strongyloides</em></strong> avant toute corticothérapie (ivermectine empirique si urgent)</li>
+                        <li><strong>Corticoïdes</strong> : prednisone 0,5&ndash;1 mg/kg/j &times; 5&ndash;7 jours</li>
+                        <li><strong>Praziquantel DIFFÉRÉ</strong> : ne pas traiter avant &ge;6&ndash;8 semaines post-exposition</li>
+                        <li><strong>Répéter la sérologie</strong> à 3 mois si initialement négative</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Migrant sub-saharien (dépistage)</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li>Sérologie <em>Schistosoma</em> systématique (séroprévalence 24 % chez les migrants d'Afrique sub-saharienne)</li>
+                        <li>Sérologie <em>Strongyloides</em> en parallèle</li>
+                        <li>Si positive : parasitologie selles &times;3 et urinaire + traitement praziquantel</li>
+                        <li>Imagerie d'organe si symptômes ou infections de longue durée (échographie hépatique, vésicale)</li>
+                    </ol>
+                </section>
+
+                <!-- QUAND REFERER -->
                 <section id="referer" class="mb-14">
                     <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">Fievre de Katayama, eosinophilie importante ou schistosomiase chronique avec atteinte d'organe : <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">référer le patient</a> pour avis specialise.</p>
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Fièvre de Katayama</strong> : prise en charge spécialisée pour corticothérapie et timing du praziquantel</li>
+                            <li><strong>Éosinophilie importante ou persistante</strong> malgré le traitement</li>
+                            <li><strong>Schistosomiase chronique avec atteinte d'organe</strong> : fibrose périportale, uropathie obstructive, hypertension portale, neuroschistosomiase</li>
+                            <li><strong>Suspicion de FGS</strong> (schistosomiase génitale féminine) : lésions cervicales, infertilité</li>
+                            <li><strong>Difficulté d'approvisionnement en praziquantel</strong> &mdash; aide pour l'importation</li>
+                            <li><strong>Sérologie négative mais forte suspicion</strong> &mdash; indication au CAA sérique</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
                     </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">WHO. Schistosomiasis: Key facts. <a href="https://www.who.int/news-room/fact-sheets/detail/schistosomiasis" class="ref-link" target="_blank">who.int</a> (mise à jour 2024).</li>
+                        <li id="ref-2">Garba Djirmay A, Gabrielli AF. Schistosomiasis in Europe. <em>Curr Trop Med Rep</em> 2023;10:79&ndash;87.</li>
+                        <li id="ref-3">Alkaissy Y et al. Trends in imported infections among migrants and travellers to Spain: a decade of analysis through the +Redivi network (2012&ndash;2022). <em>J Travel Med</em> 2024.</li>
+                        <li id="ref-4">Barnett ED et al. Infections with long latency in international refugees, immigrants, and migrants seen at GeoSentinel sites, 2016&ndash;2018. <em>Travel Med Infect Dis</em> 2023:102653.</li>
+                        <li id="ref-5">Salvador F et al. Imported schistosomiasis in travelers: experience from a referral Tropical Medicine Unit in Barcelona, Spain. <em>Travel Med Infect Dis</em> 2024:102742.</li>
+                        <li id="ref-6">Staehelin C et al. Viable <em>Schistosoma mansoni</em> infection 41 years after last exposure &mdash; a case report of a loyal parasite. <em>J Travel Med</em> 2025;taaf103. <a href="https://doi.org/10.1093/jtm/taaf103" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-7">Kincaid-Smith J et al. Morphological and genomic characterisation of the <em>Schistosoma</em> hybrid infecting humans in Europe reveals admixture between <em>S. haematobium</em> and <em>S. bovis</em>. <em>PLoS Negl Trop Dis</em> 2021;15.</li>
+                        <li id="ref-8">Oleaga A et al. Epidemiological surveillance of schistosomiasis outbreak in Corsica (France): Are animal reservoir hosts implicated? <em>PLoS Negl Trop Dis</em> 2019;13.</li>
+                        <li id="ref-9">De Vito A et al. Risk of autochthonous human schistosomiasis transmission in Italy. <em>Le Infezioni in Medicina</em> 2025;33(3):279&ndash;283.</li>
+                        <li id="ref-10">De Elias-Escribano A et al. Imported Schistosomiasis in Southwestern Europe: Wide Variation of Pure and Hybrid Genotypes Infecting Sub-Saharan Migrants. <em>Transboundary and Emerging Diseases</em> 2025.</li>
+                        <li id="ref-11">Demolder F et al. Katayama syndrome disguised as eosinophilic asthma with acute systemic symptoms and pulmonary nodules. <em>Respir Med Case Rep</em> 2024;50.</li>
+                        <li id="ref-12">Imported female genital schistosomiasis. <em>J Glob Health</em> 2026;16:03002. <a href="https://doi.org/10.7189/jogh.16.03002" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-13">Hoekstra PT et al. Sensitive Diagnosis and Post-Treatment Follow-Up of <em>S. mansoni</em> Infections in Asymptomatic Eritrean Refugees by CAA Detection and PCR. <em>Am J Trop Med Hyg</em> 2022;106:1240&ndash;1246.</li>
+                        <li id="ref-14">Hoekstra PT et al. Early diagnosis and follow-up of acute schistosomiasis in a cluster of infected Belgian travellers by detection of antibodies and CAA. <em>Travel Med Infect Dis</em> 2021:102053.</li>
+                        <li id="ref-15">Gonzalez-Sanz M et al. Description of the Serological Response After Treatment of Chronic Imported Schistosomiasis. <em>Trop Med Infect Dis</em> 2025;10.</li>
+                        <li id="ref-16">Misganaw D. Efficacy of single dose praziquantel against <em>S. mansoni</em> in East Africa: a systematic review and meta-analysis. <em>Sci Rep</em> 2025. <a href="https://doi.org/10.1038/s41598-024-84621-8" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-17">Gebreyesus TD et al. Efficacy and safety of praziquantel preventive chemotherapy in <em>S. mansoni</em> infected school children in Southern Ethiopia. <em>Front Pharmacol</em> 2023;14.</li>
+                        <li id="ref-18">Kabuyaya M et al. Efficacy of praziquantel treatment regimens in pre-school and school aged children infected with schistosomiasis in sub-Saharan Africa: a systematic review. <em>Infect Dis Poverty</em> 2018;7.</li>
+                        <li id="ref-19">Mnkugwe RH et al. Efficacy and safety of praziquantel and dihydroartemisinin piperaquine combination for treatment and control of intestinal schistosomiasis: A RCT. <em>PLoS Negl Trop Dis</em> 2020;14.</li>
+                        <li id="ref-20">Tamarozzi F et al. Evaluation of microscopy, serology, CAA, and eosinophil counts for the follow-up of migrants with chronic schistosomiasis. <em>Parasites Vectors</em> 2021;14.</li>
+                        <li id="ref-21">EMA. Biltricide &mdash; supply shortage (ongoing). <a href="https://www.ema.europa.eu/en/medicines/human/shortages/biltricide" class="ref-link" target="_blank">ema.europa.eu</a></li>
+                        <li id="ref-22">BfArM (Allemagne). Notification de pénurie Biltricide, 23 juin 2025.</li>
+                        <li id="ref-23">Lindner AK, Schwob JM, Neumayr A et al. Shortage of praziquantel in Europe: a clarion call for urgent action. <em>New Microbes New Infections</em> 2025;66:101613. <a href="https://doi.org/10.1016/j.nmni.2025.101613" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-24">Bayer Inc. Importation of US-labelled Biltricide due to the discontinuation of Canadian-authorized Biltricide. Health Canada risk communication, September 2025.</li>
+                        <li id="ref-25">Pharmac (Nouvelle-Zélande). Praziquantel: Brand change from Biltricide to Distoside. 17 July 2025.</li>
+                        <li id="ref-26">Merck KGaA. Proposal for the Addition of Arpraziquantel to the WHO Model List of Essential Medicines (soumission 25-Oct-2024).</li>
+                        <li id="ref-27">WHO. WHO Guideline on Control and Elimination of Human Schistosomiasis. Geneva: WHO; 2022. ISBN 978-92-4-004160-8.</li>
+                        <li id="ref-28">Casacuberta-Partal M et al. Antigen-based diagnosis of <em>Schistosoma</em> infection in travellers: a prospective study. <em>J Travel Med</em> 2020;27.</li>
+                        <li id="ref-29">Roade L et al. Evaluation of Two Different Strategies for Schistosomiasis Screening in High-Risk Groups in a Non-Endemic Setting. <em>Trop Med Infect Dis</em> 2023;8.</li>
+                        <li id="ref-30">Zammarchi L et al. Schistosomiasis in non-endemic areas: Italian consensus recommendations for screening, diagnosis and management (SIMET). <em>Infection</em> 2023. <a href="https://doi.org/10.1007/s15010-023-02050-7" class="ref-link" target="_blank">DOI</a></li>
+                        <li id="ref-31">Investigating genetic profiles of cases of <em>Schistosoma</em> spp. imported into Europe (ESCMID cohort). <em>Parasites Vectors</em> 2026;19:37.</li>
+                    </ol>
                 </section>
             </article>
 
             <!-- FLOATING TOC -->
-            <aside class="toc-sidebar hidden lg:block">
-                <nav class="toc">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
-                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique et incubation</a></li>
-                        <li><a href="#complications" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Complications</a></li>
-                        <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                        <li><a href="#bilan" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Bilan paraclinique</a></li>
-                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et Prevention</a></li>
-                        <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
-                    </ul>
-                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
-                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
-                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
-                    </div>
-                </nav>
-            </aside>
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#cycle" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Cycle parasitaire</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
     <script>
-        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{if(window.scrollY>50){nav.classList.add('shadow-lg')}else{nav.classList.remove('shadow-lg')}});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id], div[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
     </script>
 </body>
 </html>

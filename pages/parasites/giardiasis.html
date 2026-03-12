@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Giardiase — Tropical Notebook</title>
-    <meta name="description" content="Giardiase : repartition geographique, transmission, presentation clinique, diagnostic et traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="giardiase, giardia lamblia, diarrhee voyageur, protozoaire, medecine tropicale">
+    <meta name="description" content="Giardiase : épidémiologie, diagnostic (PCR vs microscopie vs antigène), traitement (nitroimidazoles, quinacrine pour cas réfractaires), séquelles post-infectieuses (PI-IBS) — guide pour le médecin de premier recours.">
+    <meta name="keywords" content="giardiase, giardia duodenalis, giardia lamblia, diarrhée voyageur, protozoaire, nitroimidazole, quinacrine, SII post-infectieux, médecine tropicale">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,17 +17,18 @@
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
     <!-- NAVBAR -->
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
 
     <!-- BREADCRUMB -->
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Giardiase</span></nav></div></div>
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../parasites.html" class="hover:text-teal-600 transition-colors">Parasites</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Giardiase</span></nav></div></div>
 
     <!-- ARTICLE -->
     <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
@@ -36,97 +37,495 @@
                 <header class="mb-10">
                     <span class="section-label text-teal-500">Parasite</span>
                     <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Giardiase</h1>
-                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Giardiase : protozoaire digestif frequent, cause de diarrhee aigue et chronique du voyageur.</p>
-                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                    <p class="mt-2 text-teal-700/70 text-base italic"><em>Giardia duodenalis</em> (syn. <em>G. lamblia</em>, <em>G. intestinalis</em>)</p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Protozoose intestinale la plus fréquente au monde. Cause majeure de diarrhée aiguë et chronique du voyageur, avec un risque croissant de réfractarité aux nitroimidazoles et des séquelles post-infectieuses durables (SII, fatigue chronique).</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
                 </header>
 
-                <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <p class="text-sm text-teal-800/80">Mondiale, regions temperees et tropicales. Zones avec mauvaises installations sanitaires.</p>
-                </section>
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
 
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80">Protozoaire : <em>Giardia lamblia</em></p>
-                </section>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Vue d'ensemble</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Parasite intestinal le plus fréquent au monde</strong> : prévalence 3&ndash;10 % dans les pays à haut revenu, 20&ndash;30 % dans les pays à faible revenu<sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li><strong>Europe (ECDC 2022)</strong> : 10 894 cas confirmés dans l'UE/EEE, taux de notification 3,9/100 000 ; tranche d'âge la plus touchée : 0&ndash;4 ans (14,6/100 000 chez les garçons)<sup><a href="#ref-3">[3]</a></sup></li>
+                        <li><strong>Allemagne (2002&ndash;2021)</strong> : analyse de 20 ans de surveillance nationale &mdash; &gt; 50 % des cas acquis de manière autochtone (non liés au voyage) ; les cas importés plus fréquemment chez les jeunes adultes (20&ndash;39 ans)<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li><strong>Suisse</strong> : pas de déclaration obligatoire spécifique ; une étude rétrospective au CHUV a montré une prévalence positive de 4,2 % des selles testées chez l'enfant &mdash; la giardiase est probablement sous-diagnostiquée pour les cas autochtones<sup><a href="#ref-7">[7]</a></sup></li>
+                    </ul>
 
-                <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80">Ingestion d'eau contaminee par des selles contenant des kystes (rarement : nourriture, voie feco-orale).</p>
-                </section>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Chez le voyageur</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>GeoSentinel (2007&ndash;2019)</strong> : parmi 2 517 cas de protozooses intestinales chez les voyageurs de retour, la giardiase représentait <strong>82,3 %</strong> (n = 2 072)<sup><a href="#ref-6">[6]</a></sup></li>
+                        <li>Principalement acquise en <strong>Asie du Sud-Centre (45,8 %)</strong> et <strong>Afrique subsaharienne (22,6 %)</strong></li>
+                        <li>Profil typique : touriste, voyage long (médiane 18&ndash;30 jours)</li>
+                    </ul>
 
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80">1&ndash;45 jours (en gen. 7&ndash;14 jours).</p>
-                </section>
-
-                <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <ul class="space-y-3 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Phase aigue : souvent asymptomatique (~60%). Diarrhees aigues ou chroniques, nausees, rarement vomissements (30%), steatorrhee avec malabsorption, douleurs abdo, flatulences, fatigue, perte de poids, rarement EF (~10%). Durees de symptomes de 2-4 semaines</li>
-                        <li>Phase chronique : pas forcement precedee de la phase aigue. Selles defaites, malaise, fatigue, steatorrhee, perte de poids (10-20% du poids), malabsorption, crampes abdominales, depression, borborygmes, flatulences, eructations</li>
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Agent causal et taxonomie</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Protozoaire flagellé binucléé, 2 stades : <strong>trophozoïte</strong> (forme végétative, attaché à la muqueuse duodénale) et <strong>kyste</strong> (forme de résistance, infective)</li>
+                        <li><strong>Dose infectante très faible</strong> : &lt; 10 kystes suffisent<sup><a href="#ref-9">[9]</a></sup></li>
+                        <li>8 assemblages génétiques (A&ndash;H) ; seuls <strong>A et B</strong> infectent l'homme</li>
+                        <li>Assemblage A : plus fréquent dans les pays développés, associé à des infections symptomatiques</li>
+                        <li>Assemblage B : prédominant dans les pays en développement, <strong>associé à un risque accru de réfractarité aux nitroimidazoles</strong><sup><a href="#ref-10">[10,11]</a></sup></li>
+                        <li>Les kystes survivent plusieurs mois dans l'eau froide et <strong>résistent à la chloration standard</strong></li>
                     </ul>
                 </section>
 
+                <!-- TRANSMISSION -->
+                <section id="transmission" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission &amp; incubation</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Modes de transmission</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Féco-orale</strong> : ingestion de kystes via eau contaminée (voie principale), aliments crus contaminés, contact direct (crèches, institutions, MSM)</li>
+                        <li><strong>Zoonose</strong> : réservoir animal (castors, chiens, chats, bovins) &mdash; surtout assemblage A</li>
+                        <li><strong>Eau de surface</strong> : kystes retrouvés dans jusqu'à 80 % des eaux de surface non traitées<sup><a href="#ref-9">[9]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Populations à risque</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Voyageurs en zones d'hygiène précaire</li>
+                        <li>Randonneurs (eau de ruisseau non filtrée)</li>
+                        <li>Personnel de crèche, enfants en collectivité</li>
+                        <li>Hommes ayant des rapports sexuels avec des hommes (MSM)</li>
+                        <li>Patients immunodéprimés (hypogammaglobulinémie, déficit en IgA, VIH)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Incubation</h3>
+                    <p class="text-sm text-teal-800/80 mb-2"><strong>1&ndash;45 jours</strong> (typiquement 7&ndash;14 jours)</p>
+                    <p class="text-sm text-teal-800/80">Excrétion de kystes possible dès le 5<sup>e</sup> jour post-infection et peut durer des mois.</p>
+                </section>
+
+                <!-- CLINIQUE -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase aiguë (2&ndash;4 semaines)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Asymptomatique dans ~60 % des cas</strong></li>
+                        <li>Diarrhée aqueuse puis graisseuse (stéatorrhée)</li>
+                        <li>Nausées, rarement vomissements (~30 %)</li>
+                        <li>Douleurs abdominales, flatulences, ballonnements, éructations malodorantes</li>
+                        <li><strong>Fièvre rare (~10 %)</strong> &mdash; point distinctif par rapport aux diarrhées bactériennes</li>
+                        <li>Fatigue, perte de poids</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase chronique</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Pas forcément précédée d'une phase aiguë identifiable</li>
+                        <li>Selles défaites, stéatorrhée, <strong>malabsorption</strong> (graisses, vitamines liposolubles A/D/E/K, vitamine B12, fer, zinc, lactose)</li>
+                        <li>Perte de poids significative (10&ndash;20 % du poids corporel)</li>
+                        <li>Crampes abdominales, borborygmes, flatulences</li>
+                        <li>Fatigue chronique, dépression</li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Intolérance au lactose secondaire</p>
+                        <p class="text-sm text-teal-800">Fréquente, due à la lésion des villosités duodénales et la réduction de l'activité de la lactase en bordure en brosse. Peut <strong>persister des semaines à mois</strong> après l'éradication du parasite.<sup><a href="#ref-12">[12]</a></sup></p>
+                    </div>
+
+                    <div class="overflow-x-auto mt-6 mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Caractéristique</th><th>Phase aiguë</th><th>Phase chronique</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Durée</strong></td><td>2&ndash;4 semaines</td><td>Semaines à mois (voire années)</td></tr>
+                                <tr><td><strong>Selles</strong></td><td>Aqueuses, puis graisseuses</td><td>Défaites, stéatorrhée</td></tr>
+                                <tr><td><strong>Fièvre</strong></td><td>Rare (~10 %)</td><td>Absente</td></tr>
+                                <tr><td><strong>Malabsorption</strong></td><td>Modérée</td><td>Significative (graisses, vit. ADEK, B12, fer, zinc)</td></tr>
+                                <tr><td><strong>Perte pondérale</strong></td><td>Légère</td><td>Importante (10&ndash;20 % du poids)</td></tr>
+                                <tr><td><strong>Symptômes associés</strong></td><td>Nausées, ballonnements</td><td>Fatigue, dépression, intolérance au lactose</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Populations à risque de formes sévères</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Enfants</strong> : retard de croissance, malnutrition</li>
+                        <li><strong>Immunodéprimés</strong> : hypogammaglobulinémie, déficit en IgA, VIH</li>
+                        <li>Patients avec <strong>mucoviscidose</strong></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Mécanisme de la malabsorption</p>
+                        <p class="text-sm text-teal-800">Les trophozoïtes perturbent les jonctions serrées épithéliales, activent les lymphocytes T CD8+ et induisent l'apoptose des entérocytes, conduisant à une <strong>atrophie villositaire duodénale</strong>.<sup><a href="#ref-12">[12,13]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- BIOLOGIE -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Formule sanguine généralement <strong>normale</strong> (pas d'éosinophilie, contrairement aux helminthiases)</li>
+                        <li>CRP habituellement normale ou modérément élevée</li>
+                        <li>En cas de malabsorption chronique : carence en fer, folates, vitamine B12, vitamines liposolubles (A, D, E, K)</li>
+                        <li>Hypoalbuminémie dans les formes sévères</li>
+                        <li><strong>En cas de giardiase chronique/récidivante</strong> : doser les immunoglobulines (IgA, IgG, sous-classes IgG) pour exclure un déficit immunitaire sous-jacent<sup><a href="#ref-9">[9]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80">PCR ou examen microscopique ou test antigenique dans les selles.</p>
-                </section>
 
-                <section id="prevention" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prevention primaire</h2>
-                    <p class="text-sm text-teal-800/80">Bouillir ou filtrer l'eau. Eviter les crudites.</p>
-                </section>
-
-                <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
-                    <div class="overflow-x-auto rounded-xl border border-teal-100">
+                    <h3 class="font-semibold text-teal-800 mb-3">Méthodes diagnostiques</h3>
+                    <div class="overflow-x-auto mb-6">
                         <table class="article-table">
-                            <thead>
-                                <tr>
-                                    <th>Medicament</th>
-                                    <th>Posologie</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>Méthode</th><th>Sensibilité</th><th>Spécificité</th><th>Commentaire</th></tr></thead>
                             <tbody>
                                 <tr>
-                                    <td class="font-medium">Ornidazole (1er choix)</td>
-                                    <td>500 mg 2x/j pendant 5 jours</td>
+                                    <td><strong>PCR (temps réel)</strong></td>
+                                    <td>95&ndash;100 %</td>
+                                    <td>~100 %</td>
+                                    <td>Plus sensible que microscopie et antigènes ; permet la détermination de l'assemblage (A vs B) ; disponible en panels multiplex (FilmArray GI, Allplex GI) ; coût plus élevé<sup><a href="#ref-14">[14,15]</a></sup></td>
                                 </tr>
                                 <tr>
-                                    <td class="font-medium">Metronidazole (alternative)</td>
-                                    <td>500 mg 3x/j pendant 7 jours</td>
+                                    <td><strong>Test antigénique (EIA/ELISA)</strong></td>
+                                    <td>85&ndash;98 %</td>
+                                    <td>95&ndash;100 %</td>
+                                    <td>Rapide, performant ; recommandé en 1<sup>re</sup> intention dans la plupart des guidelines ; immunochromatographie ou ELISA</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Immunofluorescence directe (DFA)</strong></td>
+                                    <td>96&ndash;100 %</td>
+                                    <td>99&ndash;100 %</td>
+                                    <td>Considérée comme la référence par certains auteurs ; moins répandue en routine</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Microscopie (MIF, examen direct)</strong></td>
+                                    <td>50&ndash;75 % (1 éch.) ; 85&ndash;90 % (3 éch.)</td>
+                                    <td>&gt; 95 %</td>
+                                    <td>Gold standard historique ; excrétion intermittente des kystes &rarr; 3 échantillons nécessaires ; très dépendant de l'expérience de l'examinateur</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Recommandations pratiques</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>En Suisse et en Europe</strong> : les panels PCR multiplex pour pathogènes entériques sont de plus en plus utilisés en 1<sup>re</sup> intention et permettent la détection simultanée de <em>Giardia</em> avec d'autres protozoaires, bactéries et virus<sup><a href="#ref-15">[15,16]</a></sup></li>
+                        <li><strong>1 échantillon de selles avec PCR ou test antigénique</strong> est généralement suffisant (vs 3 échantillons nécessaires en microscopie)</li>
+                        <li>La PCR en temps réel est la méthode la plus performante (revue systématique Vicente et al. 2024)<sup><a href="#ref-14">[14]</a></sup></li>
+                        <li><strong>Biopsie duodénale</strong> : rarement nécessaire ; indiquée en cas de forte suspicion avec selles négatives de manière répétée (malabsorption chronique inexpliquée)</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Microscopie seule insuffisante</p>
+                        <p class="text-sm text-teal-800">Un seul examen microscopique négatif a une sensibilité de seulement <strong>50&ndash;75 %</strong> en raison de l'excrétion intermittente des kystes. Préférer systématiquement un test antigénique ou une PCR, avec une sensibilité &gt; 90 % sur un seul échantillon.<sup><a href="#ref-14">[14]</a></sup></p>
+                    </div>
                 </section>
 
+                <!-- TRAITEMENT -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">1<sup>re</sup> ligne &mdash; Nitroimidazolés</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Médicament</th><th>Posologie adulte</th><th>Efficacité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tinidazole</strong></td>
+                                    <td>2 g dose unique</td>
+                                    <td>85&ndash;95 %</td>
+                                    <td><strong>1<sup>er</sup> choix</strong> (CDC/UpToDate) ; meilleure efficacité en dose unique parmi les 5-NI ; meilleure tolérance que le métronidazole<sup><a href="#ref-17">[17,18]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ornidazole</strong></td>
+                                    <td>500 mg 2&times;/j &times; 5 j <em>ou</em> 1,5 g dose unique</td>
+                                    <td>90&ndash;100 %</td>
+                                    <td>1<sup>er</sup> choix dans certains pays européens (dont Suisse/France) ; bonne tolérance ; disponible en Suisse</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Métronidazole</strong></td>
+                                    <td>500 mg 3&times;/j &times; 5&ndash;7 j <em>ou</em> 2 g/j &times; 3 j</td>
+                                    <td>70&ndash;90 %</td>
+                                    <td>Le plus étudié historiquement ; goût métallique fréquent, nausées ; pas d'alcool (effet antabuse) ; <strong>taux d'échec croissants</strong><sup><a href="#ref-17">[17,18]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Secnidazole</strong></td>
+                                    <td>2 g dose unique</td>
+                                    <td>85&ndash;95 %</td>
+                                    <td>Alternative en dose unique ; disponible dans certains pays</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-6">Taux de guérison parasitologique global des 5-NI : ~88 % pour le métronidazole, ~92 % pour le tinidazole (revue systématique Tejman-Yarden et al.)<sup><a href="#ref-18">[18]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Cas réfractaires aux nitroimidazolés</h3>
+
+                    <div class="callout-piege mb-4">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Définition de la réfractarité</p>
+                        <p class="text-sm text-teal-800">Persistance de symptômes et/ou de parasites dans les selles après <strong>au moins 2 cures bien conduites de nitroimidazolés</strong> (typiquement métronidazole puis tinidazole/ornidazole).<sup><a href="#ref-10">[10,19]</a></sup></p>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Étude de Stockholm (2008&ndash;2020, n = 4 285 cas)</strong> : 102 cas (2,4 %) réfractaires aux nitroimidazolés<sup><a href="#ref-11">[11]</a></sup></li>
+                        <li><strong>Parmi les cas acquis en Inde</strong> : taux de réfractarité <strong>12 %</strong> (64/545), en augmentation au fil du temps</li>
+                        <li>Problème clinique émergent en Europe, reconnu par TropNet et les centres de médecine tropicale<sup><a href="#ref-20">[20]</a></sup></li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Traitement 2<sup>e</sup> ligne</th><th>Posologie</th><th>Efficacité</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Quinacrine (méfacrine)</strong></td>
+                                    <td>100 mg 3&times;/j &times; 5 j</td>
+                                    <td>Clin. 81 %, paras. <strong>100 %</strong></td>
+                                    <td><strong>Référence pour les cas réfractaires</strong> (étude TropNet, Neumayr et al. CID 2021) ; ES : nausées, céphalées, coloration jaune de la peau (réversible) ; disponibilité limitée (pharmacie internationale/hospitalière)<sup><a href="#ref-20">[20]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Albendazole + chloroquine</strong></td>
+                                    <td>ABZ 400 mg 2&times;/j + CQ 155 mg 2&times;/j &times; 5 j</td>
+                                    <td>Clin. 62 %, paras. 77 %</td>
+                                    <td>Alternative si quinacrine indisponible ; moins efficace (étude TropNet)<sup><a href="#ref-20">[20]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Nitazoxanide</strong></td>
+                                    <td>500 mg 2&times;/j &times; 3 j</td>
+                                    <td>70&ndash;85 %</td>
+                                    <td>Approuvé FDA ; pas disponible partout en Europe ; option chez les intolérants aux nitroimidazolés<sup><a href="#ref-17">[17]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Paromomycine</strong></td>
+                                    <td>25&ndash;35 mg/kg/j en 3 prises &times; 5&ndash;10 j</td>
+                                    <td>55&ndash;90 %</td>
+                                    <td>Aminoside non absorbé ; <strong>seule option au 1<sup>er</sup> trimestre de grossesse</strong> ; action intraluminale<sup><a href="#ref-17">[17]</a></sup></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>MTZ haute dose + quinacrine</strong></td>
+                                    <td>MTZ 750 mg 3&times;/j + QC 100 mg 3&times;/j &times; 2&ndash;3 sem.</td>
+                                    <td>Rapports de cas</td>
+                                    <td>Réservé aux cas multi-réfractaires ; centres spécialisés<sup><a href="#ref-10">[10]</a></sup></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Algorithme en cas d'échec thérapeutique</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Échec du 1<sup>er</sup> nitroimidazolé</strong> &rarr; essayer un autre 5-NI (ex. si échec MTZ &rarr; tinidazole ou ornidazole)</li>
+                        <li><strong>Échec du 2<sup>e</sup> nitroimidazolé</strong> = réfractarité confirmée &rarr; <strong>quinacrine</strong> 100 mg 3&times;/j &times; 5 jours</li>
+                        <li><strong>Échec quinacrine</strong> &rarr; combinaison métronidazole + quinacrine &times; 2&ndash;3 semaines, ou albendazole + métronidazole</li>
+                        <li>Toujours vérifier : <strong>observance, réinfection</strong> (traiter les contacts, hygiène), <strong>immunodépression</strong> sous-jacente (dosage Ig)<sup><a href="#ref-10">[10,19]</a></sup></li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Grossesse</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>1<sup>er</sup> trimestre</strong> : paromomycine (non absorbée, faible risque f&oelig;tal)</li>
+                        <li><strong>2<sup>e</sup> et 3<sup>e</sup> trimestre</strong> : métronidazole acceptable ; le bénéfice du traitement l'emporte sur le risque théorique<sup><a href="#ref-17">[17]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- SEQUELLES POST-INFECTIEUSES -->
+                <section id="sequelles" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Séquelles post-infectieuses</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">SII post-infectieux (PI-IBS) &mdash; Cohorte de Bergen</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">L'épidémie de Bergen (Norvège, 2004) &mdash; contamination de l'eau potable par <em>Giardia</em> &mdash; constitue la cohorte de référence pour l'étude des séquelles post-infectieuses.</p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Suivi</th><th>SII chez les exposés</th><th>SII chez les contrôles</th><th>Référence</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>À 3 ans</strong></td><td><strong>46,1 %</strong></td><td>14 % (OR 3,4)</td><td>Wensaas et al. <em>Gut</em> 2012<sup><a href="#ref-24">[24]</a></sup></td></tr>
+                                <tr><td><strong>À 6 ans</strong></td><td>Significativement élevé</td><td>&mdash;</td><td>Mørch et al. 2009<sup><a href="#ref-25">[25]</a></sup></td></tr>
+                                <tr><td><strong>À 10 ans</strong></td><td><strong>39,4 %</strong></td><td>11,6 %</td><td>Litleskare et al. 2019<sup><a href="#ref-26">[26]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Fatigue chronique</strong> à 3 ans : 46,1 % des exposés vs 12 % des contrôles (OR 4,0)<sup><a href="#ref-24">[24]</a></sup></li>
+                        <li><strong>Fibromyalgie</strong> à 10 ans : prévalence accrue chez les exposés<sup><a href="#ref-27">[27]</a></sup></li>
+                        <li>Sous-types de SII prédominants : <strong>SII-D (47 %)</strong> et SII mixte<sup><a href="#ref-28">[28]</a></sup></li>
+                        <li><strong>Intolérances alimentaires</strong> : significativement plus fréquentes, particulièrement aux aliments riches en FODMAP<sup><a href="#ref-29">[29]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Autres séquelles documentées</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Dyspepsie fonctionnelle post-infectieuse</li>
+                        <li>Syndrome de fatigue chronique / encéphalomyélite myalgique (ME/CFS)</li>
+                        <li>Arthrite réactionnelle (rapports de cas)</li>
+                        <li><strong>Chez l'enfant</strong> : retard de croissance, déficit cognitif, malnutrition chronique<sup><a href="#ref-30">[30]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Mécanismes proposés</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Perturbation persistante du microbiome intestinal</li>
+                            <li>Inflammation muqueuse de bas grade (mastocytes, lymphocytes intraépithéliaux)</li>
+                            <li>Altération de la perméabilité intestinale</li>
+                            <li>Sensibilisation des afférences viscérales</li>
+                            <li>Axe intestin-cerveau perturbé<sup><a href="#ref-30">[30]</a></sup></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Hygiène de l'eau</strong> : bouillir l'eau (1 minute à ébullition), filtration (pores &lt; 1 &mu;m), désinfection UV</li>
+                        <li><strong>La chloration standard est insuffisante</strong> contre les kystes de <em>Giardia</em></li>
+                        <li><strong>Hygiène alimentaire</strong> : éviter les crudités et fruits non pelables en zones endémiques</li>
+                        <li><strong>Lavage des mains</strong> : mesure préventive la plus importante</li>
+                        <li>Pas de vaccin disponible</li>
+                        <li>En cas de contact infecté : dépistage et traitement concomitant pour éviter la réinfection</li>
+                    </ul>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Microscopie négative &ne; giardiase exclue</p>
+                            <p class="text-sm text-teal-800">L'excrétion de kystes est intermittente ; un seul examen microscopique négatif a une sensibilité de seulement 50&ndash;75 %. Préférer un test antigénique ou une PCR, avec une sensibilité &gt; 90 % sur un seul échantillon.<sup><a href="#ref-14">[14]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Diarrhée persistante après traitement : 3 diagnostics différentiels</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li><strong>Réinfection</strong> : contact infecté, voyage, environnement contaminé</li>
+                                <li><strong>Réfractarité vraie</strong> : PCR de contrôle positive &rarr; escalade thérapeutique</li>
+                                <li><strong>SII post-infectieux</strong> : selles négatives mais symptômes persistants &rarr; régime pauvre en FODMAP, prise en charge fonctionnelle<sup><a href="#ref-30">[30]</a></sup></li>
+                            </ul>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Réfractarité sous-estimée chez les voyageurs de retour d'Inde</p>
+                            <p class="text-sm text-teal-800">Jusqu'à <strong>12 % de réfractarité</strong> aux nitroimidazolés parmi les cas acquis en Inde (Stockholm 2008&ndash;2020). Considérer une escalade thérapeutique précoce (quinacrine) chez ces patients.<sup><a href="#ref-11">[11]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Giardiase révélatrice d'un déficit immunitaire</p>
+                            <p class="text-sm text-teal-800">La giardiase chronique ou récidivante peut être la présentation révélatrice d'un <strong>déficit immunitaire commun variable (DICV)</strong>. Doser systématiquement les immunoglobulines en cas de giardiase réfractaire.<sup><a href="#ref-9">[9]</a></sup></p>
+                        </div>
+
+                        <div class="callout-info">
+                            <p class="text-sm font-bold text-teal-700 mb-1">Perles</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li><strong>Tinidazole en dose unique</strong> est plus efficace et mieux toléré que le métronidazole en cure de 5&ndash;7 jours &mdash; devrait être le 1<sup>er</sup> choix si disponible</li>
+                                <li><strong>Quinacrine</strong> : guérison parasitologique 100 % dans l'étude TropNet &mdash; demander en pharmacie internationale si non disponible localement<sup><a href="#ref-20">[20]</a></sup></li>
+                                <li><strong>SII post-infectieux</strong> : informer le patient que des symptômes digestifs chroniques sont possibles même après éradication, et peuvent durer des années (39 % à 10 ans dans la cohorte de Bergen)<sup><a href="#ref-26">[26,30]</a></sup></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Bilan initial</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Coproculture avec recherche de parasites</strong> : demander spécifiquement un test antigénique ou PCR pour <em>Giardia</em> (ne pas se contenter de la microscopie seule)</li>
+                        <li><strong>Bilan sanguin</strong> : NFS, CRP, ferritine, vitamine B12, folates, albumine, vitamines liposolubles si malabsorption suspectée</li>
+                        <li>En cas de giardiase chronique/récidivante : <strong>dosage des immunoglobulines</strong> (IgA, IgG, sous-classes)</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Traitement de 1<sup>re</sup> ligne</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Tinidazole 2 g dose unique</strong> (1<sup>er</sup> choix) ou <strong>ornidazole 500 mg 2&times;/j &times; 5 jours</strong></li>
+                        <li>Contrôle parasitologique à 2&ndash;4 semaines (PCR ou antigène) si symptômes persistants</li>
+                        <li>Rechercher et traiter les contacts symptomatiques (partenaires, enfants du foyer)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">En cas d'échec</h3>
+                    <ol class="space-y-1 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li>Vérifier l'observance et exclure une réinfection</li>
+                        <li>Essayer un 2<sup>e</sup> nitroimidazolé</li>
+                        <li>Si échec du 2<sup>e</sup> 5-NI &rarr; <strong>référer</strong> pour quinacrine ou combinaison thérapeutique</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Symptômes persistants après éradication</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Confirmer l'éradication (PCR/antigène négatifs)</li>
+                        <li>Évoquer un <strong>SII post-infectieux</strong> ou une <strong>intolérance au lactose secondaire</strong></li>
+                        <li>Régime d'éviction du lactose pendant 4&ndash;6 semaines, essai de régime pauvre en FODMAP</li>
+                        <li>Informer le patient : les séquelles peuvent durer des mois à années</li>
+                    </ul>
+                </section>
+
+                <!-- QUAND REFERER -->
                 <section id="referer" class="mb-14">
                     <div class="callout-referer">
-                        <p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p>
-                        <p class="text-sm text-teal-800">En cas de giardiase refractaire au traitement ou de malabsorption importante, un <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">avis specialise</a> peut etre utile.</p>
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Giardiase réfractaire</strong> : échec d'au moins 2 cures de nitroimidazolés bien conduites</li>
+                            <li><strong>Malabsorption sévère</strong> avec perte de poids importante ou carences nutritionnelles multiples</li>
+                            <li><strong>Suspicion de déficit immunitaire</strong> : giardiase chronique/récidivante, hypogammaglobulinémie</li>
+                            <li><strong>Grossesse</strong> : traitement de 1<sup>er</sup> trimestre (paromomycine) ou cas réfractaire</li>
+                            <li>Nécessité de <strong>quinacrine</strong> (disponibilité limitée, prescription spécialisée)</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
                     </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Certad G et al. Giardia duodenalis — the most common parasite worldwide. In: StatPearls [Internet]. Treasure Island: StatPearls Publishing; 2025.</li>
+                        <li id="ref-2">Miko S et al. Postinfectious Syndromes and Long-Term Sequelae after Giardia Infections. <em>Emerg Infect Dis</em> 2025;31(Suppl):S241-S248.</li>
+                        <li id="ref-3">European Centre for Disease Prevention and Control. Giardiasis — Annual Epidemiological Report for 2022. Stockholm: ECDC; 2024.</li>
+                        <li id="ref-4">European Centre for Disease Prevention and Control. Giardiasis — Annual Epidemiological Report for 2020. Stockholm: ECDC; 2024.</li>
+                        <li id="ref-5">Hommes F et al. Autochthonous and imported giardiasis cases: An analysis of two decades of national surveillance data, Germany, 2002 to 2021. <em>Euro Surveill</em> 2024;29(20):2300509.</li>
+                        <li id="ref-6">Weitzel T et al. Intestinal protozoa in returning travellers: a GeoSentinel analysis from 2007 to 2019. <em>J Travel Med</em> 2024;31(4):taae010.</li>
+                        <li id="ref-7">Hanna M et al. Parasitic infections in Swiss children: Are we overtesting? <em>BMC Gastroenterol</em> 2021;21:39.</li>
+                        <li id="ref-8">Ferguson LC et al. An update on the incidence of human giardiasis in Scotland, 2011-2018. <em>Parasit Vectors</em> 2020;13:291.</li>
+                        <li id="ref-9">Stephen T, Tobin EH, Juergens AL. Giardiasis. In: StatPearls [Internet]. Treasure Island: StatPearls Publishing; 2025 (updated Dec 2025).</li>
+                        <li id="ref-10">Mørch K, Hanevik K. Giardiasis treatment: an update with a focus on refractory disease. <em>Curr Opin Infect Dis</em> 2020;33(5):355-364.</li>
+                        <li id="ref-11">Ydsten KA et al. Prevalence of Nitroimidazole-Refractory Giardiasis Acquired in Different World Regions, Sweden, 2008-2020. <em>Emerg Infect Dis</em> 2025;31(6):1235-1238.</li>
+                        <li id="ref-12">Halliez MCM, Buret AG. Extra-intestinal and long term consequences of Giardia duodenalis infections. <em>World J Gastroenterol</em> 2013;19(47):8974-8985.</li>
+                        <li id="ref-13">Kanokwanvimol A. Malabsorption in Giardiasis. In: Current Topics in Giardiasis. IntechOpen; 2017.</li>
+                        <li id="ref-14">Vicente B et al. Systematic Review of Diagnostic Approaches for Human Giardiasis: Unveiling Optimal Strategies. <em>Diagnostics</em> 2024;14(4):364.</li>
+                        <li id="ref-15">Argy N et al. Selecting a multiplex PCR panel for accurate molecular diagnosis of intestinal protists: a comparative study. <em>Parasite</em> 2022;29:6.</li>
+                        <li id="ref-16">Di Pietra G et al. Comparative analysis of commercial and "In-House" molecular tests for the detection of intestinal protozoa in stool specimens. <em>Parasit Vectors</em> 2025;18:320.</li>
+                        <li id="ref-17">Gardner TB, Hill DR. Treatment of Giardiasis. <em>Clin Microbiol Rev</em> 2001;14(1):114-128 — et mises à jour StatPearls/UpToDate 2025.</li>
+                        <li id="ref-18">Lalle M, Hanevik K. Treatment-refractory giardiasis: challenges and solutions. <em>Infect Drug Resist</em> 2018;11:1921-1933.</li>
+                        <li id="ref-19">Bourque DL et al. Treatment strategies for nitroimidazole-refractory giardiasis: a systematic review. <em>J Travel Med</em> 2022;29(1):taab120.</li>
+                        <li id="ref-20">Neumayr A et al. Efficacy and Tolerability of Quinacrine Monotherapy and Albendazole Plus Chloroquine Combination Therapy in Nitroimidazole-Refractory Giardiasis: A TropNet Study. <em>Clin Infect Dis</em> 2021;73(8):1517-1523.</li>
+                        <li id="ref-21">Saghaug CS et al. Genetic variation in metronidazole metabolism and oxidative stress pathways in clinical Giardia lamblia assemblage A and B isolates. <em>Infect Drug Resist</em> 2019;12:1221-1235.</li>
+                        <li id="ref-22">Saghaug CS et al. Genetic diversity in the metronidazole metabolism genes nitroreductases and pyruvate ferredoxin oxidoreductases in susceptible and refractory clinical samples of Giardia lamblia. <em>Int J Parasitol Drugs Drug Resist</em> 2023;21:51-60.</li>
+                        <li id="ref-23">Comprehensive analysis of flavohemoprotein copy number variation in Giardia intestinalis: exploring links to metronidazole resistance. <em>Parasit Vectors</em> 2024;17:336.</li>
+                        <li id="ref-24">Wensaas KA et al. Irritable bowel syndrome and chronic fatigue 3 years after acute giardiasis: historic cohort study. <em>Gut</em> 2012;61(2):214-219.</li>
+                        <li id="ref-25">Mørch K et al. Severity of Giardia infection associated with post-infectious fatigue and abdominal symptoms two years after. <em>BMC Infect Dis</em> 2009;9:206.</li>
+                        <li id="ref-26">Litleskare S et al. Quality of life and its association with irritable bowel syndrome and fatigue ten years after giardiasis. <em>Neurogastroenterol Motil</em> 2019;31(5):e13559.</li>
+                        <li id="ref-27">Hunskar GS et al. Prevalence of fibromyalgia 10 years after infection with Giardia lamblia: a controlled prospective cohort study. <em>Scand J Pain</em> 2022;22(2):348-355.</li>
+                        <li id="ref-28">Hanevik K et al. Development of functional gastrointestinal disorders after Giardia lamblia infection. <em>BMC Gastroenterol</em> 2009;9:27.</li>
+                        <li id="ref-29">Litleskare S et al. Perceived food intolerance and irritable bowel syndrome in a population 3 years after a giardiasis-outbreak: a historical cohort study. <em>BMC Gastroenterol</em> 2015;15:164.</li>
+                        <li id="ref-30">Miko S et al. Postinfectious Syndromes and Long-Term Sequelae after Giardia Infections. <em>Emerg Infect Dis</em> 2025;31(Suppl).</li>
+                        <li id="ref-31">Krakovka S et al. Characterization of Metronidazole-Resistant Giardia intestinalis Lines by Comparative Transcriptomics and Proteomics. <em>Front Microbiol</em> 2022;13:834008.</li>
+                        <li id="ref-32">Atnafu TA et al. Giardiasis: Report of a Case Refractory to Treatment. <em>Clin Case Rep</em> 2025;13:e70109.</li>
+                    </ol>
                 </section>
             </article>
 
             <!-- FLOATING TOC -->
             <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
                 <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
                 <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prevention</a></li>
                 <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#sequelles" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Séquelles post-infectieuses</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
                 <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
 
     <script>
         const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));

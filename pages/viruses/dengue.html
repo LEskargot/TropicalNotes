@@ -4,117 +4,533 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dengue — Tropical Notebook</title>
-    <meta name="description" content="Dengue : clinique, diagnostic, traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="dengue, flavivirus, Aedes, medecine tropicale">
+    <meta name="description" content="Dengue : épidémiologie suisse et mondiale, phases cliniques (OMS 2025), diagnostic NS1/IgM, traitement de soutien, vaccination Qdenga — guide pour le médecin de premier recours.">
+    <meta name="keywords" content="dengue, flavivirus, Aedes aegypti, Aedes albopictus, NS1, Qdenga, arbovirose, médecine tropicale, fièvre du voyageur">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Dengue</span></nav></div></div>
-    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16"><div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12"><article class="min-w-0">
-                <header class="mb-10"><span class="section-label text-teal-500">Virus</span><h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Dengue</h1><p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Arbovirose a Flavivirus : epidemiologie, phases cliniques, diagnostic et prise en charge.</p><div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div></header>
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathog&egrave;nes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bact&eacute;ries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">&Agrave; propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">R&eacute;f&eacute;rer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathog&egrave;ne</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">&Agrave; propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">R&eacute;f&eacute;rer un patient &rarr;</a></div></div></div></div></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathog&egrave;ne</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Dengue</span></nav></div></div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+            <article class="min-w-0">
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Virus</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Dengue</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Arbovirose &agrave; <em>Flavivirus</em> &mdash; 4 s&eacute;rotypes (DENV-1 &agrave; DENV-4)</p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Premi&egrave;re cause de fi&egrave;vre au retour de voyage apr&egrave;s le paludisme. 429 cas d&eacute;clar&eacute;s en Suisse en 2024 &mdash; record historique. Maladie b&eacute;nigne dans la grande majorit&eacute; des cas chez le voyageur, mais la phase critique (&agrave; la d&eacute;fervescence) peut &ecirc;tre pi&eacute;geuse. Pas de traitement sp&eacute;cifique &mdash; le suivi clinico-biologique rigoureux est la cl&eacute;.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derni&egrave;re mise &agrave; jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                </header>
+
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">&Eacute;pid&eacute;miologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Donn&eacute;es mondiales</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>2024 : ann&eacute;e record</strong> &mdash; &gt;14,4 millions de cas d&eacute;clar&eacute;s &agrave; l'OMS, dont 7,7 millions confirm&eacute;s en laboratoire, 52 738 cas s&eacute;v&egrave;res, 11 201 d&eacute;c&egrave;s<sup><a href="#ref-8">[8,22]</a></sup></li>
+                        <li>Les Am&eacute;riques repr&eacute;sentent &gt;90 % des cas en 2024 ; Br&eacute;sil seul : &gt;10 millions de cas et 6 321 d&eacute;c&egrave;s<sup><a href="#ref-8">[8]</a></sup></li>
+                        <li>Transmission end&eacute;mique dans &gt;100 pays ; &gt;5,6 milliards de personnes &agrave; risque<sup><a href="#ref-25">[25]</a></sup></li>
+                        <li>4 s&eacute;rotypes (DENV-1 &agrave; DENV-4) ; distribution g&eacute;ographique et temporelle variable ; co-circulation fr&eacute;quente</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>En 2024, <strong>429 cas confirm&eacute;s</strong> d&eacute;clar&eacute;s &agrave; l'OFSP &mdash; nombre <strong>jamais atteint</strong> ; en forte hausse apr&egrave;s le creux COVID (26 cas en 2021, 261 en 2023)<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Tous les cas sont <strong>exclusivement import&eacute;s</strong> ; aucune transmission autochtone document&eacute;e en Suisse &agrave; ce jour<sup><a href="#ref-1">[1]</a></sup></li>
+                        <li>Provenance principale : Asie du Sud-Est (50,4 %), Asie du Sud (14,9 %), Cara&iuml;bes (10,9 %), Am&eacute;rique du Sud (9,2 %)<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li>D&eacute;claration obligatoire &mdash; d&eacute;lai <strong>1 semaine</strong> : laboratoire &rarr; OFSP via CH-ELM ; m&eacute;decin &rarr; m&eacute;decin cantonal<sup><a href="#ref-1">[1]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Dengue chez le voyageur &mdash; donn&eacute;es GeoSentinel</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Param&egrave;tre</th><th>Donn&eacute;es</th><th>Source</th></tr></thead>
+                            <tbody>
+                                <tr><td>Cohorte GeoSentinel 2007&ndash;2022</td><td>5 958 voyageurs avec dengue ; &acirc;ge m&eacute;dian 33 ans, 50,5 % femmes, dur&eacute;e m&eacute;diane du voyage 21 jours</td><td><sup><a href="#ref-2">[2]</a></sup></td></tr>
+                                <tr><td>Dengue compliqu&eacute;e</td><td>95/5 958 (1,6 %) compliqu&eacute;es, dont 27 (0,5 %) s&eacute;v&egrave;res ; 1 seul d&eacute;c&egrave;s (cause non li&eacute;e &agrave; la dengue)</td><td><sup><a href="#ref-2">[2,3]</a></sup></td></tr>
+                                <tr><td>Hospitalisation</td><td>26,7 % des voyageurs hospitalis&eacute;s</td><td><sup><a href="#ref-2">[2]</a></sup></td></tr>
+                                <tr><td>Anomalies biologiques (cas compliqu&eacute;s)</td><td>Thrombop&eacute;nie 78 %, transaminases &eacute;lev&eacute;es 62 %, saignement 52 %, fuite plasmatique 20 %</td><td><sup><a href="#ref-3">[3]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte europ&eacute;en &mdash; &eacute;mergence autochtone</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Italie 2024</strong> : plus grande &eacute;pid&eacute;mie autochtone jamais enregistr&eacute;e en Europe &mdash; 86 cas confirm&eacute;s &agrave; Fano (Marche), DENV-2<sup><a href="#ref-4">[4]</a></sup></li>
+                        <li><strong>France 2024</strong> : record de 85 cas autochtones<sup><a href="#ref-5">[5]</a></sup></li>
+                        <li><em>Aedes albopictus</em> (moustique tigre) pr&eacute;sent au <strong>Tessin</strong> et dans d'autres r&eacute;gions frontali&egrave;res du sud de la Suisse ; comp&eacute;tence vectorielle confirm&eacute;e pour au moins 3 s&eacute;rotypes DENV<sup><a href="#ref-7">[7]</a></sup></li>
+                        <li>Augmentation progressive des &eacute;v&eacute;nements de transmission locale d'arbovirus &agrave; <em>Aedes</em> en Europe ; en moyenne &times;1,25 chaque ann&eacute;e<sup><a href="#ref-27">[27]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Maladie fr&eacute;quente mais rarement s&eacute;v&egrave;re chez le voyageur</p>
+                        <p class="text-sm text-teal-800">Mortalit&eacute; &lt;0,1 % dans la cohorte GeoSentinel (1/5 958)<sup><a href="#ref-2">[2]</a></sup>. Rassurer le patient tout en maintenant une surveillance rigoureuse pendant la phase critique (J3&ndash;J7).</p>
+                    </div>
+                </section>
+
+                <!-- REPARTITION GEOGRAPHIQUE -->
                 <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images/dengue_map.jpg" alt="Distribution geographique de la Dengue" /></figure>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">R&eacute;partition g&eacute;ographique</h2>
+                    <figure class="my-4">
+                        <img class="w-full rounded-xl border border-teal-100" src="../../dist/images/dengue_map.jpg" alt="Distribution g&eacute;ographique de la dengue dans le monde" />
+                        <figcaption class="text-xs text-teal-600/60 mt-2">Distribution mondiale de la dengue. La transmission est end&eacute;mique dans &gt;100 pays, principalement en zone intertropicale.<sup><a href="#ref-8">[8]</a></sup></figcaption>
+                    </figure>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mt-4">
+                        <li><strong>Zones &agrave; plus haut risque pour le voyageur suisse</strong> : Asie du Sud-Est (Tha&iuml;lande, Indon&eacute;sie, Vietnam, Philippines), sous-continent indien, Am&eacute;rique latine et Cara&iuml;bes<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li>Incidence chez le voyageur pouvant atteindre <strong>58,7 cas pour 1 000 personnes-mois</strong> de voyage dans les &eacute;tudes prospectives<sup><a href="#ref-26">[26]</a></sup></li>
+                        <li>Le risque varie selon la saison (mousson, saison des pluies), la destination et la dur&eacute;e du s&eacute;jour</li>
+                    </ul>
                 </section>
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Virus (Flavivirus)</p>
-                </section>
+
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Moustiques piquant la journee (principalement le moustique <em>Aedes aegypti</em>, mais aussi <em>Aedes albopictus</em>, le moustique tigre).</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission &amp; incubation</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Vecteur principal</strong> : <em>Aedes aegypti</em> &mdash; moustique &agrave; activit&eacute; <strong>diurne</strong>, avec pics au lever et au coucher du soleil</li>
+                        <li><strong>Vecteur secondaire</strong> : <em>Aedes albopictus</em> (moustique tigre) &mdash; pr&eacute;sent en Europe m&eacute;ridionale et au Tessin, comp&eacute;tence vectorielle confirm&eacute;e<sup><a href="#ref-7">[7]</a></sup></li>
+                        <li>Pas de transmission interhumaine directe ; transmission verticale et par transfusion exceptionnelle</li>
+                        <li><strong>Incubation</strong> : 3&ndash;14 jours (typiquement 5&ndash;7 jours)<sup><a href="#ref-9">[9,10]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Piq&ucirc;res diurnes</p>
+                        <p class="text-sm text-teal-800">Contrairement &agrave; l'anoph&egrave;le (paludisme), <em>Aedes</em> pique <strong>pendant la journ&eacute;e</strong>. Les moustiquaires de lit ne suffisent pas &mdash; insister sur les r&eacute;pulsifs cutan&eacute;s et les v&ecirc;tements couvrants en journ&eacute;e.</p>
+                    </div>
                 </section>
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">3-15 jours (le plus souvent 5-6 jours)</p>
-                </section>
+
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">Selon les criteres OMS de 2009 :</p>
-                    <h3 class="font-semibold text-teal-800 mb-2">Fievre dengue sans signes de danger</h3>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">EF eleve (duree 5-7j), cephalees, douleurs retro-orbitaires, myalgies et arthralgies importantes, rash maculaire ou maculo-papulaire (&gt;50%) apparaissant souvent seulement apres plusieurs jours de fievre. Nausees et vomissements.</p>
-                    <h3 class="font-semibold text-teal-800 mb-2">Fievre dengue avec signes de danger</h3>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-4">Douleur abdominale, vomissements persistants, oedemes, lethargie ou agitation, hepatomegalie &gt;2 cm, manifestations hemorragiques muco-cutanees : hemorragies cutanees (le plus fqt), epistaxis, hemorragies g-i (rare), augmentation de l'hematocrite en parallele d'une diminution rapide des plaquettes.</p>
-                    <h3 class="font-semibold text-teal-800 mb-2">Fievre dengue severe (rare chez les voyageurs)</h3>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Au moins un des 3 criteres suivants :</p>
-                    <ol class="list-decimal list-inside space-y-2 text-sm text-teal-800/80 mt-2">
-                        <li><strong>Augmentation grave de la permeabilite capillaire :</strong> accumulation de fluides (epanchement pleural, ascite...) associee a une detresse respiratoire, choc hypovolemique.</li>
-                        <li><strong>Saignement important :</strong> critere evalue subjectivement par le clinicien.</li>
-                        <li><strong>Defaillance severe d'organe :</strong> ASAT ou ALAT &gt;1000 UI/l ; diminution de l'etat de conscience ; atteinte cardiaque ou autre organe.</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pr&eacute;sentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phases de la maladie (classification OMS 2009/2025)</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">La dengue &eacute;volue en trois phases. La compr&eacute;hension de cette s&eacute;quence est essentielle pour anticiper les complications.<sup><a href="#ref-9">[9,10,11]</a></sup></p>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Phase</th><th>Timing</th><th>Caract&eacute;ristiques cl&eacute;s</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>F&eacute;brile</strong></td><td>J1&ndash;J7</td><td>Fi&egrave;vre &eacute;lev&eacute;e (&le;40 &deg;C), c&eacute;phal&eacute;es, douleurs r&eacute;tro-orbitaires, myalgies intenses (&laquo; breakbone fever &raquo;), rash, naus&eacute;es</td></tr>
+                                <tr><td><strong>Critique</strong></td><td>~J3&ndash;J7 (d&eacute;fervescence)</td><td>Fuite plasmatique, thrombop&eacute;nie profonde, risque de choc et h&eacute;morragie &mdash; <strong>survient &agrave; la chute de la fi&egrave;vre</strong></td></tr>
+                                <tr><td><strong>R&eacute;cup&eacute;ration</strong></td><td>J7&ndash;J10+</td><td>R&eacute;absorption liquidienne, rash de convalescence (prurigineux), remont&eacute;e plaquettaire, asth&eacute;nie souvent prolong&eacute;e</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase f&eacute;brile (J1&ndash;J7)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Fi&egrave;vre &eacute;lev&eacute;e d'installation brutale, dur&eacute;e 2&ndash;7 jours</li>
+                        <li>C&eacute;phal&eacute;es frontales, douleurs r&eacute;tro-orbitaires (aggrav&eacute;es par les mouvements oculaires)</li>
+                        <li>Myalgies et arthralgies intenses</li>
+                        <li>Rash maculo-papulaire (&gt;50 % des cas), apparition souvent apr&egrave;s quelques jours de fi&egrave;vre</li>
+                        <li>Injection conjonctivale, &eacute;ryth&egrave;me pharyng&eacute;, ad&eacute;nopathies, h&eacute;patom&eacute;galie (20&ndash;50 % des cas)</li>
+                        <li>Leucop&eacute;nie et thrombop&eacute;nie fr&eacute;quentes ; ALAT/ASAT mod&eacute;r&eacute;ment &eacute;lev&eacute;es (2&ndash;5&times; N)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Warning signs &mdash; phase critique (d&eacute;fervescence)</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">La chute de la fi&egrave;vre marque souvent le d&eacute;but de la phase critique. Les <strong>warning signs</strong> suivants doivent &ecirc;tre recherch&eacute;s activement :<sup><a href="#ref-9">[9,10,11]</a></sup></p>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-2">&#9888; Signes de danger (warning signs OMS)</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Douleur abdominale intense</strong> ou sensibilit&eacute; &agrave; la palpation</li>
+                            <li><strong>Vomissements persistants</strong> (&ge;3 &eacute;pisodes en 24 h)</li>
+                            <li><strong>Accumulation liquidienne clinique</strong> (&eacute;panchement pleural, ascite)</li>
+                            <li><strong>Saignement muqueux</strong> (&eacute;pistaxis, gingivorragies, m&eacute;trorragie)</li>
+                            <li><strong>L&eacute;thargie ou agitation</strong></li>
+                            <li><strong>H&eacute;patom&eacute;galie &gt;2 cm</strong></li>
+                            <li><strong>Augmentation de l'h&eacute;matocrite avec chute rapide des plaquettes</strong></li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Dengue s&eacute;v&egrave;re</h3>
+                    <p class="text-sm text-teal-800/80 mb-3">Rare chez le voyageur (~0,5 % selon GeoSentinel)<sup><a href="#ref-3">[3]</a></sup>. Au moins un des crit&egrave;res suivants :</p>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Fuite plasmatique s&eacute;v&egrave;re</strong> : choc hypovol&eacute;mique (compens&eacute; : PAS maintenue avec PP &lt;20 mmHg ; d&eacute;compens&eacute; : PAS &lt;90 mmHg) et/ou d&eacute;tresse respiratoire par accumulation liquidienne</li>
+                        <li><strong>Saignement s&eacute;v&egrave;re</strong> : &eacute;valu&eacute; cliniquement par le praticien</li>
+                        <li><strong>D&eacute;faillance d'organe</strong> : ASAT ou ALAT &gt;1 000 UI/L ; troubles de la conscience ; myocardite ; atteinte d'autres organes</li>
                     </ol>
-                </section>
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Ces signes sont retrouves dans 20-50% des cas : injection conjonctivale, erytheme pharynge, ADP, hepatomegalie, rash maculaire ou maculo-papulaire au niveau du tronc et parfois des paumes.</li>
-                        <li>Test du tourniquet (retrouve meme avec Dengue sans signe de danger) : un brassard de tensiometre est applique et gonfle a une pression se situant entre les pressions arterielles systolique et diastolique pendant 5 minutes. Le test est positif s'il y a 10 ou plus petechies par 2,5 cm2 en dessous du brassard.</li>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Groupes de prise en charge (OMS/PAHO)</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Groupe</th><th>D&eacute;finition</th><th>Prise en charge</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>A</strong></td><td>Dengue sans warning signs, sans facteurs de risque</td><td>Suivi ambulatoire</td></tr>
+                                <tr><td><strong>B1</strong></td><td>Dengue sans warning signs mais avec facteurs de risque (grossesse, nourrisson, &acirc;ge avanc&eacute;, comorbidit&eacute;s, isolement social)</td><td>Observation rapproch&eacute;e</td></tr>
+                                <tr><td><strong>B2</strong></td><td>Dengue avec warning signs</td><td><strong>Hospitalisation</strong>, remplissage IV</td></tr>
+                                <tr><td><strong>C</strong></td><td>Dengue s&eacute;v&egrave;re</td><td><strong>Soins intensifs</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-4">Classification selon OMS/PAHO 2024<sup><a href="#ref-11">[11]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Complications atypiques</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Myocardite dengue</strong> : complication sous-estim&eacute;e ; la plupart autolimit&eacute;es mais &eacute;volution vers l'insuffisance cardiaque possible ; suspicion devant anomalie ECG ou &eacute;l&eacute;vation de troponine<sup><a href="#ref-28">[28]</a></sup></li>
+                        <li><strong>Enc&eacute;phalite / m&eacute;ningite</strong> : rare ; incluse dans les &laquo; expanded dengue syndromes &raquo;<sup><a href="#ref-29">[29]</a></sup></li>
+                        <li><strong>H&eacute;molyse auto-immune, syndrome h&eacute;mophagocytaire</strong> : rares mais potentiellement fatals ; corticost&eacute;ro&iuml;des ou IgIV parfois indiqu&eacute;s<sup><a href="#ref-20">[20]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Pr&eacute;dicteurs de progression</h3>
+                    <p class="text-sm text-teal-800/80 mb-2">Les facteurs les plus fiables de progression vers la dengue s&eacute;v&egrave;re pendant la phase f&eacute;brile<sup><a href="#ref-12">[12]</a></sup> :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>H&eacute;patom&eacute;galie, saignement, douleur abdominale, l&eacute;thargie</li>
+                        <li>Augmentation de l'h&eacute;matocrite, thrombop&eacute;nie &lt;100 000/&micro;L</li>
+                        <li>Infection secondaire (deuxi&egrave;me infection par un s&eacute;rotype diff&eacute;rent) &mdash; risque d'ADE (<em>antibody-dependent enhancement</em>)</li>
                     </ul>
                 </section>
+
+                <!-- BIOLOGIE -->
                 <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Thrombopenie (chez la plupart des patients) et leucopenie</li>
-                        <li>Augmentation des ALAT et ASAT (en general moderee a 2-5 x la N), plus elevee si Dengue severe</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Thrombop&eacute;nie</strong> (chez la plupart des patients) et <strong>leucop&eacute;nie</strong> &mdash; apparaissent d&egrave;s les premiers jours</li>
+                        <li>Augmentation des ALAT et ASAT (en g&eacute;n&eacute;ral mod&eacute;r&eacute;e &agrave; 2&ndash;5&times; N) ; plus &eacute;lev&eacute;e si dengue s&eacute;v&egrave;re (&gt;1 000 UI/L)</li>
+                        <li><strong>H&eacute;matocrite</strong> : cl&eacute; de la surveillance &mdash; l'augmentation (&eacute;moconcentration) est le meilleur marqueur pr&eacute;coce de fuite plasmatique</li>
+                        <li>CRP souvent peu &eacute;lev&eacute;e (utile pour le diagnostic diff&eacute;rentiel avec les infections bact&eacute;riennes)</li>
                     </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Surveillance biologique minimale</p>
+                        <p class="text-sm text-teal-800">H&eacute;mogramme (Ht + plaquettes) &agrave; <strong>J3 et J5 minimum</strong> apr&egrave;s le d&eacute;but des sympt&ocirc;mes, m&ecirc;me si le patient semble aller mieux. L'h&eacute;matocrite qui augmente alors que les plaquettes chutent = alarme de fuite plasmatique.<sup><a href="#ref-9">[9]</a></sup></p>
+                    </div>
                 </section>
+
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Test rapide avec detection de l'antigene NS1, des IgM, et IgG. Dengue aigue si Ag-NS1 ou IgM positif(s).</p>
-                </section>
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Infections cosmopolites : grippe, enterovirus, rubeole, rougeole</li>
-                        <li>Maladies tropicales : malaria, fievre enterique, leptospirose, rickettsioses, fievre chikungunya, fievre Zika</li>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Performance des tests (m&eacute;ta-analyse Pillay et al. 2025, 161 &eacute;tudes)</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Test</th><th>Timing optimal</th><th>Sensibilit&eacute; (IC 95 %)</th><th>Sp&eacute;cificit&eacute; (IC 95 %)</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>NS1 ELISA</strong></td><td>J0&ndash;J4</td><td>90 % (68&ndash;98)</td><td>93 % (71&ndash;99)</td></tr>
+                                <tr><td><strong>RT-PCR</strong></td><td>J0&ndash;J4</td><td>95 % (77&ndash;99)</td><td>89 % (60&ndash;98)</td></tr>
+                                <tr><td><strong>IgM ELISA</strong></td><td>J5&ndash;J14</td><td>71 % (57&ndash;84)</td><td>&mdash;</td></tr>
+                                <tr><td>ICT rapide NS1</td><td>J0&ndash;J4</td><td>60&ndash;80 %</td><td>Variable</td></tr>
+                                <tr><td>Combo NS1 + IgM + IgG</td><td>J0&ndash;J14</td><td>90 % (87&ndash;92)</td><td>89 % (87&ndash;92)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-6">Donn&eacute;es : Pillay et al., Lancet Microbe 2025<sup><a href="#ref-13">[13]</a></sup> ; Macedo et al. 2022/2024<sup><a href="#ref-31">[31,32]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Facteurs diminuant la sensibilit&eacute; du NS1</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Infection secondaire</strong> : titre NS1 plus bas du fait des anticorps pr&eacute;existants<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>S&eacute;rotypes DENV-2 et DENV-4</li>
+                        <li>Pr&eacute;l&egrave;vements tardifs (&gt;J3&ndash;4)</li>
+                        <li>Le NS1 peut cependant persister positif jusqu'&agrave; J9 en infection primaire</li>
                     </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">S&eacute;rologie IgM / IgG</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>IgM : apparaissent vers J3&ndash;J5, pic &agrave; J7&ndash;J14 ; <strong>r&eacute;actions crois&eacute;es</strong> avec Zika, fi&egrave;vre jaune, enc&eacute;phalite japonaise</li>
+                        <li>IgG : plus tardivement en infection primaire (~J14) ; en <strong>infection secondaire</strong>, s'&eacute;l&egrave;vent rapidement d&egrave;s J1&ndash;J2 avec IgM parfois absente</li>
+                        <li>S&eacute;roconversion IgG (quadruplement du titre) = diagnostic confirm&eacute;</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Strat&eacute;gie diagnostique recommand&eacute;e pour le MG suisse</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>J0&ndash;J5 apr&egrave;s d&eacute;but des sympt&ocirc;mes</strong> : test rapide combin&eacute; <strong>NS1 + IgM/IgG</strong> (disponible en cabinet) ; si NS1 positif &rarr; dengue confirm&eacute;e<sup><a href="#ref-13">[13,14]</a></sup></li>
+                        <li><strong>J5&ndash;J14</strong> : IgM/IgG (NS1 moins sensible) ; confirmer par s&eacute;roconversion si doute</li>
+                        <li><strong>PCR</strong> : r&eacute;f&eacute;rence pour typage s&eacute;rotypique (DENV-1 &agrave; 4) ; utile pour la d&eacute;claration et la surveillance ; non disponible en urgence en cabinet</li>
+                        <li><strong>Un test n&eacute;gatif n'exclut pas la dengue</strong> &mdash; r&eacute;p&eacute;ter &agrave; 24&ndash;48 h si forte suspicion clinique</li>
+                    </ol>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; En parall&egrave;le : toujours exclure le paludisme</p>
+                        <p class="text-sm text-teal-800">Un frottis/goutte &eacute;paisse pour exclure le paludisme ET un test NS1/IgM dengue doivent &ecirc;tre effectu&eacute;s <strong>simultan&eacute;ment</strong> chez tout voyageur f&eacute;brile de retour de zone tropicale. La co-infection malaria + dengue est possible.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Diagnostic diff&eacute;rentiel</h3>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Cat&eacute;gorie</th><th>Pathologies</th></tr></thead>
+                            <tbody>
+                                <tr><td>Priorit&eacute; absolue</td><td><strong>Paludisme</strong> (toujours exclure en premier)</td></tr>
+                                <tr><td>Arboviroses</td><td>Chikungunya, Zika (m&ecirc;me vecteur, m&ecirc;me zone)</td></tr>
+                                <tr><td>Bact&eacute;riennes</td><td>Leptospirose, rickettsiose, fi&egrave;vre ent&eacute;rique</td></tr>
+                                <tr><td>Virales cosmopolites</td><td>Grippe, mononucl&eacute;ose, primo-VIH</td></tr>
+                                <tr><td>Si rash</td><td>Rougeole, rub&eacute;ole</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
+
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et prevention</h2>
-                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Antalgie avec paracetamol. Eviter AINS et surtout Aspirine (vu risque hemorragique)</li>
-                        <li>Suivi rapproche de l'evolution clinique pour detecter toute apparition de Dengue avec signe de danger (souvent vers le 3eme jour), qui necessite alors une hospitalisation (tout comme la Dengue severe)</li>
-                        <li>Prevention primaire avec mesures pour eviter les piqures de moustiques y compris le jour</li>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Principes g&eacute;n&eacute;raux &mdash; traitement purement de soutien</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Pas de traitement antiviral sp&eacute;cifique</strong></li>
+                        <li><strong>Parac&eacute;tamol</strong> pour la fi&egrave;vre et les douleurs (max 4 g/j adulte)<sup><a href="#ref-9">[9,10]</a></sup></li>
+                        <li><strong>Hydratation orale</strong> abondante (solutions de r&eacute;hydratation orale, jus de fruits, eau)</li>
                     </ul>
-                    <div class="callout-danger"><p class="text-sm font-bold text-red-700 mb-1">&#9888; PAS d'AINS</p><p class="text-sm text-teal-800">Pas d'aspirine, ibuprofene, diclofenac &mdash; risque hemorragique. Pas de transfusion plaquettaire prophylactique.</p></div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-2">&#9888; Contre-indications formelles</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>PAS d'AINS</strong> (ibuprof&egrave;ne, diclofe&eacute;nac, naprox&egrave;ne) &mdash; risque h&eacute;morragique</li>
+                            <li><strong>PAS d'aspirine</strong> &mdash; risque de syndrome de Reye (enfants) et aggravation des saignements</li>
+                            <li><strong>PAS de transfusion plaquettaire prophylactique</strong> (sauf saignement actif s&eacute;v&egrave;re)<sup><a href="#ref-9">[9,10]</a></sup></li>
+                            <li><strong>PAS d'antibiotiques</strong> (infection virale)</li>
+                            <li><strong>PAS de corticost&eacute;ro&iuml;des</strong> (pas d'&eacute;vidence de b&eacute;n&eacute;fice) &mdash; sauf syndrome h&eacute;mophagocytaire<sup><a href="#ref-20">[20]</a></sup></li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Surveillance ambulatoire (Groupe A)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Information du patient sur les warning signs (<strong>fournir une liste &eacute;crite</strong>)</li>
+                        <li>Consultation de suivi quotidienne ou tous les 2 jours pendant la phase critique (J3&ndash;J7)</li>
+                        <li>Contr&ocirc;le FSC (&eacute;mogramme) &agrave; <strong>J3 et J5 minimum</strong> : surveiller h&eacute;matocrite (h&eacute;moconcentration &rarr; fuite plasmatique) et plaquettes</li>
+                        <li>Si apparition de warning signs &rarr; <strong>hospitalisation imm&eacute;diate</strong></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Hospitalisation (Groupes B2 et C)</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Situation</th><th>Remplissage IV</th><th>Surveillance</th></tr></thead>
+                            <tbody>
+                                <tr><td>Groupe B2 (warning signs)</td><td>NaCl 0,9 % ou Ringer Lactate ; d&eacute;buter &agrave; 5&ndash;7 mL/kg/h pendant 1&ndash;2 h, puis r&eacute;duire selon Ht et clinique</td><td>Horaire : pouls, PA, diur&egrave;se, Ht</td></tr>
+                                <tr><td>Groupe C (choc)</td><td>Bolus 10&ndash;20 mL/kg ; si r&eacute;fractaire : collo&iuml;des</td><td>Soins intensifs, monitoring continu</td></tr>
+                                <tr><td>Saignement s&eacute;v&egrave;re</td><td>Concentr&eacute;s &eacute;rythrocytaires si instabilit&eacute; h&eacute;modynamique ; plaquettes si saignement actif + &lt;10 000/&micro;L</td><td>Biologie r&eacute;p&eacute;t&eacute;e</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-4">Algorithmes : PAHO 2024<sup><a href="#ref-11">[11]</a></sup> ; OMS Guidelines 2025<sup><a href="#ref-10">[10]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Crit&egrave;res de sortie d'hospitalisation</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Af&eacute;brile depuis &gt;48 h sans antipyr&eacute;tiques</li>
+                        <li>Am&eacute;lioration clinique (app&eacute;tit, bien-&ecirc;tre)</li>
+                        <li>H&eacute;matocrite stable</li>
+                        <li>Plaquettes en hausse (&gt;50 000/&micro;L et en ascension)</li>
+                        <li>Pas de d&eacute;tresse respiratoire<sup><a href="#ref-10">[10,11]</a></sup></li>
+                    </ul>
                 </section>
 
-                <section id="referer" class="mb-10"><div class="callout-referer"><p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p><p class="text-sm text-teal-800">Cas complexes ou severes necessitant un avis specialise. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p></div></section>
-            </article>
-            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et prevention</a></li>
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pr&eacute;vention</h2>
 
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside></div></main>
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
-    <script>const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}});});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}});},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));</script>
+                    <h3 class="font-semibold text-teal-800 mb-3">Mesures anti-vectorielles</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Protection contre les piq&ucirc;res de moustiques <strong>y compris le jour</strong> (<em>Aedes</em> pique principalement en journ&eacute;e)</li>
+                        <li>R&eacute;pulsifs cutan&eacute;s &agrave; base de DEET (20&ndash;30 %), icaridine ou PMD</li>
+                        <li>V&ecirc;tements longs impr&eacute;gn&eacute;s de perm&eacute;thrine</li>
+                        <li>Moustiquaires (utiles pour la sieste et pour les enfants en bas &acirc;ge)</li>
+                        <li>Climatisation / chambres ferm&eacute;es</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccination &mdash; Qdenga (TAK-003)</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Caract&eacute;ristique</th><th>D&eacute;tail</th></tr></thead>
+                            <tbody>
+                                <tr><td>Vaccin</td><td>Qdenga (TAK-003, Takeda) &mdash; vaccin vivant att&eacute;nu&eacute; t&eacute;travalent, squelette g&eacute;n&eacute;tique DENV-2</td></tr>
+                                <tr><td>Autorisation Swissmedic</td><td>29 juillet 2024<sup><a href="#ref-15">[15]</a></sup></td></tr>
+                                <tr><td>Sch&eacute;ma</td><td><strong>2 doses &agrave; 3 mois d'intervalle</strong> (voie SC)</td></tr>
+                                <tr><td>Efficacit&eacute; (54 mois)</td><td>61 % toutes s&eacute;v&eacute;rit&eacute;s ; <strong>84 % contre l'hospitalisation</strong><sup><a href="#ref-15">[15,16]</a></sup></td></tr>
+                                <tr><td>Par s&eacute;rotype</td><td>&Eacute;lev&eacute;e DENV-1 et DENV-2 ; plus faible DENV-3 ; donn&eacute;es limit&eacute;es DENV-4<sup><a href="#ref-16">[16]</a></sup></td></tr>
+                                <tr><td>Tol&eacute;rabilit&eacute;</td><td>Profil favorable chez les voyageurs (56 459 doses, Berlin) ; EI principalement locaux et syst&eacute;miques l&eacute;gers<sup><a href="#ref-17">[17]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-2">Recommandation ECTM suisse (ao&ucirc;t 2024)</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Vaccination <strong>NON recommand&eacute;e</strong> pour les personnes <strong>sans ant&eacute;c&eacute;dent de dengue</strong> (s&eacute;rona&iuml;fs)<sup><a href="#ref-15">[15]</a></sup></li>
+                            <li>Vaccination <strong>peut &ecirc;tre recommand&eacute;e</strong> pour les voyageurs &ge;6 ans ayant une <strong>&eacute;vidence d'infection dengue ant&eacute;rieure</strong> (PCR/Ag confirm&eacute;e OU histoire compatible + IgG positive) ET exposition pr&eacute;vue &agrave; une r&eacute;gion &agrave; transmission significative<sup><a href="#ref-15">[15]</a></sup></li>
+                            <li>Pr&eacute;occupation chez le s&eacute;rona&iuml;f : risque th&eacute;orique d'ADE comme observ&eacute; avec Dengvaxia ; les donn&eacute;es &agrave; 54 mois de TAK-003 ne montrent pas de signal de risque accru, mais la prudence reste de mise<sup><a href="#ref-15">[15,16]</a></sup></li>
+                        </ul>
+                    </div>
+
+                    <div class="callout-piege mt-4">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Dengvaxia (Sanofi)</p>
+                        <p class="text-sm text-teal-800"><strong>NON recommand&eacute; pour les voyageurs</strong>. N&eacute;cessite un test s&eacute;rologique pr&eacute;alable. Risque d'ADE chez les s&eacute;rona&iuml;fs. Production arr&ecirc;t&eacute;e suite &agrave; la baisse de demande.<sup><a href="#ref-35">[35]</a></sup></p>
+                    </div>
+
+                    <p class="text-sm text-teal-800/80 mt-4">Cas rapport&eacute; de dengue vaccinale (Pettersson et al., J Travel Med 2025) : infection DENV-2 induite par un sous-variant mineur pr&eacute;sent dans le vaccin chez un voyageur su&eacute;dois &mdash; n&eacute;cessite des recherches suppl&eacute;mentaires.<sup><a href="#ref-18">[18]</a></sup></p>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pi&egrave;ges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Ne pas penser &agrave; la dengue chez un voyageur f&eacute;brile</p>
+                            <p class="text-sm text-teal-800">La dengue est la premi&egrave;re cause de fi&egrave;vre au retour de voyage en zone tropicale apr&egrave;s le paludisme. Tout &eacute;tat f&eacute;brile dans les 14 jours suivant un retour de zone end&eacute;mique doit faire &eacute;voquer la dengue. Un frottis/goutte &eacute;paisse ET un test NS1/IgM dengue doivent &ecirc;tre effectu&eacute;s en parall&egrave;le.<sup><a href="#ref-1">[1]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Prescrire des AINS par r&eacute;flexe</p>
+                            <p class="text-sm text-teal-800">Le r&eacute;flexe &laquo; ibuprof&egrave;ne pour la fi&egrave;vre &raquo; est dangereux dans la dengue : risque h&eacute;morragique major&eacute;. <strong>Seul le parac&eacute;tamol est autoris&eacute;.</strong> Si le patient a d&eacute;j&agrave; pris des AINS avant le diagnostic &rarr; surveillance renforc&eacute;e des signes h&eacute;morragiques.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Sous-estimer la phase critique (&agrave; la d&eacute;fervescence)</p>
+                            <p class="text-sm text-teal-800">La chute de la fi&egrave;vre (souvent vers J3&ndash;J5) donne un faux sentiment d'am&eacute;lioration. C'est pr&eacute;cis&eacute;ment &agrave; ce moment que la fuite plasmatique et la thrombop&eacute;nie s'aggravent. Informer le patient : &laquo; la disparition de la fi&egrave;vre ne signifie pas la gu&eacute;rison &mdash; consultez imm&eacute;diatement si douleur abdominale, vomissements, saignement, ou malaise &raquo;.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Test NS1 n&eacute;gatif = dengue exclue ?</p>
+                            <p class="text-sm text-teal-800"><strong>Non.</strong> La sensibilit&eacute; du NS1 chute apr&egrave;s J4 et en cas d'infection secondaire. Toujours compl&eacute;ter par IgM/IgG si pr&eacute;l&egrave;vement &gt;J5. R&eacute;p&eacute;ter &agrave; 24&ndash;48 h si forte suspicion.<sup><a href="#ref-13">[13,14]</a></sup></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Ne pas surveiller l'h&eacute;matocrite</p>
+                            <p class="text-sm text-teal-800">L'h&eacute;matocrite qui augmente (h&eacute;moconcentration) est le meilleur marqueur pr&eacute;coce de fuite plasmatique. Une thrombop&eacute;nie isol&eacute;e sans surveillance de l'Ht peut masquer une progression vers le choc.<sup><a href="#ref-9">[9]</a></sup></p>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-8">Perles</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>La dengue tue rarement le voyageur</strong> : mortalit&eacute; &lt;0,1 % (1/5 958, GeoSentinel) mais 26,7 % d'hospitalisations &mdash; rassurer tout en restant vigilant<sup><a href="#ref-2">[2]</a></sup></li>
+                        <li><strong>Suivi J3 + J5 minimum</strong> : h&eacute;mogramme (Ht + plaquettes) pour d&eacute;tecter la progression</li>
+                        <li><strong>Fournir une &laquo; carte warning signs &raquo;</strong> au patient : liste &eacute;crite des signes de danger avec instruction de consulter imm&eacute;diatement</li>
+                        <li><strong>Penser &agrave; la co-infection</strong> : malaria + dengue ou dengue + chikungunya possibles dans les m&ecirc;mes zones &mdash; ne pas s'arr&ecirc;ter au premier diagnostic positif</li>
+                        <li><strong>D&eacute;claration obligatoire</strong> : ne pas oublier de d&eacute;clarer &agrave; l'OFSP (d&eacute;lai 1 semaine)<sup><a href="#ref-1">[1]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le m&eacute;decin de premier recours</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Voyageur f&eacute;brile de retour de zone end&eacute;mique</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-6">
+                        <li><strong>Exclure le paludisme</strong> en priorit&eacute; (frottis/goutte &eacute;paisse + TDR)</li>
+                        <li><strong>Test rapide dengue</strong> : NS1 + IgM/IgG combin&eacute; (disponible en cabinet)</li>
+                        <li><strong>Bilan biologique</strong> : NFS (Ht, plaquettes), CRP, transaminases, cr&eacute;atinine</li>
+                        <li><strong>&Eacute;valuer les warning signs</strong> (cf. liste ci-dessus) &rarr; si pr&eacute;sents : hospitaliser</li>
+                        <li><strong>Si ambulatoire</strong> : parac&eacute;tamol, hydratation, information &eacute;crite sur les warning signs, consultation de suivi &agrave; J3 et J5</li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Quand hospitaliser</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Pr&eacute;sence de warning signs (Groupe B2)</li>
+                        <li>Dengue s&eacute;v&egrave;re (Groupe C)</li>
+                        <li>Facteurs de risque sans possibilit&eacute; de suivi rapproch&eacute; (Groupe B1)</li>
+                        <li>Vomissements emp&ecirc;chant l'hydratation orale</li>
+                        <li>H&eacute;matocrite en hausse et/ou plaquettes en chute rapide</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Message au patient</h3>
+                    <div class="callout-info">
+                        <p class="text-sm text-teal-800">&laquo; Votre fi&egrave;vre va probablement disparaitre dans quelques jours. <strong>C'est apr&egrave;s la chute de la fi&egrave;vre que la vigilance est maximale</strong>. Consultez imm&eacute;diatement si : douleur abdominale forte, vomissements r&eacute;p&eacute;t&eacute;s, saignements (nez, gencives), fatigue extr&ecirc;me, vertiges. Prenez <strong>uniquement du parac&eacute;tamol</strong>, jamais d'ibuprof&egrave;ne ni d'aspirine. Buvez abondamment. &raquo;</p>
+                    </div>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand r&eacute;f&eacute;rer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Dengue avec <strong>warning signs</strong> ou dengue s&eacute;v&egrave;re n&eacute;cessitant un avis sp&eacute;cialis&eacute;</li>
+                            <li>Incertitude diagnostique (co-infection, s&eacute;rologie atypique)</li>
+                            <li>Dengue chez une <strong>femme enceinte</strong> ou un <strong>patient immunosupprim&eacute;</strong></li>
+                            <li>Question sur la vaccination Qdenga (indication chez un voyageur s&eacute;ropositif dengue)</li>
+                            <li>Cas complexe ou &eacute;volution inhabituelle</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">R&eacute;f&eacute;rer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">R&eacute;f&eacute;rences</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">OFSP. Rapport &eacute;pid&eacute;miologique sur les cas de fi&egrave;vre de dengue d&eacute;clar&eacute;s en Suisse, 2024. <em>OFSP-Bulletin</em> 36/2025.</li>
+                        <li id="ref-2">Duvignaud A et al. Epidemiology of travel-associated dengue from 2007 to 2022: A GeoSentinel analysis. <em>J Travel Med</em> 2024;31(7):taae089.</li>
+                        <li id="ref-3">Huits R et al. Clinical Characteristics and Outcomes Among Travelers With Severe Dengue: A GeoSentinel Analysis. <em>Ann Intern Med</em> 2023;176(7):940&ndash;948.</li>
+                        <li id="ref-4">Barchiesi F et al. Outbreak of autochthonous dengue in Fano, Pesaro-Urbino Province &mdash; Marche region, Italy, September 2024. <em>Infection</em> 2025;53:1213&ndash;1218.</li>
+                        <li id="ref-5">Arulmukavarathan A et al. Dengue in France in 2024 &mdash; A year of record numbers of imported and autochthonous cases. <em>New Microbes New Infect</em> 2024;62:101553.</li>
+                        <li id="ref-6">Hedrich N et al. Aedes-borne arboviral human infections in Europe from 2000 to 2023: A systematic review and meta-analysis. <em>Travel Med Infect Dis</em> 2025;64:102799.</li>
+                        <li id="ref-7">Bohers C et al. <em>Aedes albopictus</em> of Paris (France) is competent to transmit at least three of the four dengue virus serotypes. <em>Front Trop Dis</em> 2025;6.</li>
+                        <li id="ref-8">WHO. Dengue: global situation, surveillance and progress &mdash; 2024 update. <em>WER</em> 2024;99(50/52):665&ndash;678.</li>
+                        <li id="ref-9">Adhikari S et al. Assessment and management of dengue. <em>BMJ</em> 2025;388:e082639.</li>
+                        <li id="ref-10">WHO. WHO guidelines for clinical management of arboviral diseases: dengue, chikungunya, Zika and yellow fever. Geneva: WHO; 2025.</li>
+                        <li id="ref-11">PAHO. Algorithms for the clinical management of dengue patients. Washington DC: PAHO; 2024.</li>
+                        <li id="ref-12">Sangkaew S et al. Risk predictors of progression to severe disease during the febrile phase of dengue: a systematic review and meta-analysis. <em>Lancet Infect Dis</em> 2021;21(7):1014&ndash;1026.</li>
+                        <li id="ref-13">Pillay K et al. Evaluating the performance of common reference laboratory tests for acute dengue diagnosis: a systematic review and meta-analysis. <em>Lancet Microbe</em> 2025;6(7):101088.</li>
+                        <li id="ref-14">Haider M et al. Diagnostic Accuracy of Various Immunochromatographic Tests for NS1 Antigen and IgM Antibodies Detection in Acute Dengue Virus Infection. <em>Int J Environ Res Public Health</em> 2022;19:8756.</li>
+                        <li id="ref-15">Eperon G et al. Vaccination against dengue fever for travellers: Statement of the Swiss Expert Committee for Travel Medicine (ECTM), August 2024. <em>Swiss Med Wkly</em> 2024;154:3858.</li>
+                        <li id="ref-16">Patel SS et al. An open-label, Phase 3 trial of TAK-003: immunogenicity and safety. <em>Hum Vaccin Immunother</em> 2023;19(2):2254964.</li>
+                        <li id="ref-17">Jelinek T et al. The Tolerability of the Dengue Vaccine TAK-003 (Qdenga) in German Travelers. <em>Trop Med Infect Dis</em> 2025;10(12):352.</li>
+                        <li id="ref-18">Pettersson JH-O et al. Qdenga-induced dengue caused by minor DENV-2 subvariant(s) in the vaccine. <em>J Travel Med</em> 2025;taaf091.</li>
+                        <li id="ref-19">Tsheten T et al. Clinical predictors of severe dengue: a systematic review and meta-analysis. <em>Infect Dis Poverty</em> 2021;10:123.</li>
+                        <li id="ref-20">Tayal A et al. Management of Dengue: An Updated Review. <em>Indian J Pediatr</em> 2023;90:168&ndash;177.</li>
+                        <li id="ref-21">ECDC. Public health guidance for assessing and mitigating the risk of locally-acquired Aedes-borne viral diseases in the EU/EEA. Stockholm: ECDC; July 2025.</li>
+                        <li id="ref-22">WHO. Dengue and severe dengue &mdash; Fact sheet. Updated 2024.</li>
+                        <li id="ref-23">Witte P et al. Dengue Fever &mdash; Diagnosis, Risk Stratification, and Treatment. <em>Dtsch Arztebl Int</em> 2024;121(23):773&ndash;778.</li>
+                        <li id="ref-24">Wilder-Smith A et al. Dengue Vaccine Development and Deployment into Routine Immunization. <em>Vaccines</em> 2025;13(5):483.</li>
+                        <li id="ref-25">Lim A et al. The overlapping global distribution of dengue, chikungunya, Zika and yellow fever. <em>Nature Comms</em> 2025;16:3358.</li>
+                        <li id="ref-26">Grobusch MP et al. The burden of dengue fever in travellers: a systematic literature review. <em>New Microbes New Infect</em> 2025;67:101631.</li>
+                        <li id="ref-27">Cattaneo P et al. Transmission of autochthonous Aedes-borne arboviruses in Europe 2007&ndash;2023: a systematic review. <em>Lancet Reg Health Eur</em> 2025;51:101231.</li>
+                        <li id="ref-28">Cristodulo R et al. Dengue Myocarditis: A Case Report and Major Review. <em>Glob Heart</em> 2023;18(1):41.</li>
+                        <li id="ref-29">Gundamraj V, Hasbun R. Viral meningitis and encephalitis: an update. <em>Curr Opin Infect Dis</em> 2023;36(3):177&ndash;185.</li>
+                        <li id="ref-30">Yuan K et al. Risk and predictive factors for severe dengue infection: A systematic review and meta-analysis. <em>PLoS One</em> 2022;17(4):e0267186.</li>
+                        <li id="ref-31">Macedo JVL et al. A systematic review and meta-analysis on the accuracy of rapid immunochromatographic tests for dengue diagnosis. <em>Eur J Clin Microbiol Infect Dis</em> 2022;41(9):1191&ndash;1201.</li>
+                        <li id="ref-32">Macedo JVL et al. Assessing the accuracy of rapid immunochromatographic tests in dengue diagnosis. <em>Diagn Microbiol Infect Dis</em> 2024;109(2):116227.</li>
+                        <li id="ref-33">Liu LT et al. Performance comparison of two dengue NS1 rapid diagnostic tests against RT-PCR. <em>J Infect Public Health</em> 2025;18(11):102919.</li>
+                        <li id="ref-34">OFSP. Vaccinations et pr&eacute;vention du paludisme lors de voyages internationaux. bag.admin.ch, 2024.</li>
+                        <li id="ref-35">Marangoni D et al. State of the Art on Vaccine Development Against Dengue Infection: Scoping Review. <em>Infect Dis Rep</em> 2025;17(5):117.</li>
+                        <li id="ref-36">CDC. Dengue Clinical Management Pocket Guide. Updated May 2024.</li>
+                        <li id="ref-37">Grobusch MP et al. Travel-related infections presenting in Europe: A 20-year analysis of EuroTravNet surveillance data. <em>Lancet Reg Health Eur</em> 2020;1:100001.</li>
+                        <li id="ref-38">Kok BH et al. Dengue virus infection &mdash; a review of pathogenesis, vaccines, diagnosis and therapy. <em>Virus Res</em> 2022;324:199018.</li>
+                        <li id="ref-39">Wang WH et al. Dengue hemorrhagic fever &mdash; pathogenesis, prevention and control. <em>J Microbiol Immunol Infect</em> 2020;53(6):963&ndash;978.</li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">&Eacute;pid&eacute;miologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">R&eacute;partition g&eacute;ographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pr&eacute;vention</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pi&egrave;ges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand r&eacute;f&eacute;rer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">R&eacute;f&eacute;rences</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis sp&eacute;cialis&eacute; ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">R&eacute;f&eacute;rer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de m&eacute;decine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathog&egrave;nes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">&Agrave; propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pr&eacute;-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu &agrave; vis&eacute;e &eacute;ducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+
+    <script>
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+    </script>
 </body>
 </html>

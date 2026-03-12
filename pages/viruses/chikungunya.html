@@ -4,96 +4,577 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chikungunya — Tropical Notebook</title>
-    <meta name="description" content="Chikungunya : clinique, diagnostic, traitement — guide pour le medecin de premier recours.">
-    <meta name="keywords" content="chikungunya, alphavirus, Aedes, arthralgies, medecine tropicale">
+    <meta name="description" content="Chikungunya : arthralgies chroniques, diagnostic différentiel avec la dengue, vaccination (Vimkunya®, Ixchiq®) et prise en charge pour le médecin de premier recours. Recommandations OMS 2025 et ECTM.">
+    <meta name="keywords" content="chikungunya, alphavirus, Aedes albopictus, arthralgies chroniques, vaccination chikungunya, Vimkunya, Ixchiq, VLA1553, médecine tropicale, arbovirose">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: { extend: { colors: {
-                teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' },
-                mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' },
-                gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' },
-                cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' },
-            }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } }
-        }
+        tailwind.config = { theme: { extend: { colors: { teal: { 50:'#f0fafa',100:'#d2f0ee',200:'#a5e0dd',300:'#7ecec5',400:'#54b5aa',500:'#479793',600:'#387a77',700:'#2d5e5b',800:'#234a48',900:'#1a3836',950:'#0f2322' }, mint: { 50:'#edfcf8',100:'#d4f7ee',200:'#a8eedc',300:'#6ee0c5',400:'#3dcbaa',500:'#12ad98',600:'#0e8b7a',700:'#0f6f63',800:'#115850',900:'#114943' }, gold: { 50:'#fffceb',100:'#fef6c7',200:'#fdec8a',300:'#fcdc4d',400:'#fad500',500:'#d4a01c',600:'#b47d15',700:'#8f5d14',800:'#774a18',900:'#633d1a' }, cream: { 50:'#fefdfb',100:'#fdfaf3',200:'#faf5e8',300:'#f5edd5',400:'#ede0b8',500:'#e2cf99' } }, fontFamily: { serif:['"DM Serif Display"','Georgia','serif'], sans:['"Source Sans 3"','system-ui','sans-serif'] } } } }
     </script>
     <style>
         body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")}
         .nav-fixed{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}.dropdown-menu{opacity:0;visibility:hidden;transform:translateY(-4px);transition:all .2s ease}.dropdown:hover .dropdown-menu,.dropdown.active .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}.mobile-menu.open{max-height:400px}.toc{position:sticky;top:5.5rem}.toc a.active{color:#12ad98;border-left-color:#12ad98;font-weight:600}.section-label{letter-spacing:.15em;text-transform:uppercase;font-size:.75rem;font-weight:600}
         .article-table{width:100%;text-align:left;font-size:.875rem}.article-table thead{background:#f0fafa;color:#2d5e5b;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em}.article-table th{padding:.75rem 1rem;font-weight:600}.article-table td{padding:.75rem 1rem;border-bottom:1px solid #d2f0ee;vertical-align:top}.article-table tbody tr:hover{background:#fdfaf3}
-        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
+        .callout-piege{border-left:4px solid #d4a01c;background:#fffceb;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-referer{border-left:4px solid #12ad98;background:#edfcf8;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-danger{border-left:4px solid #dc2626;background:#fef2f2;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}.callout-info{border-left:4px solid #479793;background:#f0fafa;border-radius:0 .5rem .5rem 0;padding:1rem 1.25rem;margin:1.5rem 0}
         a.ref-link{color:#12ad98;font-weight:500;border-bottom:1px solid rgba(18,173,152,.3);transition:all .2s;text-decoration:none}a.ref-link:hover{color:#0e8b7a;border-bottom-color:#0e8b7a}html{scroll-behavior:smooth}
+        sup a{color:#12ad98;font-size:.7rem;text-decoration:none}sup a:hover{text-decoration:underline}
     </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
-    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors flex items-center gap-1">Pathogenes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
-    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Chikungunya</span></nav></div></div>
-    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16"><div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12"><article class="min-w-0">
-                <header class="mb-10"><span class="section-label text-teal-500">Virus</span><h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Chikungunya</h1><p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Alphavirus transmis par moustiques Aedes : clinique, diagnostic et traitement.</p><div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Derniere mise a jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div></header>
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50"><div class="max-w-6xl mx-auto px-6"><div class="flex items-center justify-between h-16"><a href="../../index.html" class="flex items-center gap-3 group"><span class="text-mint-400 text-xl"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/><path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/></svg></span><span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span></a><div class="hidden md:flex items-center gap-1"><a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a><div class="dropdown relative"><button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></button><div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2"><a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a><a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a><a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a><a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a></div></div><a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a><div class="w-px h-5 bg-teal-600 mx-2"></div><a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div><button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></div><div id="mobileMenu" class="mobile-menu md:hidden"><div class="py-3 border-t border-teal-700/50 space-y-1"><a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a><a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a><a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a><div class="border-t border-teal-700/50 mt-2 pt-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">Référer un patient &rarr;</a></div></div></div></div></nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6"><div class="max-w-6xl mx-auto"><nav class="flex items-center gap-2 text-sm text-teal-600/60"><a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogène</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><a href="../viruses.html" class="hover:text-teal-600 transition-colors">Virus</a><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg><span class="text-teal-800 font-medium">Chikungunya</span></nav></div></div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+            <article class="min-w-0">
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Virus</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Chikungunya</h1>
+                    <p class="mt-2 text-teal-700/70 text-base italic">Virus chikungunya (CHIKV) &mdash; <em>Alphavirus</em>, famille des <em>Togaviridae</em></p>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">Arbovirose en expansion rapide vers l'Europe, le chikungunya est surtout redoutable par ses <strong>arthralgies chroniques invalidantes</strong> touchant 25&ndash;60 % des patients. Deux vaccins sont désormais disponibles en Europe (Vimkunya&reg;, Ixchiq&reg;), et les recommandations OMS 2025 bouleversent la prise en charge aiguë avec l'interdiction formelle des AINS.</p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50"><span>Dernière mise à jour : mars 2026</span><span class="hidden sm:inline">|</span><span>Dr. L. Cobuccio</span></div>
+                </header>
+
+                <!-- EPIDEMIOLOGIE -->
+                <section id="epidemiologie" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Épidémiologie</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte suisse</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>89 cas importés</strong> en Suisse en 2025 (vs 23 en 2024, soit &times;4) &mdash; tous contractés à l'étranger</li>
+                        <li><strong>Aucun cas autochtone</strong> documenté en Suisse à ce jour (mars 2026)</li>
+                        <li><strong>Déclaration obligatoire</strong> : laboratoire &rarr; OFSP<sup><a href="#ref-29">[29]</a></sup></li>
+                        <li><em>Aedes albopictus</em> (moustique tigre) est <strong>établi au Tessin</strong> depuis 2003 et progresse dans le bassin lémanique et la région bâloise<sup><a href="#ref-24">[24]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Contexte européen</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Italie</strong> : épidémies autochtones en 2007 (&gt;200 cas, Emilia-Romagna) et 2017 (&gt;500 cas, Anzio/Rome + Calabre) &mdash; toutes via <em>Ae. albopictus</em><sup><a href="#ref-1">[1,2]</a></sup></li>
+                        <li><strong>France métropolitaine 2025</strong> : transmissions locales multiples ; épidémie de Bergerac (Dordogne) = <strong>102 cas autochtones</strong> ; cas importés majoritairement de La Réunion</li>
+                        <li>Un cas autochtone à Lipsheim (Alsace), <strong>à ~100 km de Bâle</strong>, signalé en 2025</li>
+                        <li>Modélisation Italie (Menegale F et al., <em>Nat Commun</em> 2025) : le risque de transmission locale augmente avec le réchauffement climatique et l'expansion d'<em>Ae. albopictus</em><sup><a href="#ref-3">[3]</a></sup></li>
+                        <li>Revue systématique Europe 2000&ndash;2023 (Hedrich N et al., Uni Zürich) : <strong>59 589 cas d'arboviroses</strong> importés, ~5 % autochtones ; 3 décès attribuables au CHIKV ; séquelles principales = arthralgies persistantes<sup><a href="#ref-4">[4]</a></sup></li>
+                        <li>Réseau EuroTravNet (1998&ndash;2018) : augmentation significative des diagnostics de chikungunya (+1 % par période de 5 ans) parmi les voyageurs en Europe<sup><a href="#ref-5">[5]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Seuil de transmission abaissé</p>
+                        <p class="text-sm text-teal-800">Une étude récente (J Royal Soc Interface 2026) démontre qu'<em>Ae. albopictus</em> peut transmettre le CHIKV <strong>dès 14 °C</strong>, soit 2&ndash;2,5 °C plus bas qu'estimé précédemment. Les 25&ndash;26 °C estivaux en Suisse sont particulièrement propices à la transmission.</p>
+                    </div>
+                </section>
+
+                <!-- REPARTITION GEOGRAPHIQUE -->
                 <section id="repartition" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
-                    <figure class="mb-4"><img class="rounded-xl border border-teal-100 w-full" src="../../dist/images//uploads/distribution-chikungunya.png" alt="Distribution Chikungunya" /></figure>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Répartition géographique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Zones endémiques et épidémiques</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li><strong>Afrique sub-saharienne</strong> : circulation endémique historique (la lignée ECSA est d'origine est-africaine)</li>
+                        <li><strong>Asie du Sud et du Sud-Est</strong> : épidémies récurrentes (Inde, Thaïlande, Indonésie, Philippines)</li>
+                        <li><strong>Océan Indien</strong> : épidémie majeure de La Réunion (2005&ndash;2006, ~266 000 cas) &mdash; point de départ de l'adaptation à <em>Ae. albopictus</em> (mutation A226V)</li>
+                        <li><strong>Amériques</strong> : introduction en 2013 (Caraïbes), puis expansion rapide à l'Amérique du Sud avec &gt;2 millions de cas cumulés</li>
+                        <li><strong>Europe du Sud</strong> : transmissions autochtones documentées en Italie (2007, 2017), France (2010, 2014, 2017, 2023, 2025), Espagne (2015)<sup><a href="#ref-3">[3,4]</a></sup></li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Lignée génétique</th><th>Distribution principale</th><th>Vecteur principal</th><th>Particularité</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>ECSA</strong></td><td>Afrique de l'Est, Océan Indien, Asie du Sud, Europe</td><td><em>Ae. albopictus</em> (mutation A226V)</td><td>Lignée responsable des épidémies européennes</td></tr>
+                                <tr><td><strong>Asiatique</strong></td><td>Asie du Sud-Est, Amériques</td><td><em>Ae. aegypti</em></td><td>Lignée responsable de l'épidémie des Amériques</td></tr>
+                                <tr><td><strong>Ouest-africaine</strong></td><td>Afrique de l'Ouest</td><td><em>Ae. aegypti</em></td><td>Circulation sylvatique prédominante</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Progression vers la Suisse</p>
+                        <p class="text-sm text-teal-800">L'aire de distribution d'<em>Ae. albopictus</em> en Europe s'étend significativement avec le réchauffement climatique. L'espèce est établie dans plus de 20 pays européens. Le scénario d'une transmission autochtone en Suisse (Tessin, bassin lémanique, région bâloise) est désormais <strong>plausible pendant les mois d'été</strong>.<sup><a href="#ref-23">[23,24]</a></sup></p>
+                    </div>
                 </section>
-                <section id="agent-causal" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Alphavirus de la famille des togaviridae.</p>
-                </section>
+
+                <!-- TRANSMISSION -->
                 <section id="transmission" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Piqure de moustique <em>Aedes</em> (dont <em>A. albopictus</em>, le moustique tigre). Moustique diurne qui pique principalement a l'aube et au crepuscule.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission &amp; incubation</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Agent causal et vecteurs</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Virus</strong> : CHIKV, genre <em>Alphavirus</em>, famille <em>Togaviridae</em> ; virus enveloppé à ARN simple brin positif</li>
+                        <li><strong>3 lignées génétiques</strong> : East/Central/South African (ECSA), West African, Asian &mdash; la lignée ECSA avec mutation A226V a permis l'adaptation à <em>Ae. albopictus</em> (La Réunion 2005&ndash;2006, puis Europe)<sup><a href="#ref-28">[28]</a></sup></li>
+                        <li><strong>Vecteurs</strong> : <em>Aedes aegypti</em> (principal en zone tropicale) et <em>Ae. albopictus</em> (principal vecteur en Europe) &mdash; <strong>moustiques diurnes</strong>, piquent surtout à l'aube et au crépuscule</li>
+                        <li>Pas de transmission interhumaine directe ; transmission materno-f&oelig;tale rare mais sévère (encéphalite néonatale)</li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Paramètre</th><th>Détail</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Incubation</strong></td><td>1&ndash;14 jours (médiane 3&ndash;7 jours)</td></tr>
+                                <tr><td><strong>Virémie</strong></td><td>5&ndash;7 premiers jours de maladie (pertinent pour la PCR et le risque de transmission secondaire)</td></tr>
+                                <tr><td><strong>Taux d'attaque</strong></td><td>Élevé en situation épidémique (30&ndash;75 % de la population exposée)<sup><a href="#ref-25">[25]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Implication pour le MG</p>
+                        <p class="text-sm text-teal-800">Un voyageur virémique de retour en Suisse, piqué par un <em>Ae. albopictus</em> local pendant l'été, pourrait déclencher une chaîne de transmission autochtone &mdash; comme observé en France et en Italie. Conseiller la protection anti-moustique <strong>même après le retour</strong> pendant toute la durée de la virémie (7 jours).</p>
+                    </div>
                 </section>
-                <section id="incubation" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">1-14 jours (en general 3-7 jours)</p>
-                </section>
+
+                <!-- CLINIQUE -->
                 <section id="clinique" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed mb-3">EF (souvent &gt;39&deg;C) d'apparition subite et 2-5 jours plus tard polyarthralgies symetriques (souvent chevilles, mains, poignets), plus rarement un rash maculo-papulaire (epargne visage, plantes des pieds, face palmaire des mains), eventuellement prurit, cephalees, myalgies, symptomes gastro-intestinaux. Tres rarement : hemorragies.</p>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Evolution : les patients touches developpent parfois des douleurs articulaires chroniques, limitees dans le temps. Eventuellement, phenomene de Raynaud, syndrome du tunnel carpien.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Présentation clinique</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase aiguë (J0&ndash;J14)</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Début brutal</strong> : fièvre élevée (souvent &gt; 39 °C) + polyarthralgies sévères d'apparition quasi simultanée</li>
+                        <li><strong>Arthralgies</strong> : symétriques, touchant préférentiellement les petites articulations distales (mains, poignets, chevilles, pieds) &mdash; <strong>pathognomonique du chikungunya</strong> vs dengue<sup><a href="#ref-9">[9]</a></sup></li>
+                        <li>Rash maculopapulaire (40&ndash;50 % des cas), typiquement tronc/membres, épargnant le visage &mdash; peut être prurigineux ; parfois desquamation et hyperpigmentation résiduelle (surtout phototype foncé)<sup><a href="#ref-13">[13]</a></sup></li>
+                        <li>Autres : céphalées, myalgies, asthénie, symptômes gastro-intestinaux, conjonctivite, lymphadénopathies</li>
+                        <li><strong>Hémorragies</strong> : très rares (contrairement à la dengue)</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Manifestations dermatologiques distinctives<sup><a href="#ref-13">[13]</a></sup></h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Signe cutané</th><th>Chikungunya</th><th>Dengue</th></tr></thead>
+                            <tbody>
+                                <tr><td>Type de rash</td><td>Maculopapulaire persistant, desquamation</td><td>&laquo; Îlots blancs dans une mer rouge &raquo;</td></tr>
+                                <tr><td>Hyperpigmentation</td><td>Fréquente (surtout faciale)</td><td>Rare</td></tr>
+                                <tr><td>Pétéchies</td><td>Rares</td><td><strong>Fréquentes</strong></td></tr>
+                                <tr><td>Prurit</td><td>Fréquent</td><td>Modéré</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Formes sévères (rares)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Encéphalite / méningo-encéphalite (surtout nouveau-nés et &gt; 65 ans)</li>
+                        <li>Myocardite, hépatite, insuffisance rénale</li>
+                        <li>Populations à risque : nouveau-nés (transmission péripartum), personnes &gt; 65 ans, comorbidités chroniques</li>
+                        <li>Létalité globale faible (&lt; 0,1 %) mais accrue chez les personnes âgées</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase chronique (&gt; 3 mois) &mdash; LE PROBLÈME MAJEUR</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>25&ndash;40 %</strong> des patients développent des arthralgies/arthrites chroniques persistant des mois à des années<sup><a href="#ref-6">[6,7,8,9]</a></sup></li>
+                        <li>Certaines séries rapportent jusqu'à <strong>60 %</strong> à 3 ans (cohorte prospective La Réunion, n = 180)<sup><a href="#ref-10">[10]</a></sup></li>
+                    </ul>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Caractéristique de la phase chronique</th><th>Fréquence</th></tr></thead>
+                            <tbody>
+                                <tr><td>Polyarthralgie</td><td>70 %</td></tr>
+                                <tr><td>Symétrique</td><td>90 %</td></tr>
+                                <tr><td>Très invalidante</td><td>77 %</td></tr>
+                                <tr><td>Gonflement articulaire local</td><td>63 %</td></tr>
+                                <tr><td>Asthénie</td><td>77 %</td></tr>
+                                <tr><td>Dépression</td><td>56 %</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mb-4">Source : Schilte C et al. Cohorte prospective La Réunion, 36 mois de suivi (n = 180).<sup><a href="#ref-10">[10]</a></sup></p>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Facteurs de risque d'évolution chronique</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Âge &gt; 35&ndash;40 ans</strong></li>
+                        <li>Arthralgies persistantes à M4</li>
+                        <li>Antécédents de pathologie articulaire / rhumatismale</li>
+                        <li>Obésité, sexe féminin<sup><a href="#ref-2">[2,10]</a></sup></li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-2 text-sm uppercase tracking-wide">Phénotypes articulaires chroniques</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Arthralgies non spécifiques (forme prédominante)</li>
+                        <li>Arthrite inflammatoire indifférenciée (IA-U)</li>
+                        <li>Tableau mimant une polyarthrite rhumatoïde ou une spondylarthrite (rare)</li>
+                        <li>Pas de marqueurs auto-immuns typiques (FR, anti-CCP négatifs) ; arthrite majoritairement non érosive<sup><a href="#ref-9">[9]</a></sup></li>
+                        <li>Cytokines impliquées : élévation persistante d'IL-6 (69 % des études), IL-8 (63 %), TNF-alpha (58 %), IL-17 (41 %)<sup><a href="#ref-11">[11]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Impact sous-estimé</p>
+                        <p class="text-sm text-teal-800">Les arthralgies chroniques post-chikungunya ont un <strong>impact majeur sur la qualité de vie et la capacité de travail</strong>. Ce sont souvent les médecins généralistes qui suivent ces patients au long cours &mdash; il est essentiel de connaître cette complication et de prévoir un suivi à M1, M3 et M6.<sup><a href="#ref-6">[6]</a></sup></p>
+                    </div>
                 </section>
-                <section id="examen" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Epanchement peri-articulaire ou articulaire. Evtl. lymphadenopathies, conjonctivite.</p>
-                </section>
+
+                <!-- BIOLOGIE -->
                 <section id="labo" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Lymphopenie, thrombopenie, evtl. augmentation des tests hepatiques.</p>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Biologie</h2>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Lymphopénie</strong> : fréquente et précoce</li>
+                        <li><strong>Thrombopénie modérée</strong> (moins sévère que dans la dengue)</li>
+                        <li>Cytolyse hépatique modérée possible</li>
+                        <li>VS / CRP modérément élevées</li>
+                    </ul>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Différence clé vs dengue</p>
+                        <p class="text-sm text-teal-800">La <strong>leucopénie marquée</strong> et la <strong>basophilie</strong> orientent vers la dengue ; les <strong>arthralgies prédominantes</strong> orientent vers le chikungunya.<sup><a href="#ref-14">[14,15]</a></sup></p>
+                    </div>
                 </section>
+
+                <!-- DIAGNOSTIC -->
                 <section id="diagnostic" class="mb-10">
                     <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">La clinique est en general suffisante pour poser le diagnostic. PCR si duree des symptomes &lt; de 7 jours, serologie (IgM) si symptomes &ge; 7 jours. Note : la PCR est pour le moment disponible uniquement aux HUG.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Stratégie diagnostique selon la phase</h3>
+                    <div class="overflow-x-auto mb-6">
+                        <table class="article-table">
+                            <thead><tr><th>Phase</th><th>Test de choix</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Aiguë (&lt; 7 jours)</strong></td><td><strong>RT-PCR</strong></td><td>Virémie détectable les 5&ndash;7 premiers jours ; sensibilité élevée</td></tr>
+                                <tr><td><strong>Subaiguë / tardive (&ge; 7 jours)</strong></td><td><strong>Sérologie IgM</strong></td><td>Apparaît vers J5&ndash;J7, détectable 2&ndash;3 mois</td></tr>
+                                <tr><td>Confirmation tardive</td><td>Sérologie IgG</td><td>Apparaît vers J7&ndash;J14, persiste des années</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Laboratoires de référence en Suisse</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>PCR disponible : HUG Genève, CHUV Lausanne, Swiss TPH Bâle</li>
+                        <li>Réactions croisées possibles avec d'autres alphavirus (O'nyong'nyong, Mayaro) &mdash; interpréter dans le contexte épidémiologique</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Algorithme diagnostique simplifié</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Symptômes <strong>&lt; 7 jours</strong> &rarr; demander <strong>RT-PCR chikungunya + NS1 dengue</strong> (les deux doivent être testés)</li>
+                            <li>Symptômes <strong>&ge; 7 jours</strong> &rarr; demander <strong>sérologie IgM/IgG chikungunya + sérologie dengue</strong></li>
+                            <li>Toujours exclure le <strong>paludisme</strong> en priorité (frottis + goutte épaisse)</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Diagnostic différentiel : chikungunya vs dengue</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Caractéristique</th><th>Chikungunya</th><th>Dengue</th></tr></thead>
+                            <tbody>
+                                <tr><td>Arthralgies sévères</td><td><strong>++++</strong> (quasi constantes, symétriques)</td><td>+ (myalgies &gt; arthralgies)</td></tr>
+                                <tr><td>Hémorragies</td><td>Très rares</td><td>Fréquentes (pétéchies, tourniquet +)</td></tr>
+                                <tr><td>Leucopénie</td><td>Modérée</td><td><strong>Marquée</strong></td></tr>
+                                <tr><td>Basophilie</td><td>Absente</td><td><strong>Présente</strong> (discriminante)</td></tr>
+                                <tr><td>Thrombopénie</td><td>Modérée</td><td><strong>Sévère</strong></td></tr>
+                                <tr><td>Rash</td><td>Maculopapulaire, desquamation</td><td>&laquo; Îlots blancs dans mer rouge &raquo;</td></tr>
+                                <tr><td>Douleur rétro-orbitaire</td><td>Rare</td><td>Fréquente</td></tr>
+                                <tr><td>Évolution chronique</td><td><strong>Arthralgies chroniques (25&ndash;60 %)</strong></td><td>Rare</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-teal-600/60 mt-2">Étude Nicaragua (18 ans, n = 1 405 dengue, 517 chik, 522 Zika) : la présence d'<strong>arthralgies</strong> et l'absence de basophilie/leucopénie distinguent le mieux le chikungunya.<sup><a href="#ref-15">[15]</a></sup> Co-infections dengue-chikungunya documentées &mdash; toujours tester les deux.<sup><a href="#ref-14">[14]</a></sup></p>
+
+                    <div class="callout-piege mt-4">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Chikungunya masquant la dengue</p>
+                        <p class="text-sm text-teal-800">Une étude sri-lankaise (mNGS) a retrouvé 5 CHIKV et 5 DENV parmi 60 patients &laquo; dengue-négatifs &raquo; cliniquement suspects. En zones co-endémiques, le diagnostic moléculaire est indispensable pour ne pas manquer de co-infections.<sup><a href="#ref-14b">[14b]</a></sup></p>
+                    </div>
                 </section>
-                <section id="dd" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic differentiel</h2>
-                    <p class="text-sm text-teal-800/80 leading-relaxed">Dengue, malaria, Zika, infection virale cosmopolite (Parvovirus B19...), leptospirose, rickettsiose...</p>
-                </section>
+
+                <!-- TRAITEMENT -->
                 <section id="traitement" class="mb-10">
-                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement et prevention</h2>
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Phase aiguë &mdash; Recommandations OMS 2025<sup><a href="#ref-16">[16]</a></sup></h3>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Mesure</th><th>Recommandation OMS</th><th>Niveau</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Paracétamol</strong></td><td>Traitement de 1<sup>re</sup> intention pour la douleur et la fièvre</td><td>Recommandation conditionnelle</td></tr>
+                                <tr><td><strong>Métamizole</strong></td><td>Alternative acceptable pour douleur / fièvre</td><td>Recommandation conditionnelle</td></tr>
+                                <tr><td><strong>Hydratation orale</strong></td><td>Protocolisée, recommandée systématiquement</td><td>Recommandation conditionnelle</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; AINS : CONTRE-INDIQUÉS en phase aiguë (recommandation forte OMS 2025)</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Risque hémorragique si co-infection dengue non exclue</li>
+                            <li>L'OMS recommande contre les AINS pour <strong>toute arbovirose aiguë</strong> suspectée ou confirmée, indépendamment de la sévérité</li>
+                            <li><strong>Aspirine</strong> : à éviter également (effet antiplaquettaire)</li>
+                            <li><strong>Corticoïdes</strong> : déconseillés en phase aiguë (pas de bénéfice démontré, risque de rebond)</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Phase chronique (&gt; 3 mois) &mdash; Arthralgies persistantes</h3>
+                    <p class="text-sm text-teal-800/80 mb-3"><strong>Pas de traitement spécifique validé</strong> &mdash; prise en charge empirique et multidisciplinaire.</p>
+
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Option</th><th>Évidence</th><th>Commentaire</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>AINS</strong></td><td>Efficacité partielle</td><td>Autorisés une fois la phase aiguë passée et la dengue exclue</td></tr>
+                                <tr><td><strong>Corticoïdes</strong></td><td>Controversés</td><td>~46 % des guidelines les utilisent, ~18 % les déconseillent<sup><a href="#ref-7">[7]</a></sup></td></tr>
+                                <tr><td><strong>Méthotrexate (MTX)</strong></td><td><strong>Immunomodulateur le plus étudié</strong></td><td>Méta-analyse 2025 (11 études, n = 742) : réduction DAS28 de &minus;2,67 (IC95 % : 1,84&ndash;3,49, p &lt; 0,001)<sup><a href="#ref-17">[17]</a></sup></td></tr>
+                                <tr><td>Physiothérapie</td><td>Consensus expert</td><td>Exercice adapté, thérapie occupationnelle</td></tr>
+                                <tr><td>tDCS (neuromodulation)</td><td>2 RCTs positifs</td><td>Stimulation transcrânienne : réduction significative de la douleur chronique<sup><a href="#ref-20">[20,21]</a></sup></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="callout-info">
+                        <p class="text-sm font-bold text-teal-700 mb-1">Méthotrexate : l'essentiel</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li>Méta-analyse 2025 (Amaral JK et al., <em>J Travel Med</em>) : réduction significative du DAS28 et de l'EVA douleur de &minus;4,31 (IC95 % : 2,56&ndash;6,06, p &lt; 0,001)<sup><a href="#ref-17">[17]</a></sup></li>
+                            <li>Essai randomisé MTX + dexaméthasone (n = 31) : tendance en faveur du MTX mais petit échantillon<sup><a href="#ref-18">[18]</a></sup></li>
+                            <li>Série de cas (Amaral JK et al., <em>J Clin Rheumatol</em> 2020) : réponse clinique favorable au MTX dans l'arthrite chronique réfractaire<sup><a href="#ref-19">[19]</a></sup></li>
+                            <li>Pas de preuve de persistance virale dans le liquide synovial en phase chronique &mdash; sécurité des immunomodulateurs probablement acceptable<sup><a href="#ref-8">[8]</a></sup></li>
+                            <li>Pour l'arthrite chronique réfractaire : envisager un <strong>avis rhumatologique</strong></li>
+                        </ul>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Formes sévères</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Hospitalisation recommandée</li>
+                        <li>Cristalloïdes IV plutôt que colloïdes si besoin (recommandation conditionnelle OMS)<sup><a href="#ref-16">[16]</a></sup></li>
+                        <li>Monitoring : lactatémie recommandée pour guider la réhydratation IV (recommandation forte OMS)<sup><a href="#ref-16">[16]</a></sup></li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Information du patient</p>
+                        <p class="text-sm text-teal-800">Expliquer systématiquement que les arthralgies peuvent persister des semaines à des mois, mais que la <strong>résolution est presque toujours complète</strong> à terme. Un suivi régulier est nécessaire.<sup><a href="#ref-26">[26]</a></sup></p>
+                    </div>
+                </section>
+
+                <!-- PREVENTION -->
+                <section id="prevention" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Prévention</h2>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Protection individuelle contre les moustiques</h3>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-6">
+                        <li>Répulsifs cutanés (DEET &ge; 20 %, icaridine, PMD)</li>
+                        <li>Vêtements couvrants, imprégnés de perméthrine</li>
+                        <li><strong>Protection diurne</strong> (contrairement au paludisme qui requiert une protection nocturne) &mdash; moustiques <em>Aedes</em> piquent le jour</li>
+                        <li>Moustiquaires imprégnées : utiles si sieste diurne</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Vaccination &mdash; Recommandations ECTM (sept. 2025)</h3>
+                    <p class="text-sm text-teal-800/80 mb-4">Deux vaccins sont autorisés en Europe, mais <strong>aucun n'est enregistré en Suisse</strong> (utilisation off-label). Consultation d'un spécialiste en médecine des voyages / tropicale conseillée.</p>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">1. Vimkunya&reg; (vaccin VLP &mdash; virus-like particle)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Autorisé en Europe en 2025 ; vaccin <strong>inactivé</strong> (particules pseudo-virales), <strong>non vivant</strong></li>
+                        <li>Peut être utilisé chez les personnes <strong>&ge; 12 ans</strong></li>
+                        <li><strong>Vaccin de choix</strong> pour les populations à risque : immunodéprimés, personnes <strong>&gt; 60 ans</strong>, femmes enceintes/allaitantes</li>
+                        <li>Contre-indications : hypersensibilité aux composants du vaccin</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">2. Ixchiq&reg; (VLA1553 &mdash; vaccin vivant atténué)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Autorisé EU juillet 2024 (&ge; 18 ans, étendu &ge; 12 ans en avril 2025) ; <strong>licence FDA suspendue en août 2025</strong><sup><a href="#ref-31">[31]</a></sup></li>
+                        <li>Souche CHIKV avec délétion dans nsP3 ; dose unique IM ; séroprotection <strong>98,9 %</strong> à J28 (phase 3, n = 4 128)<sup><a href="#ref-22">[22]</a></sup></li>
+                        <li><strong>Signaux de sécurité graves</strong> : 1 décès par encéphalite vaccinale (PCR LCR + pour souche vaccinale), &gt; 21 EI graves de type &laquo; chikungunya-like &raquo; ; révision EMA en cours<sup><a href="#ref-32">[32]</a></sup></li>
+                        <li>ECTM : utiliser <strong>uniquement avec prudence</strong>, chez les personnes <strong>immunocompétentes de 12&ndash;59 ans</strong>, après évaluation bénéfice-risque individuelle</li>
+                        <li>Contre-indications : hypersensibilité, immunodéprimés, femmes enceintes</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Ixchiq&reg; &mdash; Prudence requise</p>
+                        <p class="text-sm text-teal-800"><strong>Jamais</strong> chez les immunodéprimés, les personnes &gt; 60 ans ou les femmes enceintes. La licence FDA est suspendue depuis août 2025 en raison de signaux de sécurité graves. Préférer systématiquement <strong>Vimkunya&reg;</strong> pour ces populations.</p>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Indications vaccinales selon l'ECTM (sept. 2025)</h3>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="article-table">
+                            <thead><tr><th>Indication</th><th>Recommandation</th></tr></thead>
+                            <tbody>
+                                <tr><td>Voyage vers une zone avec <strong>épidémie active</strong> de chikungunya</td><td><strong>Recommandé</strong> (&ge; 12 ans)</td></tr>
+                                <tr><td>Personnel de laboratoire exposé au virus</td><td><strong>Recommandé</strong></td></tr>
+                                <tr><td>Séjour prolongé ou répété en zone à risque élevé (cumulatif &ge; 3 mois)</td><td><strong>À considérer</strong></td></tr>
+                                <tr><td>Voyage de courte durée en zone endémique sans épidémie</td><td>Non recommandé en routine</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Populations particulières (ECTM)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="article-table">
+                            <thead><tr><th>Population</th><th>Vaccin recommandé</th></tr></thead>
+                            <tbody>
+                                <tr><td>Grossesse / allaitement</td><td>Déconseiller le voyage si possible ; si vaccination nécessaire &rarr; <strong>Vimkunya&reg;</strong></td></tr>
+                                <tr><td>Immunodéprimés et <strong>&gt; 60 ans</strong></td><td><strong>Vimkunya&reg;</strong> (pas d'Ixchiq&reg;)</td></tr>
+                                <tr><td>12&ndash;59 ans immunocompétents</td><td>Vimkunya&reg; ou Ixchiq&reg; (avec prudence pour Ixchiq&reg;)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- PIEGES & PERLES -->
+                <section id="pieges" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Pièges &amp; perles cliniques</h2>
+
+                    <div class="space-y-3">
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 1 &mdash; Confondre chikungunya et dengue</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li>Les deux sont transmis par <em>Aedes</em>, peuvent coexister, et ont des symptômes initiaux chevauchants</li>
+                                <li>Indice clinique majeur : <strong>arthralgies sévères, symétriques, des petites articulations</strong> = penser CHIKV</li>
+                                <li>Toujours exclure la dengue (test rapide NS1 + sérologie) avant d'introduire des AINS<sup><a href="#ref-14">[14]</a></sup></li>
+                            </ul>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 2 &mdash; Sous-estimer la phase chronique</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li>25&ndash;60 % des patients développent des <strong>arthralgies chroniques invalidantes</strong></li>
+                                <li>Les MG ne connaissent souvent pas cette complication et n'informent pas les patients</li>
+                                <li>Un suivi à <strong>M1, M3, M6</strong> est recommandé pour les patients symptomatiques<sup><a href="#ref-6">[6]</a></sup></li>
+                            </ul>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 3 &mdash; Prescrire des AINS en phase aiguë</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li>Contre-indiqués tant que la dengue n'est pas exclue (risque hémorragique)</li>
+                                <li><strong>Recommandation forte OMS 2025</strong> contre les AINS en arbovirose aiguë<sup><a href="#ref-16">[16]</a></sup></li>
+                                <li>Prescrire du <strong>paracétamol</strong> ou du <strong>métamizole</strong> en première intention</li>
+                            </ul>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">Piège 4 &mdash; Ignorer l'existence d'un vaccin OU prescrire Ixchiq&reg; sans évaluation du risque</p>
+                            <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                                <li>Deux vaccins existent : <strong>Vimkunya&reg;</strong> (VLP, inactivé) et <strong>Ixchiq&reg;</strong> (vivant atténué, licence FDA suspendue)</li>
+                                <li>L'ECTM recommande la vaccination pour les voyages vers des zones en <strong>épidémie active</strong></li>
+                                <li>Ixchiq&reg; : prudence chez les 12&ndash;59 ans immunocompétents uniquement ; <strong>jamais</strong> chez les immunodéprimés, &gt; 60 ans, femmes enceintes</li>
+                                <li><strong>Vimkunya&reg;</strong> : préféré pour les populations à risque ; les deux vaccins sont off-label en Suisse</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3 class="font-semibold text-teal-800 mb-3 mt-6">Perles</h3>
                     <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
-                        <li>Traitement symptomatique (paracetamol). Informer les patients que les symptomes articulaires peuvent persister (environ dans 25% des cas) de quelques semaines a plusieurs mois. La resolution est presque toujours complete.</li>
-                        <li>Prevention primaire : protection contre les moustiques le jour et au crepuscule.</li>
+                        <li>La combinaison <strong>fièvre élevée + polyarthralgies symétriques des petites articulations</strong> chez un voyageur de retour de zone tropicale est très évocatrice de chikungunya</li>
+                        <li>Informer systématiquement les patients que les douleurs articulaires peuvent persister des mois mais que <strong>la résolution est presque toujours complète</strong></li>
+                        <li>Pour l'arthrite chronique réfractaire CHIKV : le <strong>méthotrexate</strong> est l'option la plus étudiée &mdash; envisager un avis rhumatologique<sup><a href="#ref-17">[17]</a></sup></li>
+                        <li>Les <strong>AINS sont autorisés en phase chronique</strong> (une fois la dengue exclue), mais pas en phase aiguë</li>
+                        <li>Conseiller la <strong>protection anti-moustique diurne</strong> au retour (pas seulement en zone endémique) pour éviter la transmission secondaire via <em>Ae. albopictus</em> local</li>
                     </ul>
                 </section>
 
-                <section id="referer" class="mb-10"><div class="callout-referer"><p class="text-sm font-bold text-mint-700 mb-1">Quand référer ?</p><p class="text-sm text-teal-800">Cas complexes ou severes necessitant un avis specialise. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer un patient &rarr;</a></p></div></section>
-            </article>
-            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
-                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
-                <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
-                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
-                <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
-                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
-                <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
-                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
-                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
-                <li><a href="#dd" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic differentiel</a></li>
-                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement et prevention</a></li>
+                <!-- CONDUITE PRATIQUE -->
+                <section id="conduite" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Conduite pratique pour le médecin de premier recours</h2>
 
-            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside></div></main>
-    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Handbook de medecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
-    <script>const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}});});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{window.scrollY>50?nav.classList.add('shadow-lg'):nav.classList.remove('shadow-lg')});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}});},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));</script>
+                    <h3 class="font-semibold text-teal-800 mb-3">Voyageur fébrile avec arthralgies au retour des tropiques</h3>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Exclure le paludisme en priorité</strong> : frottis sanguin + goutte épaisse + TDR</li>
+                        <li><strong>Bilan biologique</strong> : NFS (lymphopénie ? thrombopénie ?), CRP, transaminases, créatinine</li>
+                        <li><strong>Diagnostic virologique</strong> :
+                            <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                <li>Symptômes &lt; 7 jours : RT-PCR chikungunya + NS1 dengue</li>
+                                <li>Symptômes &ge; 7 jours : sérologie IgM/IgG chikungunya + sérologie dengue</li>
+                            </ul>
+                        </li>
+                        <li><strong>Traitement symptomatique</strong> : paracétamol (PAS d'AINS tant que dengue non exclue)</li>
+                        <li><strong>Déclaration obligatoire</strong> à l'OFSP si diagnostic confirmé</li>
+                        <li><strong>Protection anti-moustique</strong> au retour : conseiller la protection diurne pendant la période de virémie (7 jours) pour éviter la transmission secondaire via <em>Ae. albopictus</em></li>
+                    </ol>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Suivi du patient avec chikungunya confirmé</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Information</strong> : expliquer le risque d'arthralgies chroniques (25&ndash;60 %) et la résolution habituelle</li>
+                        <li><strong>Consultations de suivi</strong> : M1, M3, M6 si arthralgies persistantes</li>
+                        <li><strong>Arthralgies chroniques &gt; 3 mois</strong> : AINS (si dengue exclue), physiothérapie ; si réfractaires &rarr; avis rhumatologique (MTX à discuter)<sup><a href="#ref-17">[17]</a></sup></li>
+                        <li><strong>Pré-voyage</strong> : discuter la vaccination pour les futurs voyages en zone à risque</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-teal-800 mb-3">Risque de transmission autochtone en Suisse</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><em>Ae. albopictus</em> est <strong>établi au Tessin</strong> et progresse vers le nord (Bâle, Genève, Lausanne)<sup><a href="#ref-24">[24]</a></sup></li>
+                        <li>Être particulièrement vigilant en été pour les patients virémiques résidant dans ces régions</li>
+                        <li><strong>Signaler</strong> tout cas suspect (déclaration obligatoire) &mdash; même en l'absence de voyage récent (possibilité de transmission autochtone)<sup><a href="#ref-29">[29]</a></sup></li>
+                    </ul>
+                </section>
+
+                <!-- QUAND REFERER -->
+                <section id="referer" class="mb-14">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Quand référer ?</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Forme sévère</strong> : encéphalite, myocardite, atteinte hépatique ou rénale</li>
+                            <li><strong>Arthralgies chroniques réfractaires</strong> (&gt; 3 mois) ne répondant pas aux AINS</li>
+                            <li><strong>Doute diagnostique</strong> entre chikungunya, dengue et autres arboviroses</li>
+                            <li><strong>Conseil vaccinal</strong> : indication, choix du vaccin (Vimkunya&reg; vs Ixchiq&reg;), populations à risque</li>
+                            <li><strong>Femme enceinte</strong> infectée ou nécessitant une vaccination</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+                <!-- REFERENCES -->
+                <section id="references" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Références</h2>
+                    <ol class="space-y-2 text-xs text-teal-700/70 list-decimal list-inside">
+                        <li id="ref-1">Simon F et al. Chikungunya: risks for travellers. <em>J Travel Med</em> 2023;30(2). <a href="https://doi.org/10.1093/jtm/taad008" class="ref-link">DOI:10.1093/jtm/taad008</a></li>
+                        <li id="ref-2">Javelle E et al. Increased risk of chikungunya infection in travellers to Thailand, early 2019. <em>Euro Surveill</em> 2019;24(10). <a href="https://doi.org/10.2807/1560-7917.ES.2019.24.10.1900146" class="ref-link">DOI:10.2807/1560-7917.ES.2019.24.10.1900146</a></li>
+                        <li id="ref-3">Menegale F et al. Risk assessment and perspectives of local transmission of chikungunya and dengue in Italy, a European forerunner. <em>Nat Commun</em> 2025. <a href="https://doi.org/10.1038/s41467-025-61109-1" class="ref-link">DOI:10.1038/s41467-025-61109-1</a></li>
+                        <li id="ref-4">Hedrich N et al. Aedes-borne arboviral human infections in Europe from 2000 to 2023: A systematic review and meta-analysis. <em>Travel Med Infect Dis</em> 2025;64:102799. <a href="https://doi.org/10.1016/j.tmaid.2025.102799" class="ref-link">DOI:10.1016/j.tmaid.2025.102799</a></li>
+                        <li id="ref-5">Grobusch MP et al. Travel-related infections presenting in Europe: A 20-year analysis of EuroTravNet surveillance data. <em>Lancet Reg Health Eur</em> 2020;1:100001. <a href="https://doi.org/10.1016/j.lanepe.2020.100001" class="ref-link">DOI:10.1016/j.lanepe.2020.100001</a></li>
+                        <li id="ref-6">Doran C et al. Health-care seeking and symptoms self-management among patients with long-term chikungunya disease, Curaçao. <em>BMC Health Serv Res</em> 2023;23:1247. <a href="https://doi.org/10.1186/s12913-023-10254-8" class="ref-link">DOI:10.1186/s12913-023-10254-8</a></li>
+                        <li id="ref-7">Webb E et al. An evaluation of global chikungunya clinical management guidelines: A systematic review. <em>EClinicalMedicine</em> 2022;54:101672. <a href="https://doi.org/10.1016/j.eclinm.2022.101672" class="ref-link">DOI:10.1016/j.eclinm.2022.101672</a></li>
+                        <li id="ref-8">Suchowiecki K et al. Persistent joint pain following arthropod virus infections. <em>Curr Rheumatol Rep</em> 2021;23:26. <a href="https://doi.org/10.1007/s11926-021-00987-y" class="ref-link">DOI:10.1007/s11926-021-00987-y</a></li>
+                        <li id="ref-9">Chopra A, Venugopalan A. Chikungunya and other viral arthritis. <em>Best Pract Res Clin Rheumatol</em> 2025;39(2):102068. <a href="https://doi.org/10.1016/j.berh.2025.102068" class="ref-link">DOI:10.1016/j.berh.2025.102068</a></li>
+                        <li id="ref-10">Schilte C et al. Chikungunya virus-associated long-term arthralgia: a 36-month prospective longitudinal study. <em>PLoS Negl Trop Dis</em> 2013;7(3):e2137. <a href="https://doi.org/10.1371/journal.pntd.0002137" class="ref-link">DOI:10.1371/journal.pntd.0002137</a></li>
+                        <li id="ref-11">Conforti A et al. Pro-inflammatory cytokines as early predictors of chronic rheumatologic disease following CHIKV infection. <em>J Clin Med</em> 2025;14(19):6720. <a href="https://doi.org/10.3390/jcm14196720" class="ref-link">DOI:10.3390/jcm14196720</a></li>
+                        <li id="ref-12">Zaid A et al. Chikungunya arthritis: implications of acute and chronic inflammation mechanisms on disease management. <em>Arthritis Rheumatol</em> 2018;70(4):484-495. <a href="https://doi.org/10.1002/art.40403" class="ref-link">DOI:10.1002/art.40403</a></li>
+                        <li id="ref-13">Sonego B et al. Dermatological manifestations during Dengue, Chikungunya, and Zika infections. <em>Curr Opin Infect Dis</em> 2025;38(2):92-98. <a href="https://doi.org/10.1097/QCO.0000000000001077" class="ref-link">DOI:10.1097/QCO.0000000000001077</a></li>
+                        <li id="ref-14">Kharwadkar S, Herath N. Clinical manifestations of dengue, Zika and chikungunya in the Pacific Islands: A systematic review and meta-analysis. <em>Rev Med Virol</em> 2024;34(2):e2521. <a href="https://doi.org/10.1002/rmv.2521" class="ref-link">DOI:10.1002/rmv.2521</a></li>
+                        <li id="ref-14b">Kabir KMA et al. Chikungunya masquerading as dengue infection in Sri Lanka uncovered by metagenomics. <em>PLoS One</em> 2025;20(7):e0326995. <a href="https://doi.org/10.1371/journal.pone.0326995" class="ref-link">DOI:10.1371/journal.pone.0326995</a></li>
+                        <li id="ref-15">Bustos Carrillo FA et al. Comparison of dengue, chikungunya, and Zika among children in Nicaragua across 18 years. <em>Lancet Child Adolesc Health</em> 2025;9(9):622-633. <a href="https://doi.org/10.1016/S2352-4642(25)00168-3" class="ref-link">DOI:10.1016/S2352-4642(25)00168-3</a></li>
+                        <li id="ref-16">OMS. WHO guidelines for clinical management of arboviral diseases: dengue, chikungunya, Zika and yellow fever. Genève : OMS ; juillet 2025. ISBN 978-92-4-011111-0.</li>
+                        <li id="ref-17">Amaral JK et al. Immunomodulatory therapy of chikungunya arthritis: systematic review and meta-analysis. <em>J Travel Med</em> 2025;32(6). <a href="https://doi.org/10.1093/jtm/taaf067" class="ref-link">DOI:10.1093/jtm/taaf067</a></li>
+                        <li id="ref-18">Amaral JK et al. Chikungunya arthritis treatment with methotrexate and dexamethasone: A randomized, double-blind, placebo-controlled trial. <em>Curr Rheumatol Rev</em> 2024;20(3):337-346. <a href="https://doi.org/10.2174/0115733971278715231208114037" class="ref-link">DOI:10.2174/0115733971278715231208114037</a></li>
+                        <li id="ref-19">Amaral JK et al. Successful methotrexate treatment of chronic chikungunya arthritis. <em>J Clin Rheumatol</em> 2020;26(3):119-124. <a href="https://doi.org/10.1097/RHU.0000000000000943" class="ref-link">DOI:10.1097/RHU.0000000000000943</a></li>
+                        <li id="ref-20">Cavalcante AFL et al. Anodal tDCS over the motor cortex improves pain but not physical function in chronic chikungunya arthritis: RCT. <em>Ann Phys Rehabil Med</em> 2024;67(4):101826. <a href="https://doi.org/10.1016/j.rehab.2024.101826" class="ref-link">DOI:10.1016/j.rehab.2024.101826</a></li>
+                        <li id="ref-21">Silva-Filho E et al. Neuromodulation treats chikungunya arthralgia: a randomized controlled trial. <em>Sci Rep</em> 2018;8:16010. <a href="https://doi.org/10.1038/s41598-018-34514-4" class="ref-link">DOI:10.1038/s41598-018-34514-4</a></li>
+                        <li id="ref-22">Schneider M et al. Safety and immunogenicity of a single-shot live-attenuated chikungunya vaccine (VLA1553): phase 3 trial. <em>Lancet</em> 2023;401(10394):2138-2147. <a href="https://doi.org/10.1016/S0140-6736(23)00641-4" class="ref-link">DOI:10.1016/S0140-6736(23)00641-4</a></li>
+                        <li id="ref-23">Barman S et al. A climate and population dependent diffusion model forecasts the spread of <em>Aedes albopictus</em> mosquitoes in Europe. <em>Comm Earth Environ</em> 2025.</li>
+                        <li id="ref-24">Kraemer MUG et al. Past and future spread of the arbovirus vectors <em>Aedes aegypti</em> and <em>Aedes albopictus</em>. <em>Nat Microbiol</em> 2019;4:854-863. <a href="https://doi.org/10.1038/s41564-019-0376-y" class="ref-link">DOI:10.1038/s41564-019-0376-y</a></li>
+                        <li id="ref-25">Flandes X et al. Vaccine value profile for Chikungunya. <em>Vaccine</em> 2023;42(Suppl 1):S9-S24. <a href="https://doi.org/10.1016/j.vaccine.2023.07.069" class="ref-link">DOI:10.1016/j.vaccine.2023.07.069</a></li>
+                        <li id="ref-26">Gonçalves WA et al. A brief overview of chikungunya-related pain. <em>Eur J Pharmacol</em> 2025;994:177322. <a href="https://doi.org/10.1016/j.ejphar.2025.177322" class="ref-link">DOI:10.1016/j.ejphar.2025.177322</a></li>
+                        <li id="ref-27">Pathak H et al. Chikungunya arthritis. <em>Clin Med</em> 2019;19(5):381-385. <a href="https://doi.org/10.7861/clinmed.2019-0035" class="ref-link">DOI:10.7861/clinmed.2019-0035</a></li>
+                        <li id="ref-28">Zheng Z et al. Chikungunya in 2025: Comprehensive insights into virology, diagnostics, vaccines, and antiviral therapies. <em>Viruses</em> 2026;18(1):100. <a href="https://doi.org/10.3390/v18010100" class="ref-link">DOI:10.3390/v18010100</a></li>
+                        <li id="ref-29">OFSP/BAG. Chikungunya &mdash; Fiche d'information. <a href="https://www.bag.admin.ch/en/chikungunya" class="ref-link">bag.admin.ch</a></li>
+                        <li id="ref-30">ECDC. Chikungunya virus disease risk assessment for mainland EU/EEA. <a href="https://www.ecdc.europa.eu/en/chikungunya/surveillance-and-updates/risk-assessment" class="ref-link">ecdc.europa.eu</a></li>
+                        <li id="ref-31">FDA. FDA Update on the Safety of Ixchiq (Chikungunya Vaccine, Live). 22 août 2025. <a href="https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-update-safety-ixchiq-chikungunya-vaccine-live" class="ref-link">fda.gov</a></li>
+                        <li id="ref-32">EMA. EMA starts review of Ixchiq (live attenuated chikungunya vaccine). 7 mai 2025. <a href="https://www.ema.europa.eu/en/news/ema-starts-review-ixchiq-live-attenuated-chikungunya-vaccine" class="ref-link">ema.europa.eu</a></li>
+                    </ol>
+                </section>
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block"><nav class="toc"><h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4><ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                <li><a href="#epidemiologie" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Épidémiologie</a></li>
+                <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Répartition géographique</a></li>
+                <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Clinique</a></li>
+                <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Biologie</a></li>
+                <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a></li>
+                <li><a href="#prevention" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Prévention &amp; vaccination</a></li>
+                <li><a href="#pieges" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Pièges &amp; perles</a></li>
+                <li><a href="#conduite" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Conduite pratique</a></li>
+                <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+            </ul><div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl"><p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p><a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">Référer un patient <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></nav></aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50"><div class="max-w-6xl mx-auto"><div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8"><div><div class="flex items-center gap-2 text-cream-100"><svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/></svg><span class="font-serif text-sm">Tropical Notebook</span></div><p class="mt-2 text-xs text-cream-200/40 max-w-xs">Manuel de médecine tropicale et du voyage pour le praticien.</p></div><div class="flex flex-col sm:flex-row gap-8 text-sm"><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4><div class="space-y-2"><a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a><a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a><a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a></div></div><div><h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4><div class="space-y-2"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">traveldoctor.ch &rarr;</a><span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span></div></div></div></div><div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4"><p class="text-xs text-cream-200/30">&copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.</p><p class="text-xs text-cream-200/30">Dr. Ludovico Cobuccio</p></div></div></footer>
+
+    <script>
+        const toggle=document.getElementById('mobileToggle'),menu=document.getElementById('mobileMenu');toggle.addEventListener('click',()=>{menu.classList.toggle('open')});menu.querySelectorAll('a').forEach(l=>{l.addEventListener('click',()=>menu.classList.remove('open'))});document.querySelectorAll('.dropdown > button').forEach(b=>{b.addEventListener('click',e=>{if(window.innerWidth<768){e.preventDefault();b.closest('.dropdown').classList.toggle('active')}})});const nav=document.querySelector('.nav-fixed');window.addEventListener('scroll',()=>{nav.classList.toggle('shadow-lg',window.scrollY>50)});const tocLinks=document.querySelectorAll('.toc a[href^="#"]'),sections=document.querySelectorAll('section[id]');const observerToc=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){tocLinks.forEach(l=>{l.classList.remove('active','text-mint-600','border-mint-400','font-semibold');l.classList.add('border-transparent','text-teal-600')});const a=document.querySelector(`.toc a[href="#${entry.target.id}"]`);if(a){a.classList.add('active','text-mint-600','border-mint-400','font-semibold');a.classList.remove('border-transparent','text-teal-600')}}})},{threshold:0.15,rootMargin:'-80px 0px -60% 0px'});sections.forEach(s=>observerToc.observe(s));
+    </script>
 </body>
 </html>

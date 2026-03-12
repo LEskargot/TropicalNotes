@@ -161,22 +161,36 @@ _Date : 2026-03-11 | Sources : PubMed, Exa, WHO, OFSP/BAG, ECDC, EuroSurveillanc
 - **Protection diurne** (contrairement au paludisme qui requiert une protection nocturne) — moustiques _Aedes_ piquent le jour
 - Moustiquaires imprégnées : utiles si sieste diurne
 
-### Vaccin IXCHIQ (VLA1553) — Situation complexe (mars 2026)
+### Vaccination contre le chikungunya — Recommandations ECTM (sept 2025)
 
-**Chronologie :**
-- **Nov 2023** : approbation accélérée FDA (adultes ≥ 18 ans à risque accru d'exposition) — premier vaccin contre le CHIKV au monde
-- **Juil 2024** : autorisation de mise sur le marché UE (adultes ≥ 18 ans)
-- **Fév 2025** : approbation MHRA (Royaume-Uni) pour adultes
-- **Avr 2025** : extension UE aux adolescents ≥ 12 ans
-- **Mai 2025** : l'EMA lance une révision de sécurité — 17 effets indésirables graves dont **2 décès** chez des personnes ≥ 62 ans ; restriction temporaire : **ne pas utiliser chez les ≥ 65 ans**
-- **Août 2025** : **la FDA suspend la licence** de IXCHIQ
-  - 1 décès par encéphalite directement attribuable au vaccin (PCR LCR + pour la souche vaccinale)
-  - > 21 effets indésirables graves avec symptômes similaires au chikungunya chez les vaccinés
-  - Le vaccin (virus vivant atténué) semble provoquer une maladie « chikungunya-like » chez certains receveurs
+Deux vaccins sont autorisés en Europe, mais **aucun n'est enregistré en Suisse** (utilisation off-label). Consultation d'un spécialiste en médecine des voyages/tropicale conseillée. [ECTM, 16 sept 2025]
 
-**Nature du vaccin** : virus vivant atténué (souche CHIKV avec délétion dans nsP3) ; dose unique IM ; essai phase 3 (Schneider M et al., Lancet 2023, n = 4 128) : séroprotection chez **98,9 %** des vaccinés à J28 [22]
+**1. Vimkunya® (vaccin VLP — virus-like particle)**
+- Autorisé en Europe en 2025 ; vaccin inactivé (particules pseudo-virales), **non vivant**
+- Peut être utilisé chez les personnes **≥ 12 ans**
+- **Vaccin de choix** pour les populations à risque : immunodéprimés, personnes **> 60 ans**, femmes enceintes/allaitantes
+- Contre-indications : hypersensibilité aux composants du vaccin
 
-**Statut actuel (mars 2026)** : vaccin suspendu aux USA ; sous restriction en UE (≥ 65 ans exclus) ; **ne pas recommander en pratique courante** en attendant les conclusions des révisions de sécurité
+**2. Ixchiq® (VLA1553 — vaccin vivant atténué)**
+- Autorisé EU juil 2024 (≥ 18 ans, étendu ≥ 12 ans en avr 2025) ; **licence FDA suspendue en août 2025**
+- Souche CHIKV avec délétion dans nsP3 ; dose unique IM ; séroprotection **98,9 %** à J28 (phase 3, n = 4 128) [22]
+- **Signaux de sécurité graves** : 1 décès par encéphalite vaccinale (PCR LCR + pour souche vaccinale), > 21 EI graves de type « chikungunya-like » chez les vaccinés ; révision EMA en cours (mai 2025)
+- ECTM : utiliser **uniquement avec prudence**, chez les personnes **immunocompétentes de 12-59 ans**, après évaluation bénéfice-risque individuelle
+- Contre-indications : hypersensibilité, immunodéprimés, femmes enceintes (« non recommandé » selon l'EMA)
+
+**Indications selon l'ECTM (sept 2025) :**
+
+| Indication | Recommandation |
+|---|---|
+| Voyage vers une zone avec **épidémie active** de chikungunya | **Recommandé** (≥ 12 ans) |
+| Personnel de laboratoire exposé au virus | **Recommandé** |
+| Séjour prolongé ou répété en zone à risque élevé (cumulatif ≥ 3 mois) | **À considérer** |
+| Voyage de courte durée en zone endémique sans épidémie | Non recommandé en routine |
+
+**Populations particulières (ECTM) :**
+- Grossesse/allaitement : déconseiller le voyage si possible ; si vaccination nécessaire → **Vimkunya®**
+- Immunodéprimés et **> 60 ans** → **Vimkunya®** (pas d'Ixchiq®)
+- 12-59 ans immunocompétents → Vimkunya® ou Ixchiq® (avec prudence pour Ixchiq®)
 
 ---
 
@@ -208,9 +222,11 @@ _Date : 2026-03-11 | Sources : PubMed, Exa, WHO, OFSP/BAG, ECDC, EuroSurveillanc
 - Contre-indiqués tant que la dengue n'est pas exclue (risque hémorragique)
 - Recommandation forte OMS 2025 contre les AINS en arbovirose aiguë [16]
 
-**Piège 4 — Recommander le vaccin IXCHIQ**
-- Licence FDA suspendue (août 2025), restriction EMA (≥ 65 ans exclus)
-- En l'état actuel, ne pas recommander en consultation pré-voyage
+**Piège 4 — Ignorer l'existence d'un vaccin OU prescrire Ixchiq® sans évaluation du risque**
+- Deux vaccins existent : **Vimkunya®** (VLP, inactivé) et **Ixchiq®** (vivant atténué, licence FDA suspendue)
+- L'ECTM (sept 2025) recommande la vaccination pour les voyages vers des zones en épidémie active
+- Ixchiq® : prudence chez les 12-59 ans immunocompétents uniquement ; **jamais chez les immunodéprimés, > 60 ans, femmes enceintes**
+- Vimkunya® : préféré pour les populations à risque ; les deux vaccins sont off-label en Suisse
 
 ### Perles
 
