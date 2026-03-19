@@ -41,7 +41,7 @@ title: ...
 ```
 
 ## Existing pathogen pages (cross-link targets)
-- `pages/parasites/`: malaria, leishmaniasis, schistosomiasis, african_trypanosomiasis, american_trypanosomiasis, giardiasis, intestinal_problems_parasites
+- `pages/parasites/`: malaria, leishmaniasis, schistosomiasis, african_trypanosomiasis, american_trypanosomiasis, giardiasis
 - `pages/viruses/`: dengue, chikungunya, zika, yellow_fever, rabies, hepatitis_a, hepatitis_e
 - `pages/bacteria/`: enteric_fever, rickettsiosis, leptospirosis
 

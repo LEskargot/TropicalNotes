@@ -30,7 +30,6 @@
 14. african_trypanosomiasis
 15. american_trypanosomiasis
 16. giardiasis
-17. intestinal_problems_parasites
 
 ---
 
@@ -338,4 +337,3 @@ For each subsequent pathogen, repeat the same 4-task structure:
 | african_trypanosomiasis | Stage 1 vs 2, fexinidazole (oral, 2019 WHO), Swiss referral |
 | american_trypanosomiasis | Chagas, benznidazole, screening migrants from endemic areas |
 | giardiasis | Metronidazole vs tinidazole, treatment failure, post-infectious IBS |
-| intestinal_problems_parasites | Broad scope: Ascaris, hookworm, Strongyloides, albendazole, mebendazole |

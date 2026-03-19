@@ -10,7 +10,7 @@
 Tropical Notebook dispose de 17 fiches pathogènes existantes dans le design Tailwind (DM Serif Display + Source Sans 3, tokens teal/mint/gold/cream). Ces fiches ont besoin d'être mises à jour avec du contenu basé sur la littérature récente et liées aux nouvelles pages syndrome.
 
 **Fiches existantes :**
-- `pages/parasites/` : malaria, leishmaniasis, schistosomiasis, african_trypanosomiasis, american_trypanosomiasis, giardiasis, intestinal_problems_parasites
+- `pages/parasites/` : malaria, leishmaniasis, schistosomiasis, african_trypanosomiasis, american_trypanosomiasis, giardiasis
 - `pages/viruses/` : dengue, chikungunya, zika, yellow_fever, rabies, hepatitis_a, hepatitis_e
 - `pages/bacteria/` : enteric_fever, rickettsiosis, leptospirosis
 
@@ -105,7 +105,6 @@ Séquentiel, avec validation après chaque pathogène avant de passer au suivant
 14. african_trypanosomiasis
 15. american_trypanosomiasis
 16. giardiasis
-17. intestinal_problems_parasites
 
 ---
 
