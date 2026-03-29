@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chromoblastomycose — Tropical Notebook</title>
+    <meta name="description" content="Chromoblastomycose : distribution geographique, agents causaux, diagnostic (cellules muriformes), traitement antifongique et pieges pour le medecin de premier recours.">
+    <meta name="keywords" content="chromoblastomycose, chromoblastomycosis, Fonsecaea pedrosoi, Cladophialophora carrionii, mycose sous-cutanee, medecine tropicale, Suisse">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd',
+                            300: '#7ecec5', 400: '#54b5aa', 500: '#479793',
+                            600: '#387a77', 700: '#2d5e5b', 800: '#234a48',
+                            900: '#1a3836', 950: '#0f2322'
+                        },
+                        mint: {
+                            50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc',
+                            300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98',
+                            600: '#0e8b7a', 700: '#0f6f63', 800: '#115850',
+                            900: '#114943'
+                        },
+                        gold: {
+                            50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a',
+                            300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c',
+                            600: '#b47d15', 700: '#8f5d14', 800: '#774a18',
+                            900: '#633d1a'
+                        },
+                        cream: {
+                            50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8',
+                            300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99'
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+                        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+        .nav-fixed { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-4px); transition: all 0.2s ease; }
+        .dropdown:hover .dropdown-menu, .dropdown.active .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+        .mobile-menu.open { max-height: 400px; }
+        .toc { position: sticky; top: 5.5rem; }
+        .toc a.active { color: #12ad98; border-left-color: #12ad98; font-weight: 600; }
+        .section-label { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; }
+        .article-table { width: 100%; text-align: left; font-size: 0.875rem; }
+        .article-table thead { background: #f0fafa; color: #2d5e5b; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.05em; }
+        .article-table th { padding: 0.75rem 1rem; font-weight: 600; }
+        .article-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #d2f0ee; vertical-align: top; }
+        .article-table tbody tr:hover { background: #fdfaf3; }
+        .callout-piege { border-left: 4px solid #d4a01c; background: #fffceb; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        .callout-referer { border-left: 4px solid #12ad98; background: #edfcf8; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        .callout-danger { border-left: 4px solid #dc2626; background: #fef2f2; border-radius: 0 0.5rem 0.5rem 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        a.ref-link { color: #12ad98; font-weight: 500; border-bottom: 1px solid rgba(18, 173, 152, 0.3); transition: all 0.2s; text-decoration: none; }
+        a.ref-link:hover { color: #0e8b7a; border-bottom-color: #0e8b7a; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-cream-50 font-sans text-teal-900 antialiased">
+
+    <!-- NAVBAR -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="../../index.html" class="flex items-center gap-3 group">
+                    <span class="text-mint-400 text-xl">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/>
+                            <path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                            <path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+                        </svg>
+                    </span>
+                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">
+                        Tropical Notebook
+                    </span>
+                </a>
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">Syndromes</a>
+                    <div class="dropdown relative">
+                        <button class="px-4 py-2 text-sm text-mint-300 font-medium flex items-center gap-1">
+                            Pathogenes
+                            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
+                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bacteries</a>
+                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
+                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
+                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-mint-300 bg-teal-700/50 font-medium">Champignons</a>
+                        </div>
+                    </div>
+                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">A propos</a>
+                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
+                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                        Referer un patient
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                </div>
+                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="py-3 border-t border-teal-700/50 space-y-1">
+                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
+                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogene</a>
+                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">A propos</a>
+                    <div class="border-t border-teal-700/50 mt-2 pt-2">
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">
+                            Referer un patient &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <div class="pt-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <nav class="flex items-center gap-2 text-sm text-teal-600/60">
+                <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <a href="../../index.html#pathogenes" class="hover:text-teal-600 transition-colors">Par pathogene</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <a href="../fungi.html" class="hover:text-teal-600 transition-colors">Champignons</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-teal-800 font-medium">Chromoblastomycose</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ARTICLE -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+
+            <!-- MAIN CONTENT -->
+            <article class="min-w-0">
+
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Champignon</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Chromoblastomycose</h1>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">
+                        Mycose sous-cutanee chronique causee par des champignons dematies : distribution geographique, diagnostic (cellules muriformes), traitement antifongique prolonge et pieges pour le medecin de premier recours.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
+                        <span>Derniere mise a jour : mars 2026</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span>Dr. L. Cobuccio</span>
+                    </div>
+                </header>
+
+                <!-- Repartition geographique -->
+                <section id="repartition" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Repartition geographique</h2>
+                    <p class="text-sm text-teal-800/80 mb-3">
+                        Endemique entre les latitudes 30&deg;N et 30&deg;S. Zones les plus touchees : <strong>Amerique latine</strong> (Bresil, Mexique, Venezuela, Costa Rica), <strong>Afrique</strong> (Madagascar, Afrique du Sud), <strong>Asie</strong> (Inde, Chine du Sud, Sri Lanka), <strong>Oceanie</strong> (Australie, Nouvelle-Caledonie) [1, 2]. Maladie tropicale negligee (NTD) reconnue par l'OMS depuis 2017 [3].
+                    </p>
+                    <p class="text-sm text-teal-800/80 mb-3">
+                        Prevalence la plus elevee (par million d'hab.) : Nouvelle-Caledonie, Iles Salomon, Venezuela, Guyane francaise, Madagascar. Incidence mondiale inconnue, estimee a &gt;&nbsp;7&nbsp;000 cas mais probablement largement sous-estimee [2].
+                    </p>
+                    <p class="text-sm text-teal-800/80">
+                        <strong>Contexte europeen et suisse :</strong> 35 cas publies en Europe (24 autochtones, 11 importes) [2]. Un cas suisse documente : homme de 80 ans, sans voyage tropical, tumeur noire recidivante sur moignon d'amputation digitale — infection probablement acquise par jardinage en Suisse (<em>Cladophialophora carrionii</em>) [4]. Y penser devant une lesion verruqueuse chronique chez un patient originaire de zone endemique, un voyageur, ou exceptionnellement un jardinier/agriculteur local.
+                    </p>
+                </section>
+
+                <!-- Agent causal -->
+                <section id="agent-causal" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Agent causal</h2>
+                    <p class="text-sm text-teal-800/80 mb-3">
+                        Champignons dematies (melanises) de la famille des <em>Herpotrichiellaceae</em> (ordre des <em>Chaetothyriales</em>). Saprophytes du sol, debris vegetaux et bois en decomposition [1].
+                    </p>
+                    <table class="article-table rounded-xl overflow-hidden mb-3">
+                        <thead>
+                            <tr>
+                                <th>Espece</th>
+                                <th>Frequence</th>
+                                <th>Particularites</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><em>Fonsecaea pedrosoi</em></td>
+                                <td>~80 %</td>
+                                <td>Agent le plus frequent ; zones tropicales humides</td>
+                            </tr>
+                            <tr>
+                                <td><em>Cladophialophora carrionii</em></td>
+                                <td>~14,5 %</td>
+                                <td>Zones semi-arides (Venezuela, Australie) ; espece du cas suisse [4]</td>
+                            </tr>
+                            <tr>
+                                <td><em>Fonsecaea monophora</em></td>
+                                <td>Variable</td>
+                                <td>Potentiel de dissemination cerebrale</td>
+                            </tr>
+                            <tr>
+                                <td><em>Phialophora verrucosa</em></td>
+                                <td>~1,5 %</td>
+                                <td>Cosmopolite</td>
+                            </tr>
+                            <tr>
+                                <td><em>Rhinocladiella aquaspersa</em></td>
+                                <td>Rare</td>
+                                <td>Amerique latine</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-sm text-teal-800/80">
+                        La melanine fongique est un facteur de virulence majeur : protection contre les ROS, les UV et la phagocytose. Temperature maximale de croissance : 42&ndash;46&nbsp;&deg;C (base de la thermotherapie) [1].
+                    </p>
+                </section>
+
+                <!-- Transmission -->
+                <section id="transmission" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Transmission</h2>
+                    <p class="text-sm text-teal-800/80 mb-2">
+                        <strong>Inoculation traumatique transcutanee</strong> : penetration de conidies ou d'hyphes dans la peau a travers une blessure (echardes, epines, outils agricoles, marche pieds nus) [1, 3].
+                    </p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Pas de transmission interhumaine</strong> — aucune mesure d'isolement necessaire [3]</li>
+                        <li>Pas de vecteur (pas de transmission par arthropodes)</li>
+                        <li>Facteurs de risque : travail agricole/forestier sans protection, sexe masculin (rapport H:F ~4:1), age &gt; 50 ans</li>
+                        <li>Population typique : hommes &gt; 50 ans, travailleurs agricoles ; age moyen ~56 ans [6]</li>
+                    </ul>
+                </section>
+
+                <!-- Incubation -->
+                <section id="incubation" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Incubation</h2>
+                    <p class="text-sm text-teal-800/80 mb-2">
+                        <strong>Incertaine et mal definie</strong> [1, 5]. Apres inoculation traumatique, une macule puis papule apparait au site d'infection apres <strong>plusieurs semaines a plusieurs mois</strong>. Les cellules muriformes se differencient dans les cellules phagocytaires en quelques jours [6].
+                    </p>
+                    <p class="text-sm text-teal-800/80">
+                        La majorite des patients consultent des mois a des annees apres le debut — duree moyenne de la maladie au diagnostic : <strong>~10,8 ans</strong> (revue de 2&nbsp;081 cas latino-americains) [6].
+                    </p>
+                </section>
+
+                <!-- Presentation clinique -->
+                <section id="clinique" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Presentation clinique</h2>
+
+                    <p class="text-sm text-teal-800/80 mb-3">
+                        Lesion initiale : macule ou papule erythemateuse au site d'inoculation, rose, a surface lisse. Progression lente sur des mois a des annees. <strong>Points noirs</strong> (<em>black dots</em>) a la surface des lesions = agregats de cellules fongiques pigmentees — indice diagnostique majeur [3].
+                    </p>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Classification clinique (Carrion 1950) [1] :</p>
+                    <table class="article-table rounded-xl overflow-hidden mb-4">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Nodulaire</strong></td>
+                                <td>Excroissance moderement surelevee, violacee ; surface lisse, verruqueuse ou squameuse</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Verruqueux</strong></td>
+                                <td>Hyperkeratose predominante ; lesions seches, verruqueuses ; frequent au bord du pied</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tumoral</strong></td>
+                                <td>Masses tumorales prominentes, papillomateuses, lobulees ; aspect &laquo;&nbsp;en chou-fleur&nbsp;&raquo;</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cicatriciel</strong></td>
+                                <td>Lesions non surelevees s'etendant en peripherie avec cicatrice atrophique centrale</td>
+                            </tr>
+                            <tr>
+                                <td><strong>En plaque</strong></td>
+                                <td>Plaques infiltrees erythemateuses, violacees, a bords mal definis ; surface squameuse</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Classification de severite [1] :</p>
+                    <table class="article-table rounded-xl overflow-hidden mb-4">
+                        <thead>
+                            <tr>
+                                <th>Severite</th>
+                                <th>Definition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Legere</strong></td>
+                                <td>Plaque ou nodule solitaire &lt; 5 cm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Moderee</strong></td>
+                                <td>Lesion(s) solitaire(s) ou multiples, 1&ndash;2 regions cutanees adjacentes, &lt; 15 cm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Severe</strong></td>
+                                <td>Atteinte extensive de regions adjacentes ou non ; lymphoedeme possible</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="text-sm text-teal-800/80 mb-2">
+                        <strong>Localisation :</strong> membres inferieurs 54&ndash;85 % des cas (pieds, jambes) ; membres superieurs 15&ndash;30 % (mains, avant-bras). Unilateral dans la grande majorite [1, 6]. Prurit (21,5 %) et douleur (11 %) possibles [2].
+                    </p>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege</p>
+                        <p class="text-sm text-teal-800">La duree moyenne au diagnostic est de ~10 ans. La lesion initiale est asymptomatique et d'allure banale — une papule rose qui peut etre confondue avec un simple granulome traumatique ou une verrue. Le caractere chronique et progressif doit alerter.</p>
+                    </div>
+                </section>
+
+                <!-- Examen clinique -->
+                <section id="examen" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Examen clinique</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Lesion verruqueuse chronique</strong> sur un membre, progressive, avec <strong>points noirs</strong> a la surface</li>
+                        <li>Consistance ferme, bords mal definis ou bien definis selon le type</li>
+                        <li><strong>Absence de lymphangite ascendante</strong> (contrairement a la sporotrichose)</li>
+                        <li>Rechercher un lymphoedeme regional (formes severes)</li>
+                        <li>Rechercher des surinfections bacteriennes (odeur, exsudat purulent)</li>
+                        <li>Examiner l'ensemble du membre pour des lesions satellites (dissemination par autoinoculation/grattage)</li>
+                    </ul>
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Dermoscopie [11, 12] :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Points rougeatres-noirdtres irreguliers</strong> : signe le plus caracteristique — elimination transepidermique de cellules fongiques + hemorragie</li>
+                        <li><strong>Structures ovoides jaune-orange</strong> : correspondent aux granulomes mycotiques</li>
+                        <li>Fond rose et blanc avec squames et croutes ; vaisseaux polymorphes</li>
+                    </ul>
+                </section>
+
+                <!-- Labo -->
+                <section id="labo" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Labo</h2>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Examens non specifiques :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li>Pas de biomarqueur sanguin specifique pour la CBM</li>
+                        <li>Eosinophilie possible mais inconstante</li>
+                        <li>CRP/VS normales ou moderement elevees selon la surinfection</li>
+                        <li>Pas de test serologique commercialise disponible [8]</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Examen mycologique direct (KOH) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Gold standard de terrain</strong> : grattage cutane (preferentiellement sur les <em>black dots</em>) + montage KOH 10&ndash;20 %</li>
+                        <li><strong>Sensibilite : 90&ndash;100 %</strong> [5]</li>
+                        <li>Visualisation des <strong>cellules muriformes</strong> (= corps sclerotiques = corps de Medlar = <em>copper pennies</em>) : structures brunes, rondes, 5&ndash;12 &micro;m, a paroi epaisse avec septa croises internes [1, 6]</li>
+                        <li><strong>Pathognomonique de la CBM</strong> — ne donne pas l'identification de l'espece</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Histopathologie (biopsie cutanee) :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-4">
+                        <li><strong>Hyperplasie pseudo-epitheliomateuse</strong> de l'epiderme (peut mimer un carcinome epidermoide !) [1, 10]</li>
+                        <li>Micro-abces intra-epidermiques avec elimination transepidermique</li>
+                        <li>Granulomes suppuratifs et giganto-cellulaires dans le derme</li>
+                        <li><strong>Cellules muriformes</strong> brunes dans les cellules geantes et les micro-abces — pathognomoniques</li>
+                        <li>Colorations speciales : Fontana-Masson, GMS, PAS</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Culture :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li>Croissance lente : <strong>2&ndash;4 semaines</strong> sur Sabouraud</li>
+                        <li>Colonies noires, veloutees ou duveteuses</li>
+                        <li>Confirmation moleculaire recommandee (ITS rDNA, sequencage)</li>
+                        <li>Le traitement ne depend pas de l'espece [3]</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege histologique</p>
+                        <p class="text-sm text-teal-800">L'hyperplasie pseudo-epitheliomateuse de la CBM peut etre confondue avec un carcinome epidermoide — et inversement, un carcinome epidermoide peut compliquer une CBM de longue date (~1 % apres 20&ndash;30 ans) [10, 17]. Toujours rechercher les cellules muriformes.</p>
+                    </div>
+                </section>
+
+                <!-- Diagnostic -->
+                <section id="diagnostic" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Diagnostic</h2>
+
+                    <p class="text-sm text-teal-800/80 mb-3 font-semibold text-teal-700">Algorithme diagnostique :</p>
+                    <ol class="space-y-1 text-sm text-teal-800/80 list-decimal list-inside mb-4">
+                        <li><strong>Suspicion clinique</strong> : lesion verruqueuse chronique + zone endemique ou exposition + points noirs</li>
+                        <li><strong>Grattage cutane + KOH</strong> : recherche de cellules muriformes (sensibilite 90&ndash;100 %)</li>
+                        <li><strong>Biopsie cutanee</strong> : histopathologie + culture</li>
+                        <li><strong>Culture sur Sabouraud</strong> : identification de l'espece (2&ndash;4 semaines)</li>
+                        <li><strong>PCR / sequencage ITS</strong> (si disponible) : confirmation d'espece</li>
+                    </ol>
+
+                    <p class="text-sm text-teal-800/80 mb-3 font-semibold text-teal-700">Diagnostic differentiel :</p>
+                    <table class="article-table rounded-xl overflow-hidden mb-4">
+                        <thead>
+                            <tr>
+                                <th>Diagnostic</th>
+                                <th>Elements distinctifs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tuberculose verruqueuse</strong></td>
+                                <td>Mantoux/IGRA positif ; biopsie : granulomes caseeux, pas de cellules muriformes ; PCR TB</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sporotrichose</strong></td>
+                                <td>Nodule ulcere + <em>lymphangite ascendante</em> ; culture : <em>Sporothrix</em> ; pas de cellules muriformes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Leishmaniose cutanee</strong></td>
+                                <td>Papule/ulcere indure ; biopsie : corps de Leishman-Donovan ; PCR <em>Leishmania</em></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Carcinome epidermoide</strong></td>
+                                <td>Lesion verruqueuse ulceree ; biopsie : atypies cellulaires, pas de cellules muriformes. <strong>Peut aussi compliquer la CBM !</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Phaeohyphomycose</strong></td>
+                                <td>Hyphes pigmentees (pas de cellules muriformes) — distinction histologique cruciale</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mycetome</strong></td>
+                                <td>Tumefaction avec fistules et grains</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Psoriasis verruciforme</strong></td>
+                                <td>Squames argentees ; atteinte bilaterale symetrique</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="text-sm text-teal-800/80">
+                        <strong>CBM non a declaration obligatoire</strong> en Suisse (non listee dans le guide OFSP 2026).
+                    </p>
+                </section>
+
+                <!-- Traitement -->
+                <section id="traitement" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Traitement</h2>
+                    <p class="text-sm text-teal-800/80 mb-3">
+                        Pas de guidelines globales standardisees ni d'essai randomise controle publie [1, 9]. Traitement base sur etudes ouvertes, series de cas et opinions d'experts. Le choix depend de la <strong>severite</strong> et de la <strong>taille</strong> des lesions. Le traitement precoce donne les meilleurs resultats [3]. Pas de difference de reponse entre les especes fongiques [3].
+                    </p>
+
+                    <!-- Forme legere -->
+                    <h3 id="traitement-leger" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3">Forme legere (&lt; 5 cm)</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-2">
+                        <li><strong>Excision chirurgicale</strong> : methode de choix si lesion initiale, petite, bien delimitee</li>
+                        <li>Associer un antifongique systemique pre/post-operatoire pour eviter la recidive</li>
+                        <li><strong>Cryotherapie</strong> (azote liquide, &minus;196&nbsp;&deg;C) : alternative ou complement</li>
+                    </ul>
+
+                    <!-- Forme moderee -->
+                    <h3 id="traitement-modere" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3">Forme moderee</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-2">
+                        <li><strong>Itraconazole 200&ndash;400 mg/jour</strong> en continu, 6&ndash;12 mois minimum — prendre avec un repas (absorption dependante de l'acidite gastrique) ; monitoring des taux seriques recommande ; interactions CYP3A4 nombreuses [1]</li>
+                        <li><strong>OU Terbinafine 250&ndash;500 mg/jour</strong>, duree similaire — moins d'interactions medicamenteuses, meilleure absorption ; taux de guerison mycologique ~82,5 % a 12 mois (500 mg/j) [1, 13]</li>
+                        <li>Associer cryotherapie si reponse partielle</li>
+                    </ul>
+
+                    <!-- Forme severe -->
+                    <h3 id="traitement-severe" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3">Forme severe / refractaire</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li><strong>Combinaison itraconazole + terbinafine</strong> : option de sauvetage la plus utilisee [1]</li>
+                        <li><strong>Posaconazole</strong> (300 mg/jour cp retard ou 800 mg/jour suspension) : meilleur profil pharmacocinetique, option pour formes severes/refractaires [1]</li>
+                        <li><strong>Itraconazole + 5-flucytosine</strong> : excellents resultats rapportes, mais 5-FC souvent indisponible</li>
+                        <li>Amphotericine B IV : efficacite limitee, reservee aux cas exceptionnels [3]</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Posologies recapitulatives :</p>
+                    <table class="article-table rounded-xl overflow-hidden mb-4">
+                        <thead>
+                            <tr>
+                                <th>Medicament</th>
+                                <th>Posologie</th>
+                                <th>Remarques</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Itraconazole</strong></td>
+                                <td>200&ndash;400 mg/j PO</td>
+                                <td>Avec repas ; monitoring taux seriques ; interactions CYP3A4</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Terbinafine</strong></td>
+                                <td>250&ndash;500 mg/j PO</td>
+                                <td>Moins d'interactions ; bonne absorption ; surveillance hepatique</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Posaconazole</strong></td>
+                                <td>300 mg/j (cp retard)</td>
+                                <td>Formes severes/refractaires ; couteux</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cryotherapie</strong></td>
+                                <td>N<sub>2</sub> liquide, 30 s&ndash;4 min</td>
+                                <td>Sessions repetees /2&ndash;3 semaines ; petites lesions ou residuelles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Traitements adjuvants -->
+                    <h3 id="traitement-adjuvant" class="font-sans text-base font-semibold text-teal-800 mt-6 mb-3">Traitements adjuvants</h3>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside mb-3">
+                        <li><strong>Thermotherapie</strong> (42&ndash;46&nbsp;&deg;C) : chaufferettes chimiques 24h/j pendant 1&ndash;2 mois ; aplatissement des lesions en ~4 jours [1]</li>
+                        <li><strong>Therapie photodynamique (PDT)</strong> : ALA-PDT hebdomadaire + terbinafine orale ; resultats prometteurs [1]</li>
+                        <li><strong>Imiquimod topique</strong> : rapports de cas favorables en complement [14]</li>
+                    </ul>
+
+                    <p class="text-sm text-teal-800/80 mb-2 font-semibold text-teal-700">Criteres de guerison [1] :</p>
+                    <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Clinique</strong> : resolution complete de toutes les lesions</li>
+                        <li><strong>Mycologique</strong> : absence de cellules fongiques a l'examen direct ET culture negative</li>
+                        <li><strong>Histopathologique</strong> : absence de cellules muriformes et de micro-abces</li>
+                        <li><strong>Suivi sans recidive pendant 2 ans</strong> necessaire avant de considerer la guerison definitive</li>
+                    </ul>
+
+                    <div class="callout-piege">
+                        <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piege — Duree du traitement</p>
+                        <p class="text-sm text-teal-800">Le traitement est long (minimum 6&ndash;12 mois, souvent &gt;&nbsp;1 an pour les formes moderees/severes). L'observance est un enjeu majeur. Des biopsies de controle tous les 3&ndash;4 mois pendant le traitement sont recommandees. Ne pas arreter le traitement sur la seule amelioration clinique — exiger une guerison mycologique prouvee [1].</p>
+                    </div>
+                </section>
+
+                <!-- Complications -->
+                <section id="complications" class="mb-10">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">Complications</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><strong>Lymphoedeme chronique</strong> : formes avancees, avec handicap fonctionnel [1, 3]</li>
+                        <li><strong>Surinfection bacterienne</strong> : frequente dans les formes chroniques ; stigmatisation sociale</li>
+                        <li><strong>Fibrose tissulaire</strong> : diminue la disponibilite des antifongiques dans les tissus [1]</li>
+                        <li><strong>Carcinome epidermoide</strong> : complication la plus grave — risque ~1 %, survient apres 20&ndash;30 ans d'infection non traitee ; biopsie de surveillance lors du suivi [17, 18]</li>
+                        <li><strong>Dissemination</strong> : extremement rare ; principalement avec <em>F. monophora</em> (SNC) [1]</li>
+                    </ul>
+
+                    <div class="callout-danger">
+                        <p class="text-sm font-bold text-red-700 mb-1">&#9888; Transformation maligne</p>
+                        <p class="text-sm text-teal-800">Un carcinome epidermoide peut compliquer une CBM de longue date (~1 % des cas, apres 20&ndash;30 ans). Facteurs de risque : duree d'infection prolongee, traitement inadequat, age &gt;&nbsp;60 ans. Peut necessiter l'amputation du membre [17, 18, 19]. Surveillance par biopsie des lesions chroniques.</p>
+                    </div>
+                </section>
+
+                <!-- Quand referer -->
+                <section id="referer" class="mb-10">
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-1">Quand referer ?</p>
+                        <p class="text-sm text-teal-800">La CBM est rare en Suisse et necessite une prise en charge specialisee. Referer systematiquement en <strong>infectiologie / medecine tropicale</strong> (confirmation diagnostique, choix therapeutique) et en <strong>dermatologie</strong> (biopsie, dermoscopie, diagnostic differentiel). Pour toute question, <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">n'hesitez pas a me contacter directement</a>.</p>
+                    </div>
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">&#10022; Perles cliniques</p>
+                        <ul class="space-y-1.5 text-sm text-teal-800">
+                            <li>Les <strong>&laquo;&nbsp;points noirs&nbsp;&raquo;</strong> a la surface de la lesion sont l'indice clinique majeur — y prelever le grattage pour le KOH [3]</li>
+                            <li>Le <strong>grattage KOH est simple, rapide et tres sensible</strong> (90&ndash;100 %) : les &laquo;&nbsp;copper pennies&nbsp;&raquo; (cellules muriformes brunes, septees) sont pathognomoniques [6]</li>
+                            <li><strong>Terbinafine</strong> a l'avantage de moins d'interactions medicamenteuses que l'itraconazole — a privilegier chez les patients polymediques [8]</li>
+                            <li><strong>Guerison = clinique + mycologique + histopathologique + 2 ans sans recidive</strong> [1]</li>
+                            <li>Des <strong>cas autochtones suisses existent</strong> — ne pas exclure le diagnostic par l'absence de voyage tropical [4]</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- References -->
+                <section id="references" class="mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-4">References</h2>
+                    <ol class="space-y-2 text-sm text-teal-800/80 list-decimal list-inside">
+                        <li>Queiroz-Telles F et al. Chromoblastomycosis. <em>Clin Microbiol Rev</em> 2017;30(1):233-276. DOI:<a href="https://doi.org/10.1128/CMR.00032-16" target="_blank" class="ref-link">10.1128/CMR.00032-16</a></li>
+                        <li>Santos DWCL et al. The global burden of chromoblastomycosis. <em>PLoS Negl Trop Dis</em> 2021;15(8):e0009611. DOI:<a href="https://doi.org/10.1371/journal.pntd.0009611" target="_blank" class="ref-link">10.1371/journal.pntd.0009611</a></li>
+                        <li>WHO Fact Sheet: Chromoblastomycosis. Novembre 2023.</li>
+                        <li>Heim R et al. Hidden under a Cauliflower-Like Skin Tumor: Chromoblastomycosis [cas suisse]. <em>Case Rep Infect Dis</em> 2013;2013:369840. DOI:<a href="https://doi.org/10.1155/2013/369840" target="_blank" class="ref-link">10.1155/2013/369840</a></li>
+                        <li>Queiroz-Telles F. Chromoblastomycosis [briefing document]. Gaffi, 2018.</li>
+                        <li>Dittrich RP, De Jesus O. Chromoblastomycosis. <em>StatPearls</em> 2024. PMID: 36251854.</li>
+                        <li>Medscape — Chromoblastomycosis Workup. 2024.</li>
+                        <li>CDC — Clinical Overview of Chromoblastomycosis. Aout 2024.</li>
+                        <li>Lamessa A et al. Chromoblastomycosis in resource-limited settings: a review. <em>Front Trop Dis</em> 2026;7:1772834. DOI:<a href="https://doi.org/10.3389/fitd.2026.1772834" target="_blank" class="ref-link">10.3389/fitd.2026.1772834</a></li>
+                        <li>DermNet NZ — Chromoblastomycosis pathology. 2013.</li>
+                        <li>Subhadarshani S et al. Dermoscopy of chromoblastomycosis. <em>Dermatol Pract Concept</em> 2017;7(4):23-24. DOI:<a href="https://doi.org/10.5826/dpc.0704a05" target="_blank" class="ref-link">10.5826/dpc.0704a05</a></li>
+                        <li>Kaur M et al. Dermoscopy of Chromoblastomycosis. <em>Indian Dermatol Online J</em> 2019;10(6):759-760. DOI:<a href="https://doi.org/10.4103/idoj.IDOJ_118_19" target="_blank" class="ref-link">10.4103/idoj.IDOJ_118_19</a></li>
+                        <li>Bonifaz A et al. Treatment of chromoblastomycosis with terbinafine. <em>J Dermatol Treat</em> 2004;15(1):47-51.</li>
+                        <li>Belda W et al. Successful treatment of chromoblastomycosis using imiquimod. <em>J Dermatol</em> 2020;47(4):409-412. DOI:<a href="https://doi.org/10.1111/1346-8138.15225" target="_blank" class="ref-link">10.1111/1346-8138.15225</a></li>
+                        <li>Belda W et al. Chromoblastomycosis: New Perspective on Adjuvant Treatment with Acitretin. <em>Diseases</em> 2023;11(4):162. DOI:<a href="https://doi.org/10.3390/diseases11040162" target="_blank" class="ref-link">10.3390/diseases11040162</a></li>
+                        <li>Triple therapy (itraconazole + cryotherapy + 5-FU topique). <em>Clin Case Rep</em> 2024;12:e9318. DOI:<a href="https://doi.org/10.1002/ccr3.9318" target="_blank" class="ref-link">10.1002/ccr3.9318</a></li>
+                        <li>Frioui R et al. Nasal chromoblastomycosis progressing to squamous cell carcinoma. <em>Indian J Dermatol Venereol Leprol</em> 2023;89(1):102-105.</li>
+                        <li>Jamil A et al. Invasive squamous cell carcinoma arising from chromoblastomycosis. <em>Med Mycol</em> 2012;50(1):99-102. DOI:<a href="https://doi.org/10.3109/13693786.2011.571295" target="_blank" class="ref-link">10.3109/13693786.2011.571295</a></li>
+                        <li>Rojas OC et al. Chromoblastomycosis by <em>C. carrionii</em> Associated with Squamous Cell Carcinoma. <em>Mycopathologia</em> 2015;179(1-2):153-157.</li>
+                        <li>Smith DJ et al. A global chromoblastomycosis strategy. <em>PLoS Negl Trop Dis</em> 2024;18:e0012562. DOI:<a href="https://doi.org/10.1371/journal.pntd.0012562" target="_blank" class="ref-link">10.1371/journal.pntd.0012562</a></li>
+                        <li>Tuckwell W et al. Chromoblastomycosis: a contemporary review. <em>Clin Exp Dermatol</em> 2025;llaf201. DOI:<a href="https://doi.org/10.1093/ced/llaf201" target="_blank" class="ref-link">10.1093/ced/llaf201</a></li>
+                    </ol>
+                </section>
+
+            </article>
+
+            <!-- FLOATING TOC -->
+            <aside class="toc-sidebar hidden lg:block">
+                <nav class="toc">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
+                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                        <li><a href="#repartition" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Repartition geographique</a></li>
+                        <li><a href="#agent-causal" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Agent causal</a></li>
+                        <li><a href="#transmission" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Transmission</a></li>
+                        <li><a href="#incubation" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Incubation</a></li>
+                        <li><a href="#clinique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Presentation clinique</a></li>
+                        <li><a href="#examen" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Examen clinique</a></li>
+                        <li><a href="#labo" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Labo</a></li>
+                        <li><a href="#diagnostic" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Diagnostic</a></li>
+                        <li><a href="#traitement" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Traitement</a>
+                            <ul class="space-y-0.5 mt-0.5 ml-3">
+                                <li><a href="#traitement-leger" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Forme legere</a></li>
+                                <li><a href="#traitement-modere" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Forme moderee</a></li>
+                                <li><a href="#traitement-severe" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Severe / refractaire</a></li>
+                                <li><a href="#traitement-adjuvant" class="block pl-3 py-1 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-500 hover:text-mint-600 text-xs transition-colors">Adjuvants</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#complications" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Complications</a></li>
+                        <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand referer</a></li>
+                        <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">References</a></li>
+                    </ul>
+                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
+                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis specialise ?</p>
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
+                            Referer un patient
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+                    <div class="mt-4 p-4 bg-teal-50 border border-teal-200/50 rounded-xl">
+                        <p class="text-xs text-teal-700/70 mb-2">Contexte clinique</p>
+                        <a href="../syndromes/dermatoses.html" class="text-sm text-teal-600 hover:text-mint-600 font-medium transition-colors">&rarr; Dermatoses au retour de voyage</a>
+                    </div>
+                </nav>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <div>
+                    <div class="flex items-center gap-2 text-cream-100">
+                        <svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/>
+                        </svg>
+                        <span class="font-serif text-sm">Tropical Notebook</span>
+                    </div>
+                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">
+                        Handbook de medecine tropicale et du voyage pour le praticien.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-8 text-sm">
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4>
+                        <div class="space-y-2">
+                            <a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a>
+                            <a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogenes</a>
+                            <a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">A propos</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4>
+                        <div class="space-y-2">
+                            <a href="https://traveldoctor.ch" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">
+                                traveldoctor.ch &rarr;
+                            </a>
+                            <span class="block text-cream-200/40">Pre-voyage &amp; post-voyage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-cream-200/30">
+                    &copy; 2026 Tropical Notebook. Contenu a visee educative &mdash; ne remplace pas le jugement clinique.
+                </p>
+                <p class="text-xs text-cream-200/30">
+                    Dr. Ludovico Cobuccio
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        const toggle = document.getElementById('mobileToggle');
+        const menu = document.getElementById('mobileMenu');
+        toggle.addEventListener('click', () => { menu.classList.toggle('open'); });
+        menu.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => menu.classList.remove('open')); });
+        document.querySelectorAll('.dropdown > button').forEach(btn => {
+            btn.addEventListener('click', (e) => { if (window.innerWidth < 768) { e.preventDefault(); btn.closest('.dropdown').classList.toggle('active'); } });
+        });
+        const nav = document.querySelector('.nav-fixed');
+        window.addEventListener('scroll', () => { if (window.scrollY > 50) { nav.classList.add('shadow-lg'); } else { nav.classList.remove('shadow-lg'); } });
+        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+        const sections = document.querySelectorAll('section[id], div[id]');
+        const observerToc = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => { link.classList.remove('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); link.classList.add('border-transparent', 'text-teal-600'); });
+                    const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+                    if (activeLink) { activeLink.classList.add('active', 'text-mint-600', 'border-mint-400', 'font-semibold'); activeLink.classList.remove('border-transparent', 'text-teal-600'); }
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+        sections.forEach(section => observerToc.observe(section));
+    </script>
+</body>
+</html>
