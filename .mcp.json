@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "backlog": {
+      "type": "stdio",
+      "command": "/home/ubuntu/.bun/bin/backlog",
+      "args": [
+        "mcp",
+        "start"
+      ],
+      "env": {}
+    }
+  }
+}
