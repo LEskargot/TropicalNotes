@@ -1,504 +1,1389 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fièvre au retour de voyage — Tropical Notebook</title>
-  <link href="../../dist/css/prototype.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <style>
-    /* Grain texture */
-    body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:0.025; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fièvre au retour de voyage — Tropical Notebook</title>
+    <meta name="description" content="Fievre au retour de voyage : algorithme de triage, bilan initial, paludisme, dengue, rickettsioses, typhoide — guide pour le medecin de premier recours.">
+    <meta name="keywords" content="fievre voyageur, paludisme, dengue, rickettsiose, medecine tropicale, Suisse">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd',
+                            300: '#7ecec5', 400: '#54b5aa', 500: '#479793',
+                            600: '#387a77', 700: '#2d5e5b', 800: '#234a48',
+                            900: '#1a3836', 950: '#0f2322'
+                        },
+                        mint: {
+                            50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc',
+                            300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98',
+                            600: '#0e8b7a', 700: '#0f6f63', 800: '#115850',
+                            900: '#114943'
+                        },
+                        gold: {
+                            50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a',
+                            300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c',
+                            600: '#b47d15', 700: '#8f5d14', 800: '#774a18',
+                            900: '#633d1a'
+                        },
+                        cream: {
+                            50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8',
+                            300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99'
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+                        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
 
-    /* Design tokens */
-    :root {
-      --teal-50:#f0fafa; --teal-100:#d9f2f1; --teal-200:#b0e4e2;
-      --teal-400:#479793; --teal-500:#2a9d8f; --teal-700:#2d5e5b;
-      --teal-800:#1a3836; --teal-900:#0f2322;
-      --mint-50:#edfcf8; --mint-200:#a6f0de; --mint-300:#66dfc2;
-      --mint-400:#2dcaab; --mint-600:#1a8b7a;
-      --gold-400:#d4a84b; --gold-100:#fef3cd;
-      --cream-50:#fefdfb; --cream-100:#fdfaf4; --cream-200:#f8f2e4;
-    }
+        /* Navbar */
+        .nav-fixed {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
 
-    /* Navbar */
-    .nav-fixed { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
-    .dropdown-menu { opacity:0; visibility:hidden; transform:translateY(-4px); transition:all 0.2s ease; }
-    .dropdown:hover .dropdown-menu { opacity:1; visibility:visible; transform:translateY(0); }
+        /* Dropdown */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: all 0.2s ease;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
 
-    /* Hero */
-    .hero-pattern { position:absolute; inset:0; opacity:0.05; background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0c2 12 8 20 20 24-12 2-18 8-20 16-2-8-8-14-20-16C32 20 38 12 40 0z' fill='%23ffffff' fill-opacity='0.4'/%3E%3C/svg%3E"); }
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .mobile-menu.open {
+            max-height: 400px;
+        }
 
-    /* Anchor nav */
-    .anchor-nav { background:white; border-bottom:1px solid var(--teal-100); position:sticky; top:56px; z-index:40; }
-    .anchor-nav-inner { max-width:900px; margin:0 auto; padding:0 1.5rem; display:flex; overflow-x:auto; scrollbar-width:none; }
-    .anchor-nav-inner::-webkit-scrollbar { display:none; }
-    .anchor-link { color:var(--teal-700); font-size:0.82rem; padding:0.75rem 1rem; border-bottom:2px solid transparent; text-decoration:none; white-space:nowrap; transition:color 0.2s,border-color 0.2s; font-weight:500; }
-    .anchor-link:hover { color:var(--teal-500); border-bottom-color:var(--teal-200); }
-    .anchor-link.active { color:var(--teal-500); border-bottom-color:var(--teal-500); }
+        /* Floating TOC */
+        .toc { position: sticky; top: 5.5rem; }
+        .toc a.active {
+            color: #12ad98;
+            border-left-color: #12ad98;
+            font-weight: 600;
+        }
 
-    /* Sections */
-    .section { margin-bottom:3.5rem; scroll-margin-top:112px; }
-    .section-icon { width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
-    .section-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; color:var(--teal-400); margin-bottom:0.15rem; }
-    .section-title { font-family:"DM Serif Display",serif; font-size:1.45rem; color:var(--teal-800); }
-    .divider { height:1px; background:linear-gradient(90deg,var(--teal-200),transparent); margin-bottom:1.25rem; }
+        /* Section label */
+        .section-label {
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
 
-    /* Urgency table */
-    .urgency-table { border-radius:12px; overflow:hidden; border:1px solid var(--teal-100); }
-    .urgency-row { display:grid; grid-template-columns:1fr 130px 1fr; align-items:center; padding:0.75rem 1rem; border-bottom:1px solid var(--teal-50); background:white; }
-    .urgency-row:last-child { border-bottom:none; }
-    .urgency-row:hover { background:var(--teal-50); }
-    .urgency-row.header { background:var(--teal-800); color:white; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; font-weight:600; }
-    .badge { display:inline-flex; align-items:center; justify-content:center; border-radius:6px; padding:0.2rem 0.55rem; font-size:0.73rem; font-weight:700; }
-    .badge-now { background:#fee2e2; color:#991b1b; }
-    .badge-2h { background:#fef3c7; color:#92400e; }
-    .badge-same { background:#dbeafe; color:#1e40af; }
+        /* Article table styling */
+        .article-table {
+            width: 100%;
+            text-align: left;
+            font-size: 0.875rem;
+        }
+        .article-table thead {
+            background: #f0fafa;
+            color: #2d5e5b;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+        .article-table th {
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+        }
+        .article-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #d2f0ee;
+            vertical-align: top;
+        }
+        .article-table tbody tr:hover {
+            background: #fdfaf3;
+        }
 
-    /* Workup table */
-    .workup-table { width:100%; border-collapse:separate; border-spacing:0; border-radius:12px; overflow:hidden; border:1px solid var(--teal-100); }
-    .workup-table th { background:var(--teal-800); color:white; padding:0.65rem 1rem; text-align:left; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; }
-    .workup-table td { padding:0.65rem 1rem; border-bottom:1px solid var(--teal-50); background:white; font-size:0.88rem; vertical-align:top; }
-    .workup-table tr:last-child td { border-bottom:none; }
-    .workup-table tr:hover td { background:var(--teal-50); }
-    .test-name { font-weight:600; color:var(--teal-800); }
-    .test-tip { font-size:0.77rem; color:var(--teal-400); margin-top:0.15rem; font-style:italic; }
-    .chip { display:inline-block; border-radius:4px; padding:0.1rem 0.45rem; font-size:0.73rem; font-weight:600; margin-right:3px; }
-    .chip-urgent { background:#fee2e2; color:#991b1b; }
-    .chip-std { background:var(--mint-50); color:var(--mint-600); }
-    .chip-opt { background:var(--cream-200); color:var(--teal-700); }
+        /* Callout boxes */
+        .callout-piege {
+            border-left: 4px solid #d4a01c;
+            background: #fffceb;
+            border-radius: 0 0.5rem 0.5rem 0;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout-referer {
+            border-left: 4px solid #12ad98;
+            background: #edfcf8;
+            border-radius: 0 0.5rem 0.5rem 0;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout-danger {
+            border-left: 4px solid #dc2626;
+            background: #fef2f2;
+            border-radius: 0 0.5rem 0.5rem 0;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
 
-    /* Pathogen cards */
-    .pathogen-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(195px,1fr)); gap:1rem; }
-    .pathogen-card { background:white; border-radius:12px; border:1px solid var(--teal-100); padding:1.1rem; text-decoration:none; color:inherit; transition:transform 0.3s cubic-bezier(0.22,1,0.36,1),box-shadow 0.3s; position:relative; overflow:hidden; display:block; }
-    .pathogen-card::before { content:''; position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--teal-700),var(--teal-400)); transform:scaleX(0); transform-origin:left; transition:transform 0.35s cubic-bezier(0.22,1,0.36,1); }
-    .pathogen-card:hover { transform:translateY(-4px); box-shadow:0 16px 32px -8px rgba(26,56,54,0.12); }
-    .pathogen-card:hover::before { transform:scaleX(1); }
-    .patho-cat { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.3rem; }
-    .patho-name { font-family:"DM Serif Display",serif; font-size:1.05rem; color:var(--teal-800); margin-bottom:0.2rem; }
-    .patho-agent { font-size:0.8rem; color:var(--teal-700); font-style:italic; margin-bottom:0.5rem; }
-    .patho-link { font-size:0.75rem; color:var(--teal-400); }
+        /* Referer link style */
+        a.ref-link {
+            color: #12ad98;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(18, 173, 152, 0.3);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        a.ref-link:hover {
+            color: #0e8b7a;
+            border-bottom-color: #0e8b7a;
+        }
 
-    /* Treatment cards */
-    .treatment-card { background:white; border-radius:12px; border:1px solid var(--teal-100); border-left:4px solid var(--teal-400); padding:1.1rem 1.25rem; margin-bottom:1rem; }
-    .treatment-card.urgent { border-left-color:#ef4444; }
-    .treatment-card.secondary { border-left-color:var(--gold-400); }
-    .treatment-condition { font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal-400); font-weight:600; margin-bottom:0.4rem; }
-    .treatment-card.urgent .treatment-condition { color:#ef4444; }
-    .treatment-card.secondary .treatment-condition { color:#b45309; }
-    .treatment-drug { font-family:"DM Serif Display",serif; font-size:1.15rem; color:var(--teal-800); margin-bottom:0.3rem; }
-    .treatment-detail { font-size:0.88rem; color:var(--teal-700); line-height:1.55; }
-    .treatment-source { font-size:0.73rem; color:var(--teal-400); margin-top:0.5rem; border-top:1px solid var(--teal-50); padding-top:0.4rem; }
-    .treatment-warning { background:#fff7ed; border:1px solid #fed7aa; border-radius:8px; padding:0.75rem 1rem; font-size:0.85rem; color:#9a3412; margin-top:0.75rem; display:flex; gap:0.5rem; line-height:1.5; }
-
-    /* CTA box */
-    .swisstph-box { background:linear-gradient(135deg,var(--teal-800),var(--teal-700)); border-radius:12px; padding:1.25rem 1.5rem; color:white; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-top:1.5rem; }
-    .swisstph-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--mint-300); font-weight:600; margin-bottom:0.25rem; }
-    .swisstph-title { font-family:"DM Serif Display",serif; font-size:1.1rem; color:#fdfaf4; }
-    .swisstph-contact { background:rgba(45,202,171,0.2); border:1px solid rgba(45,202,171,0.3); border-radius:8px; padding:0.5rem 1rem; color:var(--mint-300); font-size:0.9rem; font-weight:600; }
-
-    /* Points clés */
-    .points-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .point-card { border-radius:12px; padding:1.1rem 1.25rem; }
-    .point-piege { background:#fff7ed; border:1px solid #fed7aa; }
-    .point-perle { background:var(--mint-50); border:1px solid rgba(45,202,171,0.2); }
-    .point-retenir { background:var(--teal-50); border:1px solid var(--teal-100); grid-column:span 2; }
-    .point-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:0.5rem; }
-    .label-piege { color:#c2410c; }
-    .label-perle { color:var(--mint-600); }
-    .label-retenir { color:var(--teal-700); }
-    .point-text { font-size:0.88rem; color:var(--teal-800); line-height:1.55; }
-    .retenir-list { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:0.35rem 1.5rem; margin-top:0.5rem; }
-    .retenir-list li { font-size:0.85rem; color:var(--teal-700); display:flex; gap:0.5rem; align-items:flex-start; line-height:1.4; }
-    .retenir-list li::before { content:'→'; color:var(--teal-400); flex-shrink:0; font-weight:600; }
-
-    /* Evidence */
-    .evidence-list { display:grid; gap:0.5rem; }
-    .evidence-item { background:white; border-radius:8px; border:1px solid var(--teal-100); padding:0.7rem 1rem; display:flex; gap:0.75rem; font-size:0.83rem; }
-    .evidence-num { color:var(--teal-400); font-weight:700; font-size:0.75rem; flex-shrink:0; width:20px; padding-top:0.05rem; }
-    .evidence-text { color:var(--teal-700); line-height:1.45; }
-
-    html { scroll-behavior:smooth; }
-  </style>
+        html { scroll-behavior: smooth; }
+    </style>
 </head>
 <body class="bg-cream-50 font-sans text-teal-900 antialiased">
 
-<!-- NAVBAR -->
-<nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex items-center justify-between h-14">
-      <a href="../../index.html" class="flex items-center gap-3 group">
-        <span class="text-mint-400 text-xl">
-          <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/><path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg>
-        </span>
-        <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">Tropical Notebook</span>
-      </a>
-      <div class="hidden md:flex items-center gap-1">
-        <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-semibold">Syndromes</a>
-        <div class="dropdown relative">
-          <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
-            Pathogènes <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
-            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a>
-            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
-            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
-          </div>
+    <!-- ═══════════════ NAVBAR ═══════════════ -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="../../index.html" class="flex items-center gap-3 group">
+                    <span class="text-mint-400 text-xl">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/>
+                            <path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                            <path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+                        </svg>
+                    </span>
+                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">
+                        Tropical Notebook
+                    </span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a>
+
+                    <div class="dropdown relative">
+                        <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
+                            Pathogènes
+                            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
+                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a>
+                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
+                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
+                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
+                        </div>
+                    </div>
+
+                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a>
+
+                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
+
+                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                        Référer un patient
+                    </a>
+                </div>
+
+                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="py-3 border-t border-teal-700/50 space-y-1">
+                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
+                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a>
+                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a>
+                    <div class="border-t border-teal-700/50 mt-2 pt-2">
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">
+                            Référer un patient
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <a href="../../index.html#about" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a>
-      </div>
-    </div>
-  </div>
-</nav>
+    </nav>
 
-<!-- HERO -->
-<div class="pt-14">
-  <div style="background:linear-gradient(135deg,#1a3836 0%,#2d5e5b 100%); padding:3rem 1.5rem 2.5rem; position:relative; overflow:hidden;">
-    <div class="hero-pattern"></div>
-    <div style="max-width:900px; margin:0 auto; position:relative;">
-      <div style="position:absolute; top:0; right:0; background:rgba(212,168,75,0.15); border:1px solid rgba(212,168,75,0.3); border-radius:8px; padding:0.5rem 0.9rem; color:#d4a84b; font-size:0.78rem; font-weight:600;">⚡ Urgence diagnostique</div>
-      <div style="display:flex; align-items:center; gap:0.5rem; color:#66dfc2; font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:1rem;">
-        <a href="../../index.html#syndromes" style="color:inherit; text-decoration:none;">Syndromes</a>
-        <span style="opacity:0.5">›</span>
-        <span style="color:#fdfaf4;">Fièvre au retour</span>
-      </div>
-      <h1 style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:2.4rem; line-height:1.15; margin-bottom:0.75rem;">Fièvre au retour<br>de voyage</h1>
-      <p style="color:#d9f2f1; font-size:1rem; line-height:1.6; max-width:600px; margin-bottom:1.5rem;">Approche diagnostique structurée du patient fébrile au retour des tropiques. Priorité absolue au paludisme, dengue, rickettsiose et typhoïde.</p>
-      <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
-        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌍 Afrique sub-saharienne</span>
-        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">🌏 Asie du Sud</span>
-        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">Amérique tropicale</span>
-        <span style="background:rgba(255,255,255,0.1); color:#a6f0de; border:1px solid rgba(102,223,194,0.2); border-radius:20px; padding:0.2rem 0.75rem; font-size:0.78rem;">SSTTM 2025</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ANCHOR NAV -->
-<div class="anchor-nav">
-  <div class="anchor-nav-inner">
-    <a href="#diagnostic" class="anchor-link active">Diagnostic</a>
-    <a href="#bilan" class="anchor-link">Bilan</a>
-    <a href="#pathogenes" class="anchor-link">Pathogènes</a>
-    <a href="#traitement" class="anchor-link">Traitement</a>
-    <a href="#points-cles" class="anchor-link">Points clés</a>
-    <a href="#references" class="anchor-link">Références</a>
-  </div>
-</div>
-
-<!-- MAIN -->
-<div style="max-width:900px; margin:0 auto; padding:2.5rem 1.5rem 4rem;">
-
-  <!-- 1. APPROCHE DIAGNOSTIQUE -->
-  <div class="section" id="diagnostic">
-    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
-      <div class="section-icon" style="background:var(--mint-50);">🔍</div>
-      <div>
-        <div class="section-label">Étape 1</div>
-        <h2 class="section-title">Approche diagnostique</h2>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <p style="font-size:0.9rem; color:var(--teal-700); margin-bottom:1.25rem; line-height:1.6;">Fièvre + retour de voyage = exclure le paludisme en urgence. La temporalité de prise en charge guide l'ensemble du bilan.</p>
-    <div class="urgency-table">
-      <div class="urgency-row header">
-        <span>Pathogène</span><span>Délai d'action</span><span>Clé diagnostique</span>
-      </div>
-      <div class="urgency-row">
-        <span style="font-style:italic; font-weight:600; color:var(--teal-800);">Plasmodium falciparum</span>
-        <span><span class="badge badge-now">MAINTENANT</span></span>
-        <span style="color:var(--teal-700); font-size:0.88rem;">TDR + frottis — 77% des décès par maladie tropicale importée</span>
-      </div>
-      <div class="urgency-row">
-        <span style="font-weight:600; color:var(--teal-800);">Fièvres hémorragiques virales</span>
-        <span><span class="badge badge-2h">2 heures</span></span>
-        <span style="color:var(--teal-700); font-size:0.88rem;">Isolement immédiat si retour zone endémique avec syndrome hémorragique</span>
-      </div>
-      <div class="urgency-row">
-        <span style="font-style:italic; font-weight:600; color:var(--teal-800);">Dengue sévère</span>
-        <span><span class="badge badge-same">Même jour</span></span>
-        <span style="color:var(--teal-700); font-size:0.88rem;">Phase critique à la défervescence (J3–7) — NS1 + IgM/IgG</span>
-      </div>
-      <div class="urgency-row">
-        <span style="font-style:italic; font-weight:600; color:var(--teal-800);">Salmonella typhi</span>
-        <span><span class="badge badge-same">Même jour</span></span>
-        <span style="color:var(--teal-700); font-size:0.88rem;">Hémocultures avant tout ATB — fièvre progressive &gt;7 jours</span>
-      </div>
-      <div class="urgency-row">
-        <span style="font-style:italic; font-weight:600; color:var(--teal-800);">Rickettsia</span> spp.
-        <span><span class="badge badge-same">Même jour</span></span>
-        <span style="color:var(--teal-700); font-size:0.88rem;">Escarre présente → doxycycline sans attendre la confirmation sérologique</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. BILAN INITIAL -->
-  <div class="section" id="bilan">
-    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
-      <div class="section-icon" style="background:var(--gold-100);">🧪</div>
-      <div>
-        <div class="section-label">Étape 2</div>
-        <h2 class="section-title">Bilan initial</h2>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <table class="workup-table">
-      <thead><tr><th>Examen</th><th>Indication</th><th>Commentaire</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><div class="test-name">TDR paludisme + frottis sanguin</div><div class="test-tip">Répéter à H12–24 si forte suspicion clinique</div></td>
-          <td><span class="chip chip-urgent">Tous</span></td>
-          <td style="font-size:0.88rem; color:var(--teal-700);">Ne pas exclure sur TDR seul — pfhrp2 deletion ~10% faux négatifs en Corne d'Afrique</td>
-        </tr>
-        <tr>
-          <td><div class="test-name">FSC + CRP + bilan hépatique + créatinine</div></td>
-          <td><span class="chip chip-urgent">Tous</span></td>
-          <td style="font-size:0.88rem; color:var(--teal-700);">Thrombopénie → dengue ou malaria. Cytolyse → dengue, typhoïde, hépatite virale</td>
-        </tr>
-        <tr>
-          <td><div class="test-name">NS1 dengue (ELISA) + IgM/IgG</div><div class="test-tip">NS1 si ≤J5 · IgM/IgG systématiques</div></td>
-          <td><span class="chip chip-std">TDR −</span></td>
-          <td style="font-size:0.88rem; color:var(--teal-700);">NS1 sensibilité 90% J0–J4 (Pillay Lancet Microbe 2025). NS1 seul insuffisant : toujours combiner IgM/IgG</td>
-        </tr>
-        <tr>
-          <td><div class="test-name">Hémocultures × 2</div></td>
-          <td><span class="chip chip-std">Fièvre prolongée</span></td>
-          <td style="font-size:0.88rem; color:var(--teal-700);">Avant tout ATB. Rendement maximum pour typhoïde en phase bactériémique (&lt;14j)</td>
-        </tr>
-        <tr>
-          <td><div class="test-name">PCR sur escarre (écouvillon)</div></td>
-          <td><span class="chip chip-opt">Si escarre</span></td>
-          <td style="font-size:0.88rem; color:var(--teal-700);">Sensibilité &gt;90%. Sérologie <em>Rickettsia</em> positive seulement après J10 — ne pas attendre</td>
-        </tr>
-        <tr>
-          <td><div class="test-name">ECG</div></td>
-          <td><span class="chip chip-opt">Si facteurs de risque</span></td>
-          <td style="font-size:0.88rem; color:var(--teal-700);">Non systématique aux doses standard de Riamet®. Indiqué si : QT long congénital, arythmie, cardiopathie sévère, co-Rx allongeant le QTc, inhibiteurs CYP3A4, ou halofantrine récente</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- 3. PATHOGÈNES CLÉS -->
-  <div class="section" id="pathogenes">
-    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
-      <div class="section-icon" style="background:var(--teal-50);">🦠</div>
-      <div>
-        <div class="section-label">Étape 3</div>
-        <h2 class="section-title">Pathogènes clés</h2>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="pathogen-grid">
-      <a href="../parasites/malaria.html" class="pathogen-card">
-        <div class="patho-cat">Parasite</div>
-        <div class="patho-name">Paludisme</div>
-        <div class="patho-agent">Plasmodium falciparum</div>
-        <div class="patho-link">Fiche complète →</div>
-      </a>
-      <a href="../viruses/dengue.html" class="pathogen-card">
-        <div class="patho-cat">Virus</div>
-        <div class="patho-name">Dengue</div>
-        <div class="patho-agent">Flavivirus (sérotypes 1–4)</div>
-        <div class="patho-link">Fiche complète →</div>
-      </a>
-      <a href="../bacteria/rickettsiosis.html" class="pathogen-card">
-        <div class="patho-cat">Bactérie</div>
-        <div class="patho-name">Rickettsiose</div>
-        <div class="patho-agent">Rickettsia africae</div>
-        <div class="patho-link">Fiche complète →</div>
-      </a>
-      <a href="../bacteria/enteric_fever.html" class="pathogen-card">
-        <div class="patho-cat">Bactérie</div>
-        <div class="patho-name">Fièvre typhoïde</div>
-        <div class="patho-agent">Salmonella typhi XDR</div>
-        <div class="patho-link">Fiche complète →</div>
-      </a>
-      <a href="../parasites/schistosomiasis.html" class="pathogen-card">
-        <div class="patho-cat">Parasite</div>
-        <div class="patho-name">Katayama / Schistosomiase</div>
-        <div class="patho-agent">Schistosoma mansoni</div>
-        <div class="patho-link">Fiche complète →</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- 4. TRAITEMENT -->
-  <div class="section" id="traitement">
-    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
-      <div class="section-icon" style="background:#f0fdf4;">💊</div>
-      <div>
-        <div class="section-label">Étape 4</div>
-        <h2 class="section-title">Traitement</h2>
-      </div>
-    </div>
-    <div class="divider"></div>
-
-    <div class="treatment-card">
-      <div class="treatment-condition">Paludisme non compliqué — <em>P. falciparum</em></div>
-      <div class="treatment-drug">Riamet® (artéméther / luméfantrine)</div>
-      <div class="treatment-detail">
-        4 cp 2×/j × <strong>5 jours</strong> (40 cp au total) — <strong>SSTTM 2025</strong><br>
-        Schéma 5j recommandé pour tous (taux d'échec tardif ~9.6% à J28 avec schéma 3j si &gt;65 kg).<br>
-        Si IMC ≥30 : préférer DHA-pipéraquine (Eurartesim®, à jeun strict).
-      </div>
-      <div class="treatment-source">Suivi obligatoire : frottis J3, J7, J28 · ECG si facteurs de risque (QT long, cardiopathie, co-Rx QTc) · Déclaration OFSP 24h</div>
-    </div>
-
-    <div class="treatment-card urgent">
-      <div class="treatment-condition">⚠ Paludisme grave (≥1 critère de gravité)</div>
-      <div class="treatment-drug">Artésunate IV + hospitalisation urgente</div>
-      <div class="treatment-detail">
-        Critères SSTTM : parasitémie ≥2%, troubles de conscience, Hb &lt;7 g/dL, IRA, SDRA, choc, acidose, hypoglycémie.<br>
-        Surveiller PADH (hémolyse retardée post-artésunate) entre J7 et J28.
-      </div>
-    </div>
-
-    <div class="treatment-card secondary">
-      <div class="treatment-condition">Rickettsiose — retour Afrique, escarre présente</div>
-      <div class="treatment-drug">Doxycycline 200 mg/j × 7 jours</div>
-      <div class="treatment-detail">
-        Amélioration clinique typique en 48h. Ne pas attendre la confirmation sérologique (positive seulement &gt;J10).<br>
-        Résistance intrinsèque aux bêta-lactamines — l'amoxicilline est inefficace.<br>
-        Allergie tétracyclines : azithromycine 500 mg J1, puis 250 mg/j × 4j (données limitées).
-      </div>
-    </div>
-
-    <div class="treatment-card secondary">
-      <div class="treatment-condition">Typhoïde XDR — retour Pakistan / Inde / Bangladesh</div>
-      <div class="treatment-drug">Azithromycine 1 g J1, puis 500 mg/j × 7–14j (PO)</div>
-      <div class="treatment-detail">
-        Résistance plasmidique blaCTX-M-15 : ampicilline + chloramphénicol + TMP-SMX + FQ + C3G (50% Pakistan 2019).<br>
-        Forme grave : méropénème 1 g 3×/j IV ± azithromycine × 10–14j.<br>
-        Défervescence lente (5–7j) même sous ATB efficace — ne pas changer prématurément.
-      </div>
-    </div>
-
-    <div class="treatment-card">
-      <div class="treatment-condition">Katayama (schistosomiase aiguë) — ≥6–8 semaines après exposition</div>
-      <div class="treatment-drug">Praziquantel 40 mg/kg dose unique</div>
-      <div class="treatment-detail">
-        Attendre ≥6–8 semaines post-exposition (inefficace sur formes immatures).<br>
-        Phase aiguë symptomatique : prednisone 0.5–1 mg/kg × 5–7j puis praziquantel différé.<br>
-        <strong>Disponibilité en Suisse :</strong> praziquantel non inscrit au Compendium (Art. 49) — <a href="https://traveldoctor.ch/professionnels" target="_blank" style="color:var(--mint-400);">contacter un spécialiste</a>.<br>
-        Exclure <em>Strongyloides</em> AVANT tout corticoïde (mortalité hyperinfection 60–85%).
-      </div>
-    </div>
-
-    <div class="treatment-warning">
-      ⚠️ <span><strong>Dengue : AUCUN AINS</strong> (aspirine, ibuprofène, diclofénac, naproxène) — risque hémorragique majeur, y compris en automédication. Paracétamol uniquement. Hospitalisation si signes d'alarme à la défervescence (douleur abdominale, Ht ↑ + plaquettes ↓, saignement muqueux, léthargie).</span>
-    </div>
-
-    <div class="swisstph-box">
-      <div>
-        <div class="swisstph-label">Avis spécialisé — Suisse</div>
-        <div class="swisstph-title">Conseil diagnostique et thérapeutique</div>
-        <div style="font-size:0.82rem; color:#d9f2f1; margin-top:0.25rem;">Import praziquantel (Art. 49) · Antibiogrammes XDR · Avis spécialisé</div>
-      </div>
-      <a href="https://traveldoctor.ch/professionnels" target="_blank" class="swisstph-contact">Référer un patient</a>
-    </div>
-  </div>
-
-  <!-- 5. POINTS CLÉS -->
-  <div class="section" id="points-cles">
-    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
-      <div class="section-icon" style="background:#fff7ed;">⚡</div>
-      <div>
-        <div class="section-label">À retenir</div>
-        <h2 class="section-title">Points clés</h2>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="points-grid">
-      <div class="point-card point-piege">
-        <div class="point-label label-piege">⚠ Piège</div>
-        <div class="point-text">
-          <strong>«TDR négatif = paludisme exclu»</strong><br><br>
-          FAUX. Délétion pfhrp2 (Corne d'Afrique, ~10% faux négatifs) ou effet prozone en hyperparasitémie. TDR négatif possible même avec parasitémie élevée.<br><br>
-          → Répéter TDR + frottis à H12–24 si suspicion clinique forte (retour Afrique, fièvre, pas de prophylaxie).
+    <!-- ═══════════════ BREADCRUMB ═══════════════ -->
+    <div class="pt-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <nav class="flex items-center gap-2 text-sm text-teal-600/60">
+                <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <a href="../../index.html#syndromes" class="hover:text-teal-600 transition-colors">Par syndrome</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-teal-800 font-medium">Fièvre au retour de voyage</span>
+            </nav>
         </div>
-      </div>
-      <div class="point-card point-perle">
-        <div class="point-label label-perle">✦ Perle</div>
-        <div class="point-text">
-          <strong>Cas complexe ? <a href="https://traveldoctor.ch/professionnels" target="_blank" style="color:var(--mint-400);">Référer un patient</a></strong><br><br>
-          Import praziquantel (Art. 49), antibiogrammes XDR typhoïde, conseil malaria compliqué.<br><br>
-          Riamet® &gt;65 kg : suivi frottis obligatoire à <strong>J28</strong> (taux d'échec tardif ~10%).
+    </div>
+
+    <!-- ═══════════════ ARTICLE ═══════════════ -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+
+            <!-- ─── MAIN CONTENT ─── -->
+            <article class="min-w-0">
+
+                <!-- Article header -->
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Syndrome</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Fièvre au retour de voyage</h1>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">
+                        Approche diagnostique de la fièvre chez le voyageur de retour : bilan initial, triage par pathogène, traitements et pièges.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
+                        <span>Dernière mise à jour : mars 2026</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span>Dr. L. Cobuccio</span>
+                    </div>
+                </header>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            PARTIE 1 — CONSULTATION RAPIDE                  -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="consultation-rapide" class="bg-cream-100 border border-teal-200/50 rounded-2xl p-6 md:p-8 mb-14">
+                    <div class="flex items-center gap-3 mb-8">
+                        <span class="section-label text-teal-600">Partie 1 — Consultation rapide</span>
+                        <span class="text-xs text-teal-500/60 bg-teal-100 px-2.5 py-0.5 rounded-full">2 min</span>
+                    </div>
+
+                    <!-- 1.1 Algorithme de triage -->
+                    <div id="triage" class="mb-10">
+                        <h2 class="font-serif text-2xl text-teal-900 mb-4">Algorithme de triage</h2>
+                        <p class="text-sm text-teal-700/70 mb-4">
+                            Adapté de <a href="https://doi.org/10.1056/NEJMra1508435" target="_blank" class="ref-link">Thwaites &amp; Day (NEJM 2017)</a> et Mandell ch. 319 (Boggild &amp; Freedman).
+                        </p>
+
+                        <!-- Triage steps -->
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-3 bg-red-50 border border-red-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-red-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+                                <div>
+                                    <p class="font-semibold text-red-900">Manifestations hémorragiques ?</p>
+                                    <p class="text-sm text-red-800/70 mt-1">Si exposition compatible avec FHV (retour &lt;21j zone épidémique) &rarr; <strong>ISOLER immédiatement</strong> + téléphone OFSP <strong>058 463 87 37</strong>. Aucun prélèvement avant avis spécialisé.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-orange-50 border border-orange-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+                                <div>
+                                    <p class="font-semibold text-orange-900">Exclure le paludisme en priorité</p>
+                                    <p class="text-sm text-orange-800/70 mt-1">TDR + frottis/goutte épaisse <strong>sans délai</strong>. Toute altération de conscience ou atteinte d'organe &rarr; traitement empirique immédiat même si frottis négatif.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-white border border-teal-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+                                <div>
+                                    <p class="font-semibold text-teal-900">Bilan de base systématique</p>
+                                    <p class="text-sm text-teal-700/70 mt-1">Hémocultures, FSC + formule + plaquettes, bilan hépatique, créatinine, analyse d'urine, radiographie thoracique.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-white border border-teal-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">4</span>
+                                <div>
+                                    <p class="font-semibold text-teal-900">Orientation selon résultats</p>
+                                    <p class="text-sm text-teal-700/70 mt-1">
+                                        Leucopénie &rarr; dengue, typhoïde, brucellose, rickettsiose, VIH aigu.
+                                        Thrombopénie &rarr; paludisme, dengue, brucellose.
+                                        Éosinophilie &rarr; phase migratoire helminthes (Katayama, Strongyloides, Toxocara).
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-teal-50 border border-teal-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-teal-400 text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
+                                <div>
+                                    <p class="font-semibold text-teal-800">25% des fièvres tropicales</p>
+                                    <p class="text-sm text-teal-700/70 mt-1">Syndromes viraux autolimités sans diagnostic étiologique identifié (<a href="https://doi.org/10.1086/518173" target="_blank" class="ref-link">Wilson CID 2007</a>).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Incubation periods -->
+                        <h3 class="font-semibold text-teal-800 text-sm uppercase tracking-wider mb-3">Périodes d'incubation — clé diagnostique</h3>
+                        <div class="overflow-x-auto rounded-xl border border-teal-100">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Incubation</th>
+                                        <th>Pathogènes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Courte (&lt;10j)</td>
+                                        <td>Arboviroses (dengue, chikungunya, Zika), rickettsioses, leptospirose, fièvre typhoïde</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Intermédiaire (10-21j)</td>
+                                        <td>Paludisme, fièvre hémorragique virale, Q fever, typhoïde, brucellose</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Prolongée (&gt;21j)</td>
+                                        <td>Hépatites virales, paludisme (<em>P. vivax/ovale</em>), tuberculose, abcès amibien, schistosomiase</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 1.2 Bilan initial systematique -->
+                    <div id="bilan" class="mb-10">
+                        <h2 class="font-serif text-2xl text-teal-900 mb-4">Bilan initial systématique</h2>
+                        <div class="overflow-x-auto rounded-xl border border-teal-100">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Test</th>
+                                        <th>Pourquoi</th>
+                                        <th>Piège</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">TDR malaria + frottis/GE</td>
+                                        <td>Exclure paludisme en 1er</td>
+                                        <td>TDR négatif &ne; exclu &mdash; répéter H12-24 si forte suspicion. Délétion pfHRP2 (Corne d'Afrique ~10%) : utiliser TDR HRP2+pLDH</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">FSC + réticulocytes + LDH + haptoglobine</td>
+                                        <td>Hémolyse, thrombopénie, éosinophilie</td>
+                                        <td>Thrombopénie &ne; dengue seule &mdash; paludisme aussi</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">NS1 dengue + IgM/IgG</td>
+                                        <td>Diagnostic dengue des J1</td>
+                                        <td>NS1 Se 90% J0-4, chute après J5 et en infection secondaire. TDR combo négatif (IgM/IgG) &ne; exclu &rarr; demander ELISA</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Hémocultures &times; 2</td>
+                                        <td>Typhoïde, sepsis bactérien</td>
+                                        <td>Prélever <strong>AVANT</strong> tout antibiotique. Se ~60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Bilan hépatique + créatinine</td>
+                                        <td>Sévérité, atteinte d'organe</td>
+                                        <td>Cytolyse &ne; hépatite &mdash; rickettsiose et dengue aussi</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 1.3 Declaration obligatoire -->
+                    <div id="declaration">
+                        <h2 class="font-serif text-2xl text-teal-900 mb-4">Déclaration obligatoire en Suisse</h2>
+                        <p class="text-sm text-teal-700/70 mb-4">Obligations du <strong>médecin</strong> selon le Guide de la déclaration obligatoire OFSP 2026. Le laboratoire déclare séparément via CH-ELM/Infreport.</p>
+                        <div class="overflow-x-auto rounded-xl border border-teal-100">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Maladie</th>
+                                        <th>Délai</th>
+                                        <th>Destinataire</th>
+                                        <th>Voie de déclaration</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-red-50/50">
+                                        <td class="font-medium">FHV (Ebola, Marburg, Lassa, CCHF)</td>
+                                        <td><strong class="text-red-700">2 heures</strong></td>
+                                        <td>Médecin cantonal <strong>et</strong> OFSP</td>
+                                        <td>Par <strong>téléphone</strong>, puis formulaire (HIN-Secure Mail, fax ou courrier postal)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Dengue</td>
+                                        <td>24 heures</td>
+                                        <td>Médecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Chikungunya</td>
+                                        <td>24 heures</td>
+                                        <td>Médecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Zika</td>
+                                        <td>24 heures</td>
+                                        <td>Médecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Fièvre typhoïde</td>
+                                        <td>24 heures</td>
+                                        <td>Médecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Paludisme</td>
+                                        <td>1 semaine</td>
+                                        <td>Médecin cantonal</td>
+                                        <td>Formulaire via HIN-Secure Mail, fax ou courrier postal</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-xs text-teal-600/60 mt-3">Tel. OFSP : 058 463 87 06 (heures de bureau) / 058 463 87 37 (hors heures, réservé aux déclarations en 2h). Formulaires : <a href="https://www.bag.admin.ch/fr/declaration-des-maladies-infectieuses" class="underline hover:text-mint-600">bag.admin.ch</a></p>
+                    </div>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            PARTIE 2 — PAR PATHOGENE                        -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <div class="mb-8">
+                    <span class="section-label text-teal-600">Partie 2 — Par pathogène</span>
+                </div>
+
+
+                <!-- ──────────────────── PALUDISME ──────────────────── -->
+                <section id="paludisme" class="mb-14">
+                    <div class="flex items-start justify-between mb-2">
+                        <h2 class="font-serif text-2xl md:text-3xl text-teal-900">Paludisme</h2>
+                        <a href="../parasites/malaria.html" class="hidden sm:flex items-center gap-1 text-sm text-mint-600 hover:text-mint-500 shrink-0 mt-1">
+                            Fiche détaillée <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">1re cause de fièvre mortelle chez le voyageur &mdash; 77% des décès tropicaux (<a href="https://doi.org/10.4269/ajtmh.12-0551" target="_blank" class="ref-link">Jensenius 2013</a>). Suisse 1990-2019 : 8 439 cas, 52 décès.</p>
+
+                    <div class="space-y-6">
+                        <!-- Quand y penser -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Quand y penser</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Toute fièvre + voyage en zone d'endémie, incubation <strong>10-21j</strong> (mais possible &gt;21j pour <em>P. vivax/ovale</em>)</li>
+                                <li>Chimioprophylaxie absente ou mal prise</li>
+                                <li>Erreur classique du MG : diagnostic de &laquo; grippe &raquo; &mdash; la question du voyage n'est pas posée</li>
+                                <li>46 cas sévères (8.6%) en Suisse 2013-2023, 45/46 à <em>P. falciparum</em></li>
+                            </ul>
+                        </div>
+
+                        <!-- Diagnostic -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>TDR + frottis/goutte épaisse, répéter à H12-24 si négatif et forte suspicion</li>
+                                <li>Étude CHUV (<a href="https://doi.org/10.1093/jtm/taae030" target="_blank" class="ref-link">Slack &amp; Genton 2024</a>, n=4 972) : seuls 4 cas (0.08%) diagnostiques sur test tardif &mdash; remet en question le dogme des 3 frottis négatifs</li>
+                                <li>Seuil suisse de parasitémie <strong>&ge;2%</strong> = hyperparasitémie (vs 5% OMS)</li>
+                                <li>Déclaration obligatoire au médecin cantonal dans la <strong>semaine</strong> (formulaire HIN-Secure Mail/fax)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Traitement -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Traitement</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Situation</th>
+                                            <th>Traitement</th>
+                                            <th>Posologie</th>
+                                            <th>Suivi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium"><em>P.f.</em> non compliqué</td>
+                                            <td>Riamet&reg; (A/L)</td>
+                                            <td>4 cp 2&times;/j &times; <strong>5 jours</strong> (40 cp)<br><span class="text-xs text-teal-600/60"><a href="https://www.ssttm.ch/dokumente/swisstph-malaria-tx-recommendations-21-10-2025-clean.pdf" target="_blank" class="ref-link">SSTTM 2025</a> &mdash; +4 doses vs OMS 3j</span></td>
+                                            <td>ECG si QT long, cardiopathie, ou co-Rx allongeant QTc. Frottis contrôle <strong>J3/J7/J28</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Si &gt;65 kg / obèse</td>
+                                            <td>DHA-piperaquine (Eurartesim)</td>
+                                            <td>Import Swissmedic ; <strong>à jeun</strong></td>
+                                            <td>ECG obligatoire ; frottis J3/J7/J28</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Alternative</td>
+                                            <td>Malarone&reg; (A/P)</td>
+                                            <td>4 cp/j &times; 3j</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium"><em>P.f.</em> sévère<br><span class="text-xs">(&ge;1 critère)</span></td>
+                                            <td>Artésunate IV</td>
+                                            <td>2.4 mg/kg H0, H12, H24 puis /24h</td>
+                                            <td>Relais PO si parasitémie &le;1%. Surveillance PADH 4 sem (Hb/LDH/hapto). <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Criteres de severite -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Critères de sévérité &mdash; &ge;1 critère = artésunate IV + hospitalisation</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Critère</th>
+                                            <th>Seuil / Détail</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="font-medium">Troubles de la conscience</td><td>GCS &lt;11 adulte</td></tr>
+                                        <tr><td class="font-medium">Détresse respiratoire</td><td>Hypoxie, œdème pulmonaire, SDRA</td></tr>
+                                        <tr><td class="font-medium">Insuffisance rénale aiguë</td><td>Diurèse &lt;0.4 ml/kg/h ou créatinine &gt;265 &mu;mol/L</td></tr>
+                                        <tr><td class="font-medium">Acidose</td><td>pH &lt;7.3 ou bicarbonates &lt;15 mmol/L ou lactates &ge;5 mmol/L</td></tr>
+                                        <tr><td class="font-medium">Choc</td><td>TRC &ge;3 sec ou PAS &lt;80 mmHg</td></tr>
+                                        <tr><td class="font-medium">Anémie sévère</td><td>Hb &lt;7 g/dL ou Hct &lt;20%</td></tr>
+                                        <tr><td class="font-medium">Hypoglycémie</td><td>Glycémie &lt;2.2 mmol/L</td></tr>
+                                        <tr><td class="font-medium">Ictère</td><td>Bilirubine &gt;50 &mu;mol/L + parasitémie &gt;2%</td></tr>
+                                        <tr><td class="font-medium">Hyperparasitémie</td><td><strong>&ge;2%</strong> (seuil suisse ; OMS : &ge;5%)</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Échec tardif du Riamet&reg;</p>
+                            <p class="text-sm text-teal-800">Patient &gt;65 kg traité par Riamet&reg; : <strong>1 sur 10 récidive</strong> à J20-J28 (<a href="https://doi.org/10.1093/cid/ciw710" target="_blank" class="ref-link">Sonden CID 2017</a>, n=95 ; 9.6% si &gt;65 kg vs 0% si &le;65 kg). La luméfantrine lipophile atteint des concentrations sous-thérapeutiques. <strong>Planifiez un frottis de contrôle à J28.</strong></p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; PADH &mdash; Hémolyse retardée post-artésunate</p>
+                            <p class="text-sm text-teal-800">15-22% des voyageurs traités par artésunate IV. Survient J7-30 post-traitement par mécanisme de &laquo; pitting &raquo; splénique. Surveillance <strong>Hb/LDH/haptoglobine pendant 4 semaines</strong> (<a href="https://doi.org/10.3201/eid2105.141171" target="_blank" class="ref-link">Jaureguiberry 2015</a>).</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── DENGUE / ARBOVIROSES ──────────────────── -->
+                <section id="dengue" class="mb-14">
+                    <div class="flex items-start justify-between mb-2">
+                        <h2 class="font-serif text-2xl md:text-3xl text-teal-900">Dengue / Arboviroses</h2>
+                        <a href="../viruses/dengue.html" class="hidden sm:flex items-center gap-1 text-sm text-mint-600 hover:text-mint-500 shrink-0 mt-1">
+                            Fiche détaillée <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Record 2024 : &gt;14.6 millions de cas. 304 cas autochtones en Europe. Qdenga autorisé en Suisse (juillet 2024).</p>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Quand y penser</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Fièvre + thrombopénie + TDR malaria négatif, incubation <strong>3-10j</strong></li>
+                                <li>Retour d'Asie du Sud-Est, Amérique latine, Afrique centrale, Inde</li>
+                                <li>DDx critique avec paludisme : les deux causent fièvre + thrombopénie</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li><strong>NS1 ELISA</strong> : Se 90% J0-4 (<a href="https://doi.org/10.1016/j.lanmic.2025.101088" target="_blank" class="ref-link">Pillay Lancet Microbe 2025</a>, 161 études) ; chute après J5 et en infection secondaire</li>
+                                <li><strong>IgM</strong> : détectable des J4-5 ; <strong>IgG</strong> seules des J5 = infection secondaire</li>
+                                <li>TDR combo négatif (IgM/IgG) &ne; exclusion &rarr; demander IgM/IgG ELISA</li>
+                                <li>Déclaration obligatoire au médecin cantonal dans les <strong>24 heures</strong> (formulaire HIN-Secure Mail/fax)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Differentiel -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Différentiel : paludisme vs dengue vs chikungunya</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Critère</th>
+                                            <th>Paludisme</th>
+                                            <th>Dengue</th>
+                                            <th>Chikungunya</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="font-medium">Incubation</td><td>10-21j</td><td>3-10j</td><td>2-12j</td></tr>
+                                        <tr><td class="font-medium">Fièvre</td><td>Cyclique possible</td><td>Élevée brutale</td><td>Élevée brutale</td></tr>
+                                        <tr><td class="font-medium">Arthralgies</td><td>Rares</td><td>Modérées</td><td><strong>Sévères, invalidantes</strong></td></tr>
+                                        <tr><td class="font-medium">Thrombopénie</td><td>Oui</td><td><strong>Marquée</strong></td><td>Légère</td></tr>
+                                        <tr><td class="font-medium">Rash</td><td>Rare</td><td>Fréquent J5-7</td><td>Fréquent</td></tr>
+                                        <tr><td class="font-medium">Hémoconcentration</td><td>Non</td><td><strong>Oui (signe d'alarme)</strong></td><td>Non</td></tr>
+                                        <tr><td class="font-medium">Frottis/TDR</td><td>Positif</td><td>Négatif</td><td>Négatif</td></tr>
+                                        <tr><td class="font-medium">Gravité</td><td><strong>Mortelle si <em>P.f.</em></strong></td><td>Sévère possible</td><td>Rarement mortelle</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Phases cliniques -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Phases cliniques et prise en charge</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Phase</th>
+                                            <th>Jours</th>
+                                            <th>Risque</th>
+                                            <th>Conduite</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium">Fébrile</td>
+                                            <td>J1-7</td>
+                                            <td>Déshydratation</td>
+                                            <td>Réhydratation orale ; paracétamol</td>
+                                        </tr>
+                                        <tr class="bg-orange-50/50">
+                                            <td class="font-medium text-orange-900">Critique</td>
+                                            <td class="font-medium text-orange-900">J3-7 (à la défervescence)</td>
+                                            <td class="text-orange-900"><strong>Fuite plasmatique &rarr; choc ; hémorragie</strong></td>
+                                            <td class="text-orange-900">Surveiller Ht + plaquettes /6-12h. Cristalloïdes IV si signes d'alarme. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Convalescence</td>
+                                            <td>J7-10</td>
+                                            <td>Surcharge si perfusion continue</td>
+                                            <td>Restreindre apports IV des amélioration</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Signes d'alarme -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Signes d'alarme (<a href="https://www.who.int/publications/i/item/9789240111110" target="_blank" class="ref-link">WHO 2025</a>) &rarr; hospitaliser</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Douleur abdominale intense</li>
+                                <li>Vomissements persistants</li>
+                                <li>Accumulation liquidienne (ascite, épanchement pleural)</li>
+                                <li>Saignement muqueux</li>
+                                <li>Léthargie / agitation</li>
+                                <li>Hépatomégalie &gt;2 cm</li>
+                                <li><strong>Augmentation hématocrite + chute plaquettes simultanée</strong></li>
+                            </ul>
+                        </div>
+
+                        <div class="callout-danger">
+                            <p class="text-sm font-bold text-red-700 mb-1">&#9888; PAS d'AINS</p>
+                            <p class="text-sm text-teal-800">Recommandation forte <a href="https://www.who.int/publications/i/item/9789240111110" target="_blank" class="ref-link">OMS 2025</a>. Pas d'aspirine, ibuprofène, diclofénac &mdash; risque hémorragique même en automédication. Pas de transfusion plaquettaire prophylactique.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; La phase critique survient à la DÉFERVESCENCE</p>
+                            <p class="text-sm text-teal-800">J3-7, <strong>pas pendant la fièvre</strong>. Si l'hématocrite monte pendant que les plaquettes baissent &rarr; dengue sévère &mdash; <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">référer</a> immédiatement.</p>
+                        </div>
+
+                        <!-- Chikungunya -->
+                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
+                            <h4 class="font-semibold text-teal-800 mb-2">Chikungunya &mdash; spécificités</h4>
+                            <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Arthralgies sévères = signe discriminant (vs dengue)</li>
+                                <li><strong>30-40% développent des arthralgies chroniques</strong> (mois-années) ; prédicteurs : âge &gt;45 ans, sévérité aiguë</li>
+                                <li>Diagnostic : RT-PCR si &lt;7j, IgM CHIKV après J7</li>
+                            </ul>
+                        </div>
+
+                        <!-- Zika -->
+                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
+                            <h4 class="font-semibold text-teal-800 mb-2">Zika &mdash; spécificités</h4>
+                            <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Souvent paucisymptomatique</li>
+                                <li>Risque tératogène majeur : <strong>microcéphalie, anomalies cérébrales et oculaires</strong></li>
+                                <li>Excrétion prolongée dans le sperme (mois)</li>
+                                <li><strong>Conseil pré-conceptionnel obligatoire</strong> après voyage en zone endémique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── RICKETTSIOSES ──────────────────── -->
+                <section id="rickettsioses" class="mb-14">
+                    <div class="flex items-start justify-between mb-2">
+                        <h2 class="font-serif text-2xl md:text-3xl text-teal-900">Rickettsioses</h2>
+                        <a href="../bacteria/rickettsiosis.html" class="hidden sm:flex items-center gap-1 text-sm text-mint-600 hover:text-mint-500 shrink-0 mt-1">
+                            Fiche détaillée <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Cause de fièvre la plus fréquemment manquée au retour d'Afrique sub-saharienne. 2e cause de fièvre après le paludisme. Bénigne si traitée (mortalité 0% pour <em>R.&nbsp;africae</em>).</p>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Quand y penser</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Fièvre + <strong>escarre(s) noire(s)</strong> + retour Afrique australe (76.3% des cas), incubation 5-10j</li>
+                                <li>Taux d'attaque élevé en groupe (safari) ~40%</li>
+                                <li>Triade : fièvre (89.8%) + escarre d'inoculation (86.1%, multiples 54.8%) + adénopathie régionale (50.9%)</li>
+                                <li>30.5% des fièvres d'origine indéterminée non-malaria = infections doxycycline-sensibles (<a href="https://doi.org/10.1016/j.tmaid.2023.102571" target="_blank" class="ref-link">Camprubi-Ferrer 2023</a>)</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li><strong>Clinique en premier lieu</strong> : triade fièvre + escarre + voyage en Afrique</li>
+                                <li><strong>PCR sur écouvillon d'escarre</strong> = méthode de choix (Se &gt;90%, non invasive)</li>
+                                <li>Sérologie : souvent négative au début, séroconversion J10-14</li>
+                                <li>Anomalies biologiques : transaminases élevées (47%), CRP élevée (47%), leucopénie (32%)</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Traitement</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Situation</th>
+                                            <th>Traitement</th>
+                                            <th>Posologie</th>
+                                            <th>Remarques</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium">1re ligne</td>
+                                            <td><strong>Doxycycline</strong></td>
+                                            <td>100 mg 2&times;/j &times; 7 jours</td>
+                                            <td>Amélioration en 48h typique. <strong>IMMÉDIATEMENT</strong>, sans attendre la sérologie</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Allergie tétracyclines</td>
+                                            <td>Azithromycine</td>
+                                            <td>500 mg J1 puis 250 mg/j &times; 4j</td>
+                                            <td>Données limitées</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Grossesse</td>
+                                            <td>Josamycine</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Differentiel escarres -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Diagnostic différentiel des escarres</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Agent</th>
+                                            <th>Région</th>
+                                            <th>Escarre</th>
+                                            <th>Rash</th>
+                                            <th>Gravité</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium"><em>R. africae</em> (ATBF)</td>
+                                            <td>Afrique sub-saharienne</td>
+                                            <td>Multiple (55%)</td>
+                                            <td>42%</td>
+                                            <td>Bénigne</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium"><em>R. conorii</em> (boutonneuse)</td>
+                                            <td>Méditerranée</td>
+                                            <td>Unique (&laquo; tache noire &raquo;)</td>
+                                            <td>97%</td>
+                                            <td>Modérée (2-3% décès)</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium"><em>R. rickettsii</em> (RMSF)</td>
+                                            <td>Amériques</td>
+                                            <td>Rare</td>
+                                            <td>90%</td>
+                                            <td><strong>Sévère (20% décès sans tx)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium"><em>Orientia tsutsugamushi</em></td>
+                                            <td>Asie-Pacifique</td>
+                                            <td>Unique</td>
+                                            <td>50%</td>
+                                            <td>Modérée-sévère</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Beta-lactamines INEFFICACES</p>
+                            <p class="text-sm text-teal-800">Résistance intrinsèque des <em>Rickettsia</em> aux beta-lactamines. Le MG prescrit amoxicilline pour &laquo; syndrome grippal avec rash &raquo; &rarr; pas d'amélioration. <strong>Devant toute fièvre + escarre au retour d'Afrique : doxycycline MAINTENANT.</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── FIEVRE TYPHOIDE ──────────────────── -->
+                <section id="typhoide" class="mb-14">
+                    <div class="flex items-start justify-between mb-2">
+                        <h2 class="font-serif text-2xl md:text-3xl text-teal-900">Fièvre typhoïde</h2>
+                        <a href="../bacteria/enteric_fever.html" class="hidden sm:flex items-center gap-1 text-sm text-mint-600 hover:text-mint-500 shrink-0 mt-1">
+                            Fiche détaillée <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">85% des cas importés = Asie du Sud (Inde, Pakistan, Bangladesh). Profil typique : VFR non vacciné. Émergence XDR au Pakistan depuis 2016.</p>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Quand y penser</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Fièvre prolongée + retour Asie du Sud, incubation <strong>10-21j</strong></li>
+                                <li>Patient &laquo; toxique &raquo;, paucité de signes physiques, splénomégalie</li>
+                                <li>Profil VFR (visiting friends and relatives), souvent non vacciné</li>
+                                <li>Vaccin imparfait : efficacité 50-80%, 75.6% de déclin à 4 ans</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Hémocultures <strong>AVANT ATB</strong> (Se ~60%)</li>
+                                <li>Coprocultures souvent négatives en phase aiguë</li>
+                                <li>Déclaration obligatoire au médecin cantonal dans les <strong>24 heures</strong> (formulaire HIN-Secure Mail/fax)</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Traitement</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Situation</th>
+                                            <th>1re ligne</th>
+                                            <th>Alternative</th>
+                                            <th>Durée</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium">Sensible</td>
+                                            <td>Ciprofloxacine 500 mg 2&times;/j PO</td>
+                                            <td>Ceftriaxone 2g/j IV ou azithromycine</td>
+                                            <td>7-14j</td>
+                                        </tr>
+                                        <tr class="bg-orange-50/50">
+                                            <td class="font-medium text-orange-900">Suspicion XDR<br><span class="text-xs">(Pakistan, Inde)</span></td>
+                                            <td class="text-orange-900"><strong>Azithromycine</strong> 1g J1 puis 500 mg/j PO</td>
+                                            <td class="text-orange-900">Méropénème 1g 3&times;/j IV</td>
+                                            <td class="text-orange-900">7-14j</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Sévère / XDR</td>
+                                            <td><strong>Méropénème</strong> 1g 3&times;/j IV &plusmn; azithromycine</td>
+                                            <td></td>
+                                            <td>10-14j. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- XDR explanation -->
+                        <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
+                            <h4 class="font-semibold text-teal-800 mb-2">Résistance XDR &mdash; le problème</h4>
+                            <ul class="space-y-1 text-sm text-teal-800/80 list-disc list-inside">
+                                <li><strong>XDR</strong> = résistant à ampicilline + chloramphénicol + TMP-SMX + fluoroquinolones + C3G</li>
+                                <li>Ne reste sensible qu'à : <strong>azithromycine (PO) et méropénème (IV)</strong></li>
+                                <li>Outbreak Hyderabad (Sindh) depuis 2016 ; plasmide IncY portant blaCTX-M-15 + qnrS (<a href="https://doi.org/10.1128/mBio.00105-18" target="_blank" class="ref-link">Klemm MBio 2018</a>)</li>
+                                <li>Propagation : Punjab 0% résistance ceftriaxone (2017) &rarr; 30% (2018) &rarr; <strong>50% (2019)</strong></li>
+                                <li>Extension hors Pakistan : lignée ceftriaxone-résistante apparue en Inde (<a href="https://doi.org/10.1371/journal.pntd.0008718" target="_blank" class="ref-link">Wong PLoS NTD 2020</a>)</li>
+                            </ul>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; TDR malaria faussement positif</p>
+                            <p class="text-sm text-teal-800">Le TDR malaria peut être <strong>faussement positif</strong> dans la fièvre typhoïde (cross-réactivité antigénique, <a href="https://doi.org/10.1186/1471-2334-14-377" target="_blank" class="ref-link">Meatherall BMC Infect Dis 2014</a>). Confirmer par frottis + hémocultures.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Défervescence lente</p>
+                            <p class="text-sm text-teal-800"><strong>5-7 jours</strong> même avec ATB efficace. Ne pas changer de traitement trop vite.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── FIEVRES HEMORRAGIQUES VIRALES ──────────────────── -->
+                <section id="fhv" class="mb-14">
+                    <div class="flex items-start justify-between mb-2">
+                        <h2 class="font-serif text-2xl md:text-3xl text-teal-900">Fièvres hémorragiques virales</h2>
+                    </div>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Rare mais catastrophique. Ebola létalité 25-90%, Marburg 24-88%. Le MG est la sentinelle. Outbreak Marburg Éthiopie novembre 2025 : 13 cas, 8 décès.</p>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Critères d'alerte</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Fièvre &ge;38.5&deg;C</li>
+                                <li>Retour <strong>&lt;21 jours</strong> d'une zone endémique/épidémique</li>
+                                <li>Au moins UN des suivants : contact avec cas suspect/confirmé, contact avec liquides biologiques humains/animaux (chauve-souris, primates), soins en établissement en zone d'épidémie, travail en labo pathogènes groupe 4</li>
+                                <li>Signes hémorragiques : pétéchies, gingivorragie, epistaxis, hématémèse, méléna</li>
+                            </ul>
+                        </div>
+
+                        <!-- Protocole -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Protocole : IDENTIFIER &mdash; ISOLER &mdash; INFORMER</h3>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded-xl border border-teal-200/60 p-4">
+                                    <p class="font-semibold text-teal-800 mb-1">1. IDENTIFIER</p>
+                                    <p class="text-sm text-teal-700/80">Anamnèse de voyage systématique pour TOUTE fièvre au cabinet. Incubation : 2-21j (Ebola/Marburg), 6-21j (Lassa).</p>
+                                </div>
+                                <div class="bg-white rounded-xl border border-teal-200/60 p-4">
+                                    <p class="font-semibold text-teal-800 mb-1">2. ISOLER</p>
+                                    <p class="text-sm text-teal-700/80">Chambre individuelle, porte fermée. Précautions contact + gouttelettes. FFP2, lunettes, surblouse, gants doubles. Limiter le nombre de soignants.</p>
+                                </div>
+                                <div class="bg-red-50 rounded-xl border border-red-200/60 p-4">
+                                    <p class="font-semibold text-red-900 mb-1">3. INFORMER &mdash; Déclaration dans les 2 heures</p>
+                                    <p class="text-sm text-red-800/80">
+                                        Tel. OFSP : <strong>058 463 87 37</strong> (hors heures) / 058 463 87 06 (heures de bureau)<br>
+                                        + Médecin cantonal<br>
+                                        Centres de référence : CHUV, HUG, Inselspital, USZ
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="callout-danger">
+                            <p class="text-sm font-bold text-red-700 mb-1">&#9888; NE PAS faire de prélèvement avant avis spécialisé</p>
+                            <p class="text-sm text-teal-800">Risque de contamination du laboratoire. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a> immédiatement à un centre de référence.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Piège &mdash; Symptômes initiaux non spécifiques</p>
+                            <p class="text-sm text-teal-800">Fièvre, céphalées, myalgies = &laquo; grippe &raquo;. Seuls les signes hémorragiques tardifs rendent le diagnostic évident &mdash; <strong>trop tard pour la protection</strong>. La question qui sauve des vies : &laquo; Avez-vous voyagé récemment ? &raquo;</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── KATAYAMA ──────────────────── -->
+                <section id="katayama" class="mb-14">
+                    <div class="flex items-start justify-between mb-2">
+                        <h2 class="font-serif text-2xl md:text-3xl text-teal-900">Katayama (schistosomiase aiguë)</h2>
+                        <a href="../parasites/schistosomiasis.html" class="hidden sm:flex items-center gap-1 text-sm text-mint-600 hover:text-mint-500 shrink-0 mt-1">
+                            Fiche détaillée <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Fièvre + éosinophilie + baignade eau douce Afrique. 53% des voyageurs exposés au lac Malawi infectés (<a href="https://doi.org/10.4269/ajtmh.13-0046" target="_blank" class="ref-link">Logan 2013</a>).</p>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Quand y penser</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Fièvre + éosinophilie + baignade eau douce Afrique, <strong>4-8 semaines</strong> post-exposition</li>
+                                <li>Urticaire, toux, hépatomégalie</li>
+                                <li>Migration des schistosomules = réaction d'hypersensibilité</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Diagnostic</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Sérologie <em>Schistosoma</em> : <strong>négative les 6-8 premières semaines</strong> &mdash; répéter à 6-8 sem post-exposition</li>
+                                <li>14% séronégatifs à la présentation (<a href="https://doi.org/10.4269/ajtmh.13-0046" target="_blank" class="ref-link">Logan 2013</a>)</li>
+                                <li>Diagnostic souvent clinique en phase aiguë</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Traitement</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Médicament</th>
+                                            <th>Posologie</th>
+                                            <th>Remarques</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium">Praziquantel</td>
+                                            <td><strong>40 mg/kg</strong> dose unique</td>
+                                            <td>Attendre <strong>&ge;6-8 semaines</strong> post-exposition (inefficace sur formes immatures)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-xs text-teal-600/60 mt-2">Praziquantel non inscrit au Compendium (import Art. 49 MPLO) ; pénurie européenne 2025 (Bayer a cessé la production du Biltricide) &rarr; <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">contacter un spécialiste</a>.</p>
+                        </div>
+
+                        <!-- Bilan eosinophilie -->
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Bilan de l'hyperéosinophilie du voyageur</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Étape</th>
+                                            <th>Contenu</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium">Seuil d'action</td>
+                                            <td>&ge;1.5 G/L = hyperéosinophilie ; <strong>&ge;5 G/L = sévère</strong> &rarr; risque d'atteinte d'organe imminente</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Atteinte d'organe</td>
+                                            <td>Coeur (ECG + echo), poumons (RxT &plusmn; CT), peau, neuro</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Causes infectieuses</td>
+                                            <td>Parasitoses &gt;50% : Katayama, <em>Strongyloides</em>, <em>Toxocara</em>, filaires</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Bilan étiologique</td>
+                                            <td>Sérologies : <em>Strongyloides</em>, <em>Toxocara</em>, <em>Schistosoma</em>, filaires ; parasitologie selles &times; 3 (Baermann) ou PCR helminthes selles ; IgE totales</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a></td>
+                                            <td>Infectiologue/tropicaliste si suspicion parasitaire ; hématologue si bilan négatif complet</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="callout-danger">
+                            <p class="text-sm font-bold text-red-700 mb-1">&#9888; JAMAIS de corticoïdes sans exclure <em>Strongyloides</em></p>
+                            <p class="text-sm text-teal-800">Corticoïdes &rarr; hyperinfection à <em>Strongyloides stercoralis</em>, mortalité <strong>60-85%</strong>. Toujours dépister <em>Strongyloides</em> avant toute corticothérapie chez un patient ayant voyagé en zone tropicale. <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a></p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            POINTS CLES                                     -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="points-cles" class="bg-teal-50 border border-teal-200/50 rounded-2xl p-6 md:p-8 mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-6">Points clés</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+                            <p class="text-sm text-teal-800">Toute fièvre au retour de voyage = poser la question du voyage + <strong>TDR malaria sans délai</strong>. Le paludisme ne peut pas attendre demain.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+                            <p class="text-sm text-teal-800">Riamet&reg; en Suisse = <strong>5 jours / 40 cp</strong> (<a href="https://www.ssttm.ch/dokumente/swisstph-malaria-tx-recommendations-21-10-2025-clean.pdf" target="_blank" class="ref-link">SSTTM 2025</a>). Si &gt;65 kg : frottis de contrôle J28 obligatoire &mdash; échec tardif ~10%.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+                            <p class="text-sm text-teal-800">Escarre + Afrique = <strong>doxycycline IMMÉDIATEMENT</strong>, pas d'amoxicilline, pas d'attente de sérologie. Réponse en 48h.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">4</span>
+                            <p class="text-sm text-teal-800">Phase critique dengue = <strong>à la défervescence</strong> (J3-7), pas pendant la fièvre. Surveiller Ht + plaquettes. <strong>Jamais d'AINS.</strong></p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
+                            <p class="text-sm text-teal-800"><strong>JAMAIS de corticoïdes</strong> sans exclure <em>Strongyloides</em> (mortalité hyperinfection 60-85%). <a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link">Référer</a> si doute.</p>
+                        </li>
+                    </ul>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            QUAND REFERER                                   -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="referer" class="mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-6">Quand référer ?</h2>
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Avis spécialisé sans délai</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Paludisme sévère</strong> &mdash; &ge;1 critère de sévérité : artésunate IV et hospitalisation immédiate</li>
+                            <li><strong>Suspicion de fièvre hémorragique virale</strong> &mdash; ne pas prélever avant avis ; isoler et informer le médecin cantonal</li>
+                            <li><strong>Dengue avec signes d'alarme</strong> &mdash; hématocrite qui monte pendant que les plaquettes baissent</li>
+                            <li><strong>Fièvre typhoïde suspectée XDR</strong> (Pakistan, retour d'Asie du Sud) &mdash; choix d'antibiotique restreint</li>
+                            <li><strong>Avant toute corticothérapie</strong> chez un patient ayant voyagé en zone tropicale &mdash; exclure <em>Strongyloides</em> (mortalité de l'hyperinfection 60-85%)</li>
+                            <li>Fièvre persistante <strong>sans diagnostic</strong> après bilan initial, ou éosinophilie associée</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            REFERENCES                                      -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="references" class="mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-6">Références</h2>
+                    <div class="overflow-x-auto rounded-xl border border-teal-100">
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th class="w-24">Thème</th>
+                                    <th>Référence</th>
+                                    <th>Données clés</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Paludisme -->
+                                <tr>
+                                    <td rowspan="5" class="font-medium text-teal-700 align-top">Paludisme</td>
+                                    <td><a href="https://doi.org/10.1016/j.tmaid.2021.102233" target="_blank" class="ref-link">Giannone B et al. Travel Med Infect Dis 2022;45:102233</a></td>
+                                    <td>n=8 439 cas en Suisse (1990-2019), 52 décès, létalité ~0.6%</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1093/cid/ciw710" target="_blank" class="ref-link">Sonden K et al. CID 2017;64:199-207</a></td>
+                                    <td>n=95, échec tardif A/L 5.2% global, 9.6% si &gt;65 kg vs 0% si &le;65 kg</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.3201/eid2105.141171" target="_blank" class="ref-link">Jaureguiberry S et al. Emerg Infect Dis 2015;21:804-812</a></td>
+                                    <td>n=123, PADH 27% post-artésunate</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1093/jtm/taae030" target="_blank" class="ref-link">Slack A, Genton B. J Travel Med 2024;31:taae030</a></td>
+                                    <td>n=4 972, 0.08% diagnostic tardif &mdash; remet en question les 3 frottis</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ssttm.ch/dokumente/swisstph-malaria-tx-recommendations-21-10-2025-clean.pdf" target="_blank" class="ref-link">SSTTM. Malaria Treatment Recommendations 2025</a></td>
+                                    <td>Schéma 5j, seuil 2%, suivi J28</td>
+                                </tr>
+                                <!-- Arboviroses -->
+                                <tr>
+                                    <td rowspan="3" class="font-medium text-teal-700 align-top">Arboviroses</td>
+                                    <td><a href="https://www.who.int/publications/i/item/9789240111110" target="_blank" class="ref-link">WHO. Guidelines for arboviral diseases. Juillet 2025</a></td>
+                                    <td>Pas d'AINS, réhydratation protocolisée</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1016/j.lanmic.2025.101088" target="_blank" class="ref-link">Pillay et al. Lancet Microbe 2025 (méta-analyse, 161 études)</a></td>
+                                    <td>NS1 ELISA Se 90% J0-4</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ecdc.europa.eu/en/dengue-monthly" target="_blank" class="ref-link">ECDC. Dengue surveillance data 2024</a></td>
+                                    <td>304 cas autochtones en Europe</td>
+                                </tr>
+                                <!-- Typhoide -->
+                                <tr>
+                                    <td rowspan="2" class="font-medium text-teal-700 align-top">Typhoïde</td>
+                                    <td><a href="https://doi.org/10.1128/mBio.00105-18" target="_blank" class="ref-link">Klemm EJ et al. MBio 2018;9:e00105-18</a></td>
+                                    <td>n=87 isolats XDR, plasmide IncY blaCTX-M-15 + qnrS</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1093/ofid/ofad259" target="_blank" class="ref-link">Parry CM et al. Open Forum Infect Dis 2023;10(S1):S26-31</a></td>
+                                    <td>Azithromycine = pilier XDR, défervescence 7.1j</td>
+                                </tr>
+                                <!-- Rickettsioses -->
+                                <tr>
+                                    <td rowspan="2" class="font-medium text-teal-700 align-top">Rickettsioses</td>
+                                    <td><a href="https://doi.org/10.3201/eid1511.090677" target="_blank" class="ref-link">Jensenius M et al. Emerg Infect Dis 2009;15:1791-1798</a></td>
+                                    <td>n=280 GeoSentinel, 82.5% SFG</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1371/journal.pntd.0010212" target="_blank" class="ref-link">Delord M et al. PLoS NTD 2022 (revue systématique)</a></td>
+                                    <td>86.1% escarre, 54.8% multiples, mortalité 0%</td>
+                                </tr>
+                                <!-- FHV -->
+                                <tr>
+                                    <td rowspan="2" class="font-medium text-teal-700 align-top">FHV</td>
+                                    <td><a href="https://doi.org/10.1056/NEJMoa1411680" target="_blank" class="ref-link">Schieffelin JS et al. NEJM 2014;371:2092-2100</a></td>
+                                    <td>n=106, Ebola Sierra Leone, létalité ~74%</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.who.int/emergencies/disease-outbreak-news" target="_blank" class="ref-link">WHO. Marburg outbreak Ethiopia, November 2025</a></td>
+                                    <td>13 cas, 8 décès (61.5%)</td>
+                                </tr>
+                                <!-- Katayama / Eosinophilie -->
+                                <tr>
+                                    <td class="font-medium text-teal-700 align-top">Katayama</td>
+                                    <td><a href="https://doi.org/10.4269/ajtmh.13-0046" target="_blank" class="ref-link">Logan et al. Am J Trop Med Hyg 2013;88:1032</a></td>
+                                    <td>n=79, 53% infectés lac Malawi, 14% séronégatifs à la présentation</td>
+                                </tr>
+                                <!-- Generales -->
+                                <tr>
+                                    <td rowspan="3" class="font-medium text-teal-700 align-top">Générales</td>
+                                    <td><a href="https://doi.org/10.1056/NEJMra1508435" target="_blank" class="ref-link">Thwaites GE, Day NP. NEJM 2017;376:548-560</a></td>
+                                    <td>Algorithme &laquo; Rule out malaria first &raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1086/518173" target="_blank" class="ref-link">Wilson ME et al. CID 2007;44:1560-1568</a></td>
+                                    <td>n=24 920 GeoSentinel, 28% = fièvre</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.sciencedirect.com/science/article/pii/B978032348255400319X" target="_blank" class="ref-link">Boggild AK, Freedman DO. Mandell ch. 319</a></td>
+                                    <td>Tables 319.1-319.2, algorithme diagnostique</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- ─── FLOATING TOC ─── -->
+            <aside class="toc-sidebar hidden lg:block">
+                <nav class="toc">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
+                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                        <li><a href="#consultation-rapide" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Consultation rapide</a></li>
+                        <li class="pl-4">
+                            <ul class="space-y-0.5 text-xs text-teal-500/70">
+                                <li><a href="#triage" class="block pl-3 py-0.5 hover:text-mint-600 transition-colors">Algorithme de triage</a></li>
+                                <li><a href="#bilan" class="block pl-3 py-0.5 hover:text-mint-600 transition-colors">Bilan initial</a></li>
+                                <li><a href="#declaration" class="block pl-3 py-0.5 hover:text-mint-600 transition-colors">Déclaration obligatoire</a></li>
+                            </ul>
+                        </li>
+                        <li class="pt-2"><span class="block pl-4 text-[10px] uppercase tracking-widest text-teal-400/50 font-semibold">Par pathogène</span></li>
+                        <li><a href="#paludisme" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Paludisme</a></li>
+                        <li><a href="#dengue" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Dengue / Arboviroses</a></li>
+                        <li><a href="#rickettsioses" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Rickettsioses</a></li>
+                        <li><a href="#typhoide" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Fièvre typhoïde</a></li>
+                        <li><a href="#fhv" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Fièvres hémorragiques</a></li>
+                        <li><a href="#katayama" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Katayama</a></li>
+                        <li class="pt-2"><a href="#points-cles" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors font-medium">Points clés</a></li>
+                        <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand référer</a></li>
+                        <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+                    </ul>
+
+                    <!-- Referer CTA in TOC -->
+                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
+                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p>
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
+                            Demander un avis
+                        </a>
+                    </div>
+                </nav>
+            </aside>
         </div>
-      </div>
-      <div class="point-card point-retenir">
-        <div class="point-label label-retenir">→ Retenir</div>
-        <ul class="retenir-list">
-          <li>Fièvre + voyage → TDR + frottis IMMÉDIATEMENT — ne peut pas attendre le lendemain</li>
-          <li>Riamet® : schéma <strong>5 jours / 40 cp</strong> (SSTTM 2025), surtout si &gt;65 kg</li>
-          <li>Dengue : danger à la <strong>défervescence</strong> (J3–7), pas pendant la phase fébrile</li>
-          <li>Fièvre + escarre en Afrique → <strong>doxycycline MAINTENANT</strong>, sans attendre séro</li>
-          <li>Typhoïde Pakistan/Inde → suspecter XDR → <strong>azithromycine</strong>, pas fluoroquinolone</li>
-          <li>Éosinophilie + bain eau douce Afrique = Katayama → <strong>jamais corticoïdes</strong> sans exclure <em>Strongyloides</em></li>
-          <li>TDR malaria faux positif possible dans typhoïde (cross-réactivité) → confirmer par frottis + hémocultures</li>
-          <li>Déclaration OFSP dans les 24h : paludisme, dengue, typhoïde, rickettsiose</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    </main>
 
-  <!-- 6. RÉFÉRENCES -->
-  <div class="section" id="references">
-    <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:1.25rem;">
-      <div class="section-icon" style="background:var(--cream-200);">📑</div>
-      <div>
-        <div class="section-label">Bibliographie sélective</div>
-        <h2 class="section-title">Références</h2>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div class="evidence-list">
-      <div class="evidence-item"><span class="evidence-num">1</span><span class="evidence-text"><strong>Giannone PJ et al.</strong> Swiss Trop Public Health 2022 — 52 décès par maladies tropicales importées en Suisse 1990–2019, paludisme 77%.</span></div>
-      <div class="evidence-item"><span class="evidence-num">2</span><span class="evidence-text"><strong>Slack & Genton. 2024</strong> — Importance du dépistage systématique du paludisme au retour de voyage en Suisse.</span></div>
-      <div class="evidence-item"><span class="evidence-num">3</span><span class="evidence-text"><strong>Rosenthal PJ. N Engl J Med 2024</strong> — Résistance partielle à l'artémisinine en Afrique de l'Est depuis 2020 ; implications cliniques.</span></div>
-      <div class="evidence-item"><span class="evidence-num">4</span><span class="evidence-text"><strong>Jaureguiberry S et al. Am J Trop Med Hyg 2015</strong> — PADH (hémolyse retardée post-artésunate) : incidence, délai, prise en charge.</span></div>
-      <div class="evidence-item"><span class="evidence-num">5</span><span class="evidence-text"><strong>Pillay S et al. Lancet Microbe 2025</strong> — NS1 ELISA : sensibilité 90% J0–J4 pour la dengue ; combinaison IgM/IgG indispensable.</span></div>
-      <div class="evidence-item"><span class="evidence-num">6</span><span class="evidence-text"><strong>WHO. Global arboviral guidelines 2025</strong> — Prise en charge de la dengue sévère : critères d'alarme et conduite à tenir à la défervescence.</span></div>
-      <div class="evidence-item"><span class="evidence-num">7</span><span class="evidence-text"><strong>Camprubí-Ferrer L et al. J Travel Med 2023</strong> — 30.5% des fièvres d'origine inconnue au retour de voyage sont sensibles à la doxycycline.</span></div>
-      <div class="evidence-item"><span class="evidence-num">8</span><span class="evidence-text"><strong>Klemm EJ et al. Science 2018</strong> — Emergence XDR <em>Salmonella typhi</em> Pakistan : 87 isolats, résistance plasmidique blaCTX-M-15.</span></div>
-      <div class="evidence-item"><span class="evidence-num">9</span><span class="evidence-text"><strong>Logan S et al. Clin Infect Dis 2013</strong> — Sérologie Katayama négative dans 14% des cas à la présentation ; répéter à 6–8 semaines.</span></div>
-      <div class="evidence-item"><span class="evidence-num">10</span><span class="evidence-text"><strong>SSTTM / Swiss Society for Travel Medicine. Recommandations 2025</strong> — Schéma Riamet® 5 jours pour le paludisme à <em>P. falciparum</em> non compliqué.</span></div>
-    </div>
-  </div>
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <div>
+                    <div class="flex items-center gap-2 text-cream-100">
+                        <svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/>
+                        </svg>
+                        <span class="font-serif text-sm">Tropical Notebook</span>
+                    </div>
+                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">
+                        Manuel de médecine tropicale et du voyage pour le praticien.
+                    </p>
+                </div>
 
-</div><!-- /main -->
+                <div class="flex flex-col sm:flex-row gap-8 text-sm">
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4>
+                        <div class="space-y-2">
+                            <a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a>
+                            <a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a>
+                            <a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4>
+                        <div class="space-y-2">
+                            <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">
+                                traveldoctor.ch &rarr;
+                            </a>
+                            <span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- FOOTER -->
-<div style="background:var(--teal-800); color:var(--teal-100); padding:2rem 1.5rem; text-align:center; font-size:0.82rem; line-height:1.6;">
-  <div style="font-family:'DM Serif Display',serif; color:#fdfaf4; font-size:1.1rem; margin-bottom:0.5rem;">Tropical Notebook</div>
-  Médecine tropicale et du voyage pour praticiens — Suisse<br>
-  <a href="mailto:ludovico.cobuccio@chuv.ch" style="color:var(--mint-300); text-decoration:none;">ludovico.cobuccio@chuv.ch</a> ·
-  <a href="https://traveldoctor.ch" target="_blank" style="color:var(--mint-300); text-decoration:none;">traveldoctor.ch</a>
-</div>
+            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-cream-200/30">
+                    &copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.
+                </p>
+                <p class="text-xs text-cream-200/30">
+                    Dr. Ludovico Cobuccio
+                </p>
+            </div>
+        </div>
+    </footer>
 
-<script>
-  // Dropdown toggle on mobile
-  document.querySelectorAll('.dropdown button').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.currentTarget.closest('.dropdown').classList.toggle('active');
-    });
-  });
-  // Scroll spy for anchor nav
-  const sections = document.querySelectorAll('.section[id]');
-  const anchorLinks = document.querySelectorAll('.anchor-link');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        anchorLinks.forEach(l => l.classList.remove('active'));
-        const active = document.querySelector(`.anchor-link[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { rootMargin: '-56px 0px -60% 0px', threshold: 0 });
-  sections.forEach(s => observer.observe(s));
-</script>
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('mobileToggle');
+        const menu = document.getElementById('mobileMenu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.remove('open'));
+        });
 
+        // Mobile dropdown toggles
+        document.querySelectorAll('.dropdown > button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth < 768) {
+                    e.preventDefault();
+                    btn.closest('.dropdown').classList.toggle('active');
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('.nav-fixed');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // TOC scroll spy
+        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+        const sections = document.querySelectorAll('section[id], div[id]');
+
+        const observerToc = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => {
+                        link.classList.remove('active', 'text-mint-600', 'border-mint-400', 'font-semibold');
+                        link.classList.add('border-transparent', 'text-teal-600');
+                    });
+                    const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active', 'text-mint-600', 'border-mint-400', 'font-semibold');
+                        activeLink.classList.remove('border-transparent', 'text-teal-600');
+                    }
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+
+        sections.forEach(section => observerToc.observe(section));
+    </script>
 </body>
 </html>
