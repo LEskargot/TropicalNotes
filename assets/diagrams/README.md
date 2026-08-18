@@ -17,7 +17,21 @@ Le SVG auto-hébergé règle le problème et présente d'autres avantages :
   consultent le site ne sont pas exposés à un traceur tiers) ;
 - affichage immédiat, sans JavaScript, et impression correcte.
 
-## Régénérer un SVG après modification du diagramme
+## Régénération automatique (recommandé)
+
+Un hook `pre-commit` régénère le SVG dès qu'un `.drawio.xml` est mis en scène,
+et l'ajoute au même commit. À installer **une fois par clone** (Git ne partage
+pas la configuration locale) :
+
+```bash
+bash scripts/hooks/install.sh   # règle core.hooksPath sur scripts/hooks
+```
+
+Ensuite, modifier un diagramme dans draw.io puis `git add` du `.drawio.xml`
+suffit : le SVG est reconstruit et inclus dans le commit. Pour passer outre :
+`git commit --no-verify`.
+
+## Régénérer un SVG à la main
 
 ```bash
 python3 scripts/drawio2svg.py \
