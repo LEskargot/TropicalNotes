@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="59 -6 1700 840" width="100%" role="img" aria-label="Algorithme diarrhée du voyageur" font-family="'Source Sans 3', 'Segoe UI', system-ui, sans-serif">
+<title>Algorithme diarrhée du voyageur</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-end"><path d="M0,0 L10,5 L0,10 z" fill="#5a6b73"/></marker></defs>
+<rect x="59" y="-6" width="1700" height="840" fill="#ffffff"/>
+<path d="M 225.6 292.0 L 225.6 350.0" fill="none" stroke="#5a6b73" stroke-width="1.6" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 900.0 60.0 L 900.0 85.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 764.0 131.0 L 764.0 148.0 L 225.0 148.0 L 225.6 148.0 L 225.6 195.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="442.9" y="138.5" width="103.6" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="494.7" y="155.5" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Tolérable</text>
+<path d="M 849.0 131.0 L 724.5 131.0 L 724.5 200.0 L 600.0 200.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="683.1" y="148.5" width="82.8" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="724.5" y="165.5" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Gênante</text>
+<path d="M 951.0 131.0 L 988.0 131.0 L 988.0 200.0 L 1025.0 200.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="915.4" y="148.5" width="145.2" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="988.0" y="165.5" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Incapacitante</text>
+<path d="M 1036.0 131.0 L 1036.0 151.0 L 1455.0 151.0 L 1455.0 200.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1193.7" y="141.2" width="103.6" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1245.5" y="158.2" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Sanglante</text>
+<path d="M 600.0 240.0 L 600.0 295.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 537.5 355.0 L 503.8 355.0 L 503.8 400.0 L 470.0 400.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="483.1" y="360.5" width="41.2" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="503.8" y="377.5" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Non</text>
+<path d="M 662.5 355.0 L 701.2 355.0 L 701.2 395.0 L 740.0 395.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="680.6" y="358.0" width="41.2" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="701.2" y="375.0" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Oui</text>
+<path d="M 1025.0 240.0 L 1025.0 290.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1455.0 240.0 L 1455.0 300.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1420.0 340.0 L 1380.0 340.0 L 1380.0 380.0 L 1340.0 380.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1359.4" y="343.0" width="41.2" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1380.0" y="360.0" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Non</text>
+<path d="M 1490.0 340.0 L 1548.8 340.0 L 1548.8 378.0 L 1607.5 378.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1528.2" y="342.0" width="41.2" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1548.8" y="359.0" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Oui</text>
+<path d="M 1025.0 400.0 L 1025.0 465.0 L 1118.0 465.0 L 1118.0 530.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1340.0 500.0 L 1281.0 500.0 L 1281.0 530.0 L 1222.0 530.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1118.0 574.0 L 1118.0 607.0 L 1085.0 607.0 L 1085.0 640.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1080.9" y="590.0" width="41.2" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1101.5" y="607.0" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Oui</text>
+<path d="M 1222.0 574.0 L 1270.0 574.0 L 1270.0 640.0 L 1318.0 640.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="1249.4" y="590.0" width="41.2" height="34.0" rx="4" fill="#ffffff" fill-opacity="0.92"/>
+<text x="1270.0" y="607.0" font-size="20" fill="#7B8FA0" text-anchor="middle" dominant-baseline="central">Non</text>
+<rect x="730.0" y="18.0" width="340.0" height="42.0" rx="20.0" fill="#1A1A2E"/>
+<text x="900.0" y="46.0" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700">Diarrhée aiguë du voyageur</text>
+<rect x="730.0" y="85.0" width="340.0" height="46.0" rx="12.5" fill="#E8F0FE" stroke="#7B8FA0" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="900.0" y="103.6" font-size="16" fill="#1A1A2E" text-anchor="middle" font-weight="700">Sévérité</text>
+<text x="900.0" y="123.6" font-size="16" fill="#1A1A2E" text-anchor="middle">(impact fonctionnel)</text>
+<rect x="83.0" y="195.0" width="285.3" height="97.0" rx="7.5" fill="#43A047" stroke="#2E7D32" stroke-width="1.5"/>
+<text x="225.6" y="250.5" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700">LÉGÈRE</text>
+<rect x="490.0" y="200.0" width="220.0" height="40.0" rx="7.5" fill="#F9A825" stroke="#F57F17" stroke-width="1.5"/>
+<text x="600.0" y="227.0" font-size="20" fill="#1A1A2E" text-anchor="middle" font-weight="700">MODÉRÉE</text>
+<rect x="915.0" y="200.0" width="220.0" height="40.0" rx="7.5" fill="#E53935" stroke="#C62828" stroke-width="1.5"/>
+<text x="1025.0" y="227.0" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700">SÉVÈRE</text>
+<rect x="1330.0" y="200.0" width="250.0" height="40.0" rx="7.5" fill="#8E24AA" stroke="#6A1B9A" stroke-width="1.5"/>
+<text x="1455.0" y="227.0" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700">DYSENTÉRIQUE</text>
+<rect x="475.0" y="295.0" width="250.0" height="60.0" rx="12.5" fill="#E8F0FE" stroke="#7B8FA0" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="600.0" y="319.5" font-size="20" fill="#1A1A2E" text-anchor="middle" font-weight="700">Comorbidité ?</text>
+<text x="600.0" y="344.5" font-size="20" fill="#1A1A2E" text-anchor="middle" font-weight="700">Hospit./ATB récent ?</text>
+<rect x="370.0" y="400.0" width="200.0" height="80.0" rx="6.0" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+<text x="470.0" y="423.8" font-size="18" fill="#1A1A2E" text-anchor="middle">SRO ± lopéramide</text>
+<text x="470.0" y="446.3" font-size="18" fill="#1A1A2E" text-anchor="middle">Pas d'ATB</text>
+<text x="470.0" y="468.8" font-size="18" fill="#1A1A2E" text-anchor="middle">Pas d'investigation</text>
+<rect x="600.0" y="395.0" width="280.0" height="90.0" rx="6.0" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.5"/>
+<text x="740.0" y="423.8" font-size="18" fill="#1A1A2E" text-anchor="middle">Panel PCR bactérien</text>
+<text x="740.0" y="446.3" font-size="18" fill="#1A1A2E" text-anchor="middle">PCR C. difficile si hospit.</text>
+<text x="740.0" y="468.8" font-size="18" fill="#1A1A2E" text-anchor="middle">ATB si comorbidité sévère</text>
+<rect x="865.0" y="290.0" width="320.0" height="110.0" rx="6.0" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+<text x="1025.0" y="317.6" font-size="18" fill="#1A1A2E" text-anchor="middle">Panel PCR bactérien</text>
+<text x="1025.0" y="340.1" font-size="18" fill="#1A1A2E" text-anchor="middle" font-weight="700">ATB empirique</text>
+<text x="1025.0" y="362.6" font-size="18" fill="#1A1A2E" text-anchor="middle">+ C. difficile si hospit.</text>
+<text x="1025.0" y="385.1" font-size="18" fill="#1A1A2E" text-anchor="middle">+ PCR protozoaires si immunosup.</text>
+<rect x="1385.0" y="300.0" width="140.0" height="40.0" rx="12.5" fill="#E8F0FE" stroke="#7B8FA0" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="1455.0" y="327.0" font-size="20" fill="#1A1A2E" text-anchor="middle" font-weight="700">Sepsis ?</text>
+<rect x="1190.0" y="380.0" width="300.0" height="120.0" rx="6.0" fill="#F3E5F5" stroke="#8E24AA" stroke-width="1.5"/>
+<text x="1340.0" y="405.6" font-size="16" fill="#1A1A2E" text-anchor="middle">Panel PCR bactérien</text>
+<text x="1340.0" y="425.6" font-size="16" fill="#1A1A2E" text-anchor="middle">PCR E. histolytica ou panel</text>
+<text x="1340.0" y="445.6" font-size="16" fill="#1A1A2E" text-anchor="middle">protozoaires</text>
+<text x="1340.0" y="465.6" font-size="16" fill="#1A1A2E" text-anchor="middle">+ C. difficile si hospit.</text>
+<text x="1340.0" y="485.6" font-size="16" fill="#1A1A2E" text-anchor="middle" font-weight="700">ATB empirique (sauf EHEC suspecté)</text>
+<rect x="1480.0" y="378.0" width="255.0" height="109.0" rx="6.0" fill="#FFCDD2" stroke="#C62828" stroke-width="2"/>
+<text x="1607.5" y="402.0" font-size="20" fill="#1A1A2E" text-anchor="middle" font-weight="700">URGENT</text>
+<text x="1607.5" y="427.0" font-size="20" fill="#1A1A2E" text-anchor="middle">ELISA E. histolytica</text>
+<text x="1607.5" y="452.0" font-size="20" fill="#1A1A2E" text-anchor="middle">± Rectosigmoïdoscopie</text>
+<text x="1607.5" y="477.0" font-size="20" fill="#1A1A2E" text-anchor="middle">Métronidazole empirique</text>
+<rect x="1040.0" y="530.0" width="260.0" height="44.0" rx="10.0" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="1170.0" y="559.0" font-size="20" fill="#1A1A2E" text-anchor="middle" font-weight="700">Réponse à 36–48h ?</text>
+<rect x="1010.0" y="640.0" width="150.0" height="38.0" rx="7.5" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+<text x="1085.0" y="666.0" font-size="20" fill="#1A1A2E" text-anchor="middle" font-weight="700">Poursuivre</text>
+<rect x="1193.0" y="640.0" width="250.0" height="112.0" rx="6.0" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+<text x="1318.0" y="671.6" font-size="16" fill="#1A1A2E" text-anchor="middle" font-weight="700">Bilan complet</text>
+<text x="1318.0" y="691.6" font-size="16" fill="#1A1A2E" text-anchor="middle">Coproculture · Parasitologie</text>
+<text x="1318.0" y="711.6" font-size="16" fill="#1A1A2E" text-anchor="middle">Acid-fast · ELISA · Toxine</text>
+<text x="1318.0" y="731.6" font-size="16" fill="#1A1A2E" text-anchor="middle">C. difficile</text>
+<rect x="96.0" y="460.0" width="230.0" height="206.0" rx="4.0" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1.5"/>
+<text x="114.0" y="485.5" font-size="20" fill="#1A1A2E" text-anchor="start" font-weight="700">Légende</text>
+<text x="114.0" y="510.5" font-size="20" fill="#1A1A2E" text-anchor="start">■ Légère / Résolu</text>
+<text x="114.0" y="535.5" font-size="20" fill="#1A1A2E" text-anchor="start">■ Modérée</text>
+<text x="114.0" y="560.5" font-size="20" fill="#1A1A2E" text-anchor="start">■ Sévère / Urgent</text>
+<text x="114.0" y="585.5" font-size="20" fill="#1A1A2E" text-anchor="start">■ Dysentérique</text>
+<text x="114.0" y="610.5" font-size="20" fill="#1A1A2E" text-anchor="start">■ Escalade</text>
+<text x="114.0" y="635.5" font-size="20" fill="#1A1A2E" text-anchor="start">diagnostique</text>
+<text x="1727.0" y="37.6" font-size="14" fill="#9E9E9E" text-anchor="end">SRO = sels de réhydratation orale</text>
+<text x="1727.0" y="55.2" font-size="14" fill="#9E9E9E" text-anchor="end">ATB = antibiotiques · PCR = polymerase chain reaction</text>
+<text x="1727.0" y="796.7" font-size="12" fill="#9E9E9E" text-anchor="end" font-weight="700">Algorithme : Dr. méd Ludovico Cobuccio · D'après Chappuis F. Rev Med Suisse 2020 ; Mandell Ch.</text>
+<text x="1727.0" y="811.7" font-size="12" fill="#9E9E9E" text-anchor="end" font-weight="700">319</text>
+<rect x="92.6" y="350.0" width="266.0" height="76.0" rx="6.0" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+<text x="225.6" y="371.8" font-size="18" fill="#1A1A2E" text-anchor="middle">SRO ± lopéramide</text>
+<text x="225.6" y="394.3" font-size="18" fill="#1A1A2E" text-anchor="middle">Pas d'ATB</text>
+<text x="225.6" y="416.8" font-size="18" fill="#1A1A2E" text-anchor="middle">Pas d'investigations</text>
+</svg>

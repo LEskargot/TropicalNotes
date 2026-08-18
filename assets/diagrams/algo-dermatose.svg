@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="6 -4 1568 728" width="100%" role="img" aria-label="Algorithme diagnostique des dermatoses du voyageur" font-family="'Source Sans 3', 'Segoe UI', system-ui, sans-serif">
+<title>Algorithme diagnostique des dermatoses du voyageur</title>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-end"><path d="M0,0 L10,5 L0,10 z" fill="#5a6b73"/></marker></defs>
+<rect x="6" y="-4" width="1568" height="728" fill="#ffffff"/>
+<path d="M 775.0 64.0 L 775.0 90.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 567.0 145.0 L 567.0 180.0 L 155.0 180.0 L 155.0 220.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 671.0 145.0 L 568.0 145.0 L 568.0 220.0 L 465.0 220.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 775.0 145.0 L 775.0 220.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 879.0 145.0 L 982.0 145.0 L 982.0 220.0 L 1085.0 220.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 983.0 145.0 L 983.0 180.0 L 1395.0 180.0 L 1395.0 220.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 155.0 370.0 L 155.0 415.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 465.0 345.0 L 465.0 415.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 775.0 345.0 L 775.0 415.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1085.0 345.0 L 1085.0 415.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<path d="M 1395.0 345.0 L 1395.0 415.0" fill="none" stroke="#7B8FA0" stroke-width="1.5" marker-end="url(#arrow)" stroke-linejoin="round"/>
+<rect x="555.0" y="20.0" width="440.0" height="44.0" rx="20.0" fill="#1A1A2E"/>
+<text x="775.0" y="49.0" font-size="20" fill="#FFFFFF" text-anchor="middle" font-weight="700">Lésion cutanée du voyageur de retour</text>
+<rect x="515.0" y="90.0" width="520.0" height="55.0" rx="12.5" fill="#E8F0FE" stroke="#7B8FA0" stroke-width="1.5" stroke-dasharray="8 4"/>
+<text x="775.0" y="112.5" font-size="18" fill="#1A1A2E" text-anchor="middle" font-weight="700">Pattern lésionnel</text>
+<text x="775.0" y="135.1" font-size="18" fill="#1A1A2E" text-anchor="middle">(approche morphologique)</text>
+<rect x="30.0" y="220.0" width="250.0" height="150.0" rx="6.0" fill="#43A047" stroke="#2E7D32" stroke-width="1.5"/>
+<text x="155.0" y="240.6" font-size="15" fill="#FFFFFF" text-anchor="middle">LINÉAIRE / SERPIGINEUX</text>
+<text x="155.0" y="259.4" font-size="15" fill="#FFFFFF" text-anchor="middle">Trajet prurigineux, mobile</text>
+<text x="155.0" y="278.1" font-size="15" fill="#FFFFFF" text-anchor="middle">Pieds, fesses, mains</text>
+<text x="155.0" y="296.9" font-size="15" fill="#FFFFFF" text-anchor="middle">→ CLM (A. braziliense)</text>
+<text x="155.0" y="315.6" font-size="15" fill="#FFFFFF" text-anchor="middle">→ Larva currens (S.</text>
+<text x="155.0" y="334.4" font-size="15" fill="#FFFFFF" text-anchor="middle">stercoralis)</text>
+<rect x="340.0" y="220.0" width="250.0" height="125.0" rx="6.0" fill="#F9A825" stroke="#F57F17" stroke-width="1.5"/>
+<text x="465.0" y="240.6" font-size="15" fill="#1A1A2E" text-anchor="middle">NODULAIRE / FURONCLE</text>
+<text x="465.0" y="259.4" font-size="15" fill="#1A1A2E" text-anchor="middle">Punctum central, mouvement</text>
+<text x="465.0" y="278.1" font-size="15" fill="#1A1A2E" text-anchor="middle">Écoulement sérosanguin</text>
+<text x="465.0" y="296.9" font-size="15" fill="#1A1A2E" text-anchor="middle">→ Myiase · Tungiase</text>
+<rect x="650.0" y="220.0" width="250.0" height="125.0" rx="6.0" fill="#E53935" stroke="#C62828" stroke-width="1.5"/>
+<text x="775.0" y="240.6" font-size="15" fill="#FFFFFF" text-anchor="middle">ULCÈRE</text>
+<text x="775.0" y="259.4" font-size="15" fill="#FFFFFF" text-anchor="middle">Bords surélevés, fond propre</text>
+<text x="775.0" y="278.1" font-size="15" fill="#FFFFFF" text-anchor="middle">Indolore, chronique</text>
+<text x="775.0" y="296.9" font-size="15" fill="#FFFFFF" text-anchor="middle">→ Leishmaniose · Buruli</text>
+<rect x="960.0" y="220.0" width="250.0" height="125.0" rx="6.0" fill="#1565C0" stroke="#0D47A1" stroke-width="1.5"/>
+<text x="1085.0" y="240.6" font-size="15" fill="#FFFFFF" text-anchor="middle">PAPULEUX</text>
+<text x="1085.0" y="259.4" font-size="15" fill="#FFFFFF" text-anchor="middle">Multiples, zones exposées</text>
+<text x="1085.0" y="278.1" font-size="15" fill="#FFFFFF" text-anchor="middle">Prurit variable</text>
+<text x="1085.0" y="296.9" font-size="15" fill="#FFFFFF" text-anchor="middle">→ Piqûres d'insectes · Gale</text>
+<rect x="1270.0" y="220.0" width="250.0" height="125.0" rx="6.0" fill="#8E24AA" stroke="#6A1B9A" stroke-width="1.5"/>
+<text x="1395.0" y="240.6" font-size="15" fill="#FFFFFF" text-anchor="middle">MACULEUX</text>
+<text x="1395.0" y="259.4" font-size="15" fill="#FFFFFF" text-anchor="middle">Hypo-/hyperpigmenté</text>
+<text x="1395.0" y="278.1" font-size="15" fill="#FFFFFF" text-anchor="middle">Érythème annulaire</text>
+<text x="1395.0" y="296.9" font-size="15" fill="#FFFFFF" text-anchor="middle">→ Lèpre · Lyme · Tinea</text>
+<rect x="30.0" y="415.0" width="250.0" height="70.0" rx="6.0" fill="#E8F5E9" stroke="#43A047" stroke-width="1.5"/>
+<text x="155.0" y="436.5" font-size="15" fill="#1A1A2E" text-anchor="middle" font-weight="700">Ivermectine 200 µg/kg</text>
+<text x="155.0" y="455.2" font-size="15" fill="#1A1A2E" text-anchor="middle">CLM : dose unique (&gt;90%)</text>
+<text x="155.0" y="474.0" font-size="15" fill="#1A1A2E" text-anchor="middle">Larva currens : J1 + J14</text>
+<rect x="340.0" y="415.0" width="250.0" height="160.0" rx="6.0" fill="#FFF8E1" stroke="#F9A825" stroke-width="1.5"/>
+<text x="465.0" y="434.6" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">Occlusion (vaseline 24-48h)</text>
+<text x="465.0" y="452.1" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">+ extraction (alt. : punch</text>
+<text x="465.0" y="469.6" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">derm.)</text>
+<text x="465.0" y="487.1" font-size="14" fill="#1A1A2E" text-anchor="middle">Réfractaire / volumineuse /</text>
+<text x="465.0" y="504.6" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">yeux, cuir chevelu → chirurgie</text>
+<text x="465.0" y="522.1" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">Post : ATB topique + VAT</text>
+<text x="465.0" y="539.6" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">PAS d'ATB systémique</text>
+<text x="465.0" y="557.1" font-size="14" fill="#1A1A2E" text-anchor="middle">sauf surinfection franche</text>
+<rect x="650.0" y="415.0" width="250.0" height="110.0" rx="6.0" fill="#FFEBEE" stroke="#C62828" stroke-width="2.5"/>
+<text x="775.0" y="437.8" font-size="15" fill="#1A1A2E" text-anchor="middle" font-weight="700">→ RÉFÉRER</text>
+<text x="775.0" y="456.5" font-size="15" fill="#1A1A2E" text-anchor="middle">Infectiologue / Tropicaliste</text>
+<text x="775.0" y="475.2" font-size="15" fill="#1A1A2E" text-anchor="middle" font-weight="700">Inspecter bouche/nez</text>
+<text x="775.0" y="494.0" font-size="15" fill="#1A1A2E" text-anchor="middle" font-weight="700">(mucocutané rare)</text>
+<text x="775.0" y="512.8" font-size="15" fill="#1A1A2E" text-anchor="middle" font-weight="700">PCR espèce avant traitement</text>
+<rect x="960.0" y="415.0" width="250.0" height="160.0" rx="6.0" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+<text x="1085.0" y="434.6" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">Symptomatique</text>
+<text x="1085.0" y="452.1" font-size="14" fill="#1A1A2E" text-anchor="middle">Antihistaminiques</text>
+<text x="1085.0" y="469.6" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">Gale — 1re ligne (OFSP 2024) :</text>
+<text x="1085.0" y="487.1" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">Perméthrine 5% + ivermectine 200</text>
+<text x="1085.0" y="504.6" font-size="14" fill="#1A1A2E" text-anchor="middle" font-weight="700">µg/kg</text>
+<text x="1085.0" y="522.1" font-size="14" fill="#1A1A2E" text-anchor="middle">Répéter J7-10</text>
+<text x="1085.0" y="539.6" font-size="14" fill="#1A1A2E" text-anchor="middle">(monothérapie perméthrine ≠ 1re</text>
+<text x="1085.0" y="557.1" font-size="14" fill="#1A1A2E" text-anchor="middle">ligne CH)</text>
+<rect x="1270.0" y="415.0" width="250.0" height="80.0" rx="6.0" fill="#F3E5F5" stroke="#6A1B9A" stroke-width="2.5"/>
+<text x="1395.0" y="441.5" font-size="15" fill="#1A1A2E" text-anchor="middle" font-weight="700">→ RÉFÉRER</text>
+<text x="1395.0" y="460.2" font-size="15" fill="#1A1A2E" text-anchor="middle">Dermatologie</text>
+<text x="1395.0" y="479.0" font-size="15" fill="#1A1A2E" text-anchor="middle">Infectiologue / Tropicaliste</text>
+<rect x="250.0" y="610.0" width="1060.0" height="45.0" rx="7.5" fill="#FFF3E0" stroke="#E65100" stroke-width="2" stroke-dasharray="8 4"/>
+<text x="780.0" y="637.8" font-size="15" fill="#1A1A2E" text-anchor="middle" font-weight="700">RED FLAG : Pas de réponse aux ATB / antifongiques / corticoïdes + voyage tropical récent → REPENSER le diagnostic</text>
+<text x="1542.0" y="686.7" font-size="12" fill="#9E9E9E" text-anchor="end">Dr méd. Ludovico Cobuccio · D'après Wilder-Smith &amp; Caumes, J Travel Med 2024 · Gale : Kofler et</text>
+<text x="1542.0" y="701.7" font-size="12" fill="#9E9E9E" text-anchor="end">al., OFSP-Bulletin 46/24</text>
+<text x="38.0" y="686.7" font-size="12" fill="#9E9E9E" text-anchor="start">CLM = larva migrans cutanée · ATB = antibiotiques · VAT = vaccination antitétanique · OFSP = Office fédéral de la santé</text>
+<text x="38.0" y="701.7" font-size="12" fill="#9E9E9E" text-anchor="start">publique</text>
+</svg>
