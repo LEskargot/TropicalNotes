@@ -4,6 +4,7 @@ title: Convertir la page syndrome Éosinophilie vers le nouveau design
 status: To Do
 assignee: []
 created_date: '2026-08-17 15:22'
+updated_date: '2026-08-18 14:17'
 labels:
   - content
 dependencies: []
@@ -31,3 +32,9 @@ pages/syndromes/eosinophilie.html utilise encore l'ancien gabarit Bootstrap (ré
 - [ ] #3 Section « Quand référer » → traveldoctor.ch/professionnels
 - [ ] #4 Plus aucune référence à dist/ dans la page
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+ATTENTION en réutilisant docs/superpowers/plans/2026-03-10-syndrome-pages.md : ce plan (archive) fait copier la navbar avec des liens vers ../../prototype.html#syndromes. prototype.html a été SUPPRIMÉ (TASK-2) — il servait de fausse page d'accueil avec des menus déroulants morts. Utiliser ../../index.html (#syndromes, #about, #pathogenes existent). Prendre fievre-voyageur.html comme référence de navbar, pas le plan.
+<!-- SECTION:NOTES:END -->
