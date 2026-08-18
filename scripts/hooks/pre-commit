@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# Regenerate diagram SVGs whenever their .drawio.xml source is staged.
+#
+# The site serves assets/diagrams/*.svg, not the .drawio.xml files, so an
+# edited diagram would otherwise not change what readers see. This keeps the
+# rendered SVG in step with its source and stages it alongside.
+#
+# Install:  bash scripts/hooks/install.sh
+# Bypass :  git commit --no-verify
+
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+# title used for <title> and aria-label, per diagram
+diagram_title() {
+  case "$1" in
+    algo-diarrhee)  echo "Algorithme diarrhée du voyageur" ;;
+    algo-dermatose) echo "Algorithme diagnostique des dermatoses du voyageur" ;;
+    *)              echo "Algorithme ${1#algo-}" ;;
+  esac
+}
+
+staged=$(git diff --cached --name-only --diff-filter=ACM -- 'assets/diagrams/*.drawio.xml' || true)
+[ -z "$staged" ] && exit 0
+
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "pre-commit: python3 not found — cannot regenerate diagram SVGs." >&2
+  echo "            commit with --no-verify to skip, then regenerate manually." >&2
+  exit 1
+fi
+
+rc=0
+while IFS= read -r src; do
+  [ -n "$src" ] || continue
+  base=$(basename "$src" .drawio.xml)
+  out="assets/diagrams/${base}.svg"
+  title=$(diagram_title "$base")
+  if python3 scripts/drawio2svg.py "$src" "$out" "$title" >/dev/null; then
+    git add "$out"
+    echo "pre-commit: regenerated ${out}"
+  else
+    echo "pre-commit: FAILED to render ${src}" >&2
+    rc=1
+  fi
+done <<< "$staged"
+
+exit $rc
