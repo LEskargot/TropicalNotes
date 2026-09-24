@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Piqûre de tique — Tropical Notebook</title>
+    <meta name="description" content="Piqûre de tique : retrait, conduite après la piqûre, signes d'alerte (érythème migrant, FSME), vaccination FSME en Suisse, répulsifs et perméthrine, tiques en voyage — guide pour pharmaciens et médecins.">
+    <meta name="keywords" content="piqûre de tique, tique, borréliose de Lyme, érythème migrant, FSME, encéphalite à tiques, vaccination FSME, Suisse">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fafa', 100: '#d2f0ee', 200: '#a5e0dd',
+                            300: '#7ecec5', 400: '#54b5aa', 500: '#479793',
+                            600: '#387a77', 700: '#2d5e5b', 800: '#234a48',
+                            900: '#1a3836', 950: '#0f2322'
+                        },
+                        mint: {
+                            50: '#edfcf8', 100: '#d4f7ee', 200: '#a8eedc',
+                            300: '#6ee0c5', 400: '#3dcbaa', 500: '#12ad98',
+                            600: '#0e8b7a', 700: '#0f6f63', 800: '#115850',
+                            900: '#114943'
+                        },
+                        gold: {
+                            50: '#fffceb', 100: '#fef6c7', 200: '#fdec8a',
+                            300: '#fcdc4d', 400: '#fad500', 500: '#d4a01c',
+                            600: '#b47d15', 700: '#8f5d14', 800: '#774a18',
+                            900: '#633d1a'
+                        },
+                        cream: {
+                            50: '#fefdfb', 100: '#fdfaf3', 200: '#faf5e8',
+                            300: '#f5edd5', 400: '#ede0b8', 500: '#e2cf99'
+                        },
+                    },
+                    fontFamily: {
+                        serif: ['"DM Serif Display"', 'Georgia', 'serif'],
+                        sans: ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Grain texture */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Navbar */
+        .nav-fixed {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Dropdown */
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: all 0.2s ease;
+        }
+        .dropdown:hover .dropdown-menu,
+        .dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .mobile-menu.open {
+            max-height: 400px;
+        }
+
+        /* Floating TOC */
+        .toc { position: sticky; top: 5.5rem; }
+        .toc a.active {
+            color: #12ad98;
+            border-left-color: #12ad98;
+            font-weight: 600;
+        }
+
+        /* Section label */
+        .section-label {
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Article table styling */
+        .article-table {
+            width: 100%;
+            text-align: left;
+            font-size: 0.875rem;
+        }
+        .article-table thead {
+            background: #f0fafa;
+            color: #2d5e5b;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+        }
+        .article-table th {
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+        }
+        .article-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #d2f0ee;
+            vertical-align: top;
+        }
+        .article-table tbody tr:hover {
+            background: #fdfaf3;
+        }
+
+        /* Callout boxes */
+        .callout-piege {
+            border-left: 4px solid #d4a01c;
+            background: #fffceb;
+            border-radius: 0 0.5rem 0.5rem 0;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout-referer {
+            border-left: 4px solid #12ad98;
+            background: #edfcf8;
+            border-radius: 0 0.5rem 0.5rem 0;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .callout-danger {
+            border-left: 4px solid #dc2626;
+            background: #fef2f2;
+            border-radius: 0 0.5rem 0.5rem 0;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+        }
+
+        /* Referer link style */
+        a.ref-link {
+            color: #12ad98;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(18, 173, 152, 0.3);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        a.ref-link:hover {
+            color: #0e8b7a;
+            border-bottom-color: #0e8b7a;
+        }
+
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-cream-50 font-sans text-teal-900 antialiased">
+
+    <!-- ═══════════════ NAVBAR ═══════════════ -->
+    <nav class="nav-fixed fixed top-0 left-0 right-0 z-50 bg-teal-900/95 border-b border-teal-700/50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="../../index.html" class="flex items-center gap-3 group">
+                    <span class="text-mint-400 text-xl">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z" fill="currentColor" opacity="0.9"/>
+                            <path d="M14 8v14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+                            <path d="M11 18c0-3 3-6 3-6" stroke="currentColor" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+                        </svg>
+                    </span>
+                    <span class="font-serif text-cream-100 text-lg tracking-wide group-hover:text-mint-300 transition-colors">
+                        Tropical Notebook
+                    </span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-1">
+                    <a href="../../index.html#syndromes" class="px-4 py-2 text-sm text-mint-300 font-medium transition-colors">Syndromes</a>
+
+                    <div class="dropdown relative">
+                        <button class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors flex items-center gap-1">
+                            Pathogènes
+                            <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        <div class="dropdown-menu absolute top-full right-0 mt-1 w-48 bg-teal-800 border border-teal-700/50 rounded-lg shadow-xl py-2">
+                            <a href="../bacteria.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Bactéries</a>
+                            <a href="../viruses.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Virus</a>
+                            <a href="../parasites.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Parasites</a>
+                            <a href="../fungi.html" class="block px-4 py-2 text-sm text-cream-200 hover:bg-teal-700 hover:text-mint-300 transition-colors">Champignons</a>
+                        </div>
+                    </div>
+
+                    <a href="../about.html" class="px-4 py-2 text-sm text-cream-200 hover:text-mint-300 transition-colors">À propos</a>
+
+                    <div class="w-px h-5 bg-teal-600 mx-2"></div>
+
+                    <a href="https://traveldoctor.ch/professionnels" target="_blank" class="px-4 py-2 text-sm text-gold-400 hover:text-gold-300 transition-colors flex items-center gap-1.5">
+                        Référer un patient
+                    </a>
+                </div>
+
+                <button id="mobileToggle" class="md:hidden p-2 text-cream-200 hover:text-mint-300 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="py-3 border-t border-teal-700/50 space-y-1">
+                    <a href="../../index.html#syndromes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par syndrome</a>
+                    <a href="../../index.html#pathogenes" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">Par pathogène</a>
+                    <a href="../about.html" class="block px-3 py-2.5 text-sm text-cream-200 hover:bg-teal-800 rounded-lg transition-colors">À propos</a>
+                    <div class="border-t border-teal-700/50 mt-2 pt-2">
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block px-3 py-2.5 text-sm text-gold-400 hover:bg-teal-800 rounded-lg transition-colors">
+                            Référer un patient
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ═══════════════ BREADCRUMB ═══════════════ -->
+    <div class="pt-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <nav class="flex items-center gap-2 text-sm text-teal-600/60">
+                <a href="../../index.html" class="hover:text-teal-600 transition-colors">Accueil</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <a href="../../index.html#syndromes" class="hover:text-teal-600 transition-colors">Par syndrome</a>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-teal-800 font-medium">Piqûre de tique</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ═══════════════ ARTICLE ═══════════════ -->
+    <main class="max-w-6xl mx-auto px-6 pt-6 pb-16">
+        <div class="lg:grid lg:grid-cols-[1fr_220px] lg:gap-12">
+
+            <!-- ─── MAIN CONTENT ─── -->
+            <article class="min-w-0">
+
+                <!-- Article header -->
+                <header class="mb-10">
+                    <span class="section-label text-teal-500">Syndrome</span>
+                    <h1 class="font-serif text-4xl md:text-5xl text-teal-900 mt-2 leading-tight">Piqûre de tique</h1>
+                    <p class="mt-4 text-teal-700/70 text-lg leading-relaxed max-w-2xl">
+                        Retrait, conduite après la piqûre, signes qui doivent faire consulter, FSME et vaccination, prévention &mdash; en Suisse et en voyage.
+                    </p>
+                    <div class="mt-4 flex flex-wrap items-center gap-4 text-xs text-teal-600/50">
+                        <span>Dernière mise à jour : septembre 2026</span>
+                        <span class="hidden sm:inline">|</span>
+                        <span>Dr. L. Cobuccio</span>
+                    </div>
+                </header>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            PARTIE 1 — CONSULTATION RAPIDE                  -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="consultation-rapide" class="bg-cream-100 border border-teal-200/50 rounded-2xl p-6 md:p-8 mb-14">
+                    <div class="flex items-center gap-3 mb-8">
+                        <span class="section-label text-teal-600">Partie 1 — Consultation rapide</span>
+                        <span class="text-xs text-teal-500/60 bg-teal-100 px-2.5 py-0.5 rounded-full">2 min</span>
+                    </div>
+
+                    <!-- 1.1 Retirer la tique -->
+                    <div id="retrait" class="mb-10">
+                        <h2 class="font-serif text-2xl text-teal-900 mb-4">Retirer la tique</h2>
+                        <p class="text-sm text-teal-700/70 mb-4">
+                            D'après la <a href="https://ssi.guidelines.ch" target="_blank" class="ref-link">guideline SSI &laquo; Piqûre de tique &raquo; (25.08.2025)</a> et la <a href="https://www.bag.admin.ch/dam/fr/sd-web/83Aei-mIyJrR/FAQ-Zecken-Zeckenstiche.pdf" target="_blank" class="ref-link">FAQ de l'OFSP</a>.
+                        </p>
+
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-3 bg-white border border-teal-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+                                <div>
+                                    <p class="font-semibold text-teal-900">Saisir au ras de la peau</p>
+                                    <p class="text-sm text-teal-700/70 mt-1">Pince fine ou carte à tique, le plus près possible de la peau.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-white border border-teal-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+                                <div>
+                                    <p class="font-semibold text-teal-900">Tirer lentement et droit</p>
+                                    <p class="text-sm text-teal-700/70 mt-1">Sans tourner ni écraser la tique.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-white border border-teal-200/60 rounded-xl p-4">
+                                <span class="shrink-0 w-7 h-7 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+                                <div>
+                                    <p class="font-semibold text-teal-900">Désinfecter, noter date et lieu</p>
+                                    <p class="text-sm text-teal-700/70 mt-1">La date et le lieu de la piqûre servent à interpréter un symptôme dans les semaines qui suivent.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="callout-danger">
+                            <p class="text-sm font-bold text-red-700 mb-1">&#9888; Ni huile, ni alcool, ni vinaigre, ni briquet</p>
+                            <p class="text-sm text-teal-800">Ces méthodes font perdre du temps, et le briquet expose à la brûlure. Retirer la tique mécaniquement, tout de suite.</p>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Pièces buccales restées dans la peau</p>
+                            <p class="text-sm text-teal-800">&laquo; Pas plus dangereuses qu'une écharde &raquo; (<a href="https://www.bag.admin.ch/dam/fr/sd-web/83Aei-mIyJrR/FAQ-Zecken-Zeckenstiche.pdf" target="_blank" class="ref-link">OFSP</a>) : la peau les élimine d'elle-même. Inutile de fouiller.</p>
+                        </div>
+                    </div>
+
+                    <!-- 1.2 Après la piqûre -->
+                    <div id="apres" class="mb-10">
+                        <h2 class="font-serif text-2xl text-teal-900 mb-4">Après la piqûre : que faire (et ne pas faire)</h2>
+                        <div class="overflow-x-auto rounded-xl border border-teal-100 mb-4">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Mesure</th>
+                                        <th>Après piqûre asymptomatique</th>
+                                        <th>Pourquoi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Analyse de la tique</td>
+                                        <td><strong>Non</strong></td>
+                                        <td>Une tique porteuse ne signifie pas une transmission : 16&ndash;30 % des tiques portent <em>Borrelia</em>, séroconversion &lt; 3 % après piqûre (<a href="https://doi.org/10.1016/s1473-3099(03)00722-9" target="_blank" class="ref-link">Hengge Lancet Infect Dis 2003</a>)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Sérologie</td>
+                                        <td><strong>Non</strong></td>
+                                        <td>Pas d'indication en l'absence de symptômes (<a href="https://ssi.guidelines.ch" target="_blank" class="ref-link">SSI 2025</a> ; <a href="https://swissticks.ch/fr/" target="_blank" class="ref-link">CNRT</a>)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium whitespace-nowrap">Antibioprophylaxie</td>
+                                        <td><strong>Non</strong></td>
+                                        <td>Doxycycline 200 mg dose unique : NNT 36 dans l'essai américain (<a href="https://doi.org/10.1056/NEJM200107123450201" target="_blank" class="ref-link">Nadelman NEJM 2001</a>, <em>Ixodes scapularis</em>). Pas recommandée en Suisse (<a href="https://ssi.guidelines.ch" target="_blank" class="ref-link">SSI 2025</a>)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-white rounded-xl p-5 border border-teal-100/60">
+                                <h4 class="font-semibold text-teal-800 mb-2">Borréliose de Lyme</h4>
+                                <p class="text-sm text-teal-800/80">Risque de transmission faible avant <strong>24 h</strong> d'attachement &rarr; d'où l'intérêt du <strong>contrôle du soir</strong>.</p>
+                            </div>
+                            <div class="bg-white rounded-xl p-5 border border-teal-100/60">
+                                <h4 class="font-semibold text-teal-800 mb-2">FSME</h4>
+                                <p class="text-sm text-teal-800/80">Transmission <strong>dès les premières minutes</strong> : un retrait rapide ne suffit pas &rarr; <a href="#fsme" class="ref-link">vaccination</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1.3 Surveiller 4 semaines -->
+                    <div id="surveiller">
+                        <h2 class="font-serif text-2xl text-teal-900 mb-4">Surveiller 4 semaines &mdash; quand orienter vers le médecin</h2>
+                        <div class="overflow-x-auto rounded-xl border border-teal-100 mb-4">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Signe</th>
+                                        <th>Évoque</th>
+                                        <th>À savoir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium">Rougeur qui s'étend</td>
+                                        <td>Érythème migrant (Lyme)</td>
+                                        <td>&gt; 5 cm, apparaît entre J3 et J30. En Europe souvent pâle, rarement &laquo; en cible &raquo;</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Fièvre, syndrome grippal</td>
+                                        <td>FSME</td>
+                                        <td>Surtout si <strong>biphasique</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Paralysie faciale</td>
+                                        <td>Neuroborréliose</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Douleurs radiculaires nocturnes</td>
+                                        <td>Neuroborréliose</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Malaise, pouls lent</td>
+                                        <td>Cardite de Lyme (bloc AV)</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="callout-referer">
+                            <p class="text-sm font-bold text-mint-700 mb-1">Pas d'inquiétude : réaction immédiate &lt; 1 cm</p>
+                            <p class="text-sm text-teal-800">Une rougeur de moins de 1 cm, présente dès la piqûre, est une réaction à la salive de la tique, pas un érythème migrant.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            PARTIE 2 — PRÉVENTION                           -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <div class="mb-8">
+                    <span class="section-label text-teal-600">Partie 2 — Prévention</span>
+                </div>
+
+
+                <!-- ──────────────────── FSME ET VACCINATION ──────────────────── -->
+                <section id="fsme" class="mb-14">
+                    <h2 class="font-serif text-2xl md:text-3xl text-teal-900 mb-2">FSME et vaccination</h2>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Zones à risque : toute la Suisse sauf le Tessin (<a href="https://www.bag.admin.ch/fsme-fr" target="_blank" class="ref-link">OFSP/CFV 2024</a> ; Genève ajouté en 2024). Vaccination recommandée dès 3 ans.</p>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Primovaccination : 3 doses</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Vaccin</th>
+                                            <th>Schéma</th>
+                                            <th>Rappels selon la notice</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium whitespace-nowrap">Encepur N</td>
+                                            <td class="whitespace-nowrap">0 &middot; 1&ndash;3 mois &middot; 9&ndash;12 mois</td>
+                                            <td>1<sup>er</sup> rappel à 3 ans, puis : 1&ndash;11 ans tous les 5 ans ; 12&ndash;49 ans tous les 10 ans ; &ge; 50 ans tous les 3 ans</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium whitespace-nowrap">FSME-Immun CC</td>
+                                            <td class="whitespace-nowrap">0 &middot; 1&ndash;3 mois &middot; 5&ndash;12 mois</td>
+                                            <td>1<sup>er</sup> rappel à 3 ans, puis : 16&ndash;49 ans tous les 5 ans ; &ge; 50 ans tous les 3 ans</td>
+                                        </tr>
+                                        <tr class="bg-mint-50/60">
+                                            <td class="font-medium">Recommandation OFSP</td>
+                                            <td colspan="2"><strong>Rappel tous les 10 ans</strong>, quel que soit le vaccin &mdash; <strong>c'est elle qui fait foi</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-xs text-teal-600/60 mt-3">Schéma rapide : 2<sup>e</sup> dose à J14. Notices des fabricants : <a href="https://www.swissmedicinfo.ch" target="_blank" class="underline hover:text-mint-600">swissmedicinfo.ch</a> (vérifié le 24.09.2026).</p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Pourquoi 10 ans et pas 3 ou 5</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>L'OFSP recommande un rappel tous les 10 ans depuis 2006</li>
+                                <li>Le passage de 3 à 10 ans ne s'est pas accompagné d'une hausse des cas (déclarations 2000&ndash;2019)</li>
+                                <li>Efficacité vaccinale <strong>98,5 %</strong> même si la dernière dose date de plus de 10 ans (<a href="https://doi.org/10.1136/bmjopen-2022-061228" target="_blank" class="ref-link">Zens BMJ Open 2022</a>)</li>
+                            </ul>
+                        </div>
+
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Schéma interrompu : on continue, on ne recommence pas</p>
+                            <p class="text-sm text-teal-800">On reprend là où le schéma s'est arrêté, sans recommencer la série.</p>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
+                                <h4 class="font-semibold text-teal-800 mb-2">En pharmacie</h4>
+                                <p class="text-sm text-teal-800/80">Vaccination FSME possible <strong>dès 16 ans dans les 26 cantons</strong> (<a href="https://pharmasuisse.org/fr/media/638" target="_blank" class="ref-link">pharmaSuisse, état 07.09.2026</a>).</p>
+                            </div>
+                            <div class="bg-teal-50/50 rounded-xl p-5 border border-teal-100/60">
+                                <h4 class="font-semibold text-teal-800 mb-2">Au Tessin</h4>
+                                <p class="text-sm text-teal-800/80">Pas de vaccin recommandé, mais les tiques et la borréliose de Lyme sont présentes &rarr; <strong>même prévention</strong> contre les piqûres.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Couverture vaccinale en Suisse</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Population</th>
+                                            <th>Période</th>
+                                            <th>Couverture</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="font-medium">Adultes 18&ndash;79 ans</td>
+                                            <td>Enquête 2018</td>
+                                            <td>41,7 % &ge; 1 dose ; <strong>31,9 % schéma complet</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Enfants 8 ans</td>
+                                            <td>2020&ndash;2022</td>
+                                            <td>~49 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="font-medium">Adolescents 16 ans</td>
+                                            <td>2020&ndash;2022</td>
+                                            <td>~50 %</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-xs text-teal-600/60 mt-3">Source : <a href="https://www.bag.admin.ch/fsme-fr" target="_blank" class="underline hover:text-mint-600">OFSP/CFV 2024</a>, chap. 6.2. Deux adultes sur trois n'ont pas de schéma complet : chaque contact en pharmacie ou au cabinet est une occasion de vérifier le carnet.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── SE PROTÉGER ──────────────────── -->
+                <section id="proteger" class="mb-14">
+                    <h2 class="font-serif text-2xl md:text-3xl text-teal-900 mb-6">Se protéger</h2>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-3">Répulsifs cutanés</h3>
+                            <div class="overflow-x-auto rounded-xl border border-teal-100">
+                                <table class="article-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Substance</th>
+                                            <th>Concentration</th>
+                                            <th>Remarque</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="font-medium">DEET</td><td>20&ndash;50 %</td><td></td></tr>
+                                        <tr><td class="font-medium">Icaridine</td><td>10&ndash;20 %</td><td></td></tr>
+                                        <tr><td class="font-medium">PMD</td><td></td><td></td></tr>
+                                        <tr><td class="font-medium">IR3535</td><td></td><td>Moins efficace contre <em>Ixodes</em></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside mt-4">
+                                <li>Crème solaire SPF 30&ndash;50 appliquée <strong>15 min avant</strong> le répulsif (<a href="https://www.healthytravel.ch" target="_blank" class="ref-link">healthytravel.ch</a>)</li>
+                                <li>Enfants et grossesse : suivre l'étiquette du produit autorisé en Suisse</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Perméthrine : sur les vêtements seulement</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Vêtements imprégnés : <strong>&minus;65 à &minus;82 %</strong> de piqûres dans deux essais randomisés (<a href="https://doi.org/10.1016/j.amepre.2014.01.008" target="_blank" class="ref-link">Vaughn Am J Prev Med 2014</a> ; <a href="https://doi.org/10.1093/jme/tjaa061" target="_blank" class="ref-link">Mitchell J Med Entomol 2020</a>)</li>
+                            </ul>
+                            <div class="callout-danger">
+                                <p class="text-sm font-bold text-red-700 mb-1">&#9888; Jamais sur la peau &mdash; toxique pour les chats</p>
+                                <p class="text-sm text-teal-800">La perméthrine s'applique uniquement sur les textiles. Prévenir les propriétaires de chats.</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-teal-800 mb-2">Mesures simples</h3>
+                            <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                                <li>Vêtements clairs, chaussettes par-dessus le pantalon</li>
+                                <li>Rester sur les chemins</li>
+                                <li><strong>Contrôle du soir</strong> : plis, aisselles, cuir chevelu ; chez l'enfant, <strong>tête et cou</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── CARTES OFFICIELLES ──────────────────── -->
+                <section id="cartes" class="mb-14">
+                    <h2 class="font-serif text-2xl md:text-3xl text-teal-900 mb-2">Cartes officielles</h2>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">L'habitat propice à <em>Ixodes ricinus</em> est passé de 16 % (2009) à 25 % (2018) du territoire suisse (<a href="https://doi.org/10.1128/AEM.01237-20" target="_blank" class="ref-link">Rochat Appl Environ Microbiol 2020</a>).</p>
+
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <a href="https://map.geo.admin.ch/?lang=fr&amp;layers=ch.bag.zeckenstichmodell" target="_blank" class="group block bg-white rounded-xl p-5 border border-teal-100/60 hover:border-mint-300 transition-colors">
+                            <span class="section-label text-teal-500">OFSP &middot; map.geo.admin.ch</span>
+                            <h4 class="font-semibold text-teal-800 mt-2 group-hover:text-mint-600 transition-colors">Modèle de tique</h4>
+                            <p class="text-sm text-teal-700/60 mt-1">Risque de piqûre modélisé</p>
+                        </a>
+                        <a href="https://map.geo.admin.ch/?lang=fr&amp;layers=ch.bag.zecken-fsme-faelle" target="_blank" class="group block bg-white rounded-xl p-5 border border-teal-100/60 hover:border-mint-300 transition-colors">
+                            <span class="section-label text-teal-500">OFSP &middot; map.geo.admin.ch</span>
+                            <h4 class="font-semibold text-teal-800 mt-2 group-hover:text-mint-600 transition-colors">FSME, lieux déclarés de piqûre</h4>
+                            <p class="text-sm text-teal-700/60 mt-1">2012&ndash;2024</p>
+                        </a>
+                        <a href="https://map.geo.admin.ch/?lang=fr&amp;layers=ch.bag.zecken-fsme-impfung" target="_blank" class="group block bg-white rounded-xl p-5 border border-teal-100/60 hover:border-mint-300 transition-colors">
+                            <span class="section-label text-teal-500">OFSP &middot; map.geo.admin.ch</span>
+                            <h4 class="font-semibold text-teal-800 mt-2 group-hover:text-mint-600 transition-colors">FSME, vaccination recommandée</h4>
+                            <p class="text-sm text-teal-700/60 mt-1">Zones où la vaccination est recommandée</p>
+                        </a>
+                    </div>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            PARTIE 3 — AU-DELÀ DE LA SUISSE                 -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <div class="mb-8">
+                    <span class="section-label text-teal-600">Partie 3 — En voyage et idées reçues</span>
+                </div>
+
+
+                <!-- ──────────────────── EN VOYAGE ──────────────────── -->
+                <section id="voyage" class="mb-14">
+                    <div class="flex items-start justify-between mb-2">
+                        <h2 class="font-serif text-2xl md:text-3xl text-teal-900">En voyage</h2>
+                        <a href="../bacteria/rickettsiosis.html" class="hidden sm:flex items-center gap-1 text-sm text-mint-600 hover:text-mint-500 shrink-0 mt-1">
+                            Fiche rickettsioses <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm text-teal-700/60 mb-6 italic">Au retour, une fièvre après piqûre de tique n'évoque pas les mêmes agents qu'en Suisse.</p>
+
+                    <div class="space-y-6">
+                        <div class="overflow-x-auto rounded-xl border border-teal-100">
+                            <table class="article-table">
+                                <thead>
+                                    <tr>
+                                        <th>Maladie</th>
+                                        <th>Agent / vecteur</th>
+                                        <th>Indices</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium">Fièvre africaine à tiques</td>
+                                        <td><em>Rickettsia africae</em> / <em>Amblyomma</em></td>
+                                        <td>Tique attirée par le CO<sub>2</sub>, attaque en groupe &rarr; <strong>escarres multiples</strong>, cas groupés. Incubation 5&ndash;10 j</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Fièvre boutonneuse méditerranéenne</td>
+                                        <td><em>R. conorii</em> / <em>Rhipicephalus sanguineus</em></td>
+                                        <td><strong>Escarre unique</strong>. Pétéchies = signe de gravité</td>
+                                    </tr>
+                                    <tr class="bg-red-50/50">
+                                        <td class="font-medium">Fièvre hémorragique de Crimée-Congo</td>
+                                        <td><em>Hyalomma</em></td>
+                                        <td>Fièvre + saignements au retour des Balkans, de Turquie, du Moyen-Orient</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="callout-danger">
+                            <p class="text-sm font-bold text-red-700 mb-1">&#9888; Fièvre + saignements après piqûre de tique = urgence</p>
+                            <p class="text-sm text-teal-800">Au retour des Balkans, de Turquie ou du Moyen-Orient, penser à la fièvre hémorragique de Crimée-Congo. Conduite à tenir : voir <a href="fievre.html#fhv" class="ref-link">Fièvre au retour &mdash; fièvres hémorragiques</a>.</p>
+                        </div>
+
+                        <p class="text-sm text-teal-800/80">Diagnostic et traitement des rickettsioses : <a href="../bacteria/rickettsiosis.html" class="ref-link">fiche Rickettsioses</a>.</p>
+                    </div>
+                </section>
+
+
+                <!-- ──────────────────── LYME CHRONIQUE ──────────────────── -->
+                <section id="lyme-chronique" class="mb-14">
+                    <h2 class="font-serif text-2xl md:text-3xl text-teal-900 mb-6">&laquo; Lyme chronique &raquo;</h2>
+                    <div class="space-y-4">
+                        <ul class="space-y-1.5 text-sm text-teal-800/80 list-disc list-inside">
+                            <li><strong>Tests non validés</strong> : ELISPOT/LTT, FISH avec microscopie confocale</li>
+                            <li>Les antibiothérapies prolongées n'apportent <strong>aucun bénéfice</strong> (<a href="https://doi.org/10.1056/NEJMoa1505425" target="_blank" class="ref-link">Berende NEJM 2016</a>)</li>
+                        </ul>
+                        <div class="callout-piege">
+                            <p class="text-sm font-bold text-gold-700 mb-1">&#9888; Penser aux autres causes de fatigue</p>
+                            <p class="text-sm text-teal-800">Un diagnostic de &laquo; Lyme chronique &raquo; posé sur un test non validé peut retarder le diagnostic de la cause réelle.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            POINTS CLES                                     -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="points-cles" class="bg-teal-50 border border-teal-200/50 rounded-2xl p-6 md:p-8 mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-6">Points clés</h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
+                            <p class="text-sm text-teal-800">Retirer la tique <strong>au ras de la peau, lentement et droit</strong>. Ni huile, ni alcool, ni briquet. Noter date et lieu.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
+                            <p class="text-sm text-teal-800">Après une piqûre sans symptôme : <strong>ni analyse de la tique, ni sérologie, ni antibioprophylaxie</strong>.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
+                            <p class="text-sm text-teal-800">Surveiller <strong>4 semaines</strong> : érythème &gt; 5 cm, fièvre biphasique, paralysie faciale, douleurs radiculaires, pouls lent.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">4</span>
+                            <p class="text-sm text-teal-800">FSME : vaccination dès 3 ans partout sauf au Tessin ; <strong>rappel tous les 10 ans</strong> (OFSP), schéma interrompu = on continue.</p>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="shrink-0 w-6 h-6 rounded-full bg-teal-500 text-white text-xs font-bold flex items-center justify-center mt-0.5">5</span>
+                            <p class="text-sm text-teal-800">Répulsif sur la peau, <strong>perméthrine sur les vêtements seulement</strong>, contrôle du soir.</p>
+                        </li>
+                    </ul>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            QUAND REFERER                                   -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="referer" class="mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-6">Quand orienter vers le médecin ?</h2>
+                    <div class="callout-referer">
+                        <p class="text-sm font-bold text-mint-700 mb-2">Dans les 4 semaines après la piqûre</p>
+                        <ul class="text-sm text-teal-800 list-disc list-inside space-y-1">
+                            <li><strong>Rougeur qui s'étend</strong> au-delà de 5 cm, entre J3 et J30</li>
+                            <li><strong>Fièvre ou syndrome grippal</strong>, surtout biphasique</li>
+                            <li><strong>Paralysie faciale</strong> ou <strong>douleurs radiculaires nocturnes</strong></li>
+                            <li><strong>Malaise, pouls lent</strong></li>
+                            <li><strong>Fièvre + saignements</strong> au retour des Balkans, de Turquie ou du Moyen-Orient &mdash; urgence</li>
+                        </ul>
+                        <p class="text-sm text-teal-800 mt-3"><a href="https://traveldoctor.ch/professionnels" target="_blank" class="ref-link font-semibold">Référer le patient &rarr;</a></p>
+                    </div>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            RESSOURCES                                      -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="ressources" class="mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-6">Ressources</h2>
+                    <ul class="space-y-2 text-sm text-teal-800/80 list-disc list-inside">
+                        <li><a href="https://swissticks.ch/fr/" target="_blank" class="ref-link">swissticks.ch</a> &mdash; Centre national de référence pour les maladies transmises par les tiques (CNRT)</li>
+                        <li><a href="https://www.bag.admin.ch/fsme-fr" target="_blank" class="ref-link">bag.admin.ch/fsme-fr</a> &mdash; OFSP, méningo-encéphalite à tiques (FSME)</li>
+                        <li><a href="https://pharmasuisse.org/fr/media/638" target="_blank" class="ref-link">pharmaSuisse</a> &mdash; vaccinations autorisées en pharmacie par canton</li>
+                        <li><a href="https://ssi.guidelines.ch" target="_blank" class="ref-link">ssi.guidelines.ch</a> &mdash; guidelines de la Société suisse d'infectiologie</li>
+                        <li><a href="https://www.healthytravel.ch" target="_blank" class="ref-link">healthytravel.ch</a> &mdash; conseils aux voyageurs</li>
+                    </ul>
+                </section>
+
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!--            REFERENCES                                      -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section id="references" class="mb-14">
+                    <h2 class="font-serif text-2xl text-teal-900 mb-6">Références</h2>
+                    <div class="overflow-x-auto rounded-xl border border-teal-100">
+                        <table class="article-table">
+                            <thead>
+                                <tr>
+                                    <th class="w-24">Thème</th>
+                                    <th>Référence</th>
+                                    <th>Données clés</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Recommandations -->
+                                <tr>
+                                    <td rowspan="4" class="font-medium text-teal-700 align-top">Recomman&shy;dations</td>
+                                    <td><a href="https://ssi.guidelines.ch" target="_blank" class="ref-link">Société suisse d'infectiologie. Guideline &laquo; Piqûre de tique &raquo;, 25.08.2025</a></td>
+                                    <td>Retrait ; pas d'analyse de la tique, de sérologie ni d'antibioprophylaxie après piqûre asymptomatique</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.bag.admin.ch/dam/fr/sd-web/83Aei-mIyJrR/FAQ-Zecken-Zeckenstiche.pdf" target="_blank" class="ref-link">OFSP. FAQ Tiques et piqûres de tiques</a></td>
+                                    <td>Pièces buccales &laquo; pas plus dangereuses qu'une écharde &raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.bag.admin.ch/fsme-fr" target="_blank" class="ref-link">OFSP/CFV. Recommandations de vaccination contre la FSME, 2024</a></td>
+                                    <td>Toute la Suisse sauf le Tessin ; dès 3 ans ; rappel 10 ans ; couverture (chap. 6.2)</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://pharmasuisse.org/fr/media/638" target="_blank" class="ref-link">pharmaSuisse. Vaccinations autorisées en pharmacie par canton, état 07.09.2026</a></td>
+                                    <td>FSME dès 16 ans dans les 26 cantons</td>
+                                </tr>
+                                <!-- Lyme -->
+                                <tr>
+                                    <td rowspan="3" class="font-medium text-teal-700 align-top">Lyme</td>
+                                    <td><a href="https://doi.org/10.1016/s1473-3099(03)00722-9" target="_blank" class="ref-link">Hengge UR et al. Lancet Infect Dis 2003;3:489-500</a></td>
+                                    <td>16&ndash;30 % des tiques porteuses de <em>Borrelia</em> ; séroconversion &lt; 3 %</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1056/NEJM200107123450201" target="_blank" class="ref-link">Nadelman RB et al. NEJM 2001;345:79-84</a></td>
+                                    <td>Doxycycline 200 mg dose unique après piqûre d'<em>I. scapularis</em> (USA) : NNT 36</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1056/NEJMoa1505425" target="_blank" class="ref-link">Berende A et al. NEJM 2016;374:1209-20</a></td>
+                                    <td>Antibiothérapie prolongée : pas de bénéfice</td>
+                                </tr>
+                                <!-- FSME -->
+                                <tr>
+                                    <td class="font-medium text-teal-700 align-top">FSME</td>
+                                    <td><a href="https://doi.org/10.1136/bmjopen-2022-061228" target="_blank" class="ref-link">Zens KD et al. BMJ Open 2022;12:e061228</a></td>
+                                    <td>Efficacité 98,5 % si dernière dose &gt; 10 ans</td>
+                                </tr>
+                                <!-- Prévention -->
+                                <tr>
+                                    <td rowspan="3" class="font-medium text-teal-700 align-top">Prévention</td>
+                                    <td><a href="https://doi.org/10.1016/j.amepre.2014.01.008" target="_blank" class="ref-link">Vaughn MF et al. Am J Prev Med 2014;46:473-80</a></td>
+                                    <td>ECR, vêtements imprégnés de perméthrine</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://doi.org/10.1093/jme/tjaa061" target="_blank" class="ref-link">Mitchell C et al. J Med Entomol 2020;57:1532-8</a></td>
+                                    <td>ECR, vêtements imprégnés de perméthrine</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.healthytravel.ch" target="_blank" class="ref-link">healthytravel.ch</a></td>
+                                    <td>Crème solaire 15 min avant le répulsif, SPF 30&ndash;50</td>
+                                </tr>
+                                <!-- Épidémiologie -->
+                                <tr>
+                                    <td class="font-medium text-teal-700 align-top">Épidémio&shy;logie</td>
+                                    <td><a href="https://doi.org/10.1128/AEM.01237-20" target="_blank" class="ref-link">Rochat E et al. Appl Environ Microbiol 2020;87:e01237-20</a></td>
+                                    <td>Habitat propice à <em>I. ricinus</em> : 16 % (2009) &rarr; 25 % (2018) du territoire</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+            </article>
+
+            <!-- ─── FLOATING TOC ─── -->
+            <aside class="toc-sidebar hidden lg:block">
+                <nav class="toc">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-teal-500/60 mb-4">Sommaire</h4>
+                    <ul class="space-y-1 text-sm border-l-2 border-teal-100">
+                        <li><a href="#consultation-rapide" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Consultation rapide</a></li>
+                        <li class="pl-4">
+                            <ul class="space-y-0.5 text-xs text-teal-500/70">
+                                <li><a href="#retrait" class="block pl-3 py-0.5 hover:text-mint-600 transition-colors">Retirer la tique</a></li>
+                                <li><a href="#apres" class="block pl-3 py-0.5 hover:text-mint-600 transition-colors">Après la piqûre</a></li>
+                                <li><a href="#surveiller" class="block pl-3 py-0.5 hover:text-mint-600 transition-colors">Surveiller 4 semaines</a></li>
+                            </ul>
+                        </li>
+                        <li class="pt-2"><span class="block pl-4 text-[10px] uppercase tracking-widest text-teal-400/50 font-semibold">Prévention</span></li>
+                        <li><a href="#fsme" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">FSME et vaccination</a></li>
+                        <li><a href="#proteger" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Se protéger</a></li>
+                        <li><a href="#cartes" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Cartes officielles</a></li>
+                        <li class="pt-2"><span class="block pl-4 text-[10px] uppercase tracking-widest text-teal-400/50 font-semibold">Voyage et idées reçues</span></li>
+                        <li><a href="#voyage" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">En voyage</a></li>
+                        <li><a href="#lyme-chronique" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">&laquo; Lyme chronique &raquo;</a></li>
+                        <li class="pt-2"><a href="#points-cles" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors font-medium">Points clés</a></li>
+                        <li><a href="#referer" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Quand orienter</a></li>
+                        <li><a href="#ressources" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Ressources</a></li>
+                        <li><a href="#references" class="block pl-4 py-1.5 border-l-2 -ml-[2px] border-transparent hover:border-mint-400 text-teal-600 hover:text-mint-600 transition-colors">Références</a></li>
+                    </ul>
+
+                    <!-- Referer CTA in TOC -->
+                    <div class="mt-8 p-4 bg-mint-50 border border-mint-200/50 rounded-xl">
+                        <p class="text-xs text-teal-700/70 mb-2">Besoin d'un avis spécialisé ?</p>
+                        <a href="https://traveldoctor.ch/professionnels" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-mint-600 hover:text-mint-500 font-semibold transition-colors">
+                            Demander un avis
+                        </a>
+                    </div>
+                </nav>
+            </aside>
+        </div>
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="bg-teal-950 py-12 px-6 border-t border-teal-800/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                <div>
+                    <div class="flex items-center gap-2 text-cream-100">
+                        <svg width="20" height="20" viewBox="0 0 28 28" fill="currentColor" class="text-mint-400" opacity="0.8">
+                            <path d="M14 2C14 2 8 8 8 14c0 4 2.5 7 6 8V8c0 0 4 3 4 8 0 3-1 5.5-3 7 4-1 7-5 7-9C22 8 14 2 14 2z"/>
+                        </svg>
+                        <span class="font-serif text-sm">Tropical Notebook</span>
+                    </div>
+                    <p class="mt-2 text-xs text-cream-200/40 max-w-xs">
+                        Manuel de médecine tropicale et du voyage pour le praticien.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-8 text-sm">
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Navigation</h4>
+                        <div class="space-y-2">
+                            <a href="../../index.html#syndromes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Syndromes</a>
+                            <a href="../../index.html#pathogenes" class="block text-cream-200/60 hover:text-mint-300 transition-colors">Pathogènes</a>
+                            <a href="../about.html" class="block text-cream-200/60 hover:text-mint-300 transition-colors">À propos</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-cream-200/50 text-xs font-semibold uppercase tracking-wider mb-3">Consultation</h4>
+                        <div class="space-y-2">
+                            <a href="https://traveldoctor.ch/professionnels" target="_blank" class="block text-mint-400/70 hover:text-mint-300 transition-colors">
+                                traveldoctor.ch &rarr;
+                            </a>
+                            <span class="block text-cream-200/40">Pré-voyage &amp; post-voyage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-teal-800/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-xs text-cream-200/30">
+                    &copy; 2026 Tropical Notebook. Contenu à visée éducative &mdash; ne remplace pas le jugement clinique.
+                </p>
+                <p class="text-xs text-cream-200/30">
+                    Dr. Ludovico Cobuccio
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ SCRIPTS ═══════════════ -->
+    <script>
+        // Mobile menu toggle
+        const toggle = document.getElementById('mobileToggle');
+        const menu = document.getElementById('mobileMenu');
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.remove('open'));
+        });
+
+        // Mobile dropdown toggles
+        document.querySelectorAll('.dropdown > button').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth < 768) {
+                    e.preventDefault();
+                    btn.closest('.dropdown').classList.toggle('active');
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('.nav-fixed');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+
+        // TOC scroll spy
+        const tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+        const sections = document.querySelectorAll('section[id], div[id]');
+
+        const observerToc = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => {
+                        link.classList.remove('active', 'text-mint-600', 'border-mint-400', 'font-semibold');
+                        link.classList.add('border-transparent', 'text-teal-600');
+                    });
+                    const activeLink = document.querySelector(`.toc a[href="#${entry.target.id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active', 'text-mint-600', 'border-mint-400', 'font-semibold');
+                        activeLink.classList.remove('border-transparent', 'text-teal-600');
+                    }
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+
+        sections.forEach(section => observerToc.observe(section));
+    </script>
+</body>
+</html>
